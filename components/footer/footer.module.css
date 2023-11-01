@@ -1,0 +1,9 @@
+.footer {
+  box-shadow: 0rem 0.9375rem 1.5625rem 0rem rgba(0, 0, 0, 0.35);
+}
+
+.footer__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
