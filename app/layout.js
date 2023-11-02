@@ -14,11 +14,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="uk">
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <ThemeProvider>
+    <ThemeProvider>
+      <html lang="uk">
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <body>
           <div className="page page__container">
             <Header />
@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
             <Footer />
           </div>
         </body>
-      </ThemeProvider>
-    </html>
+      </html>
+    </ThemeProvider>
   );
 }

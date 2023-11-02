@@ -25,7 +25,7 @@ export default function FormRegistration({ isOpen, formRef }) {
 
       <div className={styles.form__or}><span>or</span></div>
 
-      <InputForm placeholder="Вкажіть ваші Ф.І.П." type="text" name="text" />
+      <InputForm placeholder="Вкажіть ваші П.І.П." type="text" name="text" />
 
       <InputForm placeholder="Вкажіть ваш E-mail" type="email" name="email" />
 
