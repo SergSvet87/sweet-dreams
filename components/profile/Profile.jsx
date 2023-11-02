@@ -2,15 +2,8 @@
 
 import React, { useState, useRef } from 'react';
 import {
-  BsPersonCircle,
-  BsFillPersonFill,
-  BsGiftFill,
-  BsFillBellFill,
-  BsGeoAltFill,
-  BsFillGearFill,
-  BsBoxArrowRight,
+  BsPersonCircle
 } from 'react-icons/bs';
-import cn from 'classnames';
 
 import FormRegistration from '../form-registration/FormRegistration';
 import { useClickOutside } from '@/hooks/useClickOutside';
