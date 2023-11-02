@@ -1,7 +1,7 @@
 import { themes } from '@/contexts/ThemeContext';
 
 export const getTheme = () => {
-  const theme = window !== 'undefined' ? window : `${window?.localStorage?.getItem('theme')}`;
+  const theme = typeof (window !== 'undefined') ? window : `${window?.localStorage?.getItem('theme')}`;
 
   if (Object.values(themes).includes(theme)) return theme;
 
