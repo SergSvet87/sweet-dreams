@@ -1,0 +1,14 @@
+.menu {
+  
+}
+
+.menu__list {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu__item {
+  transition: background-color 0.3s ease-in-out;
+}
