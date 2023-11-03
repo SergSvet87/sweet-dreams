@@ -47,7 +47,7 @@ export const MENU_PROFILE_AUTH = [
     id: 1,
     name: 'реєстрація',
     page: 'registr',
-    path: '/registr',
+    path: '/registration',
     icon: <BsFillPersonCheckFill />,
   },
   {
