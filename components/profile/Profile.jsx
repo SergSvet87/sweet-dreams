@@ -1,20 +1,20 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import {
   BsPersonCircle
 } from 'react-icons/bs';
 
-import FormRegistration from '../form-registration/FormRegistration';
 import { useClickOutside } from '@/hooks/useClickOutside';
+import ProfileMenu from '../profile-menu/ProfileMenu';
 
 import styles from './profile.module.css';
 
 export default function Profile() {
   const [isOpen, setOpen] = useState(false);
-  const formRef = useRef(null);
+  const profileMenuRef = useRef(null);
 
-  useClickOutside(formRef, () => {
+  useClickOutside(profileMenuRef, () => {
     if (isOpen) setTimeout(() => setOpen(false), 50);
   });
 
@@ -24,7 +24,7 @@ export default function Profile() {
         <BsPersonCircle />
       </button>
 
-      <FormRegistration isOpen={isOpen} formRef={formRef} />
+      <ProfileMenu isOpen={isOpen} profileMenuRef={profileMenuRef} />
     </div>
   );
 }

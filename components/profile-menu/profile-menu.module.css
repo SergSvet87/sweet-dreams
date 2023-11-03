@@ -1,4 +1,4 @@
-.profile__form{
+.profile__menu{
   position: absolute;
   top: calc(100% + 0.3125rem);
   right: 0.625rem;
@@ -12,14 +12,14 @@
   transition: 0.3s;
 }
 
-.profile__form.active {
+.profile__menu.active {
   transform: translateY(0);
   opacity: 1;
   visibility: visible;
 }
 
-.profile__form::before,
-.profile__form::after {
+.profile__menu::before,
+.profile__menu::after {
   display: block;
   content: "";
   position: absolute;
@@ -29,34 +29,37 @@
   border: 0.625rem solid transparent;
 }
 
-.profile__form::before {
+.profile__menu::before {
   top: -1.25rem;
   border-bottom: 0.625rem solid #dd8717;
 }
 
-.profile__form::after {
+.profile__menu::after {
   top: -1.1875rem;
   border-bottom: 0.625rem solid #fff;
 }
 
-.form__google{
-  margin-bottom: 1.25rem;
+.menu__item{
+  margin-bottom: 0.9375rem;
 }
 
-.form__or {
+.menu__item span {
+  text-transform: uppercase;
+}
+
+.menu__item a {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  transition: color .3s ease-in-out;
 }
 
-.form__or span {
-  margin: 0 0.625rem;
+.menu__item a:hover {
+  color: #dec6c6;
 }
 
-.form__or::before,
-.form__or::after{
-  content: '';
-  width: 100%;
-  height: 0.125rem;
-  background-color: #000;
+.menu__item a svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
 }
