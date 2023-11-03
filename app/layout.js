@@ -4,6 +4,7 @@ import ThemeProvider from '@/providers/ThemeProvider';
 
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
+import Helper from '@/components/helper/Helper';
 
 import './globals.css';
 
@@ -22,9 +23,11 @@ export default function RootLayout({ children }) {
         <body>
           <div className="page page__container">
             <Header />
-            {children}
+            <main className="main">{children}</main>
             <Footer />
           </div>
+
+          {/* <Helper /> */}
         </body>
       </html>
     </ThemeProvider>
