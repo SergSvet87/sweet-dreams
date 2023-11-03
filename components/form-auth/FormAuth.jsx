@@ -42,7 +42,7 @@ export default function FormRegistration() {
           <div className={styles.form__memory}>
             <label className={styles.form__memory__label}>
               <input className={styles.form__memory__input} type="checkbox" name="memory" />
-              <span className={styles.form__memory__text}>"Запам'ятати мене"</span>
+              <span className={styles.form__memory__text}>Запам'ятати мене</span>
             </label>
           </div>
 

@@ -48,14 +48,14 @@ export const MENU_PROFILE_AUTH = [
     name: 'реєстрація',
     page: 'registr',
     path: '/registr',
-    icon: BsFillPersonCheckFill,
+    icon: <BsFillPersonCheckFill />,
   },
   {
     id: 2,
     name: 'авторизація',
     page: 'auth',
     path: '/auth',
-    icon: BsFillPersonPlusFill,
+    icon: <BsFillPersonPlusFill />,
   },
 ];
 
