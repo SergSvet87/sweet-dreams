@@ -22,6 +22,9 @@ public class AccountController : BaseApiController
     {
         if (await UserExists(registerDto.Email))
             return BadRequest("User with this email already exists.");
+
+        if (!(await IsUserNameValid(registerDto.UserName)))
+            return BadRequest("Username should contains first, second and middle names splited by space.");
         
         using var hmac = new HMACSHA512();
 
@@ -42,5 +45,12 @@ public class AccountController : BaseApiController
     private async Task<bool> UserExists(string email)
     {
         return await _context.Users.AnyAsync(x => x.Email == email.ToLower());
+    }
+
+    private async Task<bool> IsUserNameValid(string userName)
+    {
+        var splitedUserName = userName.Split(' ');
+
+        return splitedUserName.Length == 3;
     }
 }
