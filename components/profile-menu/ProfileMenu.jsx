@@ -12,7 +12,7 @@ export default function ProfileMenu({ isOpen, profileMenuRef }) {
         {MENU_PROFILE_AUTH.map((item) => (
           <li className={styles.menu__item} key={item.id}>
             <Link href={item.path} onClick={() => isOpen(false)}>
-              {/* {item.icon} */}
+              {item.icon}
               <span>{item.name}</span>
             </Link>
           </li>
