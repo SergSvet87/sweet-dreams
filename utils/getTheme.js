@@ -1,6 +1,4 @@
-import { themes } from '@/contexts/ThemeContext';
 
-export const getTheme = () => {
   if (typeof window !== 'undefined') {
     const theme = `${window?.localStorage?.getItem('theme')}`;
 
@@ -10,7 +8,4 @@ export const getTheme = () => {
     if (userMedia.matches) return themes.light;
 
     // return themes.light;
-  }
 
-  return themes.dark;
-};
