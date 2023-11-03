@@ -1,0 +1,51 @@
+.auth__wrapper {
+  width: 100%;
+  height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: inline-block;
+  max-width: 450px;
+  padding: 20px;
+  border: 1px solid #dd8717;
+  border-radius: 7px;
+  transition: 0.3s;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.form__or {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form__buttonR{
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.form__or span {
+  margin: 0 10px;
+}
+
+.form__or::before,
+.form__or::after{
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+}
+
+.form__submit,
+.form__reg {
+  margin-bottom: 15px;
+}
+
+.form__reg a {
+  color: #dd8717;
+}

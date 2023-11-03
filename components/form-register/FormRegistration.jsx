@@ -6,9 +6,9 @@ import classNames from 'classnames';
 
 import InputForm from '../input-form/InputForm';
 
-import styles from './form-auth.module.css';
+import styles from './form-reg.module.css';
 
-export default function FormAuth() {
+export default function FormRegistration() {
   const formRegRef = useRef();
 
   const handleClick = () => {
@@ -27,37 +27,31 @@ export default function FormAuth() {
     <div className={styles.auth}>
       <div className={classNames('auth__container', styles.auth__wrapper)}>
         <form className={styles.form} ref={formRegRef}>
+          <InputForm placeholder="Вкажіть ваш UserName" type="login" name="login" />
+
           <InputForm placeholder="Вкажіть ваш E-mail" type="email" name="email" />
 
           <InputForm placeholder="Вкажіть ваш Пароль" type="password" name="password" />
+
+          <InputForm placeholder="Підтвердіть ваш Пароль" type="password" name="password" />
+
+          <button className={styles.form__buttonR} onClick={handleClick}>
+          Зареєструватись
+          </button>
 
           <div className={styles.form__or}>
             <span>or</span>
           </div>
 
-          <button className={styles.form__google} onClick={handleClick}>
-            Google
-          </button>
-
-          <div className={styles.form__memory}>
-            <label className={styles.form__memory__label}>
-              <input className={styles.form__memory__input} type="checkbox" name="memory" />
-              <span className={styles.form__memory__text}>"Запам'ятати мене"</span>
-            </label>
-          </div>
-
           <button className={styles.form__submit} onSubmit={handleSubmit} type="submit">
-            Авторизація
+            Зареєструватись за допомогою Google
           </button>
 
           <div className={styles.form__reg}>
-            Якщо у Вас не має акаунту, будь ласка,
-            <Link href="/registration"> Зареєструйтеся</Link>
+            Якщо у вас є акаунту, будь ласка,
+            <Link href="/auth"> Авторизуйтеся </Link>
           </div>
 
-          <a className={styles.form__lost_pass} href="#">
-            Забули пароль
-          </a>
         </form>
       </div>
     </div>
