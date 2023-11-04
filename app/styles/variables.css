@@ -1,0 +1,20 @@
+:root {
+  --max-width: 75rem;
+  --font: 'Roboto Mono';
+  --font-size: 1rem;
+  --padding-container: 0 1rem;
+  --yellow: yellow;
+  --light-blue: rgb(136, 136, 255);
+}
+
+html[data-theme="dark"] {
+  --text-color: #fff;
+
+  --background-color: #181818;
+}
+
+html[data-theme="light"] {
+  --text-color: #181818;
+
+  --background-color: #fff;
+}
