@@ -48,7 +48,7 @@ public class AccountController : BaseApiController
         var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == loginDto.Email);
 
         if (user == default)
-            return Unauthorized("Invalid username.");
+            return Unauthorized("Invalid email.");
         
         using var hmac = new HMACSHA512(user.PasswordSalt);
 
