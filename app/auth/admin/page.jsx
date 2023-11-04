@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import classNames from 'classnames';
 
 import { AdminSchema } from '@/utils/yup/index';
-import { AppErrors } from '@/common/index';
+import { AppErrors } from '@/common/errors/index';
 
 import styles from '../auth.module.css';
 

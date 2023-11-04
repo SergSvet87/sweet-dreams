@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import classNames from 'classnames';
 
-import { AppErrors } from '@/common/index';
+import { AppErrors } from '@/common/errors/index';
 import { RegisterSchema } from '@/utils/yup/index';
 import FormRegistration from '@/components/form-register/FormRegistration';
 

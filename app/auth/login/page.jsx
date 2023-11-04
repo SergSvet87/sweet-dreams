@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import classNames from 'classnames';
 
-import { AppErrors } from '@/common/index';
+import { AppErrors } from '@/common/errors/index';
 import { LoginSchema } from '@/utils/yup/index';
 import { instance } from '@/utils/client';
 import FormAuth from '@/components/form-login/FormLogin';
