@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import { AppErrors } from '@/common/index';
+import { AppErrors } from '@/common/errors/index';
 
 export const LoginSchema = yup
   .object({
