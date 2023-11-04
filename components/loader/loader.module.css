@@ -1,0 +1,12 @@
+.loader {  
+  padding: 1em;
+  position: relative;
+  height: calc(100vh - 100px);
+}
+
+.loader__wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

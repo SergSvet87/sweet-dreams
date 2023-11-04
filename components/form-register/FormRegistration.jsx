@@ -1,59 +1,122 @@
 'use client';
 
-import { useRef } from 'react';
 import Link from 'next/link';
-import classNames from 'classnames';
 
-import InputForm from '../input-form/InputForm';
+import styles from '../../app/auth/auth.module.css';
 
-import styles from './form-reg.module.css';
-
-export default function FormRegistration() {
-  const formRegRef = useRef();
-
+export default function FormRegistration({ register, errors }) {
   const handleClick = () => {
     console.log('click');
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log('submit');
-
-    formRef.current.reset();
-  };
-
   return (
-    <div className={styles.auth}>
-      <div className={classNames('auth__container', styles.auth__wrapper)}>
-        <form className={styles.form} ref={formRegRef}>
-          <InputForm placeholder="Вкажіть ваш UserName" type="login" name="login" />
+    <>
+      <label className={styles.form__label}>
+        <input
+          className={styles.form__label__input}
+          type="text"
+          placeholder="Вкажіть ваш UserName"
+          name="username"
+          {...register('username')}
+          aria-invalid={errors.username ? 'true' : 'false'}
+        />
+        {errors.username ? (
+          <span className={styles.form__label__error} role="alert">
+            {errors.username.message}
+          </span>
+        ) : (
+          ''
+        )}
+      </label>
 
-          <InputForm placeholder="Вкажіть ваш E-mail" type="email" name="email" />
+      {/* <label className={styles.form__label}>
+        <input
+          className={styles.form__label__input}
+          type="text"
+          placeholder="Вкажіть ваш LastName"
+          name="login"
+          {...register('userlastname')}
+          aria-invalid={errors.userlastname ? 'true' : 'false'}
+        />
+        {errors.userlastname ? (
+          <span className={styles.form__label__error} role="alert">
+            {errors.userlastname.message}
+          </span>
+        ) : (
+          ''
+        )}
+      </label> */}
 
-          <InputForm placeholder="Вкажіть ваш Пароль" type="password" name="password" />
+      <label className={styles.form__label}>
+        <input
+          className={styles.form__label__input}
+          type="email"
+          placeholder="Вкажіть ваш E-mail"
+          name="email"
+          {...register('email')}
+          aria-invalid={errors.email ? 'true' : 'false'}
+        />
+        {errors.email ? (
+          <span className={styles.form__label__error} role="alert">
+            {errors.email.message}
+          </span>
+        ) : (
+          ''
+        )}
+      </label>
 
-          <InputForm placeholder="Підтвердіть ваш Пароль" type="password" name="password" />
+      <label className={styles.form__label}>
+        <input
+          className={styles.form__label__input}
+          type="password"
+          placeholder="Вкажіть ваш Пароль"
+          name="password"
+          {...register('password')}
+          aria-invalid={errors.password ? 'true' : 'false'}
+        />
+        {errors.password ? (
+          <span className={styles.form__label__error} role="alert">
+            {errors.password.message}
+          </span>
+        ) : (
+          ''
+        )}
+      </label>
 
-          <button className={styles.form__buttonR} onClick={handleClick}>
-          Зареєструватись
-          </button>
+      <label className={styles.form__label}>
+        <input
+          className={styles.form__label__input}
+          type="password"
+          placeholder="Підтвердіть ваш Пароль"
+          name="confirmPassword"
+          {...register('confirmPassword')}
+          aria-invalid={errors.confirmPassword ? 'true' : 'false'}
+        />
+        {errors.confirmPassword ? (
+          <span className={styles.form__label__error} role="alert">
+            {errors.confirmPassword.message}
+          </span>
+        ) : (
+          ''
+        )}
+      </label>
 
-          <div className={styles.form__or}>
-            <span>or</span>
-          </div>
+      <button className={styles.form__buttonR} type="submit">
+        Зареєструватись
+      </button>
 
-          <button className={styles.form__submit} onSubmit={handleSubmit} type="submit">
-            Зареєструватись за допомогою Google
-          </button>
-
-          <div className={styles.form__reg}>
-            Якщо у вас є акаунту, будь ласка,
-            <Link href="/auth"> Авторизуйтеся </Link>
-          </div>
-
-        </form>
+      <div className={styles.form__or}>
+        <span>or</span>
       </div>
-    </div>
+
+      <button className={styles.form__submit} onClick={handleClick} type="button">
+        Зареєструватись за допомогою Google
+      </button>
+
+      <div className={styles.form__reg}>
+        Якщо у вас є акаунт, будь ласка,
+        <Link href="/auth/login"> Авторизуйтеся </Link>
+      </div>
+    </>
   );
 }

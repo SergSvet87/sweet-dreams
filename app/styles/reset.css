@@ -1,24 +1,3 @@
-:root {
-  --max-width: 75rem;
-  --font: 'Roboto Mono';
-  --font-size: 1rem;
-  --padding-container: 0 1rem;
-  --yellow: yellow;
-  --light-blue: rgb(136, 136, 255);
-}
-
-html[data-theme="dark"] {
-  --text-color: #fff;
-
-  --background-color: #181818;
-}
-
-html[data-theme="light"] {
-  --text-color: #181818;
-
-  --background-color: #fff;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -94,27 +73,4 @@ button {
 
 input {
   padding: 0;
-}
-
-.visually-hidden {
-  position: fixed;
-  transform: scale(0);
-}
-
-.page {
-  max-width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.main {
-  flex: 1 1 auto;
-}
-
-[class*="__container"] {
-  max-width: var(--max-width);
-  padding: var(--padding-container);
-  margin: 0 auto;
 }
