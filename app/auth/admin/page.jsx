@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import classNames from 'classnames';
 
 import { AdminSchema } from '@/utils/yup/index';
+import { instance } from '@/utils/client';
 import { AppErrors } from '@/common/errors/index';
 
 import styles from '../auth.module.css';
@@ -20,12 +21,12 @@ export default function AdminEntry() {
 
   const handleSubmitForm = async (data) => {
     try {
-      const userData = {
+      const adminData = {
         name: data.name,
         password: data.password,
       };
-      const user = await instance.post('/api/Account/login', userData);
-      console.log(user);
+      const admin = await instance.post('Account/login', adminData);
+      console.log(admin);
     } catch (e) {
       return e;
     }
