@@ -1,4 +1,4 @@
-import styles from "./input-form.module.css";
+import styles from './input-form.module.css';
 
 export default function InputForm({ type, text, placeholder, name }) {
   return (
@@ -9,7 +9,7 @@ export default function InputForm({ type, text, placeholder, name }) {
         type={type}
         placeholder={placeholder}
         name={name}
-        required
+        // required
       />
     </label>
   );

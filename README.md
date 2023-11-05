@@ -36,12 +36,31 @@ Also note, that you should check your code style using:
 npm run lint
 ```
 
+## How to run the API
+- Download .NET SDK (7.0 version)
+```
+https://dotnet.microsoft.com/en-us/download
+```
+- Open folder with the API project
+- Open the terminal
+- Use this command to install all dependencies:
+```
+dotnet restore
+```
+- Use command for running the API
+```
+dotnet run
+```
+- If you would like to see the available endpoints, visit:
+```
+localhost:5001/swagger/index.html
+```
 ## The technology stack used 
 ```
 Front side: React / Next.js
 ```
 ```
-Back side:
+Back side: С#/.NET
 ```
 
 ## The specific functionality of each component or page
@@ -52,6 +71,6 @@ Back side:
 **Олександр Вівчар** Project Manager<br/>
 **Сергій Світличний** Front-End Developer<br/>
 **Кирил Череватий** Front-End Developer<br/>
-**Ігор** Back-End Developer<br/>
-**Софія Максимчук** Designer<br/>
+**Ігор Архипенко** Back-End Developer<br/>
+**Людмила** Designer<br/>
 **Тетяна** Quality Assurance<br/>

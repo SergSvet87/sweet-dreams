@@ -5,7 +5,8 @@ import ThemeProvider from '@/providers/ThemeProvider';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
 
-import './globals.css';
+import 'normalize.css';
+import './styles/index.css';
 
 export const metadata = {
   title: 'Sweet Dreams',
@@ -15,14 +16,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ThemeProvider>
-      <html lang="uk">
+      <html lang="en">
         <Head>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <body>
           <div className="page page__container">
             <Header />
-            {children}
+            <main className="main">{children}</main>
             <Footer />
           </div>
         </body>
