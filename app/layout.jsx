@@ -1,12 +1,12 @@
 import Head from 'next/head';
-// import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 
-// import { store } from '@/store/index.js';
 import ThemeProvider from '@/providers/ThemeProvider';
 
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
 
+import "react-toastify/dist/ReactToastify.css";
 import 'normalize.css';
 import './styles/index.css';
 
@@ -17,21 +17,26 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    // <Provider store={store}>
-      <ThemeProvider>
-        <html lang="en">
-          <Head>
-            <link rel="icon" href="/favicon.ico" />
-          </Head>
-          <body>
-            <div className="page page__container">
-              <Header />
-              <main className="main">{children}</main>
-              <Footer />
-            </div>
-          </body>
-        </html>
-      </ThemeProvider>
-    // </Provider>
+    <ThemeProvider>
+      <html lang="en">
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <body>
+          <ToastContainer
+            position="bottom-right"
+            hideProgressBar={false}
+            closeOnClick
+            rtl={false}
+            theme="var(--text-color)"
+          />
+          <div className="page page__container">
+            <Header />
+            <main className="main">{children}</main>
+            <Footer />
+          </div>
+        </body>
+      </html>
+    </ThemeProvider>
   );
 }

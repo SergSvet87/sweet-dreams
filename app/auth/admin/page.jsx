@@ -2,11 +2,12 @@
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { toast } from 'react-toastify';
 import classNames from 'classnames';
 
+import { showAuthError } from '@/common/errors/index';
 import { AdminSchema } from '@/utils/yup/index';
 import { instance } from '@/utils/client';
-import { AppErrors } from '@/common/errors/index';
 
 import styles from '../auth.module.css';
 
@@ -26,9 +27,12 @@ export default function AdminEntry() {
         password: data.password,
       };
       const admin = await instance.post('Account/login', adminData);
-      console.log(admin);
+      if (admin.data) {
+        toast.success('Вхід успішний!');
+        router.push('/admin');
+      }
     } catch (e) {
-      return e;
+      showAuthError(e);
     }
   };
 
