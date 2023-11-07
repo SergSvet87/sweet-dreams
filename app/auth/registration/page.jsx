@@ -1,16 +1,20 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import classNames from 'classnames';
+import { toast } from 'react-toastify';
 
-import { AppErrors } from '@/common/errors/index';
+import { AuthErrors, showAuthError } from '@/common/errors/index';
 import { RegisterSchema } from '@/utils/yup/index';
+import { instance } from '@/utils/client';
 import FormRegistration from '@/components/form-register/FormRegistration';
 
 import styles from '../auth.module.css';
 
 export default function RegisterPage() {
+  const router = useRouter();
   const {
     register,
     formState: { errors },
@@ -28,11 +32,18 @@ export default function RegisterPage() {
           email: data.email,
           password: data.password,
         };
-        const user = await instance.post('/api/Account/register', userData);
-        console.log(user);
+
+        const user = await instance.post('Account/register', userData);
+
+        if (user.status === 200) {
+          toast.success('Реєстрація пройшла успішно!');
+          router.push('/auth/login');
+        }
       } catch (e) {
-        return e;
+        showAuthError(e);
       }
+    } else {
+      throw new Error(AuthErrors.PasswordDoNotMatch);
     }
   };
 

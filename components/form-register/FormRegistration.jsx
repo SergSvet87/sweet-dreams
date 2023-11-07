@@ -101,7 +101,7 @@ export default function FormRegistration({ register, errors }) {
         )}
       </label>
 
-      <button className={styles.form__buttonR} type="submit">
+      <button className={styles.form__button} type="submit">
         Зареєструватись
       </button>
 
