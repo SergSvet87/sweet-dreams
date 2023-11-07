@@ -26,14 +26,13 @@ public class AccountController : BaseApiController
         if (await UserExists(registerDto.Email))
             return BadRequest("User with this email already exists.");
 
-        if (!IsUserNameValid(registerDto.UserName))
-            return BadRequest("Username should contains first, second and middle names splited by space.");
-
         using var hmac = new HMACSHA512();
 
         var user = new AppUser
         {
-            UserName = registerDto.UserName,
+            FirstName = registerDto.FirstName,
+            LastName = registerDto.LastName,
+            Phone = registerDto.Phone,
             Email = registerDto.Email.ToLower(),
             PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
             PasswordSalt = hmac.Key
@@ -44,7 +43,9 @@ public class AccountController : BaseApiController
 
         return new UserDto
         {
-            UserName = user.UserName,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Phone = user.Phone,
             Email = user.Email,
             Token = _tokenService.CreateToken(user)
         };
@@ -70,7 +71,9 @@ public class AccountController : BaseApiController
 
         return new UserDto
         {
-            UserName = user.UserName,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Phone = user.Phone,
             Email = user.Email,
             Token = _tokenService.CreateToken(user)
         };
@@ -79,12 +82,5 @@ public class AccountController : BaseApiController
     private async Task<bool> UserExists(string email)
     {
         return await _context.Users.AnyAsync(x => x.Email == email.ToLower());
-    }
-
-    private bool IsUserNameValid(string userName)
-    {
-        var splitedUserName = userName.Split(' ');
-
-        return splitedUserName.Length == 3;
     }
 }
