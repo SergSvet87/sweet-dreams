@@ -1,3 +1,4 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED
 import axios from 'axios';
 
 export const instance = axios.create({

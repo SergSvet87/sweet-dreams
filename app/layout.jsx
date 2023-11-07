@@ -1,10 +1,12 @@
 import Head from 'next/head';
+import { ToastContainer } from 'react-toastify';
 
 import ThemeProvider from '@/providers/ThemeProvider';
 
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
 
+import "react-toastify/dist/ReactToastify.css";
 import 'normalize.css';
 import './styles/index.css';
 
@@ -21,6 +23,13 @@ export default function RootLayout({ children }) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <body>
+          <ToastContainer
+            position="bottom-right"
+            hideProgressBar={false}
+            closeOnClick
+            rtl={false}
+            theme="var(--text-color)"
+          />
           <div className="page page__container">
             <Header />
             <main className="main">{children}</main>

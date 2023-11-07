@@ -1,17 +1,22 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import classNames from 'classnames';
+import { toast } from 'react-toastify';
 
-import { AppErrors } from '@/common/errors/index';
-import { LoginSchema } from '@/utils/yup/index';
+import { $user } from '@/contexts/User';
+import { singInFx } from '@/app/api/auth';
+import { showAuthError } from '@/common/errors/index';
 import { instance } from '@/utils/client';
+import { LoginSchema } from '@/utils/yup/index';
 import FormAuth from '@/components/form-login/FormLogin';
 
 import styles from '../auth.module.css';
 
 export default function LoginPage() {
+  const router = useRouter();
   const {
     register,
     formState: { errors },
@@ -26,10 +31,15 @@ export default function LoginPage() {
         email: data.email,
         password: data.password,
       };
-      const user = await instance.post('/api/Account/login', userData);
-      console.log(user);
+
+      const user = await instance.post('Account/login', userData);
+
+      if (user.data) {
+        toast.success('Вхід виконаний!');
+        router.push('/');
+      }
     } catch (e) {
-      return e;
+      showAuthError(e)
     }
   };
 
