@@ -28,7 +28,7 @@ public class AccountController : BaseApiController
 
         if (!IsUserNameValid(registerDto.UserName))
             return BadRequest("Username should contains first, second and middle names splited by space.");
-        
+
         using var hmac = new HMACSHA512();
 
         var user = new AppUser
@@ -57,7 +57,7 @@ public class AccountController : BaseApiController
 
         if (user == default)
             return Unauthorized("Invalid email.");
-        
+
         using var hmac = new HMACSHA512(user.PasswordSalt);
 
         var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
