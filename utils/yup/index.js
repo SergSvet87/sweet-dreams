@@ -7,12 +7,12 @@ export const LoginSchema = yup
     email: yup.string().email(AuthErrors.InvalidEmail).required(AuthErrors.RequiredField),
     password: yup
       .string()
-      // .min(8, AuthErrors.minLength)
-      .required(AuthErrors.RequiredField),
-    // .matches(
-    //   /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!@#$%&?]{6,20}$/,
-    //   AuthErrors.InvalidPassword
-    // ),
+      .min(8, AuthErrors.minLength)
+      .required(AuthErrors.RequiredField)
+      .matches(
+        /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!@#$%&?]{8,30}$/,
+        AuthErrors.InvalidPassword
+      ),
   })
   .required();
 
@@ -28,7 +28,7 @@ export const RegisterSchema = yup
     username: yup
       .string()
       .min(2, AuthErrors.minLengthName)
-      .max(20, AuthErrors.maxLengthName)
+      .max(30, AuthErrors.maxLengthName)
       .required(AuthErrors.RequiredField),
     // userlastname: yup
     //   .string()
@@ -41,7 +41,7 @@ export const RegisterSchema = yup
       .min(8, AuthErrors.minLength)
       .required(AuthErrors.RequiredField)
       .matches(
-        /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!@#$%&?]{6,20}$/,
+        /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!@#$%&?]{8,20}$/,
         AuthErrors.InvalidPassword
       ),
     confirmPassword: yup
@@ -49,7 +49,7 @@ export const RegisterSchema = yup
       .min(8, AuthErrors.minLength)
       .required(AuthErrors.RequiredField)
       .matches(
-        /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!@#$%&?]{6,20}$/,
+        /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!@#$%&?]{8,20}$/,
         AuthErrors.InvalidPassword
       ),
   })

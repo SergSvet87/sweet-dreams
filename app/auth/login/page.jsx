@@ -6,8 +6,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import classNames from 'classnames';
 import { toast } from 'react-toastify';
 
-import { $user } from '@/contexts/User';
-import { singInFx } from '@/app/api/auth';
 import { showAuthError } from '@/common/errors/index';
 import { instance } from '@/utils/client';
 import { LoginSchema } from '@/utils/yup/index';

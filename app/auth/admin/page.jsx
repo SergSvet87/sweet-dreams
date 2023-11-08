@@ -1,17 +1,24 @@
 'use client';
 
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from 'react-toastify';
 import classNames from 'classnames';
 
-import { showAuthError } from '@/common/errors/index';
-import { AdminSchema } from '@/utils/yup/index';
+import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import { TIME_SHOW_PASSWORD } from '@/utils/const';
 import { instance } from '@/utils/client';
+import { AdminSchema } from '@/utils/yup/index';
+import { showAuthError } from '@/common/errors/index';
 
 import styles from '../auth.module.css';
 
 export default function AdminEntry() {
+  const [passwordType, setPasswordType] = useState('password');
+  const [passwordSvg, setPasswordSvg] = useState(<BsEyeSlash />);
+  const [inputClass, setInputClass] = useState('');
+
   const {
     register,
     formState: { errors },
@@ -19,6 +26,20 @@ export default function AdminEntry() {
   } = useForm({
     resolver: yupResolver(AdminSchema),
   });
+
+  const showPassword = () => {
+    setPasswordSvg(<BsEye />);
+    setPasswordType('text');
+    setInputClass(`${styles.animate_password}`);
+
+    let interval = setInterval(() => {
+      setInputClass('');
+      setPasswordType('password');
+      setPasswordSvg(<BsEyeSlash />);
+
+      clearInterval(interval);
+    }, TIME_SHOW_PASSWORD);
+  };
 
   const handleSubmitForm = async (data) => {
     try {
@@ -65,13 +86,16 @@ export default function AdminEntry() {
 
           <label className={styles.form__label}>
             <input
-              className={styles.form__label__input}
-              type="password"
+              className={`${styles.form__label__input} ${inputClass}`}
+              type={passwordType}
               placeholder="Enter AdminPassword"
               name="password"
               {...register('password')}
               aria-invalid={errors.password ? 'true' : 'false'}
             />
+            <button className={styles.form__label__btn} type="button" onClick={showPassword}>
+              {passwordSvg}
+            </button>
             {errors.password ? (
               <span className={styles.form__label__error} role="alert">
                 {errors.password.message}
