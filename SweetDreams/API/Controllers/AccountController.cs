@@ -20,6 +20,12 @@ public class AccountController : BaseApiController
         _tokenService = tokenService;
     }
 
+    
+    /// <summary>
+    /// Register a new user.
+    /// </summary>
+    /// <param name="registerDto"></param>
+    /// <returns>A newly created user.</returns>
     [HttpPost("register")]
     public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
     {
@@ -51,6 +57,11 @@ public class AccountController : BaseApiController
         };
     }
 
+    /// <summary>
+    /// Login to existing account.
+    /// </summary>
+    /// <param name="loginDto"></param>
+    /// <returns></returns>
     [HttpPost("login")]
     public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
