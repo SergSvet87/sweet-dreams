@@ -37,7 +37,7 @@ export default function RegisterPage() {
         const user = await instance.post('Account/register', userData);
 
         if (user.status === 200) {
-          toast.success('Реєстрація пройшла успішно!');
+          toast.success('Registration was successful!');
           router.push('/auth/login');
         }
       } catch (e) {

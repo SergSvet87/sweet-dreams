@@ -9,24 +9,40 @@ import { TIME_SHOW_PASSWORD } from '@/utils/const';
 import styles from '../../app/auth/auth.module.css';
 
 export default function FormRegistration({ register, errors }) {
+  const [passwordConfirmType, setPasswordConfirmType] = useState('password');
+  const [passwordConfirmSvg, setPasswordConfirmSvg] = useState(<BsEyeSlash />);
   const [passwordType, setPasswordType] = useState('password');
   const [passwordSvg, setPasswordSvg] = useState(<BsEyeSlash />);
+  const [inputClass, setInputClass] = useState('');
 
   const handleClick = () => {
     console.log('click');
   };
 
   const showPassword = () => {
-
     setPasswordSvg(<BsEye />);
     setPasswordType('text');
-  
+    setInputClass(`${styles.animate_password}`);
+
     let interval = setInterval(() => {
+      setInputClass('');
       setPasswordType('password');
-  
       setPasswordSvg(<BsEyeSlash />);
+
       clearInterval(interval);
     }, TIME_SHOW_PASSWORD);
+  };
+
+  const showConfirmPassword = () => {
+    setPasswordConfirmSvg(<BsEye />);
+    setPasswordConfirmType('text');
+
+    let interval = setInterval(() => {
+      setPasswordConfirmType('password');
+      setPasswordConfirmSvg(<BsEyeSlash />);
+
+      clearInterval(interval);
+    }, 1000);
   };
 
   return (
@@ -35,7 +51,7 @@ export default function FormRegistration({ register, errors }) {
         <input
           className={styles.form__label__input}
           type="text"
-          placeholder="Вкажіть ваш FirstName"
+          placeholder="Enter your FirstName"
           name="firstName"
           {...register('firstName')}
           aria-invalid={errors.firstName ? 'true' : 'false'}
@@ -53,7 +69,7 @@ export default function FormRegistration({ register, errors }) {
         <input
           className={styles.form__label__input}
           type="text"
-          placeholder="Вкажіть ваш LastName"
+          placeholder="Enter your LastName"
           name="lastName"
           {...register('lastName')}
           aria-invalid={errors.lastName ? 'true' : 'false'}
@@ -90,7 +106,7 @@ export default function FormRegistration({ register, errors }) {
         <input
           className={styles.form__label__input}
           type="email"
-          placeholder="Вкажіть ваш E-mail"
+          placeholder="Enter your e-mail"
           name="email"
           {...register('email')}
           aria-invalid={errors.email ? 'true' : 'false'}
@@ -106,17 +122,14 @@ export default function FormRegistration({ register, errors }) {
 
       <label className={styles.form__label}>
         <input
-          className={styles.form__label__input}
+          className={`${styles.form__label__input} ${inputClass}`}
           type={passwordType}
-          placeholder="Вкажіть ваш Пароль"
+          placeholder="Enter your password"
           name="password"
           {...register('password')}
           aria-invalid={errors.password ? 'true' : 'false'}
         />
-        <button
-          className={styles.form__label__btn}
-          type="button"
-          onClick={showPassword}>
+        <button className={styles.form__label__btn} type="button" onClick={showPassword}>
           {passwordSvg}
         </button>
         {errors.password ? (
@@ -131,12 +144,15 @@ export default function FormRegistration({ register, errors }) {
       <label className={styles.form__label}>
         <input
           className={styles.form__label__input}
-          type="password"
-          placeholder="Підтвердіть ваш Пароль"
+          type={passwordConfirmType}
+          placeholder="Confirm your password"
           name="confirmPassword"
           {...register('confirmPassword')}
           aria-invalid={errors.confirmPassword ? 'true' : 'false'}
         />
+        <button className={styles.form__label__btn} type="button" onClick={showConfirmPassword}>
+          {passwordConfirmSvg}
+        </button>
         {errors.confirmPassword ? (
           <span className={styles.form__label__error} role="alert">
             {errors.confirmPassword.message}
@@ -147,7 +163,7 @@ export default function FormRegistration({ register, errors }) {
       </label>
 
       <button className={styles.form__button} type="submit">
-        Зареєструватись
+        Register
       </button>
 
       <div className={styles.form__or}>
@@ -155,12 +171,12 @@ export default function FormRegistration({ register, errors }) {
       </div>
 
       <button className={styles.form__submit} onClick={handleClick} type="button">
-        Зареєструватись за допомогою Google
+        Sign up with Google
       </button>
 
       <div className={styles.form__reg}>
-        Якщо у вас є акаунт, будь ласка,
-        <Link href="/auth/login"> Авторизуйтеся </Link>
+        If you have an account, please
+        <Link href="/auth/login"> Log in</Link>
       </div>
     </>
   );

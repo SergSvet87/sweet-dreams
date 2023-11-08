@@ -24,7 +24,7 @@ export default function Profile() {
         <BsPersonCircle />
       </button>
 
-      <ProfileMenu isOpen={isOpen} profileMenuRef={profileMenuRef} />
+      <ProfileMenu isOpen={isOpen} setOpen={setOpen} profileMenuRef={profileMenuRef} />
     </div>
   );
 }
