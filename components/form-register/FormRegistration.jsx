@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-import { BsEyeSlash } from 'react-icons/bs';
+import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { TIME_SHOW_PASSWORD } from '@/utils/const';
 
 import styles from '../../app/auth/auth.module.css';
@@ -35,37 +35,56 @@ export default function FormRegistration({ register, errors }) {
         <input
           className={styles.form__label__input}
           type="text"
-          placeholder="Вкажіть ваш UserName"
-          name="username"
-          {...register('username')}
-          aria-invalid={errors.username ? 'true' : 'false'}
+          placeholder="Вкажіть ваш FirstName"
+          name="firstName"
+          {...register('firstName')}
+          aria-invalid={errors.firstName ? 'true' : 'false'}
         />
-        {errors.username ? (
+        {errors.firstName ? (
           <span className={styles.form__label__error} role="alert">
-            {errors.username.message}
+            {errors.firstName.message}
           </span>
         ) : (
           ''
         )}
       </label>
 
-      {/* <label className={styles.form__label}>
+      <label className={styles.form__label}>
         <input
           className={styles.form__label__input}
           type="text"
           placeholder="Вкажіть ваш LastName"
-          name="login"
-          {...register('userlastname')}
-          aria-invalid={errors.userlastname ? 'true' : 'false'}
+          name="lastName"
+          {...register('lastName')}
+          aria-invalid={errors.lastName ? 'true' : 'false'}
         />
-        {errors.userlastname ? (
+        {errors.lastName ? (
           <span className={styles.form__label__error} role="alert">
-            {errors.userlastname.message}
+            {errors.lastName.message}
           </span>
         ) : (
           ''
         )}
-      </label> */}
+      </label>
+
+      <label className={styles.form__label}>
+        <input
+          className={styles.form__label__input}
+          type="phone"
+          placeholder="+38(---)"
+          // value="+38"
+          name="phone"
+          {...register('phone')}
+          aria-invalid={errors.phone ? 'true' : 'false'}
+        />
+        {errors.phone ? (
+          <span className={styles.form__label__error} role="alert">
+            {errors.phone.message}
+          </span>
+        ) : (
+          ''
+        )}
+      </label>
 
       <label className={styles.form__label}>
         <input

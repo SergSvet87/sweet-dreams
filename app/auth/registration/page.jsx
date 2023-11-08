@@ -27,8 +27,9 @@ export default function RegisterPage() {
     if (data.password === data.confirmPassword) {
       try {
         const userData = {
-          userName: data.username,
-          // lastName: data.userlastname,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          phone: data.phone,
           email: data.email,
           password: data.password,
         };
@@ -43,7 +44,7 @@ export default function RegisterPage() {
         showAuthError(e);
       }
     } else {
-      throw new Error(AuthErrors.PasswordDoNotMatch);
+      AuthErrors.PasswordDoNotMatch;
     }
   };
 

@@ -31,6 +31,7 @@ export const showAuthError = (error) => {
 export const AuthErrors = {
   PasswordDoNotMatch: 'Password mismatch',
   InvalidEmail: 'Enter a correct email',
+  InvalidPhone: 'Enter a correct phone',
   RequiredField: 'This field is required',
   minLength: 'Minimum length 8 characters',
   minLengthName: 'Minimum length 2 characters',
