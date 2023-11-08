@@ -1,12 +1,32 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
+
+import { BsEyeSlash } from 'react-icons/bs';
+import { TIME_SHOW_PASSWORD } from '@/utils/const';
 
 import styles from '../../app/auth/auth.module.css';
 
 export default function FormRegistration({ register, errors }) {
+  const [passwordType, setPasswordType] = useState('password');
+  const [passwordSvg, setPasswordSvg] = useState(<BsEyeSlash />);
+
   const handleClick = () => {
     console.log('click');
+  };
+
+  const showPassword = () => {
+
+    setPasswordSvg(<BsEye />);
+    setPasswordType('text');
+  
+    let interval = setInterval(() => {
+      setPasswordType('password');
+  
+      setPasswordSvg(<BsEyeSlash />);
+      clearInterval(interval);
+    }, TIME_SHOW_PASSWORD);
   };
 
   return (
@@ -68,12 +88,18 @@ export default function FormRegistration({ register, errors }) {
       <label className={styles.form__label}>
         <input
           className={styles.form__label__input}
-          type="password"
+          type={passwordType}
           placeholder="Вкажіть ваш Пароль"
           name="password"
           {...register('password')}
           aria-invalid={errors.password ? 'true' : 'false'}
         />
+        <button
+          className={styles.form__label__btn}
+          type="button"
+          onClick={showPassword}>
+          {passwordSvg}
+        </button>
         {errors.password ? (
           <span className={styles.form__label__error} role="alert">
             {errors.password.message}

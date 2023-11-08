@@ -6,6 +6,8 @@ import {
   BsFillPersonPlusFill,
 } from 'react-icons/bs';
 
+export const TIME_SHOW_PASSWORD = 5000;
+
 export const MOBILE_MENU = [
   {
     id: 1,

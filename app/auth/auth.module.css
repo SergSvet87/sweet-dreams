@@ -26,6 +26,7 @@
 .form__label {
   display: block;
   margin-bottom: 2.125rem;
+  position: relative;
 }
 
 .form__label__text {
@@ -46,6 +47,20 @@
 
 .form__label__input::placeholder {
   font-size: 1.375rem;
+}
+
+.form__label__btn{
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 7px;
+  border: none;
+}
+
+.form__label__btn svg {
+  width: 24px;
+  height: 20px;
 }
 
 .form__or {
@@ -86,4 +101,20 @@
   margin: 7px 0;
   color: red;
   font-size: 12px;
+}
+
+.animate_password {
+  background-image: linear-gradient(90deg, #ededed 50%, transparent 50%);
+  background-size: 200%;
+  background-position-x: 100%;
+  transition: all ease 1s;
+  animation-name: passwordanimation;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+@keyframes passwordanimation {
+  0% {background-position-x: 100%;}
+  100% {background-position-x: 0;}
 }
