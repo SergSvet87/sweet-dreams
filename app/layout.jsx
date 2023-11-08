@@ -25,10 +25,11 @@ export default function RootLayout({ children }) {
         <body>
           <ToastContainer
             position="bottom-right"
+            autoClose={5000}
             hideProgressBar={false}
             closeOnClick
             rtl={false}
-            theme="var(--text-color)"
+            theme="light"
           />
           <div className="page page__container">
             <Header />
