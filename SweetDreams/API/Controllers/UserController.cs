@@ -14,6 +14,10 @@ public class UserController : BaseApiController
         _context = context;
     }
 
+    /// <summary>
+    /// Get list of all registered users.
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
     {
