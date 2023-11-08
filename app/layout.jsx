@@ -1,12 +1,14 @@
 import Head from 'next/head';
+import { ToastContainer } from 'react-toastify';
 
 import ThemeProvider from '@/providers/ThemeProvider';
 
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
-import Helper from '@/components/helper/Helper';
 
-import './globals.css';
+import "react-toastify/dist/ReactToastify.css";
+import 'normalize.css';
+import './styles/index.css';
 
 export const metadata = {
   title: 'Sweet Dreams',
@@ -16,18 +18,24 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ThemeProvider>
-      <html lang="uk">
+      <html lang="en">
         <Head>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <body>
+          <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            closeOnClick
+            rtl={false}
+            theme="light"
+          />
           <div className="page page__container">
             <Header />
             <main className="main">{children}</main>
             <Footer />
           </div>
-
-          {/* <Helper /> */}
         </body>
       </html>
     </ThemeProvider>
