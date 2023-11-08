@@ -49,7 +49,7 @@ export default function AdminEntry() {
       };
       const admin = await instance.post('Account/login', adminData);
       if (admin.data) {
-        toast.success('Вхід успішний!');
+        toast.success('Login is complete!');
         router.push('/admin');
       }
     } catch (e) {
@@ -70,7 +70,7 @@ export default function AdminEntry() {
             <input
               className={styles.form__label__input}
               type="text"
-              placeholder="Enter AdminName"
+              placeholder="Enter Admin Name"
               name="name"
               {...register('name')}
               aria-invalid={errors.name ? 'true' : 'false'}
@@ -88,7 +88,7 @@ export default function AdminEntry() {
             <input
               className={`${styles.form__label__input} ${inputClass}`}
               type={passwordType}
-              placeholder="Enter AdminPassword"
+              placeholder="Enter Admin Password"
               name="password"
               {...register('password')}
               aria-invalid={errors.password ? 'true' : 'false'}
@@ -106,7 +106,7 @@ export default function AdminEntry() {
           </label>
 
           <button className={styles.admin_form__submit} type="submit">
-            entry
+            Entry
           </button>
         </form>
       </div>

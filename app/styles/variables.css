@@ -3,6 +3,11 @@
   --font: 'Roboto Mono';
   --font-size: 1rem;
   --padding-container: 0 1rem;
+  --accent: #FDD49E;
+  --accent-second: #FCA7B5;
+  --red: #EB5757;
+  --white: #FFF;
+  --black: #000;
   --yellow: yellow;
   --light-blue: rgb(136, 136, 255);
 }

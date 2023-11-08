@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import { ToastContainer } from 'react-toastify';
 
+import HomeAnimation from '@/components/home-animation/HomeAnimation';
 import ThemeProvider from '@/providers/ThemeProvider';
-
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
 
-import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css';
 import 'normalize.css';
 import './styles/index.css';
 
@@ -31,11 +31,14 @@ export default function RootLayout({ children }) {
             rtl={false}
             theme="light"
           />
+
           <div className="page page__container">
             <Header />
             <main className="main">{children}</main>
             <Footer />
           </div>
+
+          <HomeAnimation />
         </body>
       </html>
     </ThemeProvider>

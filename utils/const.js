@@ -7,6 +7,7 @@ import {
 } from 'react-icons/bs';
 
 export const TIME_SHOW_PASSWORD = 5000;
+export const TIME_SHOW_HOME_ANIMATION = 25000;
 
 export const MOBILE_MENU = [
   {

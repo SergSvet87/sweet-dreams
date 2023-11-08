@@ -33,7 +33,7 @@ export default function LoginPage() {
       const user = await instance.post('Account/login', userData);
 
       if (user.data) {
-        toast.success('Вхід виконаний!');
+        toast.success('Login is complete!');
         router.push('/');
       }
     } catch (e) {
