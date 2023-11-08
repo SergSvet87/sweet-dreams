@@ -1,9 +1,7 @@
-﻿namespace API.Entities;
+﻿namespace API;
 
-public class AppAdmin : IAppUser
+public interface IAppUser
 {
-    public int Id { get; set; }
-
     public string Email { get; set; }
 
     public byte[] PasswordHash { get; set; }

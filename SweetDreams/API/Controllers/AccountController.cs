@@ -20,7 +20,7 @@ public class AccountController : BaseApiController
         _tokenService = tokenService;
     }
 
-    
+
     /// <summary>
     /// Register a new user.
     /// </summary>
@@ -61,7 +61,8 @@ public class AccountController : BaseApiController
     /// Login to existing account.
     /// </summary>
     /// <param name="loginDto"></param>
-    /// <returns></returns>
+    /// <returns>All info about user except password hash and salt</returns>
+    /// <remarks>Email: bob@test.com Pass: P@ssw0rd</remarks>
     [HttpPost("login")]
     public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
