@@ -1,14 +1,18 @@
-.menu {
-  
-}
-
 .menu__list {
   min-height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 2.1875rem;
 }
 
 .menu__item {
-  transition: background-color 0.3s ease-in-out;
+  font-weight: 500;
+  font-size: 32px;
+  color: var(--white);
+  transition: color 0.3s ease-in-out;
+}
+
+.menu__item:hover {
+  color: var(--accent);
 }

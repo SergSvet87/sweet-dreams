@@ -7,7 +7,7 @@ import {
 } from 'react-icons/bs';
 
 export const TIME_SHOW_PASSWORD = 5000;
-export const TIME_SHOW_HOME_ANIMATION = 25000;
+export const TIME_SHOW_HOME_ANIMATION = 20000;
 
 export const MOBILE_MENU = [
   {
@@ -33,15 +33,27 @@ export const MOBILE_MENU = [
 export const MENU = [
   {
     id: 1,
-    name: 'головна',
-    page: 'home',
-    path: '/',
+    name: 'Lollies',
+    page: 'lollies',
+    path: '/lollies',
   },
   {
     id: 2,
-    name: 'про нас',
-    page: 'about',
-    path: '/about',
+    name: 'Chocolates',
+    page: 'chocolates',
+    path: '/chocolates',
+  },
+  {
+    id: 3,
+    name: 'Delivery',
+    page: 'delivery',
+    path: '/delivery',
+  },
+  {
+    id: 4,
+    name: 'About us',
+    page: 'about us',
+    path: '/aboutUs',
   },
 ];
 

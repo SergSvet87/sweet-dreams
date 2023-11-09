@@ -1,9 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import {
-  BsPersonCircle
-} from 'react-icons/bs';
+// import { BsPersonCircle } from 'react-icons/bs';
 
 import { useClickOutside } from '@/hooks/useClickOutside';
 import ProfileMenu from '../profile-menu/ProfileMenu';
@@ -21,7 +19,7 @@ export default function Profile() {
   return (
     <div className={styles.profile}>
       <button className={styles.profile__button} onClick={() => setOpen(!isOpen)}>
-        <BsPersonCircle />
+        <img src="images/profile.svg" alt="Profile icon" />
       </button>
 
       <ProfileMenu isOpen={isOpen} setOpen={setOpen} profileMenuRef={profileMenuRef} />
