@@ -1,6 +1,11 @@
 .animation {
   position: fixed;
   inset: 0;
+  z-index: 10;
+}
+
+.animation__container {
+  position: relative;
 }
 
 .animation.close {
@@ -27,84 +32,77 @@
   width: 410px;
   height: 320px;
   position              : fixed;
-  top                   : 0;
-  left                  : 15%;
+  /* top                   : 0;
+  left                  : 15%; */
   background-image : url('../../public/images/home-animation/cloud-1.png');
   background-size  : contain;
   background-repeat: no-repeat;
-  z-index: 0;
 }
 
 .cloud2 {
   width: 355px;
   height: 275px;
   position              : fixed;
-  top                   : 15%;
-  right                  : 15%;
+  /* top                   : 15%;
+  right                  : 15%; */
   background-image : url('../../public/images/home-animation/cloud-2.png');
   background-size  : contain;
   background-repeat: no-repeat;
-  z-index: 0;
 }
 
 .cloud3 {
   width: 240px;
   height: 150px;
   position              : fixed;
-  top                   : 70%;
-  left                  : 15%;
+  /* top                   : 70%;
+  left                  : 15%; */
   background-image : url('../../public/images/home-animation/cloud-3.png');
   background-size  : contain;
   background-repeat: no-repeat;
-  z-index: 0;
 }
 
 .cloud4 {
   width: 240px;
   height: 150px;
   position              : fixed;
-  bottom                   : 20%;
-  right                  : 5%;
+  /* bottom                   : 20%;
+  right                  : 5%; */
   background-image : url('../../public/images/home-animation/cloud-4.png');
   background-size  : contain;
   background-repeat: no-repeat;
-  z-index: 0;
 }
 
 .cloud5 {
   width: 370px;
   height: 230px;
   position              : fixed;
-  bottom                : -5%;
-  left                  : 35%;
+  /* bottom                : -5%;
+  left                  : 35%; */
   background-image : url('../../public/images/home-animation/cloud-5.png');
   background-size  : contain;
   background-repeat: no-repeat;
-  z-index: 0;
 }
 
 .angel1 {
   width: 330px;
   height: 320px;
   position              : fixed;
-  top                   : 0;
-  left                  : 0;
+  /* top                   : -200px; */
+  /* left                  : 0; */
   background-image : url('../../public/images/home-animation/angel_1.png');
   background-size  : contain;
   background-repeat: no-repeat;
-  z-index: 0;
 }
 
 .angel2 {
   width: 115px;
   height: 120px;
   position              : fixed;
-  bottom                : -5%;
-  right                  : 10%;
+  /* bottom                : -5%;
+  right                  : 10%; */
   background-image : url('../../public/images/home-animation/spiral.png');
   background-size  : contain;
   background-repeat: no-repeat;
-  z-index: 0;
 }
 
 .background-animation {
@@ -113,7 +111,7 @@
   left                  : 0;
   height                : 100vh;
   width                 : 100vw;
-  z-index               : -100;
+  z-index               : -1;
   background-color      : var(--accent);
   overflow-x            : hidden;
   overflow-y            : hidden;
@@ -128,9 +126,9 @@
   position         : absolute;
   top              : 0;
   right             : 0;
-  transition       : all 5s;
-  animation        : move1 5s infinite;
-  -webkit-animation: move1 5s infinite;
+  transition       : all 10s;
+  animation        : move1 10s infinite;
+  -webkit-animation: move1 10s infinite;
 }
 
 #angel-two {
@@ -142,9 +140,9 @@
   position         : absolute;
   bottom              : 10%;
   left            : 10%;
-  transition       : all 8s;
-  animation        : move2 5s infinite;
-  -webkit-animation: move2 5s infinite;
+  transition       : all 7s;
+  animation        : move2 7s infinite;
+  -webkit-animation: move2 7s infinite;
 }
 
 @keyframes move1 {
