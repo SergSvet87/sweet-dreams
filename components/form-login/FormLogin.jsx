@@ -83,7 +83,7 @@ export default function FormLogin({ register, errors }) {
       <div className={styles.form__memory}>
         <label className={styles.form__memory__label}>
           <input className={styles.form__memory__input} type="checkbox" name="memory" />
-          <span className={styles.form__memory__text}>"Remember me"</span>
+          <span className={styles.form__memory__text}>Remember me</span>
         </label>
       </div>
 

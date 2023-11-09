@@ -1,6 +1,10 @@
+.auth {
+  margin-bottom: 6.25rem;
+  font-size: 1.25rem;
+}
+
 .auth__wrapper {
   width: 100%;
-  height: calc(100vh - 100px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,19 +12,19 @@
 
 .auth__form {
   display: inline-block;
-  max-width: 450px;
-  padding: 30px;
-  border: 1px solid #dd8717;
-  border-radius: 7px;
+  max-width: 28.125rem;
+  padding: 1.875rem;
+  border: 0.125rem solid var(--white);
+  border-radius: 0.4375rem;
   transition: 0.3s;
   text-align: center;
   vertical-align: middle;
 }
 
 .auth__title {  
-  font-size: 20px;
+  font-size: 1.5rem;
   text-transform: uppercase;
-  margin-bottom: 25px;
+  margin-bottom: 1.5625rem;
 }
 
 .form__label {
@@ -37,19 +41,24 @@
 }
 
 .form__label__input {
-  font-size: 1.375rem;
   width: 100%;
   height: 3.75rem;
-  border: 0.125rem solid rgba(177, 177, 177, 0.15);
+  padding: 0.3125rem 0.625rem;
+  font-size: 1.375rem;
+  border: 0.125rem solid var(--accent);
   border-radius: 0.25rem;
   background-color: transparent;
+}
+
+.form__label__input:focus {
+  border-color: var(--red);
 }
 
 .form__label__input::placeholder {
   font-size: 1.375rem;
 }
 
-.form__label__btn{
+.form__label__btn {
   height: 100%;
   position: absolute;
   top: 0;
@@ -75,6 +84,10 @@
   margin-bottom: 20px;
 }
 
+.form__google {
+  margin-bottom: 20px;
+}
+
 .form__or span {
   margin: 0 10px;
 }
@@ -84,7 +97,7 @@
   content: '';
   width: 100%;
   height: 2px;
-  background-color: #000;
+  background-color: var(--accent);
 }
 
 .form__submit,
@@ -93,7 +106,12 @@
 }
 
 .form__reg a {
-  color: #dd8717;
+  color: var(--accent);
+  transition: color .3s ease-in-out;
+}
+
+.form__reg a:hover {
+  color: var(--red);
 }
 
 .form__label__error {
@@ -103,8 +121,13 @@
   font-size: 12px;
 }
 
+.form__memory__input {
+  margin-right: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
 .animate_password {
-  background-image: linear-gradient(90deg, #ededed 50%, transparent 50%);
+  background-image: linear-gradient(90deg, var(--accent) 50%, transparent 50%);
   background-size: 200%;
   background-position-x: 100%;
   transition: all ease 1s;

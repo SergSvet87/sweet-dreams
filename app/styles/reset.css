@@ -19,14 +19,6 @@ body {
   line-height: 1;
 }
 
-body {
-  font-family: var(--font);
-  font-weight: 400;
-  font-size: var(--font-size);
-  color: var(--text-color);
-  background: var(--background-color);
-}
-
 a {
   color: inherit;
   text-decoration: none;

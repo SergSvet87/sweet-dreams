@@ -1,10 +1,10 @@
-'use client';
-
-import { ThemeContext, themes } from '@/contexts/ThemeContext';
-import ThemeToggle from '../theme/ThemeToggle';
+// import { ThemeContext, themes } from '@/contexts/ThemeContext';
+// import ThemeToggle from '../theme/ThemeToggle';
 import Logo from '../logo/Logo';
 import Menu from '../menu/Menu';
+import ToggleLanguage from '../toggle-language/ToggleLanguage';
 import Profile from '../profile/Profile';
+import Basket from '../basket/Basket';
 
 import styles from './header.module.css';
 
@@ -16,7 +16,9 @@ export default function Header() {
 
         <Menu />
 
-        <ThemeContext.Consumer>
+        <ToggleLanguage />
+
+        {/* <ThemeContext.Consumer>
           {({ theme, setTheme }) => (
             <ThemeToggle
               onChange={() => {
@@ -26,9 +28,13 @@ export default function Header() {
               value={theme === themes.dark}
             />
           )}
-        </ThemeContext.Consumer>
+        </ThemeContext.Consumer> */}
 
-        <Profile />
+        <div className={styles.header__icons}>
+          <Profile />
+
+          <Basket />
+        </div>
       </div>
     </header>
   );

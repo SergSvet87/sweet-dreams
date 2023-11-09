@@ -1,9 +1,10 @@
 body {
-  font-family: "Roboto", sans-serif;
+  position: relative;
+  font-family: var(--font);
   font-weight: 400;
   font-size: var(--font-size);
-  color: var(--text-color);
-  background-color: var(--background-color);
+  color: var(--white);
+  background-color: var(--accent-second);
 }
 
 .visually-hidden {
