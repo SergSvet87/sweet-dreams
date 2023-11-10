@@ -3,7 +3,9 @@ using System.Text;
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using API.Extensions;
 using API.Interfaces;
+using API.Validators;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,7 +22,6 @@ public class AccountController : BaseApiController
         _tokenService = tokenService;
     }
 
-
     /// <summary>
     /// Register a new user.
     /// </summary>
@@ -29,6 +30,10 @@ public class AccountController : BaseApiController
     [HttpPost("register")]
     public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
     {
+        var validationResult = await new RegisterDtoValidator().ValidateAsync(registerDto);
+        if (!validationResult.IsValid)
+            return BadRequest(validationResult.GetErrorMessages());
+
         if (await UserExists(registerDto.Email))
             return BadRequest("User with this email already exists.");
 
