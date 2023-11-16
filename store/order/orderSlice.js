@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { instance } from '@/utils/client';
+import { basketItems } from "./data";
 
 const initialState = {
   orderList: JSON.parse(localStorage.getItem("order") || "[]"),
-  orderGoods: [],
+  orderGoods: basketItems,
   totalPrice: 0,
   totalCount: 0,
   error: "",

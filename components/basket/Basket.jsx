@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 import { useClickOutside } from '@/hooks/useClickOutside';
 
 import styles from './basket.module.css';
+import BacketMenu from '../basket-menu/BacketMenu';
 
 export default function Basket() {
   const [isOpen, setOpen] = useState(false);
@@ -19,6 +20,8 @@ export default function Basket() {
       <button className={styles.basket__button} onClick={() => setOpen(!isOpen)}>
         <img src="images/basket.svg" alt="Basket Icon" />
       </button>
+
+      <BacketMenu isOpen={isOpen} setOpen={setOpen} basketRef={basketRef} />
     </div>
   );
 }

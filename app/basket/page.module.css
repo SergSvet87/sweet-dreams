@@ -1,0 +1,36 @@
+.basket_page {
+    text-align: center;
+    border-radius: 50px;
+    background: #FCA7B5;
+    box-shadow: inset 26px 26px 53px #d68e9a,
+        inset -26px -26px 53px #ffc0d0;
+}
+
+.form_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.input_group {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.input_group input {
+    margin-right: 10px;
+    padding: 8px;
+}
+
+.form_container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.form_container button:hover {
+    background-color: #45a049;
+}
