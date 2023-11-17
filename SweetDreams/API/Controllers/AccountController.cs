@@ -18,11 +18,14 @@ public class AccountController : BaseApiController
 {
     private readonly DataContext _context;
     private readonly ITokenService _tokenService;
+    private readonly IEmailConfirmationService _emailConfirmationService;
 
-    public AccountController(DataContext context, ITokenService tokenService)
+    public AccountController(DataContext context, ITokenService tokenService,
+        IEmailConfirmationService emailConfirmationService)
     {
         _context = context;
         _tokenService = tokenService;
+        _emailConfirmationService = emailConfirmationService;
     }
 
     /// <summary>
@@ -52,6 +55,14 @@ public class AccountController : BaseApiController
 
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
+
+        //sending email
+        string userName = $"{user.FirstName} {user.LastName}";
+        string email = user.Email;
+        string subject = "Test subject";
+        string message = "Test message";
+
+        await _emailConfirmationService.SendConfirmationEmail(subject, email, userName, message);
 
         return new UserDto
         {
