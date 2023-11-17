@@ -15,6 +15,7 @@ public static class ApplicationServiceExtensions
         });
         services.AddCors();
         services.AddScoped<ITokenService, TokenService>();
+        services.AddTransient<IEmailConfirmationService, EmailConfirmationService>();
 
         return services;
     }
