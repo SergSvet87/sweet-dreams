@@ -3,10 +3,11 @@
   --font: 'Poppins, sans-serif';
   --font-size: 2rem;
   --padding-container: 0 1rem;
-  --accent: #FDD49E;
-  --accent-second: #FCA7B5;
+  --accent-second: #FDD49E;
+  --footer-color: #ffc06d;
+  --accent: #FCA7B5;
   --red: #EB5757;
-  --white: #FFF;
+  --white: #fff;
   --black: #000;
 }
 

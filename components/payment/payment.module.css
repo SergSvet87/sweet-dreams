@@ -1,0 +1,12 @@
+.payment {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+@media (max-width: 46.5rem) {
+  .payment {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

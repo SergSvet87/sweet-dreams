@@ -32,8 +32,11 @@
   width: 410px;
   height: 320px;
   position              : fixed;
-  /* top                   : 0;
-  left                  : 15%; */
+  top                   : -1%;
+  left                  : 18%;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
   background-image : url('../../public/images/home-animation/cloud-1.png');
   background-size  : contain;
   background-repeat: no-repeat;
@@ -43,8 +46,11 @@
   width: 355px;
   height: 275px;
   position              : fixed;
-  /* top                   : 15%;
-  right                  : 15%; */
+  top                   : 15%;
+  right                  : 15%;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
   background-image : url('../../public/images/home-animation/cloud-2.png');
   background-size  : contain;
   background-repeat: no-repeat;
@@ -54,8 +60,11 @@
   width: 240px;
   height: 150px;
   position              : fixed;
-  /* top                   : 70%;
-  left                  : 15%; */
+  top                   : 70%;
+  left                  : 15%;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
   background-image : url('../../public/images/home-animation/cloud-3.png');
   background-size  : contain;
   background-repeat: no-repeat;
@@ -65,8 +74,11 @@
   width: 240px;
   height: 150px;
   position              : fixed;
-  /* bottom                   : 20%;
-  right                  : 5%; */
+  bottom                   : 20%;
+  right                  : 5%;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
   background-image : url('../../public/images/home-animation/cloud-4.png');
   background-size  : contain;
   background-repeat: no-repeat;
@@ -76,8 +88,11 @@
   width: 370px;
   height: 230px;
   position              : fixed;
-  /* bottom                : -5%;
-  left                  : 35%; */
+  bottom                : -5%;
+  left                  : 35%;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
   background-image : url('../../public/images/home-animation/cloud-5.png');
   background-size  : contain;
   background-repeat: no-repeat;
@@ -87,8 +102,11 @@
   width: 330px;
   height: 320px;
   position              : fixed;
-  /* top                   : -200px; */
-  /* left                  : 0; */
+  top                   : 0;
+  left                  : 0;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
   background-image : url('../../public/images/home-animation/angel_1.png');
   background-size  : contain;
   background-repeat: no-repeat;
@@ -98,8 +116,11 @@
   width: 115px;
   height: 120px;
   position              : fixed;
-  /* bottom                : -5%;
-  right                  : 10%; */
+  bottom                : -3%;
+  right                  : 10%;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
   background-image : url('../../public/images/home-animation/spiral.png');
   background-size  : contain;
   background-repeat: no-repeat;

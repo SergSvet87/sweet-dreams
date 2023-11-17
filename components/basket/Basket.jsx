@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import Image from 'next/image';
 
 import { useClickOutside } from '@/hooks/useClickOutside';
 
@@ -17,7 +18,7 @@ export default function Basket() {
   return (
     <div className={styles.basket}>
       <button className={styles.basket__button} onClick={() => setOpen(!isOpen)}>
-        <img src="images/basket.svg" alt="Basket Icon" />
+        <Image src="images/basket.svg" alt="Basket Icon" width={48} height={48} priority/>
       </button>
     </div>
   );

@@ -30,14 +30,20 @@ export default function LoginPage() {
         password: data.password,
       };
 
-      const user = await instance.post('Account/login', userData);
+      const user = await instance.post('Account/login', userData).then((res) => {
+        // Cookies.set('tokenKey', res.data.token);
+        localStorage.setItem('user', JSON.stringify(res.data));
 
-      if (user.data) {
+        return res.data;
+      });
+
+      if (user) {
         toast.success('Login is complete!');
-        router.push('/');
+        router.push('/userboard');
       }
     } catch (e) {
-      showAuthError(e)
+      toast.error('Invalid credentials :(', e);
+      showAuthError(e);
     }
   };
 
