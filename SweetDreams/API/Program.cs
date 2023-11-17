@@ -1,6 +1,4 @@
-using System.Reflection;
 using API.Extensions;
-using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

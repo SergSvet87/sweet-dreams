@@ -2,7 +2,6 @@
 using System.Text;
 using API.Data;
 using API.DTOs;
-using API.Entities;
 using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,8 +22,6 @@ public class AdminController : BaseApiController
     /// <summary>
     /// Login as admin.
     /// </summary>
-    /// <param name="loginDto"></param>
-    /// <returns>All info about user except password hash and salt</returns>
     /// <remarks>Email: admin@example.com Pass: P@ssw0rd</remarks>
     [HttpPost("login")]
     public async Task<ActionResult<AdminDto>> Login(LoginDto loginDto)
