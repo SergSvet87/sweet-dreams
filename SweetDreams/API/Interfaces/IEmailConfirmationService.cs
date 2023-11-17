@@ -2,5 +2,5 @@
 
 public interface IEmailConfirmationService
 {
-    Task SendConfirmationEmail(string subject, string toEmail, string userName, string message);
+    Task SendConfirmationEmail(string subject, string toEmail, string userName, string html);
 }

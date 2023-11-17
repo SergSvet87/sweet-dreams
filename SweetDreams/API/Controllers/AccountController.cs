@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using API.Data;
@@ -32,7 +33,7 @@ public class AccountController : BaseApiController
     /// Register a new user.
     /// </summary>
     [HttpPost("register")]
-    public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
+    public async Task<ActionResult> Register(RegisterDto registerDto)
     {
         var validationResult = await new RegisterDtoValidator().ValidateAsync(registerDto);
         if (!validationResult.IsValid)
@@ -56,13 +57,47 @@ public class AccountController : BaseApiController
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
 
+        var token = _tokenService.CreateToken(user);
+        var confirmationLink = Url.Action
+            ("ConfirmEmail", "Account", new { userId = user.Id, token = token }, Request.Scheme);
+
         //sending email
         string userName = $"{user.FirstName} {user.LastName}";
         string email = user.Email;
-        string subject = "Test subject";
-        string message = "Test message";
+        string subject = "Email confirmation.";
+        var htmlContent = $"<p>Dear {userName},</p>";
+        htmlContent += "<p>Please confirm your email by clicking the following link:</p>";
+        htmlContent += $"<a href=\"{confirmationLink}\" target=\"_blank\">Confirm your email</a>";
+        htmlContent += "<p>Best regards,<br/>Sweet Dreams Team</p>";
 
-        await _emailConfirmationService.SendConfirmationEmail(subject, email, userName, message);
+        await _emailConfirmationService.SendConfirmationEmail(subject, email, userName, htmlContent);
+        // -----
+
+        return Ok();
+    }
+
+    /// <summary>
+    /// Executes automatically when user clicks on confirmation link.
+    /// </summary>
+    [ApiExplorerSettings(IgnoreApi = true)]
+    [HttpGet("ConfirmEmail")]
+    public async Task<ActionResult<UserDto>> ConfirmEmail(string userId, string token)
+    {
+        if (userId == String.Empty || token == String.Empty)
+            return Unauthorized();
+
+        var emailFromToken = _tokenService.GetEmailFromToken(token);
+        if (emailFromToken == String.Empty)
+            return Unauthorized();
+
+        var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == int.Parse(userId));
+        if (user == null || user.Email != emailFromToken)
+            return Unauthorized();
+
+        user.EmailConfirmed = true;
+
+        _context.Users.Update(user);
+        await _context.SaveChangesAsync();
 
         return new UserDto
         {
@@ -95,6 +130,9 @@ public class AccountController : BaseApiController
             if (computedHash[i] != user.PasswordHash[i])
                 return Unauthorized("Invalid password.");
         }
+
+        if (!user.EmailConfirmed)
+            return Unauthorized("You should confirm your email first.");
 
         return new UserDto
         {

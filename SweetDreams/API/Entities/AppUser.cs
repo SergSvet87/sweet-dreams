@@ -12,6 +12,8 @@ public class AppUser : IAppUser
 
     public string Email { get; set; }
 
+    public bool EmailConfirmed { get; set; } = false;
+
     public byte[]? PasswordHash { get; set; }
 
     public byte[]? PasswordSalt { get; set; }

@@ -38,4 +38,29 @@ public class TokenService : ITokenService
 
         return tokenHandler.WriteToken(token);
     }
+
+    public string GetEmailFromToken(string token)
+    {
+        var tokenHandler = new JwtSecurityTokenHandler();
+
+        try
+        {
+            var principal = tokenHandler.ValidateToken(token, new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = _key,
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ClockSkew = TimeSpan.Zero
+            }, out var securityToken);
+
+            var emailClaim = (principal.Identity as ClaimsIdentity)?.FindFirst(ClaimTypes.NameIdentifier);
+
+            return emailClaim?.Value;
+        }
+        catch (Exception)
+        {
+            return "Your token is invalid!";
+        }
+    }
 }
