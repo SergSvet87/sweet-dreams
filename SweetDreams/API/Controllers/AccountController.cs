@@ -84,21 +84,21 @@ public class AccountController : BaseApiController
     [HttpGet("ConfirmEmail")]
     public async Task<ActionResult<UserDto>> ConfirmEmail(string userId, string token)
     {
-        if (userId == String.Empty || token == String.Empty)
+        if (userId == string.Empty || token == string.Empty)
             return Unauthorized();
 
         var emailFromToken = _tokenService.GetEmailFromToken(token);
-        if (emailFromToken == String.Empty)
+        if (emailFromToken == string.Empty)
             return Unauthorized();
 
-        var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == int.Parse(userId));
+        var user = await _unitOfWork.AppUser.GetById(int.Parse(userId)); // TODO: test manually changed id.
         if (user == null || user.Email != emailFromToken)
             return Unauthorized();
 
         user.EmailConfirmed = true;
 
-        _context.Users.Update(user);
-        await _context.SaveChangesAsync();
+        _unitOfWork.AppUser.Update(user);
+        await _unitOfWork.SaveChangesAsync();
 
         return new UserDto
         {
@@ -113,15 +113,19 @@ public class AccountController : BaseApiController
     /// <summary>
     /// Login to existing account.
     /// </summary>
-    /// <remarks>Email: bob@test.com Pass: P@ssw0rd</remarks>
+    /// <remarks>Email: bob@test.com Pass: P@ssw0rd</remarks>>
     [HttpPost("login")]
     public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
-        var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == loginDto.Email);
+        var user =  _unitOfWork.AppUser.Find(x => x.Email == loginDto.Email).FirstOrDefault();
+        // var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == loginDto.Email);
 
         if (user == default)
             return Unauthorized("Invalid email.");
 
+        if (user.PasswordSalt == default || user.PasswordHash == default)
+            return Unauthorized();
+        
         using var hmac = new HMACSHA512(user.PasswordSalt);
 
         var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
