@@ -117,15 +117,14 @@ public class AccountController : BaseApiController
     [HttpPost("login")]
     public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
-        var user =  _unitOfWork.AppUser.Find(x => x.Email == loginDto.Email).FirstOrDefault();
-        // var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == loginDto.Email);
+        var user = await _unitOfWork.AppUser.FindByEmail(loginDto.Email);
 
         if (user == default)
             return Unauthorized("Invalid email.");
 
         if (user.PasswordSalt == default || user.PasswordHash == default)
             return Unauthorized();
-        
+
         using var hmac = new HMACSHA512(user.PasswordSalt);
 
         var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
@@ -162,7 +161,8 @@ public class AccountController : BaseApiController
         if (userEmail == default)
             return StatusCode(500);
 
-        var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == userEmail);
+        var user = await _unitOfWork.AppUser.FindByEmail(userEmail);
+        // var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == userEmail);
 
         if (user == default)
             return Unauthorized("User not found.");
@@ -189,12 +189,12 @@ public class AccountController : BaseApiController
 
         if (userEmail == default)
             return StatusCode(500);
-        
-        if (await UserExists(userEmail))
+
+        if (await _unitOfWork.AppUser.UserExists(userEmail))
             return BadRequest("User with this email already exists.");
 
-        string firstName = default;
-        string lastName = default;
+        string? firstName = default;
+        string? lastName = default;
 
         var userName = User.Identity.Name;
         if (userName != default)
@@ -215,8 +215,8 @@ public class AccountController : BaseApiController
             Email = userEmail
         };
 
-        _context.Users.Add(user);
-        await _context.SaveChangesAsync();
+        _unitOfWork.AppUser.Add(user);
+        await _unitOfWork.SaveChangesAsync();
 
         return new UserDto
         {
@@ -225,10 +225,5 @@ public class AccountController : BaseApiController
             Email = user.Email,
             Token = _tokenService.CreateToken(user)
         };
-    }
-
-    private async Task<bool> UserExists(string email)
-    {
-        return await _context.Users.AnyAsync(x => x.Email == email.ToLower());
     }
 }
