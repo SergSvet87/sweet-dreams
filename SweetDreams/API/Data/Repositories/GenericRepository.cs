@@ -1,34 +1,35 @@
 ﻿using System.Linq.Expressions;
 using API.Interfaces.IRepositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Data.Repositories;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class // TODO: Add Logger
 {
-    private readonly DataContext _context;
+    protected readonly DataContext _context;
 
     public GenericRepository(DataContext context)
     {
         _context = context;
     }
 
-    public IEnumerable<T> GetAll()
+    public async Task<IEnumerable<T>> GetAll()
     {
-        return _context.Set<T>().ToList();
+        return await _context.Set<T>().ToListAsync();
     }
 
-    public T GetById(int id)
+    public  async Task<T> GetById(int id)
     {
-        return _context.Set<T>().Find(id);
+        return await _context.Set<T>().FindAsync(id);
     }
 
     public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
-    {
+    { 
         return _context.Set<T>().Where(expression);
     }
 
     public void Add(T entity)
-    {
+    { 
         _context.Set<T>().Add(entity);
     }
 

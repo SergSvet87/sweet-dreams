@@ -19,13 +19,15 @@ public class AccountController : BaseApiController
     private readonly DataContext _context;
     private readonly ITokenService _tokenService;
     private readonly IEmailConfirmationService _emailConfirmationService;
+    private readonly IUnitOfWork _unitOfWork;
 
     public AccountController(DataContext context, ITokenService tokenService,
-        IEmailConfirmationService emailConfirmationService)
+        IEmailConfirmationService emailConfirmationService, IUnitOfWork unitOfWork)
     {
         _context = context;
         _tokenService = tokenService;
         _emailConfirmationService = emailConfirmationService;
+        _unitOfWork = unitOfWork;
     }
 
     /// <summary>
@@ -38,7 +40,7 @@ public class AccountController : BaseApiController
         if (!validationResult.IsValid)
             return BadRequest(validationResult.GetErrorMessages());
 
-        if (await UserExists(registerDto.Email))
+        if (await _unitOfWork.AppUser.UserExists(registerDto.Email))
             return BadRequest("User with this email already exists.");
 
         using var hmac = new HMACSHA512();
@@ -53,8 +55,8 @@ public class AccountController : BaseApiController
             PasswordSalt = hmac.Key
         };
 
-        _context.Users.Add(user);
-        await _context.SaveChangesAsync();
+        _unitOfWork.AppUser.Add(user);
+        await _unitOfWork.SaveChangesAsync();
 
         var token = _tokenService.CreateToken(user);
         var confirmationLink = Url.Action
@@ -72,7 +74,7 @@ public class AccountController : BaseApiController
         await _emailConfirmationService.SendConfirmationEmail(subject, email, userName, htmlContent);
         // -----
 
-        return Ok();
+        return StatusCode(201);
     }
 
     /// <summary>
@@ -183,7 +185,7 @@ public class AccountController : BaseApiController
 
         if (userEmail == default)
             return StatusCode(500);
-
+        
         if (await UserExists(userEmail))
             return BadRequest("User with this email already exists.");
 
