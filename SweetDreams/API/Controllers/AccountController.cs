@@ -145,14 +145,6 @@ public class AccountController : BaseApiController
     [Authorize(AuthenticationSchemes = GoogleDefaults.AuthenticationScheme)]
     public async Task<ActionResult<UserDto>> LoginViaGoogle()
     {
-        // var userClaims = User.Claims.ToList();
-        // var userEmail = userClaims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
-        //
-        // if (userEmail == default)
-        //     return StatusCode(500);
-        //
-        // var user = await _unitOfWork.AppUser.FindByEmail(userEmail);
-
         var user = await _unitOfWork.AppUser.GetByEmail(User.GetEmail());
         if (user == default)
             return Unauthorized("User not found. You should register first.");
@@ -170,8 +162,6 @@ public class AccountController : BaseApiController
     [Authorize(AuthenticationSchemes = GoogleDefaults.AuthenticationScheme)]
     public async Task<ActionResult<UserDto>> RegisterViaGoogle()
     {
-        // var userClaims = User.Claims.ToList();
-        // var userEmail = userClaims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
         var userEmail = User.GetEmail();
         
         if (userEmail == default)
