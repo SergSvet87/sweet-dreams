@@ -1,4 +1,8 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import classNames from 'classnames';
 
 import { MENU } from '@/utils/const';
 import Logo from '../logo/Logo';
@@ -8,6 +12,8 @@ import Payment from '../payment/Payment';
 import styles from './footer.module.css';
 
 export default function Footer() {
+  const pathname = usePathname();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__container}>
@@ -17,8 +23,15 @@ export default function Footer() {
           <nav className={styles.footer__menu}>
             <ul className={styles.footer__menu__list}>
               {MENU.map(({ id, name, path }) => (
-                <li key={id} className={styles.footer__menu__item}>
-                  <Link className={styles.footer__menu__link} href={path}>
+                <li
+                  key={id}
+                  className={styles.footer__menu__item}>
+                  <Link
+                    className={classNames(
+                      styles.footer__menu__link,
+                      pathname === path ? styles.active : ''
+                    )}
+                    href={path}>
                     {name}
                   </Link>
                 </li>

@@ -3,12 +3,13 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-// import { instance } from '@/utils/client';
+import { instance } from '@/utils/client';
 
 export default function Home() {
   const router = useRouter();
 
-  // const data = await instance.get('User');
+  // const getUsers = async() => await instance.get('User').then(data => console.log(data));
+  // console.log('getUsers: ', getUsers());
 
   useEffect(() => {
     const getCurrentUser = () => JSON.parse(localStorage.getItem('user'));
@@ -23,7 +24,7 @@ export default function Home() {
 
   return (
     <section className="home">
-      <div className="home__container">Hello World!</div>
+      <div className="home__container">Home</div>
     </section>
   );
 }

@@ -32,6 +32,27 @@
   row-gap: 2rem;
 }
 
+.footer__menu__item a {
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  font-size: 2rem;
+  color: var(--white);
+  border: 0.125rem solid transparent;
+  transition: all 0.6s ease-in-out;
+}
+
+.active {
+  background-color: var(--accent-second);
+  border-radius: 3.125rem;
+  border: 0.125rem solid var(--white);
+}
+
+.footer__menu__item:hover a {
+  background-color: var(--accent);
+  border-radius: 3.125rem;
+  border: 0.125rem solid var(--white);
+}
+
 .footer__bottom { 
   font-weight: 500;
   font-size: 1rem;
