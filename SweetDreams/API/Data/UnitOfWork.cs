@@ -1,5 +1,4 @@
 ﻿using API.Data.Repositories;
-using API.Entities;
 using API.Interfaces;
 using API.Interfaces.IRepositories;
 
@@ -20,9 +19,12 @@ public class UnitOfWork : IUnitOfWork, IDisposable
 
     public IAppAdminRepository AppAdmin { get; private set; }
 
-    public async Task<int> SaveChangesAsync()
+    public async Task<bool> SaveChangesAsync()
     {
-        return await _context.SaveChangesAsync();
+        if (await _context.SaveChangesAsync() > 0)
+            return true;
+
+        return false;
     }
 
     public void Dispose()

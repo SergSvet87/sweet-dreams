@@ -11,7 +11,6 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
@@ -72,7 +71,7 @@ public class AccountController : BaseApiController
 
         var userDto = _mapper.Map<UserDto>(user);
         userDto.Token = _tokenService.CreateToken(user);
-        
+
         return StatusCode(201, userDto);
     }
 
