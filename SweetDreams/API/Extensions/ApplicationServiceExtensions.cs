@@ -17,6 +17,7 @@ public static class ApplicationServiceExtensions
         services.AddScoped<ITokenService, TokenService>();
         services.AddTransient<IEmailConfirmationService, EmailConfirmationService>();
         services.AddTransient<IUnitOfWork, UnitOfWork>();
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         return services;
     }

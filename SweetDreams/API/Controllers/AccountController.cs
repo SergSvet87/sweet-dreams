@@ -7,6 +7,7 @@ using API.Entities;
 using API.Extensions;
 using API.Interfaces;
 using API.Validators;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,14 +21,16 @@ public class AccountController : BaseApiController
     private readonly ITokenService _tokenService;
     private readonly IEmailConfirmationService _emailConfirmationService;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IMapper _mapper;
 
     public AccountController(DataContext context, ITokenService tokenService,
-        IEmailConfirmationService emailConfirmationService, IUnitOfWork unitOfWork)
+        IEmailConfirmationService emailConfirmationService, IUnitOfWork unitOfWork, IMapper mapper)
     {
         _context = context;
         _tokenService = tokenService;
         _emailConfirmationService = emailConfirmationService;
         _unitOfWork = unitOfWork;
+        _mapper = mapper;
     }
 
     /// <summary>
@@ -45,15 +48,19 @@ public class AccountController : BaseApiController
 
         using var hmac = new HMACSHA512();
 
-        var user = new AppUser
-        {
-            FirstName = registerDto.FirstName,
-            LastName = registerDto.LastName,
-            Phone = registerDto.Phone,
-            Email = registerDto.Email.ToLower(),
-            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-            PasswordSalt = hmac.Key
-        };
+        var user = _mapper.Map<AppUser>(registerDto);
+        user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password));
+        user.PasswordSalt = hmac.Key;
+        // var user = new AppUser
+        // {
+        //     FirstName = registerDto.FirstName,
+        //     LastName = registerDto.LastName,
+        //     Phone = registerDto.Phone,
+        //     Email = registerDto.Email.ToLower(),
+        //     PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
+        //     PasswordSalt = hmac.Key
+        // };
+        
 
         _unitOfWork.AppUser.Add(user);
         await _unitOfWork.SaveChangesAsync();
@@ -74,7 +81,10 @@ public class AccountController : BaseApiController
         await _emailConfirmationService.SendConfirmationEmail(subject, email, userName, htmlContent);
         // -----
 
-        return StatusCode(201);
+        var userDto = _mapper.Map<UserDto>(user);
+        userDto.Token = _tokenService.CreateToken(user);
+        
+        return StatusCode(201, userDto);
     }
 
     /// <summary>
