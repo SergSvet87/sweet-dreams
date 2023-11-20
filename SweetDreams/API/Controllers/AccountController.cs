@@ -111,7 +111,7 @@ public class AccountController : BaseApiController
     [HttpPost("login")]
     public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
-        var user = await _unitOfWork.AppUser.FindByEmail(loginDto.Email);
+        var user = await _unitOfWork.AppUser.GetByEmail(loginDto.Email);
 
         if (user == default)
             return Unauthorized("Invalid email.");
@@ -141,18 +141,19 @@ public class AccountController : BaseApiController
     /// <summary>
     /// Login to existing account via Google.
     /// </summary>
-    [HttpGet("login/googleAuth")]
+    [HttpGet("googleAuth/login")]
     [Authorize(AuthenticationSchemes = GoogleDefaults.AuthenticationScheme)]
     public async Task<ActionResult<UserDto>> LoginViaGoogle()
     {
-        var userClaims = User.Claims.ToList();
-        var userEmail = userClaims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+        // var userClaims = User.Claims.ToList();
+        // var userEmail = userClaims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+        //
+        // if (userEmail == default)
+        //     return StatusCode(500);
+        //
+        // var user = await _unitOfWork.AppUser.FindByEmail(userEmail);
 
-        if (userEmail == default)
-            return StatusCode(500);
-
-        var user = await _unitOfWork.AppUser.FindByEmail(userEmail);
-
+        var user = await _unitOfWork.AppUser.GetByEmail(User.GetEmail());
         if (user == default)
             return Unauthorized("User not found. You should register first.");
 
@@ -165,13 +166,14 @@ public class AccountController : BaseApiController
     /// <summary>
     /// Register a new user via Google.
     /// </summary>
-    [HttpGet("register/googleAuth")]
+    [HttpGet("googleAuth/register")]
     [Authorize(AuthenticationSchemes = GoogleDefaults.AuthenticationScheme)]
     public async Task<ActionResult<UserDto>> RegisterViaGoogle()
     {
-        var userClaims = User.Claims.ToList();
-        var userEmail = userClaims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
-
+        // var userClaims = User.Claims.ToList();
+        // var userEmail = userClaims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+        var userEmail = User.GetEmail();
+        
         if (userEmail == default)
             return StatusCode(500);
 
@@ -181,7 +183,7 @@ public class AccountController : BaseApiController
         string? firstName = default;
         string? lastName = default;
 
-        var userName = User.Identity.Name;
+        var userName = User.GetName();
         if (userName != default)
         {
             var splitedUserName = userName.Split(' ');

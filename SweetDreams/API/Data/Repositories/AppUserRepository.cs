@@ -10,7 +10,7 @@ public class AppUserRepository : GenericRepository<AppUser>, IAppUserRepository
     {
     }
 
-    public async Task<AppUser> FindByEmail(string email)
+    public async Task<AppUser> GetByEmail(string email)
     {
         return await _context.Users.FirstOrDefaultAsync(x => x.Email == email.ToLower());
     }
