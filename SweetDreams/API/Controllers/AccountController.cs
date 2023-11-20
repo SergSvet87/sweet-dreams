@@ -51,16 +51,6 @@ public class AccountController : BaseApiController
         var user = _mapper.Map<AppUser>(registerDto);
         user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password));
         user.PasswordSalt = hmac.Key;
-        // var user = new AppUser
-        // {
-        //     FirstName = registerDto.FirstName,
-        //     LastName = registerDto.LastName,
-        //     Phone = registerDto.Phone,
-        //     Email = registerDto.Email.ToLower(),
-        //     PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-        //     PasswordSalt = hmac.Key
-        // };
-        
 
         _unitOfWork.AppUser.Add(user);
         await _unitOfWork.SaveChangesAsync();
@@ -79,7 +69,6 @@ public class AccountController : BaseApiController
         htmlContent += "<p>Best regards,<br/>Sweet Dreams Team</p>";
 
         await _emailConfirmationService.SendConfirmationEmail(subject, email, userName, htmlContent);
-        // -----
 
         var userDto = _mapper.Map<UserDto>(user);
         userDto.Token = _tokenService.CreateToken(user);
@@ -110,14 +99,10 @@ public class AccountController : BaseApiController
         _unitOfWork.AppUser.Update(user);
         await _unitOfWork.SaveChangesAsync();
 
-        return new UserDto
-        {
-            FirstName = user.FirstName,
-            LastName = user.LastName,
-            Phone = user.Phone,
-            Email = user.Email,
-            Token = _tokenService.CreateToken(user)
-        };
+        var userDto = _mapper.Map<UserDto>(user);
+        userDto.Token = _tokenService.CreateToken(user);
+
+        return userDto;
     }
 
     /// <summary>
@@ -148,14 +133,10 @@ public class AccountController : BaseApiController
         if (!user.EmailConfirmed)
             return Unauthorized("You should confirm your email first.");
 
-        return new UserDto
-        {
-            FirstName = user.FirstName,
-            LastName = user.LastName,
-            Phone = user.Phone,
-            Email = user.Email,
-            Token = _tokenService.CreateToken(user)
-        };
+        var userDto = _mapper.Map<UserDto>(user);
+        userDto.Token = _tokenService.CreateToken(user);
+
+        return userDto;
     }
 
     /// <summary>
@@ -172,19 +153,14 @@ public class AccountController : BaseApiController
             return StatusCode(500);
 
         var user = await _unitOfWork.AppUser.FindByEmail(userEmail);
-        // var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == userEmail);
 
         if (user == default)
-            return Unauthorized("User not found.");
+            return Unauthorized("User not found. You should register first.");
 
-        return new UserDto
-        {
-            FirstName = user.FirstName,
-            LastName = user.LastName,
-            Phone = user.Phone,
-            Email = user.Email,
-            Token = _tokenService.CreateToken(user)
-        };
+        var userDto = _mapper.Map<UserDto>(user);
+        userDto.Token = _tokenService.CreateToken(user);
+
+        return userDto;
     }
 
     /// <summary>
@@ -228,12 +204,9 @@ public class AccountController : BaseApiController
         _unitOfWork.AppUser.Add(user);
         await _unitOfWork.SaveChangesAsync();
 
-        return new UserDto
-        {
-            FirstName = user.FirstName,
-            LastName = user.LastName,
-            Email = user.Email,
-            Token = _tokenService.CreateToken(user)
-        };
+        var userDto = _mapper.Map<UserDto>(user);
+        userDto.Token = _tokenService.CreateToken(user);
+
+        return StatusCode(201, userDto);
     }
 }

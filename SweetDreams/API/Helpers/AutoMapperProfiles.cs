@@ -9,6 +9,8 @@ public class AutoMapperProfiles : Profile
     public AutoMapperProfiles()
     {
         CreateMap<AppUser, UserDto>();
-        CreateMap<RegisterDto, AppUser>();
+        CreateMap<RegisterDto, AppUser>()
+            .ForMember(dest => dest.Email,
+                opt => opt.MapFrom(src => src.Email.ToLower()));
     }
 }

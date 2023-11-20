@@ -12,12 +12,12 @@ public class AppUserRepository : GenericRepository<AppUser>, IAppUserRepository
 
     public async Task<AppUser> FindByEmail(string email)
     {
-        return await _context.Users.FirstOrDefaultAsync(x => x.Email == email);
+        return await _context.Users.FirstOrDefaultAsync(x => x.Email == email.ToLower());
     }
 
     public async Task<bool> UserExists(string email)
     {
-        var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == email);
+        var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == email.ToLower());
 
         if (user == default)
             return false;
