@@ -21,27 +21,6 @@
   row-gap: 2.25rem;
 }
 
-.top_right {
-  flex: 0 1 67%;
-}
-
-.top_right_bot {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 6.625rem;
-  gap: 6.625rem;
-  grid-row-gap: 2rem;
-  row-gap: 2rem;
-}
-
-.top_right_middle {
-  max-width: 7.1875rem;
-}
-
-.footer__logo {
-  margin-right: 5.0625rem;
-}
-
 .footer__menu {
   font-size: 2rem;
 }
@@ -70,21 +49,43 @@
   }
 }
 
+@media (max-width: 56.25rem) {
+  .footer__top {
+    display: grid;
+    grid-template-areas: 'logo menu menu' '. contacts payment';
+    justify-content: space-around;
+    column-gap: 0;
+    row-gap: 0;
+  }
+
+  .footer__logo {
+    grid-area: logo;
+  }
+
+  .footer__menu {
+    grid-area: menu;
+  }
+
+  .footer__contacts {
+    grid-area: contacts;
+  }
+
+  .footer__payment {
+    grid-area: payment;
+  }
+}
+
 @media (max-width: 46.5rem) {
-  .top_right {
-    display: flex;
-    align-items: flex-start;
+  .footer__top {
+    grid-template-areas: 'logo menu payment' '. contacts .';
     justify-content: space-between;
   }
 
-  /* .top_right_bot{
-    display: none;
-  } */
-
-    .footer__menu {
+  .footer__menu {
     max-width: 7.1875rem;
     font-size: 0.875rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
   }
 
   .footer__menu__list {

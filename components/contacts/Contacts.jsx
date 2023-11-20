@@ -6,7 +6,7 @@ import styles from './contacts.module.css';
 
 export default function Contacts() {
   return (
-    <div className={styles.contacts}>
+    <>
       <h3 className={styles.contacts__title}>Contact us</h3>
       <ul className={styles.contacts__links}>
         <li className={styles.contacts__item}>
@@ -32,6 +32,6 @@ export default function Contacts() {
           </Link>
         </li>
       </ul>
-    </div>
+    </>
   );
 }

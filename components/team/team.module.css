@@ -32,3 +32,12 @@
     justify-items: center;
   }
 }
+
+@media (max-width: 46.5rem) {
+  .team {
+    font-size: 1rem;
+  }
+  .team__title {
+    font-size: 1.5rem;
+  }
+}

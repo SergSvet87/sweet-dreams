@@ -5,7 +5,7 @@ import styles from './team.module.css';
 
 export default function Team() {
   return (
-    <div className={styles.team}>
+    <section className={styles.team}>
       <div className="team__container">
         <h2 className={styles.team__title}>Our Team</h2>
         <ul className={styles.team__list}>
@@ -29,6 +29,6 @@ export default function Team() {
           </li>
         </ul>
       </div>
-    </div>
+    </section>
   );
 }

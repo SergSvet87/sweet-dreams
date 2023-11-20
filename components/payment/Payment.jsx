@@ -6,7 +6,7 @@ import styles from './payment.module.css';
 
 export default function Payment() {
   return (
-    <div className={styles.payment}>
+    <div className={styles.payment__content}>
       <Link href="#">
         <Image
           width={42}

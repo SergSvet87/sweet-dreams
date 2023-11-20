@@ -17,20 +17,17 @@
 }
 
 @media (max-width: 46.5rem) {
-  .contacts {
-    max-width: 7.1875rem;
-  }
-
   .contacts__title {
-    font-size: 14px;
+    font-size: 0.875rem;
+    margin-bottom: 18px;
   }
 
   .contacts__item img {
-    width: 2rem;
-    height: 2rem;
+    width: 1.75rem;
+    height: 1.75rem;
   }
   
   .contacts__links {
-    gap: 1rem;
+    gap: 0.875rem;
   }
 }

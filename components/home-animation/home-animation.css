@@ -1,7 +1,7 @@
 .animation {
   position: fixed;
   inset: 0;
-  z-index: 10;
+  z-index: 1000;
 }
 
 .animation__container {
@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 5;
+  z-index: 999;
 }
 
 .heart button {
@@ -29,8 +29,8 @@
 }
 
 .cloud1 {
-  width: 410px;
-  height: 320px;
+  width: 25.625rem;
+  height: 20rem;
   position              : fixed;
   top                   : -1%;
   left                  : 18%;
@@ -43,8 +43,8 @@
 }
 
 .cloud2 {
-  width: 355px;
-  height: 275px;
+  width: 22.1875rem;
+  height: 17.1875rem;
   position              : fixed;
   top                   : 15%;
   right                  : 15%;
@@ -57,8 +57,8 @@
 }
 
 .cloud3 {
-  width: 240px;
-  height: 150px;
+  width: 15rem;
+  height: 9.375rem;
   position              : fixed;
   top                   : 70%;
   left                  : 15%;
@@ -71,8 +71,8 @@
 }
 
 .cloud4 {
-  width: 240px;
-  height: 150px;
+  width: 15rem;
+  height: 9.375rem;
   position              : fixed;
   bottom                   : 20%;
   right                  : 5%;
@@ -85,8 +85,8 @@
 }
 
 .cloud5 {
-  width: 370px;
-  height: 230px;
+  width: 23.125rem;
+  height: 14.375rem;
   position              : fixed;
   bottom                : -5%;
   left                  : 35%;
@@ -99,8 +99,8 @@
 }
 
 .angel1 {
-  width: 330px;
-  height: 320px;
+  width: 20.625rem;
+  height: 20rem;
   position              : fixed;
   top                   : 0;
   left                  : 0;
@@ -113,8 +113,8 @@
 }
 
 .angel2 {
-  width: 115px;
-  height: 120px;
+  width: 7.1875rem;
+  height: 7.5rem;
   position              : fixed;
   bottom                : -3%;
   right                  : 10%;
@@ -142,8 +142,8 @@
   background-image   : url('../../public/images/home-animation/angel_2.png');
   background-size  : cover;
   background-repeat: no-repeat;
-  height           : 150px;
-  width            : 150px;
+  height           : 9.375rem;
+  width            : 9.375rem;
   position         : absolute;
   top              : 0;
   right             : 0;
@@ -156,8 +156,8 @@
   background-image : url('../../public/images/home-animation/angel_3.png');
   background-size  : cover;
   background-repeat: no-repeat;
-  height           : 130px;
-  width            : 150px;
+  height           : 8.125rem;
+  width            : 9.375rem;
   position         : absolute;
   bottom              : 10%;
   left            : 10%;
@@ -181,12 +181,12 @@
 
   35% {
     transform: translate3d(-80vw, 75vh, 0);
-    width    : 170px;
+    width    : 10.625rem;
   }
 
   50% {
     transform: translate3d(-40vw, 60vh, 0);
-    width    : 200px;
+    width    : 12.5rem;
   }
 
   65% {
@@ -195,7 +195,7 @@
 
   85% {
     transform: translate3d(-10vw, 25%, 0);
-    width    : 160px;
+    width    : 10rem;
   }
 
   100% {
@@ -218,12 +218,12 @@
 
   35% {
     transform: translate3d(80vw, -75vh, 0);
-    width    : 170px;
+    width    : 10.625rem;
   }
 
   50% {
     transform: translate3d(40vw, -60vh, 0);
-    width    : 160px;
+    width    : 10rem;
   }
 
   65% {
@@ -232,10 +232,26 @@
 
   85% {
     transform: translate3d(10vw, -25%, 0);
-    width    : 150px;
+    width    : 9.375rem;
   }
 
   100% {
     transform: translate3d(0, 5vh, 0);
+  }
+}
+
+@media (max-width: 46.5rem) {
+  .cloud1 {
+    display: none;
+  }
+  .cloud2 {
+    width: 15.9rem;
+  /* height: 275px; */
+  }
+  .cloud5 {
+    display: none;
+  }
+  .cloud4 {
+    display: none;
   }
 }

@@ -63,7 +63,12 @@
   z-index: 0;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 90rem) {
+  .changeLanguage {
+    max-width: 200px;
+    margin-bottom: 1.5rem;
+  }
+  
   .checkbox {
     --height: 3.25rem;
     --width: 9.125rem;
@@ -80,3 +85,10 @@
     height: 3.05rem;
   }
 }
+
+@media (max-width: 46.5rem) {
+  .changeLanguage {
+    max-width: 160px;
+  }
+}
+

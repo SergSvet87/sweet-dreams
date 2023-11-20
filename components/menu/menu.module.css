@@ -67,4 +67,8 @@
   .menu__list {
     margin-top: 1.3125rem;
   }
+  .active {
+    border-radius: 0rem;
+    border: 0.125rem solid transparent;
+  }
 }
