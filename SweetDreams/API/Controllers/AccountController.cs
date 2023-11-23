@@ -16,16 +16,14 @@ namespace API.Controllers;
 
 public class AccountController : BaseApiController
 {
-    private readonly DataContext _context;
     private readonly ITokenService _tokenService;
     private readonly IEmailConfirmationService _emailConfirmationService;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
 
-    public AccountController(DataContext context, ITokenService tokenService,
-        IEmailConfirmationService emailConfirmationService, IUnitOfWork unitOfWork, IMapper mapper)
+    public AccountController(ITokenService tokenService, IEmailConfirmationService emailConfirmationService,
+        IUnitOfWork unitOfWork, IMapper mapper)
     {
-        _context = context;
         _tokenService = tokenService;
         _emailConfirmationService = emailConfirmationService;
         _unitOfWork = unitOfWork;
@@ -163,7 +161,7 @@ public class AccountController : BaseApiController
     public async Task<ActionResult<UserDto>> RegisterViaGoogle()
     {
         var userEmail = User.GetEmail();
-        
+
         if (userEmail == default)
             return StatusCode(500);
 

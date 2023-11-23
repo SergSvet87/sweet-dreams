@@ -2,9 +2,9 @@
 
 namespace API.Interfaces.IRepositories;
 
-public interface IAppUserRepository : IGenericRepository<AppUser> // TODO decide is this interface mecessary
+public interface IAppUserRepository : IGenericRepository<AppUser>
 {
     Task<AppUser> GetByEmail(string email);
-    
+
     Task<bool> UserExists(string email);
 }

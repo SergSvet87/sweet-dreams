@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
-public class UserController : BaseApiController
+public class UserController : BaseApiController // Controller for tests.
 {
     private readonly DataContext _context;
 

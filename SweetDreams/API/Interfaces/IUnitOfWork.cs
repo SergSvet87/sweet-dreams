@@ -8,5 +8,7 @@ public interface IUnitOfWork : IDisposable
 
     public IAppAdminRepository AppAdmin { get; }
 
+    public IProductRepository Product { get; }
+
     Task<bool> SaveChangesAsync();
 }
