@@ -1,6 +1,6 @@
 :root {
   --max-width: 102rem;
-  --font: 'Poppins, sans-serif';
+  --font: 'PoppinsS, sans-serif';
   --font-size: 2rem;
   --padding-container: 0 1rem;
   --accent-second: #FDD49E;
@@ -8,7 +8,7 @@
   --accent: #FCA7B5;
   --red: #EB5757;
   --white: #fff;
-  --black: #000;
+  --black: #131313;
 }
 
 html[data-theme="dark"] {

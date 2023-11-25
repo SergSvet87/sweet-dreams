@@ -29,7 +29,7 @@ export default function Basket() {
     <div className={styles.basket} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <button className={styles.basket__button} onClick={() => setOpen(!isOpen)}>
         <Image
-          src={isHovering ? 'images/basket-hover.svg' : 'images/basket.svg'}
+          src={isHovering ? 'images/header/basket-hover.svg' : 'images/header/basket.svg'}
           alt="Basket Icon"
           width={48}
           height={48}

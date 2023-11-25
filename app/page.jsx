@@ -4,6 +4,9 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { instance } from '@/utils/client';
+import Hero from '@/components/hero/Hero';
+import Products from '@/components/products/Products';
+import Selling from '@/components/selling/Selling';
 
 export default function Home() {
   const router = useRouter();
@@ -23,8 +26,10 @@ export default function Home() {
   }, []);
 
   return (
-    <section className="home">
-      <div className="home__container">Home</div>
-    </section>
+    <>
+      <Hero />
+      <Products />
+      <Selling />
+    </>
   );
 }

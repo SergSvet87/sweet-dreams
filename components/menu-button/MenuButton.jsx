@@ -24,7 +24,7 @@ export const MenuButton = ({ isOpen, setOpen }) => {
         <Image
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          src={isHovering ? '/images/close-menu-hover.svg' : '/images/menu-close.svg'}
+          src={isHovering ? '/images/header/close-menu-hover.svg' : '/images/header/menu-close.svg'}
           width={48}
           height={48}
           alt="menu-close"
@@ -34,7 +34,7 @@ export const MenuButton = ({ isOpen, setOpen }) => {
         <Image
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          src={isHovering ? '/images/menu-hover.svg' : '/images/menu.svg'}
+          src={isHovering ? '/images/header/menu-hover.svg' : '/images/header/menu.svg'}
           width={48}
           height={48}
           alt="menu"
