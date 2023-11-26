@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace API.Controllers;
 
@@ -13,22 +14,46 @@ public class ProductController : BaseApiController
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
+    private readonly ISortingAndPagingService<Product> _sortingAndPagingService;
 
-    public ProductController(IUnitOfWork unitOfWork, IMapper mapper)
+    public ProductController(IUnitOfWork unitOfWork, IMapper mapper,
+        ISortingAndPagingService<Product> sortingAndPagingService)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
+        _sortingAndPagingService = sortingAndPagingService;
     }
 
     /// <summary>
-    /// Get all products.
+    /// Get all products (with or without sorting and paging).
     /// </summary>
+    /// <remarks>
+    /// Available sorting parameters: "name", "name_desc", "price", "price_desc", "rating", "rating_desc"
+    /// </remarks>>
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts() // TODO: implement sorting and paging
+    public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts(
+        [FromQuery] string? sortOrder,
+        [FromQuery] int? page,
+        [FromQuery] int pageSize = 10)
     {
         var products = await _unitOfWork.Product.GetAll();
 
-        var productDtos = _mapper.Map<IEnumerable<ProductDto>>(products);
+        products = _sortingAndPagingService.ApplySorting(products.AsQueryable(), sortOrder);
+
+        var (paginatedProducts, totalItems) = _sortingAndPagingService
+            .ApplyPaging(products, page ?? 1, pageSize);
+
+        var productDtos = _mapper.Map<IEnumerable<ProductDto>>(paginatedProducts);
+
+        var paginationInfo = new
+        {
+            TotalItems = totalItems,
+            PageSize = pageSize,
+            CurrentPage = page ?? 1,
+            TotalPages = (int)Math.Ceiling((double)totalItems / pageSize)
+        };
+
+        Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(paginationInfo));
 
         return Ok(productDtos);
     }
@@ -49,7 +74,7 @@ public class ProductController : BaseApiController
     }
 
     /// <summary>
-    /// Create new product (available only for admin)
+    /// Create new product (available only for admin).
     /// </summary>
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
     [HttpPost]
@@ -66,7 +91,7 @@ public class ProductController : BaseApiController
     }
 
     /// <summary>
-    /// Update existing product (available only for admin)
+    /// Update existing product (available only for admin).
     /// </summary>
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
     [HttpPut("{id}")]
@@ -87,7 +112,7 @@ public class ProductController : BaseApiController
     }
 
     /// <summary>
-    /// Delete product (available only for admin)
+    /// Delete product (available only for admin).
     /// </summary>
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
     [HttpDelete("{id}")]

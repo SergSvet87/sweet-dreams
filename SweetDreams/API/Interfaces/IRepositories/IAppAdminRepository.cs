@@ -3,7 +3,7 @@
 namespace API.Interfaces.IRepositories;
 
 public interface
-    IAppAdminRepository : IGenericRepository<AppAdmin> // TODO decide is this interface mecessary(no unique functionality)
+    IAppAdminRepository : IGenericRepository<AppAdmin>
 {
     Task<AppAdmin> GetByEmail(string email);
 }
