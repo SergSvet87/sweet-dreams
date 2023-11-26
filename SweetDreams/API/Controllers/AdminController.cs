@@ -2,6 +2,7 @@
 using System.Text;
 using API.Data;
 using API.DTOs;
+using API.Entities;
 using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,13 +11,13 @@ namespace API.Controllers;
 
 public class AdminController : BaseApiController
 {
-    private readonly DataContext _context;
     private readonly ITokenService _tokenService;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public AdminController(DataContext context, ITokenService tokenService)
+    public AdminController(ITokenService tokenService, IUnitOfWork unitOfWork)
     {
-        _context = context;
         _tokenService = tokenService;
+        _unitOfWork = unitOfWork;
     }
 
     /// <summary>
@@ -26,7 +27,7 @@ public class AdminController : BaseApiController
     [HttpPost("login")]
     public async Task<ActionResult<AdminDto>> Login(LoginDto loginDto)
     {
-        var user = await _context.Admins.FirstOrDefaultAsync(x => x.Email == loginDto.Email);
+        var user = await _unitOfWork.AppAdmin.GetByEmail(loginDto.Email);
 
         if (user == default)
             return Unauthorized("Invalid email.");
@@ -44,7 +45,7 @@ public class AdminController : BaseApiController
         return new AdminDto
         {
             Email = user.Email,
-            Token = _tokenService.CreateToken(user)
+            Token = _tokenService.CreateToken(user, true)
         };
     }
 
@@ -59,10 +60,10 @@ public class AdminController : BaseApiController
     //         PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
     //         PasswordSalt = hmac.Key
     //     };
-    //
-    //     _context.Admins.Add(user);
-    //     await _context.SaveChangesAsync();
-    //
+    //     
+    //     _unitOfWork.AppAdmin.Add(user);
+    //     await _unitOfWork.SaveChangesAsync();
+    //     
     //     return Ok();
     // }
 }

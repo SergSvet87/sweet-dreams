@@ -11,6 +11,10 @@ public class AutoMapperProfiles : Profile
         CreateMap<AppUser, UserDto>();
         CreateMap<RegisterDto, AppUser>()
             .ForMember(dest => dest.Email,
-                opt => opt.MapFrom(src => src.Email.ToLower()));
+                opt => opt
+                    .MapFrom(src => src.Email.ToLower()));
+        CreateMap<Product, ProductDto>();
+        CreateMap<CreateProductDto, Product>();
+        CreateMap<UpdateProductDto, Product>();
     }
 }

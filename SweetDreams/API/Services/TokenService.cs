@@ -16,13 +16,18 @@ public class TokenService : ITokenService
         _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
     }
 
-    public string CreateToken(IAppUser user)
+    public string CreateToken(IAppUser user, bool isAdmin = false)
     {
         var claims = new List<Claim>
         {
             new Claim(JwtRegisteredClaimNames.NameId, user.Email)
         };
 
+        if (isAdmin)
+        {
+            claims.Add(new Claim(ClaimTypes.Role, "Admin"));
+        }
+            
         var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
         var tokenDescriptor = new SecurityTokenDescriptor
