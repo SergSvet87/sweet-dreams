@@ -1,6 +1,6 @@
 ﻿namespace API;
 
-public interface IAppUser // TODO: Decide is this interface required.
+public interface IAppUser
 {
     public string Email { get; set; }
 
