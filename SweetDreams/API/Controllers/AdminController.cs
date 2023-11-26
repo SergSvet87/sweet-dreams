@@ -45,7 +45,7 @@ public class AdminController : BaseApiController
         return new AdminDto
         {
             Email = user.Email,
-            Token = _tokenService.CreateToken(user)
+            Token = _tokenService.CreateToken(user, true)
         };
     }
 

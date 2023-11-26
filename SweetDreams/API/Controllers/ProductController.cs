@@ -3,6 +3,8 @@ using API.DTOs;
 using API.Entities;
 using API.Interfaces;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
@@ -30,7 +32,7 @@ public class ProductController : BaseApiController
 
         return Ok(productDtos);
     }
-    
+
     /// <summary>
     /// Get product by Id.
     /// </summary>
@@ -47,13 +49,14 @@ public class ProductController : BaseApiController
     }
 
     /// <summary>
-    /// Create new product.
+    /// Create new product (available only for admin)
     /// </summary>
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
     [HttpPost]
     public async Task<ActionResult<ProductDto>> CreateProduct(CreateProductDto createProductDto)
     {
         var product = _mapper.Map<Product>(createProductDto);
-        
+
         _unitOfWork.Product.Add(product);
         await _unitOfWork.SaveChangesAsync();
 
@@ -63,8 +66,9 @@ public class ProductController : BaseApiController
     }
 
     /// <summary>
-    /// Update existing product.
+    /// Update existing product (available only for admin)
     /// </summary>
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
     [HttpPut("{id}")]
     public async Task<ActionResult<ProductDto>> UpdateProduct(int id, UpdateProductDto updateProductDto)
     {
@@ -73,7 +77,7 @@ public class ProductController : BaseApiController
             return NotFound();
 
         _mapper.Map(updateProductDto, existingProduct);
-        
+
         _unitOfWork.Product.Update(existingProduct);
         await _unitOfWork.SaveChangesAsync();
 
@@ -83,20 +87,19 @@ public class ProductController : BaseApiController
     }
 
     /// <summary>
-    /// Delete product.
+    /// Delete product (available only for admin)
     /// </summary>
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteProduct(int id)
     {
         var existingProduct = await _unitOfWork.Product.GetById(id);
         if (existingProduct == default)
             return NotFound();
-        
+
         _unitOfWork.Product.Delete(existingProduct);
         await _unitOfWork.SaveChangesAsync();
 
         return NoContent();
     }
-    
-    // TODO: create, update and delete methods should be available only for admin
 }

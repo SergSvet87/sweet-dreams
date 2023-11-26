@@ -25,6 +25,7 @@ public static class IdentityServiceExtensions
         
         services.AddIdentity<IdentityUser, IdentityRole>()
             .AddEntityFrameworkStores<DataContext>();
+        
         services.AddAuthentication(
             v => {
                 v.DefaultAuthenticateScheme = GoogleDefaults.AuthenticationScheme;
