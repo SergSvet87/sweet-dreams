@@ -11,6 +11,8 @@ public class DataContext : DbContext
 
     public DbSet<Product> Products { get; set; }
 
+    public DbSet<Photo> Photos { get; set; }
+
     public DataContext(DbContextOptions options) : base(options)
     {
     }

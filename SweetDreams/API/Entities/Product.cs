@@ -10,5 +10,7 @@ public class Product // TODO: Add photo for products using cloudinary.
 
     public decimal Price { get; set; }
 
-    public double Rating { get; set; }
+    public double? Rating { get; set; }
+    
+    public List<Photo> Photos { get; set; } = new(); // TODO Decide how to add photos to product
 }
