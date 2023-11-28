@@ -2,9 +2,25 @@
   display: flex;
 }
 
-.basket__button{
+.basket__button {
+  position: relative;
   width: 3rem;
   height: 3rem;
   padding: 0;
   border: 0;
+}
+
+.basket__count {
+  display: inline-block;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+  transform: translate(-50%, -40%);
+  
+	background-color: transparent;
+
+	font-weight: 500;
+	font-size: 28px;
+  color: var(--accent);
 }

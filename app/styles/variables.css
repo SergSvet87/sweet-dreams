@@ -7,8 +7,10 @@
   --footer-color: #ffc06d;
   --accent: #FCA7B5;
   --red: #EB5757;
+  --red-btn: #F00;
   --white: #fff;
   --black: #131313;
+  --grey: #575757;
 }
 
 html[data-theme="dark"] {

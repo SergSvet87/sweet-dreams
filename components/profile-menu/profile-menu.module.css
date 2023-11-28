@@ -9,7 +9,7 @@
   transform: translateY(-0.625rem);
   visibility: hidden;
   transition: 0.3s;
-  z-index: 2;
+  z-index: 10;
 }
 
 .profile__menu.active {

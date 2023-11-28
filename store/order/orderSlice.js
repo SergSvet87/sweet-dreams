@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { instance } from '@/utils/client';
 
-const initialState = {
-  orderList: JSON.parse(localStorage.getItem("order") || "[]"),
-  orderGoods: [],
-  totalPrice: 0,
-  totalCount: 0,
-  error: "",
-};
+// const initialState = {
+//   orderList: JSON.parse(localStorage.getItem("order") || "[]"),
+//   orderGoods: [],
+//   totalPrice: 0,
+//   totalCount: 0,
+//   error: "",
+// };
 
 export const localStorageMiddleware = (store) => (next) => (action) => {
   const nextAction = next(action);

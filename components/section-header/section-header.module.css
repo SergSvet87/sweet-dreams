@@ -1,7 +1,9 @@
 .title {
   position: relative;
   margin: 0;
-  padding: 1px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   font-size: 7.5rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -9,17 +11,67 @@
   z-index: 2;
 }
 
-.title::before {
-  content: '';
-  max-width: 16.75rem;
-  height: auto;
-  position: absolute;
-  inset: 0;
-  top: 0;
-  left: 0;
-  background: url('../../public/images/arrows.png') left top / contain no-repeat;
+.title__arrows {
+  display: inline-block;
+  width: 16.75rem;
+  height: 8.375rem;
+  background: url('../../public/images/arrows.png') 1px top / contain no-repeat;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
 }
 
-.title span {
-  margin-left: 30.7rem;
+.title__text {
+  margin-left: 19.4rem;
+}
+
+@media (min-width: 75rem) and (max-width: 106.25rem) {
+  .title {
+    font-size: 6.5rem;
+  }
+
+  .title__arrows {
+    width: 16.6875rem;
+    height: 8.375rem;
+  }
+
+  .title__text {
+    margin-left: 2.9rem;
+  }
+}
+
+@media (min-width: 46.5rem) and (max-width: 75rem) {
+  .title {
+    font-size: 4rem;
+  }
+
+  .title__arrows {
+    width: 6.25rem;
+    height: 3rem;
+  }
+
+  .title__text {
+    margin-left: 1.25rem;
+  }
+}
+
+@media (min-width: 20rem) and (max-width: 46.5rem) {
+  .title {
+    font-size: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .title__arrows {
+    display: block;
+    width: 100%;    
+    width: 3.375rem;
+    height: 1.625rem;
+  }
+
+  .title__text {
+    display: block;
+    width: 100%;
+    margin-left: 0rem;
+    text-align: center;
+  }
 }

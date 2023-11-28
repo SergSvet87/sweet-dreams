@@ -1,17 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Slider from 'react-slick';
-// import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from 'swiper/react';
-// import { Navigation, Pagination, A11y } from 'swiper/modules';
 import classNames from 'classnames';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
 import './slider.css';
 
 const data = [
@@ -43,9 +38,30 @@ const data = [
     count: 'Box of 10',
     price: '₴350',
   },
+  {
+    id: 5,
+    image: '/images/sellers/card2.png',
+    title: 'Mickey Mouse 2',
+    count: 'Box of 10',
+    price: '₴350',
+  },
+  {
+    id: 6,
+    image: '/images/sellers/card3.png',
+    title: 'Mickey Mouse 3',
+    count: 'Box of 10',
+    price: '₴350',
+  },
+  {
+    id: 7,
+    image: '/images/sellers/card2.png',
+    title: 'Mickey Mouse 2',
+    count: 'Box of 10',
+    price: '₴350',
+  },
 ];
 
-function PrevArrow({ className, style, onClick }) {
+function PrevArrow({ className, onClick }) {
   return (
     <button
       className={className}
@@ -75,7 +91,7 @@ function PrevArrow({ className, style, onClick }) {
   );
 }
 
-function NextArrow({ className, style, onClick }) {
+function NextArrow({ className, onClick }) {
   return (
     <button
       className={className}
@@ -99,8 +115,6 @@ function NextArrow({ className, style, onClick }) {
 
 export default function SliderSlick() {
   const [sliderRef, setSliderRef] = useState(null);
-  // const swiper = useSwiper();
-  // const swiperSlide = useSwiperSlide();
 
   const sliderSettings = {
     dots: true,
@@ -108,39 +122,37 @@ export default function SliderSlick() {
     speed: 600,
     slidesToShow: 3,
     slidesToScroll: 1,
-    // spaceBetween: 160,
-    centerPadding: 198,
+    centerMode: true,
     arrows: true,
     responsive: [
       {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 600,
+        breakpoint: 1440,
         settings: {
           slidesToShow: 1,
         },
       },
+      // {
+      //   breakpoint: 744,
+      //   settings: {
+      //     slidesToShow: 1,
+      //   },
+      // },
     ],
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    accessibility: true,
   };
 
   return (
-    <>
-      <Slider {...sliderSettings} className="slider" ref={sliderRef}>
-        {data.map((item) => (
-          <div className={classNames('slider__slide')} key={item.id}>
-            <Image src={item.image} alt={item.title} width={256} height={251} priority />
-            <h2 className="title">{item.title}</h2>
-            <p className="count">{item.count}</p>
-            <p className="price">{item.price}</p>
-          </div>
-        ))}
-      </Slider>
-    </>
+    <Slider {...sliderSettings} className="slider" ref={sliderRef}>
+      {data.map((item) => (
+        <div className={classNames('slider__slide')} key={item.id}>
+          <Image src={item.image} alt={item.title} width={256} height={251} priority />
+          <h2 className="title">{item.title}</h2>
+          <p className="count">{item.count}</p>
+          <p className="price">{item.price}</p>
+        </div>
+      ))}
+    </Slider>
   );
 }

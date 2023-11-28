@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 
 import { useClickOutside } from '@/hooks/useClickOutside';
@@ -27,15 +28,16 @@ export default function Basket() {
 
   return (
     <div className={styles.basket} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <button className={styles.basket__button} onClick={() => setOpen(!isOpen)}>
+      <Link href='/cart' className={styles.basket__button} onClick={() => setOpen(!isOpen)}>
         <Image
-          src={isHovering ? 'images/header/basket-hover.svg' : 'images/header/basket.svg'}
+          src={isHovering ? 'images/header/basket-hover.svg' : 'images/header/cart.svg'}
           alt="Basket Icon"
           width={48}
           height={48}
           priority
         />
-      </button>
+        <div className={styles.basket__count}>0</div>
+      </Link>
     </div>
   );
 }
