@@ -15,27 +15,14 @@
   display: flex; 
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+
+.minus:disabled {
+  background-color: var(--grey);
+  cursor: not-allowed;
 }
 
 @media (min-width: 1024px) {
-  /* .count {
-    width: 84px;
-    height: 40px;
-    border-radius: 12px;
-    padding: 9px 12px;
-    font-size: 16px;
-    line-height: 22px;
-  }
-
-  .minus {
-    width: 10px;
-  }
-
-  .minus:disabled {
-    cursor: default;
-  }
-
-  .plus {
-    width: 10px;
-  } */
+  
 }

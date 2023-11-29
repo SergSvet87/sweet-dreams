@@ -27,9 +27,9 @@ export default function OrderGoods({ item }) {
         {item.price}
       </p>
 
-      <p className={styles.good__quantity}>
+      <div className={styles.good__quantity}>
         <Count count={item.quantity} />
-      </p>
+      </div>
 
       <p className={styles.good__total}>
         <span className="currency">&nbsp;₴</span>
