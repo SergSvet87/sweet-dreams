@@ -1,0 +1,33 @@
+.contacts__title {
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.contacts__links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media (max-width: 75rem) {
+  .contacts__title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 46.5rem) {
+  .contacts__title {
+    font-size: 0.875rem;
+    margin-bottom: 18px;
+  }
+
+  .contacts__item img {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  
+  .contacts__links {
+    gap: 0.875rem;
+  }
+}

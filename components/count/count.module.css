@@ -1,44 +1,28 @@
 .count {
-  width: 74px;
+  width: 102px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #f2f2f3;
-  border-radius: 8px;
-  padding: 7px 8px;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
 }
 
-.minus {
-  width: 8px;
-}
-
+.minus,
 .plus {
-  width: 8px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.minus:disabled {
+  background-color: var(--grey);
+  cursor: not-allowed;
 }
 
 @media (min-width: 1024px) {
-  .count {
-    width: 84px;
-    height: 40px;
-    border-radius: 12px;
-    padding: 9px 12px;
-    font-size: 16px;
-    line-height: 22px;
-  }
-
-  .minus {
-    width: 10px;
-  }
-
-  .minus:disabled {
-    cursor: default;
-  }
-
-  .plus {
-    width: 10px;
-  }
+  
 }

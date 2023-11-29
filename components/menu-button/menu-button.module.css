@@ -1,0 +1,8 @@
+.button {
+  position: relative;
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  z-index: 101;
+}

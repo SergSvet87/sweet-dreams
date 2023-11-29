@@ -1,0 +1,57 @@
+.order {
+  position: relative;
+}
+
+.order__list {
+  margin: 1rem 0;
+}
+
+.order__label,
+.order__item {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  
+  flex-grow: 1;
+  padding-top: 1rem;
+
+  font-weight: 400;
+  font-size: 1rem;
+  border-bottom: 0.0625rem solid var(--black);
+}
+
+.order__label {
+  display: block;
+}
+
+.order__label p {
+  display: inline-block;
+  padding-bottom: 0.3125rem;
+}
+
+.label__name {
+  width: 440px;
+}
+
+.label__remove {
+  width: 100px;
+}
+
+@media (min-width: 768px) {
+  /* .order {
+    width: 145px;
+    transition: width 0.06s ease-in-out;
+  }
+
+  .order.order_open {
+    width: 300px;
+  } */
+}
+
+@media (min-width: 1024px) {
+  /* .order {
+    width: 300px;
+  } */
+}

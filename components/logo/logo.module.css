@@ -5,3 +5,15 @@
 .logo img:hover {
   transform: scale(0.9);
 }
+
+@media (max-width: 46.5rem) {
+  .logo {
+    width: 4.75rem;
+    height: 4.1875rem;
+  }
+
+  .logo img {
+    width: 4.75rem;
+    height: 4.1875rem;
+  }
+}

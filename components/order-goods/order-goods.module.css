@@ -1,0 +1,69 @@
+.good {  
+  display: flex;
+  gap: 1.5rem;
+}
+
+.good__image {
+  width: 138px;
+  height: 157px;
+  border-radius: 8px;
+}
+
+.good__description {
+  display: flex;
+  flex-direction: column;
+}
+
+.good__title {
+  width: 18.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.good__count {
+  font-weight: 400;
+  font-size: 0.875rem;
+  margin-bottom: 0.375rem;
+}
+
+.good__code {
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+.good__price {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.good__quantity {  
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.43;
+}
+
+.good__total {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.good__remove {
+}
+
+.remove__btn {  
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.5rem 0.75rem;
+  
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--red-btn);
+  background: var(--white);
+
+  border-radius: 3.125rem;
+  border: 0.0625rem solid var(--red-btn);
+}

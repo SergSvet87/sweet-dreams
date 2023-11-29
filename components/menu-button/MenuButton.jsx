@@ -1,0 +1,46 @@
+import { useState } from 'react';
+import Image from 'next/image';
+
+import styles from './menu-button.module.css';
+
+export const MenuButton = ({ isOpen, setOpen }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
+  const handleClickMenu = () => {
+    setOpen(!isOpen);
+  };
+
+  return (
+    <button className={styles.button} onClick={handleClickMenu}>
+      {isOpen ? (
+        <Image
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          src={isHovering ? '/images/header/close-menu-hover.svg' : '/images/header/menu-close.svg'}
+          width={48}
+          height={48}
+          alt="menu-close"
+          priority
+        />
+      ) : (
+        <Image
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          src={isHovering ? '/images/header/menu-hover.svg' : '/images/header/menu.svg'}
+          width={48}
+          height={48}
+          alt="menu"
+          priority
+        />
+      )}
+    </button>
+  );
+};
