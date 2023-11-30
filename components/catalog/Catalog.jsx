@@ -1,9 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { productRequestAsync } from '../../store/product/productSlice.js';
 import ProductCard from '../product-card/ProductCard';
 
 import styles from './catalog.module.css';
@@ -68,28 +66,17 @@ const products = [
 ];
 
 export default function Catalog() {
-  // const { products } = useSelector((state) => state.product);
-  // const { category, activeCategory } = useSelector((state) => state.category);
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   if (category.length) {
-  //     dispatch(productRequestAsync(category[activeCategory].title));
-  //   }
-  // }, [category, activeCategory]);
 
   return (
     <div className={styles.catalog}>
       {products.length ? (
-        <div className={styles.wrap_list}>
-          <ul className={styles.list}>
+          <ul className={styles.catalog__list}>
             {products.map((item) => (
-              <li key={item.id} className={styles.item}>
+              <li key={item.src} className={styles.catalog__item}>
                 <ProductCard item={item} />
               </li>
             ))}
           </ul>
-        </div>
       ) : (
         <div className={styles.alert}>Товарів за заданим фільтром не має!</div>
       )}

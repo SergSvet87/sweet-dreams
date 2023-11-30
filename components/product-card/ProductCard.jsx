@@ -42,9 +42,6 @@ export default function ProductCard({ item }) {
         <button
           className={styles.product__add}
           type="button"
-          // onClick={() => {
-          //   dispatch(addProduct({ id: item.id }));
-          // }}
         >
           <img src="./images/shop/cart.svg" alt="" />
         </button>
