@@ -7,6 +7,8 @@ import Search from '@/components/search/Search';
 import Catalog from '@/components/catalog/Catalog';
 
 import styles from './shop.module.css';
+import Filters from '@/components/filters/Filters.jsx';
+import Sorting from '@/components/sorting/Sorting.jsx';
 
 export default function Shop() {
   return (
@@ -14,7 +16,11 @@ export default function Shop() {
       <Banner />
       <div className={classNames('shop__container')}>
         <Search />
-        <Catalog />
+        <Sorting />
+        <div className={styles.shop__content}>
+          <Filters />
+          <Catalog />
+        </div>
       </div>
     </div>
   );

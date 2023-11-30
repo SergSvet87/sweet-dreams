@@ -1,7 +1,7 @@
-import { instance } from '@/utils/client';
+// import { instance } from '@/utils/client';
 
 export default async function UserBoard() {
-  const data = await instance.get('User');
+  // const data = await instance.get('User');
   // console.log('data: ', data);
   return (
     <section className="userboard">

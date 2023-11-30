@@ -2,3 +2,10 @@
   background-color: var(--white);
   color: var(--black);
 }
+
+.shop__content {
+  display: flex;
+  flex-direction: row;
+  gap: 2.125rem;
+  padding: 2.7rem 0;
+}

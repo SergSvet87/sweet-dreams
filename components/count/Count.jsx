@@ -7,7 +7,6 @@ import styles from './count.module.css';
 export const Count = ({ count, id }) => {
   const controls = useCounterStore(({controls}) => controls);
   const num = useCounterStore(({count}) => count);
-  console.log('num: ', num);
 
   return (
     <div className={styles.count}>

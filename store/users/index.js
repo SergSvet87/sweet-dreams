@@ -1,20 +1,12 @@
 import { create } from 'zustand';
 
-import { instance } from '@/utils/client';
+import { getUsers } from '@/utils/client';
 
 const useUsersStore = create((set, get) => ({
   users: [],
   isLoading: false,
   error: null,
   info: {},
-  updateUserInfo() {
-    const users = get().users;
-    const { length: total } = users;
-    const active = users.filter((t) => !t.done).length;
-    const done = total - active;
-    const left = Math.round((active / total) * 100) + '%';
-    set({ info: { total, active, done, left } });
-  },
   addUser(newUser) {
     const users = [...get().users, newUser];
     set({ users });
@@ -31,9 +23,10 @@ const useUsersStore = create((set, get) => ({
   getUsers: async () => {
     try {
       set({ isLoading: true });
-      const response = await instance.get('User');
+      const response = await getUsers();
+      // const data = useSWR(`${process.env.NEXT_PUBLIC_SERVER_URL}User`, fetcher);
       if (!response.ok) throw response;
-      set({ isLoading: true, users: await response.data });
+      set({ isLoading: true, users: response.data });
     } catch (e) {
       let error = e;
       // custom error

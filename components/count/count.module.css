@@ -23,6 +23,11 @@
   cursor: not-allowed;
 }
 
+.count span {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
 @media (min-width: 1024px) {
   
 }
