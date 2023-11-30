@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
             <Footer />
           </div>
 
-          <HomeAnimation />
+          {/* <HomeAnimation /> */}
 
           <Team />
         </body>

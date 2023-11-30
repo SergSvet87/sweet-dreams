@@ -1,4 +1,5 @@
 ﻿using API.Data;
+using API.Entities;
 using API.Interfaces;
 using API.Services;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,10 @@ public static class ApplicationServiceExtensions
         });
         services.AddCors();
         services.AddScoped<ITokenService, TokenService>();
+        services.AddTransient<IEmailConfirmationService, EmailConfirmationService>();
+        services.AddTransient<IUnitOfWork, UnitOfWork>();
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        services.AddTransient<ISortingAndPagingService<Product>, SortingAndPagingService<Product>>();
 
         return services;
     }

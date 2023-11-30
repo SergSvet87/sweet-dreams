@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
-public class UserController : BaseApiController
+public class UserController : BaseApiController // Controller for tests.
 {
     private readonly DataContext _context;
 
@@ -14,6 +14,10 @@ public class UserController : BaseApiController
         _context = context;
     }
 
+    /// <summary>
+    /// Get list of all registered users.
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
     {

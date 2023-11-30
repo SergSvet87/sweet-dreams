@@ -65,8 +65,7 @@
 
 @media (max-width: 90rem) {
   .changeLanguage {
-    max-width: 200px;
-    margin-bottom: 1.5rem;
+    max-width: 12.5rem;
   }
   
   .checkbox {
@@ -88,7 +87,8 @@
 
 @media (max-width: 46.5rem) {
   .changeLanguage {
-    max-width: 160px;
+    max-width: 10rem;
+    margin-bottom: 1.5rem;
   }
 }
 

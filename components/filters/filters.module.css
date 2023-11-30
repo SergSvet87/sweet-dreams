@@ -1,0 +1,74 @@
+.filters {
+  flex-basis: 18.125rem;
+  width: 100%;
+  color: var(--black);
+}
+
+.filters__item {
+  margin-bottom: 3.5rem;
+}
+
+.filters__title {  
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+
+  margin-bottom: 1.5rem;
+}
+
+.filters__checkbox {
+  position: relative;
+  cursor  : pointer;
+  display : flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.checkbox__text {
+  user-select: none;
+  font-weight: 500;
+  font-size  : 1rem;
+  text-transform: capitalize;
+}
+
+.checkbox__input {
+  position: absolute;
+  opacity : 0;
+}
+
+.checkbox__input+.checkbox__span::before {
+  content      : '';
+  display      : inline-block;
+  border       : 0.125rem solid var(--black);
+  border-radius: 0.125rem;
+  width        : 1.4rem;
+  height       : 1.4rem;
+}
+
+.checkbox__input:checked+.checkbox__span::before {
+  height: 1.8rem;
+  background-image   : url('../../public/images/shop/checkBox.png');
+  background-repeat  : no-repeat;
+  background-position: center center;
+  background-size    : cover;
+  border-color       : transparent;
+  animation          : pop 180ms ease-in;
+}
+
+.checkbox__input:focus+.checkbox__span::before {
+  outline: 0.125rem;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+
+  90% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

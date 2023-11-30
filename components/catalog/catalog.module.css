@@ -1,0 +1,27 @@
+.catalog {
+  flex: 1 1 auto;
+}
+
+.catalog__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 15.5rem);
+  gap: 4.75rem;
+}
+
+/* .catalog__item {
+  padding: 16px 24px;
+  border-radius: 45px;
+  border: 1px solid #000;
+  background: var(--white);
+} */
+
+.alert {
+  color: #ff7020;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* @media (min-width: 1024px) {
+  
+} */

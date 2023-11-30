@@ -1,8 +1,8 @@
-﻿using API.Entities;
-
-namespace API.Interfaces;
+﻿namespace API.Interfaces;
 
 public interface ITokenService
 {
-    string CreateToken(AppUser user);
+    string CreateToken(IAppUser user, bool isAdmin = false);
+    
+    string GetEmailFromToken(string token);
 }

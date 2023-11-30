@@ -1,0 +1,5 @@
+.banner {
+  width: 100%;
+  height: 200px;
+  background: url('../../public/images/banner/banner.png') center / cover no-repeat;
+}

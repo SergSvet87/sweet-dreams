@@ -1,0 +1,122 @@
+.hero {
+  position: relative;
+  background-color: var(--accent-second);
+}
+
+.hero::before {
+  content: '';
+  width: 100%;
+  height: auto;
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  background: url('../../public/images/hero/hero-bg-top.png') left -50% / contain no-repeat;
+}
+
+.hero:after {
+  content: '';
+  width: 100%;
+  height: auto;
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  background: url('../../public/images/hero/hero-bg-mid.png') left 73% / contain no-repeat;
+}
+
+.hero__content {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2.69rem;
+  padding: 2rem 0 3rem;
+  z-index: 3;
+}
+
+.hero__image {
+  flex: 0 0 59.4rem;
+  max-width: 59.4rem;
+  min-height: 57rem;
+}
+
+
+.hero__description {
+  display: flex;
+  padding-top: 9.25rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.hero__title {
+  margin: 0;
+  font-size: 6rem;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.hero__link {
+  padding: 1rem 2rem;
+  font-size: 3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 3.125rem;
+  border: 0.25rem solid var(--white);
+  background-color: var(--accent);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.hero__link:hover {
+  background-color: var(--footer-color);
+}
+
+@media screen and (max-width: 90rem) {
+  .hero::before {
+    background-position: left 0%;
+  }
+
+  .hero__content {
+    padding-top: 0;
+  }
+
+  .hero__image {
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-height: 42rem;
+  }
+
+  .hero__description {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;    
+    padding: 3.5rem 5.5rem 12.25rem 5.5rem;
+    background: rgba(0, 0, 0, 0.20);
+  }
+
+  .hero__title {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 46.5rem) {
+  .hero::after {
+    background-position: left 60%;
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+  }
+  .hero__image {
+    min-height: 22.25rem;
+  }
+  .hero__link {
+    font-size: 1.5rem;
+  }
+}

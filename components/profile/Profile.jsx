@@ -49,7 +49,7 @@ export default function Profile() {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
         <Image
-          src={isHovering ? 'images/profile-hover.svg' : 'images/profile.svg'}
+          src={isHovering ? 'images/header/profile-hover.svg' : 'images/header/profile.svg'}
           alt="Profile icon"
           width={48}
           height={48}

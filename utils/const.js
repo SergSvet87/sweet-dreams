@@ -18,21 +18,39 @@ export const MOBILE_MENU = [
   },
   {
     id: 2,
+    name: 'Lollies',
+    page: 'lollies',
+    path: '/lollies',
+  },
+  {
+    id: 3,
+    name: 'Chewies',
+    page: 'chewies',
+    path: '/chewies',
+  },
+  {
+    id: 4,
+    name: 'Jellies',
+    page: 'jellies',
+    path: '/jellies',
+  },
+  {
+    id: 5,
     name: 'Chocolates',
     page: 'chocolates',
     path: '/chocolates',
   },
   {
-    id: 3,
+    id: 6,
     name: 'Delivery',
     page: 'delivery',
     path: '/delivery',
   },
   {
-    id: 4,
+    id: 7,
     name: 'Our team',
     page: 'our team',
-    path: '/ourTeam',
+    path: '#team',
   },
 ];
 
@@ -45,21 +63,39 @@ export const MENU = [
   },
   {
     id: 2,
+    name: 'Lollies',
+    page: 'lollies',
+    path: '/lollies',
+  },
+  {
+    id: 3,
+    name: 'Chewies',
+    page: 'chewies',
+    path: '/chewies',
+  },
+  {
+    id: 4,
+    name: 'Jellies',
+    page: 'jellies',
+    path: '/jellies',
+  },
+  {
+    id: 5,
     name: 'Chocolates',
     page: 'chocolates',
     path: '/chocolates',
   },
   {
-    id: 3,
+    id: 6,
     name: 'Delivery',
     page: 'delivery',
     path: '/delivery',
   },
   {
-    id: 4,
+    id: 7,
     name: 'Our team',
     page: 'our team',
-    path: '/ourTeam',
+    path: '#team',
   },
 ];
 

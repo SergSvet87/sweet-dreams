@@ -1,0 +1,47 @@
+.products {
+  position: relative;
+}
+
+.products::before {
+  content: '';
+  display: block;
+  width: 100%;
+  min-height: 254px;
+  background: url('../../public/images/products/bg-top.png') left top / cover no-repeat;
+}
+
+.products::after {
+  content: '';
+  width: 100%;
+  min-height: 250px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--accent-second);
+  z-index: -1;
+}
+
+.products_container {
+  padding-top: 1.5rem;
+}
+
+.products__angel1 {
+  width: 160px;
+  height: 213px;
+  position : absolute;
+  top : -1%;
+  left : 18%;
+  background: url('../../public/images/products/angel_1.svg') center / cover no-repeat;
+}
+
+.products__angel2 {
+  background: url('../../public/images/products/angel_candy.svg') center / cover no-repeat;
+}
+
+.products__angel3 {
+  background: url('../../public/images/products/angel_2.svg') center / cover no-repeat;
+}
+
+.products__candy {
+  background: url('../../public/images/products/lollipop.svg') center / cover no-repeat;
+}
