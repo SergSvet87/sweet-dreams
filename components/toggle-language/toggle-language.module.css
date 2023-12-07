@@ -1,11 +1,11 @@
 .checkbox {
-  --width: 10.3125rem;
-  --height: 4rem;
-  --offset: 1.375rem;
+  --width: 126px;
+  --height: 52px;
+  --offset: 18px;
   --first-color: var(--accent);
   --second-color: var(--accent-second);
   --text-color: var(--white);
-  --text-size: 2rem;
+  --text-size: 24px;
   --duration: 0.3s cubic-bezier(0.47, 1.64, 0.41, 0.8),
     background-color 0.2s linear;
   cursor: pointer;
@@ -13,6 +13,7 @@
 
 .checkbox:hover .checkbox__div::before {
   transform: scale(0.9);
+  background-color: var(--footer-color);
 }
 
 .checkbox__input {
@@ -24,8 +25,8 @@
 }
 
 .checkbox__input:hover:checked ~ .checkbox__div::before {
-  width: 5.5rem;
-  height: 3.875rem;
+  width: 70px;
+  height: 52px;
 }
 
 .checkbox__div {
@@ -33,8 +34,9 @@
   height: var(--height);
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 16px;
   background-color: var(--first-color);
   color: var(--text-color);
   font-size: var(--text-size);
@@ -52,42 +54,46 @@
 
 .checkbox__div::before {
   content: "";
-  width: 5.5rem;
-  height: 3.875rem;
+  width: 70px;
+  height: 52px;
   position: absolute;
   top: 0;
   left: -0.3125rem;
   background-color: var(--second-color);
-  border-radius: 43%;
+  border-radius: 45%;
   transition: var(--duration);
   z-index: 0;
 }
 
-@media (max-width: 90rem) {
+@media (min-width: 46.5rem) and (max-width: 89.9994rem) {
   .changeLanguage {
-    max-width: 12.5rem;
+    max-width: 110px;
+    /* margin-bottom: 2rem; */
   }
   
   .checkbox {
-    --height: 3.25rem;
-    --width: 9.125rem;
+    --height: 42px;
+    --width: 106px;
     --text-size: 1.5rem;
-    --offset: 1.5rem;
+    --offset: 0.5rem;
+  }
+  .checkbox__div {
+    padding: 0 0.5rem;
   }
   .checkbox__div::before {
-    width: 4.875rem;
-    height: 3.05rem;
-    left: -0.3125rem;
+    width: 54px;
+    height: 42px;
+    /* left: -5px; */
   }
   .checkbox__input:hover:checked ~ .checkbox__div::before {
-    width: 4.875rem;
-    height: 3.05rem;
+    width: 54px;
+    height: 42px;
   }
 }
 
-@media (max-width: 46.5rem) {
+@media (min-width: 20rem) and (max-width: 46.4994rem) {
   .changeLanguage {
-    max-width: 10rem;
+    max-width: 6.25rem;
     margin-bottom: 1.5rem;
   }
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import FilterSelect from './FilterSelect';
+
 import styles from './sorting.module.css';
 
 export default function Sorting() {
@@ -32,7 +34,7 @@ export default function Sorting() {
         </li>
       </ul>
 
-      <div className={styles.sort__category}></div>
+      <FilterSelect />
     </div>
   );
 }

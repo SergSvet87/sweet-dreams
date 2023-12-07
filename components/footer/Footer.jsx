@@ -4,12 +4,33 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
 
-import { MENU } from '@/utils/const';
 import Logo from '../logo/Logo';
 import Contacts from '../contacts/Contacts';
 import Payment from '../payment/Payment';
 
 import styles from './footer.module.css';
+
+
+const MENU = [
+  {
+    id: 1,
+    name: 'shop now',
+    page: 'shop now',
+    path: '/shop',
+  },
+  {
+    id: 2,
+    name: 'Delivery',
+    page: 'delivery',
+    path: '/delivery',
+  },
+  {
+    id: 3,
+    name: 'Our team',
+    page: 'our team',
+    path: '#team',
+  },
+];
 
 export default function Footer() {
   const pathname = usePathname();

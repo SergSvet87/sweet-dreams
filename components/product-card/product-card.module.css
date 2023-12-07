@@ -29,14 +29,31 @@
 }
 
 .product__favorite {
+  height: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 13px;
+  margin-bottom: 0.8125rem;
+}
+
+.product__rating,
+.product__like {
+  height: 20px;
+}
+
+.product__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.product__rating img,
+.product__like img {
+  cursor: pointer;
 }
 
 .product__price {  
-  font-size: 20px;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 500;
   margin-bottom: 7px;

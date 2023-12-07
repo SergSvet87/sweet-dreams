@@ -28,8 +28,21 @@
 .footer__menu__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: 'shop delivery' '. team';
   gap: 6.625rem;
   row-gap: 2rem;
+}
+
+.footer__menu__item:nth-child(1) {
+  grid-area: shop;
+}
+
+.footer__menu__item:nth-child(2) {
+  grid-area: delivery;
+}
+
+.footer__menu__item:nth-child(3) {
+  grid-area: team;
 }
 
 .footer__menu__item a {
@@ -37,6 +50,7 @@
   font-weight: 500;
   font-size: 2rem;
   color: var(--white);
+  text-transform: capitalize;
   border: 0.125rem solid transparent;
   transition: all 0.6s ease-in-out;
 }
@@ -58,7 +72,7 @@
   font-size: 1rem;
 }
 
-@media (max-width: 75rem) {
+@media (min-width: 46.5rem) and (max-width: 89.9994rem) {
   .footer__top {
     align-items: flex-start;
     column-gap: 2.625rem;
@@ -68,12 +82,10 @@
     font-size: 1.5rem;
     margin-bottom: 2.25rem;
   }
-}
 
-@media (max-width: 56.25rem) {
   .footer__top {
     display: grid;
-    grid-template-areas: 'logo menu menu' '. contacts payment';
+    grid-template-areas: 'logo menu contacts payment';
     justify-content: space-around;
     column-gap: 0;
     row-gap: 0;
@@ -87,6 +99,22 @@
     grid-area: menu;
   }
 
+  .footer__menu__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .footer__menu__item {
+    align-self: flex-start;
+    text-align: left;
+  }
+
+  .footer__menu__item a {
+    font-size: 1.5rem;
+  }
+
   .footer__contacts {
     grid-area: contacts;
   }
@@ -96,21 +124,45 @@
   }
 }
 
-@media (max-width: 46.5rem) {
+@media (min-width: 20rem) and (max-width: 46.4994rem) {
   .footer__top {
+    display: grid;
     grid-template-areas: 'logo menu payment' '. contacts .';
     justify-content: space-between;
+    align-items: start;
+    column-gap: 0;
+    row-gap: 0;
+  }
+
+  .footer__logo {
+    grid-area: logo;
   }
 
   .footer__menu {
     max-width: 7.1875rem;
-    font-size: 0.875rem;
     margin-bottom: 1rem;
-    padding: 0.5rem 0;
+    grid-area: menu;
+    font-size: 0.875rem;
   }
 
   .footer__menu__list {
-    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     gap: 1.5rem;
+  }
+
+  .footer__menu__item a {
+    padding: 0;
+    font-size: 0.875rem;
+  }
+
+  .footer__contacts {
+    grid-area: contacts;
+  }
+
+  .footer__payment {
+    grid-area: payment;
   }
 }

@@ -15,19 +15,20 @@ export default function Home() {
   // const { users } = useUsersStore((state) => state.users);
   // const { getUsers } = useUsersStore((state) => state.getUsers);
 
-  // const users = getUsers((res) => res.json());
+  // const data = useSWR(`${process.env.NEXT_PUBLIC_SERVER_URL}User`, fetcher);
+  // const users = getUsers();
   // console.log('getUsers: ', users);
 
-  useEffect(() => {
-    const getCurrentUser = () => JSON.parse(localStorage.getItem('user'));
-    const user = getCurrentUser();
+  // useEffect(() => {
+  //   const getCurrentUser = () => JSON.parse(localStorage.getItem('user'));
+  //   const user = getCurrentUser();
 
-    if (user) {
-      router.push('/userboard');
-    } else {
-      router.push('/');
-    }
-  }, []);
+  //   if (user) {
+  //     router.push('/userboard');
+  //   } else {
+  //     router.push('/');
+  //   }
+  // }, []);
 
   return (
     <>

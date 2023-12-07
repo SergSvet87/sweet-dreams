@@ -4,6 +4,11 @@
   gap: 2.5rem;
 }
 
+.payment__content img {
+  width: auto;
+  height: auto;
+}
+
 @media (max-width: 46.5rem) {
   .payment__content {
     flex-direction: column;

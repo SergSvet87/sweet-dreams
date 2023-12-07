@@ -1,0 +1,55 @@
+.filters__price {
+  margin-top: 1.25rem;
+}
+
+.price__inputs {
+  display        : flex;
+  align-items    : center;
+  gap: 0.5rem;
+  margin-bottom  : 1.5rem;
+}
+
+.price__label {
+  max-width: 16.125rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border : 0.0625rem solid var(--black);
+  border-radius : 1.5625rem;
+}
+
+.price__label span {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.price__label span svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: translateY(-27%);
+}
+
+.price__inputs  input {
+  pointer-events  : none;
+  width           : 50px;
+  height          : auto;
+  padding-left    : 0.5rem;
+  background-color: transparent;
+  font-weight     : 500;
+  font-size       : 18px;
+  color           : var(--grey);
+}
+
+.price__btn {  
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: var(--accent);
+
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--white);
+}

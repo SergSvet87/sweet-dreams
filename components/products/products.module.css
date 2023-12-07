@@ -1,19 +1,20 @@
 .products {
   position: relative;
+  z-index: 2;
 }
 
 .products::before {
   content: '';
   display: block;
   width: 100%;
-  min-height: 254px;
+  height: 10.875rem;
   background: url('../../public/images/products/bg-top.png') left top / cover no-repeat;
 }
 
 .products::after {
   content: '';
   width: 100%;
-  min-height: 250px;
+  height: 10.625rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -26,22 +27,106 @@
 }
 
 .products__angel1 {
-  width: 160px;
-  height: 213px;
+  width: 10rem;
+  height: 13.3125rem;
   position : absolute;
-  top : -1%;
-  left : 18%;
-  background: url('../../public/images/products/angel_1.svg') center / cover no-repeat;
+  top : 15%;
+  right : 0%;
+  background: url('../../public/images/products/angel_1.png') center / cover no-repeat;
+  z-index: 2;
 }
 
 .products__angel2 {
-  background: url('../../public/images/products/angel_candy.svg') center / cover no-repeat;
+  width: 16.0625rem;
+  height: 16.875rem;
+  position : absolute;
+  top : 35%;
+  left : 0%;
+  background: url('../../public/images/products/angel_candy.png') center / cover no-repeat;
+  z-index: 2;
 }
 
 .products__angel3 {
-  background: url('../../public/images/products/angel_2.svg') center / cover no-repeat;
+  width: 15.25rem;
+  height: 16.375rem;
+  position : absolute;
+  bottom: 3%;
+  left : 15%;
+  background: url('../../public/images/products/angel_2.png') center / cover no-repeat;
 }
 
 .products__candy {
-  background: url('../../public/images/products/lollipop.svg') center / cover no-repeat;
+  width: 13.625rem;
+  height: 12.6875rem;
+  position : absolute;
+  top : 37%;
+  left : 57%;
+  background: url('../../public/images/products/lollipop.png') center / cover no-repeat;
+  z-index: 2;
+}
+
+@media (min-width: 90rem) and (max-width: 119.9994rem) {
+  .products::before {
+    height: 7.2rem;
+  }
+  .products::after {
+    height: 7.2rem;
+  }
+}
+
+@media (min-width: 46.5rem) and (max-width: 89.9994rem) {
+  .products::before {
+    height: 3.5rem;
+  }
+  .products::after {
+    height: 3.5rem;
+  }
+  .products__angel1{
+    width: 120px;
+    height: 130px;
+    top: 10%;
+  }
+  .products__candy {
+    width: 120px;
+    height: 120px;
+    left: 54%;
+  }
+  .products__angel2 {
+    width: 140px;
+    height: 147px;
+    left: -3%;
+  }
+  .products__angel3 {
+    width: 142px;
+    height: 152px;
+    left: 6%;
+    bottom: 10%;
+  }
+}
+
+@media (min-width: 20rem) and (max-width: 46.4994rem) {
+  .products::before {
+    height: 2rem;
+  }
+  .products::after {
+    height: 2rem;
+  }
+  .products__angel2 {
+    width: 3.75rem;
+    height: 4.1875rem;
+    top: 48%;
+    left: 2%;
+  }
+  .products__angel3 {
+    width: 5.25rem;
+    height: 5.25rem;
+    left: auto;
+    bottom: auto;
+    top: 12%;
+    right: 5%;
+  }  
+  .products__angel1,
+  .products__candy {
+    display: none;
+  }
 }

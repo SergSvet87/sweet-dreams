@@ -4,7 +4,6 @@ import HomeAnimation from '@/components/home-animation/HomeAnimation';
 import ThemeProvider from '@/providers/ThemeProvider';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
-import Team from '@/components/team/Team';
 
 import 'react-toastify/dist/ReactToastify.css';
 import 'normalize.css';
@@ -44,8 +43,6 @@ export default function RootLayout({ children }) {
           </div>
 
           {/* <HomeAnimation /> */}
-
-          <Team />
         </body>
       </html>
     </ThemeProvider>

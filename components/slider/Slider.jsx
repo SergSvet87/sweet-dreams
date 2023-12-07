@@ -129,14 +129,9 @@ export default function SliderSlick() {
         breakpoint: 1440,
         settings: {
           slidesToShow: 1,
+          centerMode: false,
         },
       },
-      // {
-      //   breakpoint: 744,
-      //   settings: {
-      //     slidesToShow: 1,
-      //   },
-      // },
     ],
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,

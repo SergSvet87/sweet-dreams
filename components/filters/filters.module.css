@@ -31,7 +31,8 @@
   text-transform: capitalize;
 }
 
-.checkbox__input {
+.checkbox__input,
+.rating__input {
   position: absolute;
   opacity : 0;
 }
@@ -39,7 +40,7 @@
 .checkbox__input+.checkbox__span::before {
   content      : '';
   display      : inline-block;
-  border       : 0.125rem solid var(--black);
+  border: 2px solid var(--black);
   border-radius: 0.125rem;
   width        : 1.4rem;
   height       : 1.4rem;
@@ -57,6 +58,44 @@
 
 .checkbox__input:focus+.checkbox__span::before {
   outline: 0.125rem;
+}
+
+.rating__input+.rating__span::before {
+  content      : '';
+  display      : inline-block;
+  border-radius: 1.5625rem;
+  width        : 5.875rem;
+  height       : 1.4rem;
+}
+
+.rating__input+.rating__span_5.rating__span::before {
+  background: url('../../public/images/shop/star_rating_5.png') center / cover no-repeat;
+}
+
+.rating__input+.rating__span_4.rating__span::before {
+  background: url('../../public/images/shop/star_rating_4.png') center / cover no-repeat;
+}
+
+.rating__input+.rating__span_3.rating__span::before {
+  background: url('../../public/images/shop/star_rating_3.png') center / cover no-repeat;
+}
+
+.rating__input+.rating__span_2.rating__span::before {
+  background: url('../../public/images/shop/star_rating_2.png') center / cover no-repeat;
+}
+
+.rating__input+.rating__span_1.rating__span::before {
+  background: url('../../public/images/shop/star_rating_1.png') center / cover no-repeat;
+}
+
+.rating__input:checked+.rating__span::before {
+  background-color: rgba(19, 19, 19, 0.50);
+  border-color       : transparent;
+  animation          : pop 180ms ease-in;
+}
+
+.rating__input:focus+.rating__span::before {
+  outline: 1.5625rem;
 }
 
 @keyframes pop {
