@@ -1,6 +1,7 @@
 .contacts__title {
   font-weight: 500;
   font-size: 2rem;
+  text-transform: capitalize;
   margin-bottom: 1.5rem;
 }
 

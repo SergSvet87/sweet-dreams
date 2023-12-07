@@ -12,90 +12,98 @@ export const TIME_SHOW_HOME_ANIMATION = 8000;
 export const MOBILE_MENU = [
   {
     id: 1,
-    name: 'Candies',
-    page: 'candies',
-    path: '/candies',
+    name: 'shop now',
+    page: 'shop now',
+    path: '/shop',
   },
   {
     id: 2,
-    name: 'Lollies',
-    page: 'lollies',
-    path: '/lollies',
-  },
-  {
-    id: 3,
-    name: 'Chewies',
-    page: 'chewies',
-    path: '/chewies',
-  },
-  {
-    id: 4,
-    name: 'Jellies',
-    page: 'jellies',
-    path: '/jellies',
-  },
-  {
-    id: 5,
-    name: 'Chocolates',
-    page: 'chocolates',
-    path: '/chocolates',
-  },
-  {
-    id: 6,
     name: 'Delivery',
     page: 'delivery',
     path: '/delivery',
   },
   {
-    id: 7,
+    id: 3,
     name: 'Our team',
-    page: 'our team',
-    path: '#team',
+    page: 'team',
+    path: '/team',
   },
 ];
 
 export const MENU = [
   {
     id: 1,
-    name: 'Candies',
-    page: 'candies',
-    path: '/candies',
+    name: 'Home',
+    page: 'home',
+    path: '/',
   },
   {
     id: 2,
-    name: 'Lollies',
-    page: 'lollies',
-    path: '/lollies',
+    name: 'shop now',
+    page: 'shop now',
+    path: '/shop',
   },
+  // {
+  //   id: 3,
+  //   name: 'Chewies',
+  //   page: 'chewies',
+  //   path: '/chewies',
+  // },
+  // {
+  //   id: 4,
+  //   name: 'Jellies',
+  //   page: 'jellies',
+  //   path: '/jellies',
+  // },
+  // {
+  //   id: 5,
+  //   name: 'Chocolates',
+  //   page: 'chocolates',
+  //   path: '/chocolates',
+  // },
   {
     id: 3,
-    name: 'Chewies',
-    page: 'chewies',
-    path: '/chewies',
-  },
-  {
-    id: 4,
-    name: 'Jellies',
-    page: 'jellies',
-    path: '/jellies',
-  },
-  {
-    id: 5,
-    name: 'Chocolates',
-    page: 'chocolates',
-    path: '/chocolates',
-  },
-  {
-    id: 6,
     name: 'Delivery',
     page: 'delivery',
     path: '/delivery',
   },
   {
-    id: 7,
+    id: 4,
     name: 'Our team',
-    page: 'our team',
-    path: '#team',
+    page: 'team',
+    path: '/team',
+  },
+];
+export const SUB_MENU = [
+  {
+    id: 1,
+    name: 'Candies',
+    page: 'Candies',
+    path: '/shop',
+  },
+  {
+    id: 2,
+    name: 'Lollies',
+    page: 'Lollies',
+    path: '/shop',
+  },
+  {
+    id: 3,
+    name: 'Chewies',
+    page: 'chewies',
+    path: '/shop',
+  },
+  {
+    id: 4,
+    name: 'Jellies',
+    page: 'jellies',
+    path: '/shop',
+  },
+  {
+    id: 5,
+    name: 'Chocolates',
+    page: 'chocolates',
+    path: '/shop',
   },
 ];
 

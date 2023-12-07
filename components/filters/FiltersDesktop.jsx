@@ -3,6 +3,8 @@
 import { useState } from 'react';
 
 import styles from './filters.module.css';
+import PriceRange from '../price-range/PriceRange.jsx';
+import classNames from 'classnames';
 
 const categories = [
   {
@@ -74,7 +76,7 @@ export default function FiltersDesktop() {
               type="checkbox"
               onChange={toggleAcceptWithRules}
               aria-label={item.type}
-              name='type'
+              name="type"
             />
             <span className={styles.checkbox__span} />
             <span className={styles.checkbox__text}>{item.type}</span>
@@ -92,7 +94,7 @@ export default function FiltersDesktop() {
               type="checkbox"
               onChange={toggleAcceptWithRules}
               aria-label={item.type}
-              name='specifications'
+              name="specifications"
             />
             <span className={styles.checkbox__span} />
             <span className={styles.checkbox__text}>{item.type}</span>
@@ -103,17 +105,55 @@ export default function FiltersDesktop() {
       <div className={styles.filters__item}>
         <h3 className={styles.filters__title}>Rating</h3>
 
-          <label className={styles.filters__checkbox}>
-            <input
-              className={styles.checkbox__input}
-              type="checkbox"
-              onChange={toggleAcceptWithRules}
-              aria-label="rating"
-              name='rating'
-            />
-            <span className={styles.checkbox__span} />
-            <span className={styles.checkbox__text}>Rating</span>
-          </label>
+        <label className={styles.filters__checkbox}>
+          <input
+            className={styles.rating__input}
+            type="checkbox"
+            onChange={toggleAcceptWithRules}
+            name="rating"
+          />
+          <span className={classNames(styles.rating__span, styles.rating__span_5)} />
+        </label>
+
+        <label className={styles.filters__checkbox}>
+          <input
+            className={styles.rating__input}
+            type="checkbox"
+            onChange={toggleAcceptWithRules}
+            name="rating"
+          />
+          <span className={classNames(styles.rating__span, styles.rating__span_4)} />
+        </label>
+
+        <label className={styles.filters__checkbox}>
+          <input
+            className={styles.rating__input}
+            type="checkbox"
+            onChange={toggleAcceptWithRules}
+            name="rating"
+          />
+          <span className={classNames(styles.rating__span, styles.rating__span_3)} />
+        </label>
+
+        <label className={styles.filters__checkbox}>
+          <input
+            className={styles.rating__input}
+            type="checkbox"
+            onChange={toggleAcceptWithRules}
+            name="rating"
+          />
+          <span className={classNames(styles.rating__span, styles.rating__span_2)} />
+        </label>
+
+        <label className={styles.filters__checkbox}>
+          <input
+            className={styles.rating__input}
+            type="checkbox"
+            onChange={toggleAcceptWithRules}
+            name="rating"
+          />
+          <span className={classNames(styles.rating__span, styles.rating__span_1)} />
+        </label>
       </div>
 
       <div className={styles.filters__item}>
@@ -126,70 +166,15 @@ export default function FiltersDesktop() {
               type="checkbox"
               onChange={toggleAcceptWithRules}
               aria-label={item.type}
-              name='price'
+              name="price"
             />
             <span className={styles.checkbox__span} />
             <span className={styles.checkbox__text}>{item.type}</span>
           </label>
         ))}
 
-
+        <PriceRange />
       </div>
-      {/* <div className={styles.filters__boiler_manufacturers}>
-        <FilterManufacturerAccordion
-          manufacturersList={boilerManufacturers}
-          title="Производитель котлов"
-          updateManufacturer={updateBoilerManufacturer}
-          setManufacturer={setBoilerManufacturers}
-        />
-      </div>
-      <div className={styles.filters__price}>
-        <Accordion
-          title="Цена"
-          titleClass={`${styles.filters__manufacturer__btn} ${darkModeClass}`}
-          arrowOpenClass={styles.open}
-        >
-          <div className={styles.filters__manufacturer__inner}>
-            <PriceRange
-              priceRange={priceRange}
-              setPriceRange={setPriceRange}
-              setIsPriceRangeChanged={setIsPriceRangeChanged}
-            />
-            <div style={{ height: 24 }} />
-          </div>
-        </Accordion>
-      </div>
-      <div className={styles.filters__boiler_manufacturers}>
-        <FilterManufacturerAccordion
-          manufacturersList={partsManufacturers}
-          title="Производитель запчастей"
-          updateManufacturer={updatePartsManufacturer}
-          setManufacturer={setPartsManufacturers}
-        />
-      </div>
-      <div className={styles.filters__actions}>
-        <button
-          className={styles.filters__actions__show}
-          disabled={spinner || resetFilterBtnDisabled}
-          onClick={applyFilters}
-        >
-          {spinner ? (
-            <span
-              className={spinnerStyles.spinner}
-              style={{ top: 6, left: '47%' }}
-            />
-          ) : (
-            'Показать'
-          )}
-        </button>
-        <button
-          className={styles.filters__actions__reset}
-          disabled={resetFilterBtnDisabled}
-          onClick={resetFilters}
-        >
-          Сбросить
-        </button>
-      </div> */}
     </>
   );
 }

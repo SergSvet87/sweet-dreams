@@ -17,7 +17,7 @@
   font-size: 1rem;
 }
 
-.reset__btn button {  
+.reset__btn {  
   padding: 0.5rem 0.75rem;
   border-radius: 3.125rem;
   border: 0.0625rem solid #F00;

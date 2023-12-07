@@ -34,21 +34,32 @@
   z-index: 10;
 }
 
-@media (min-width: 75rem) and (max-width: 90rem) {
+@media (min-width: 90rem) and (max-width: 119.9994rem) {
   .angel {
     top: 1%;
     right: 1%;
   }
 }
 
-@media (min-width: 46.5rem) and (max-width: 75rem) {
+@media (min-width: 46.5rem) and (max-width: 89.9994rem) {
+  .selling__wrapper::after {
+    height: 34.0625rem;
+    background-size: cover;
+  }
+
   .angel {  
     width: 7.1875rem;
     height: 7.25rem;
   }
 }
 
-@media (max-width: 46.5rem) {
+@media (min-width: 20rem) and (max-width: 46.4994rem) {
+  .selling__wrapper::after {
+    height: 24.625rem;
+    background-size: cover;
+    bottom: 3.125rem;
+  }
+
   .angel {
     display: none;
   }

@@ -25,8 +25,8 @@ export default function Logo({ className }) {
       onMouseLeave={handleMouseLeave}>
       <Link href="/">
         <Image
-          width={120}
-          height={106}
+          width={76}
+          height={67}
           src={isHovering ? 'images/logo-hover.svg' : 'images/logo.svg'}
           alt="Logo icon"
           priority
