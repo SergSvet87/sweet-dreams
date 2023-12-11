@@ -32,8 +32,8 @@ public static class IdentityServiceExtensions
                 v.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
             }).AddGoogle(googleOptions =>
         {
-            googleOptions.ClientId = config["Authentication:Google:ClientId"];
-            googleOptions.ClientSecret = config["Authentication:Google:ClientSecret"];
+            googleOptions.ClientId = Environment.GetEnvironmentVariable("Google__ClientId");
+            googleOptions.ClientSecret = Environment.GetEnvironmentVariable("GoogleClientSecret");
         });
         
         return services;
