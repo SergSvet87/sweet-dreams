@@ -6,18 +6,13 @@ namespace API.Services;
 
 public class EmailConfirmationService : IEmailConfirmationService
 {
-    private readonly string _key;
-
-    public EmailConfirmationService(IConfiguration config)
-    {
-        _key = config["Authentication:SendGrid:SecretKey"];
-    }
+    private readonly string _key = Environment.GetEnvironmentVariable("SendGridSecret");
 
     public async Task SendConfirmationEmail(string subject, string toEmail, string userName, string html)
     {
         var apiKey = _key;
         var client = new SendGridClient(apiKey);
-        var from = new EmailAddress("sweetdreams2023777@gmail.com", "Sweet Dreams");
+        var from = new EmailAddress("candyheaven2023@gmail.com", "Candy Heaven");
         var to = new EmailAddress(toEmail, userName);
         var plainTextContent = "";
         var htmlContent = html;

@@ -1,7 +1,5 @@
-﻿using System.Security.Claims;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
-using API.Data;
 using API.DTOs;
 using API.Entities;
 using API.Extensions;
