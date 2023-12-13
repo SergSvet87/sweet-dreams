@@ -1,15 +1,14 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {create} from 'zustand';
 
-import { closeModal } from "../modalDelivery/modalDeliverySlice.js";
+import { closeModal } from "../modalOrder/index.js";
 import { clearOrder } from "../order/orderSlice.js";
 
 const initialState = {
   name: "",
+  surname: "",
+  email: "",
   phone: "",
-  format: "delivery",
   address: "",
-  floor: "",
-  intercom: "",
 };
 
 export const submitForm = createAsyncThunk(
@@ -41,31 +40,15 @@ export const submitForm = createAsyncThunk(
   }
 );
 
-const formDeliverySlice = createSlice({
-  name: "formDelivery",
+const formOrderStore = create((set) => ({
+  // name: "formOrder",
   initialState,
-  reducers: {
-    updateFormValue: (state, action) => {
-      state[action.payload.field] = action.payload.value;
-    },
+  controls: {
+    name: () => set(({ name }) => ({ name: name })),
+    decrement: () => set(({ count }) => ({ count: count - 1 })),
+    reset: () => set({ count: 0 }),
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(submitForm.pending, (state) => {
-        state.status = "loading";
-        state.res = null;
-        state.error = null;
-      })
-      .addCase(submitForm.fulfilled, (state, action) => {
-        state.status = "success";
-        state.res = action.payload;
-      })
-      .addCase(submitForm.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.payload;
-      });
-  },
-});
+}));
 
 export const { updateFormValue } = formDeliverySlice.actions;
 

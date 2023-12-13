@@ -9,7 +9,7 @@ const STEP = 0.1;
 const MIN = 0;
 const MAX = 1000;
 
-const PriceRange = ({ setIsPriceRangeChanged }) => {
+const PriceRange = () => {
   const [priceRange, setPriceRange] = useState([100, 800]);
 
   const handlePriceRangeChange = (values) => {

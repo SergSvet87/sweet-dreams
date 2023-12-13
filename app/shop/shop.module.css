@@ -6,6 +6,7 @@
 .shop__content {
   display: flex;
   flex-direction: row;
+  /* justify-content: center; */
   gap: 2.125rem;
   padding: 2.7rem 0;
 }

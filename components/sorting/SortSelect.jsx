@@ -7,7 +7,7 @@ import { controlStyles, menuStyles, selectStyles, optionStyles } from './select.
 
 import styles from './sorting.module.css';
 
-const FilterSelect = () => {
+const SortSelect = ({ onChange }) => {
   const [categoryOption, setCategoryOption] = useState(null);
 
   const options = [
@@ -19,9 +19,9 @@ const FilterSelect = () => {
 
   return (
     <Select
-      className={styles.filter__select}
+      className={styles.sort__select}
       options={options}
-      placeholder="Filters"
+      placeholder="Sorting..."
       styles={{
         ...selectStyles,
         control: (defaultStyles) => ({
@@ -38,8 +38,9 @@ const FilterSelect = () => {
         }),
       }}
       isSearchable={false}
+      onChange={onChange}
     />
   );
 };
 
-export default FilterSelect;
+export default SortSelect;

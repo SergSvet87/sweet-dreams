@@ -13,6 +13,8 @@
 
 .basket__count {
   display: inline-block;
+  /* min-width: 1.6rem;
+  min-height: 1.8rem; */
 
 	position: absolute;
 	top: 50%;
@@ -23,7 +25,8 @@
 
 	font-weight: 500;
 	font-size: 1.75rem;
-  color: var(--white);
+  color: var(--accent);
+  z-index: 2;
 }
 
 .basket__button img {

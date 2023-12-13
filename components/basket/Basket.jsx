@@ -8,7 +8,7 @@ import { useClickOutside } from '@/hooks/useClickOutside';
 
 import styles from './basket.module.css';
 
-export default function Basket() {
+export default function Basket({count}) {
   const [isOpen, setOpen] = useState(false);
   const basketRef = useRef(null);
 
@@ -20,13 +20,13 @@ export default function Basket() {
     <div className={styles.basket} >
       <Link href='/cart' className={styles.basket__button} onClick={() => setOpen(!isOpen)}>
         <Image
-          src='images/header/basket.svg'
+          src='images/header/cart.svg'
           alt="Basket Icon"
           width={48}
           height={48}
           priority
         />
-        <div className={styles.basket__count}>0</div>
+        <div className={styles.basket__count}>{count}</div>
       </Link>
     </div>
   );

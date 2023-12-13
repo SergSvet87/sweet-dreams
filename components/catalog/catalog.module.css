@@ -5,6 +5,7 @@
 .catalog__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 15.5rem);
+  justify-content: center;
   gap: 4.75rem;
 }
 

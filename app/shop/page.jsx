@@ -1,24 +1,28 @@
-import React from 'react';
+'use client';
+
 import classNames from 'classnames';
 
 // import useUsersStore from '@/store/users/index';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 import Banner from '@/components/banner/Banner';
 import Search from '@/components/search/Search';
 import Catalog from '@/components/catalog/Catalog';
+import Filters from '@/components/filters/Filters';
+import Sorting from '@/components/sorting/Sorting';
 
 import styles from './shop.module.css';
-import Filters from '@/components/filters/Filters.jsx';
-import Sorting from '@/components/sorting/Sorting.jsx';
 
 export default function Shop() {
+  const isMobile1440 = useMediaQuery(1440);
+
   return (
     <div className={styles.shop}>
+      <Search />
       <Banner />
       <div className={classNames('shop__container')}>
-        <Search />
         <Sorting />
         <div className={styles.shop__content}>
-          <Filters />
+          {isMobile1440 ? null : <Filters />}
           <Catalog />
         </div>
       </div>
