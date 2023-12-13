@@ -72,5 +72,5 @@ Back side: С#/.NET
 **Сергій Світличний** Front-End Developer<br/>
 **Кирил Череватий** Front-End Developer<br/>
 **Ігор Архипенко** Back-End Developer<br/>
-**Людмила** Designer<br/>
-**Тетяна** Quality Assurance<br/>
+**Людмила Бардюжа** Designer<br/>
+**Тетяна Лебеда** Quality Assurance<br/>
