@@ -69,7 +69,7 @@
   }
 }
 
-@media (min-width: 340px) and (max-width: 46.4994rem) {
+@media (min-width: 20rem) and (max-width: 46.4994rem) {
   .banner {
     height: 6.25rem;
   }

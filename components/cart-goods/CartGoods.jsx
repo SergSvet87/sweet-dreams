@@ -5,9 +5,9 @@ import Image from 'next/image';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { Count } from '../count/Count';
 
-import styles from './order-goods.module.css';
+import styles from './cart-goods.module.css';
 
-export default function OrderGoods({ item }) {
+export default function CartGoods({ item }) {
   const isMobile744 = useMediaQuery(744);
 
   return (
@@ -20,7 +20,7 @@ export default function OrderGoods({ item }) {
         <div className={styles.good__description}>
           <h3 className={styles.good__title}>{item.title}</h3>
 
-          <p className={styles.good__count}>{item.count}</p>
+          <p className={styles.good__quantity}>{item.quantity}</p>
 
           <p className={styles.good__code}>
             Item No:
@@ -35,8 +35,8 @@ export default function OrderGoods({ item }) {
         <span className={styles.price__count}>{item.price}</span>
       </p>
 
-      <div className={styles.good__quantity}>
-        <Count count={item.quantity} />
+      <div className={styles.good__count}>
+        <Count id={item.id} count={item.count} />
       </div>
 
       <p className={styles.good__total}>

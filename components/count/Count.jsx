@@ -1,19 +1,27 @@
 import React from 'react';
 
-import useCounterStore from '@/store/count/index';
+import useOrderStore from '@/store/order/index';
 
 import styles from './count.module.css';
 
-export const Count = ({ count, id }) => {
-  const controls = useCounterStore(({controls}) => controls);
-  const num = useCounterStore(({count}) => count);
+export const Count = ({ id, count }) => {
+  const addProduct = useOrderStore((state) => state.addProduct);
+  const removeProduct = useOrderStore(({removeProduct}) => removeProduct);
+
+  const addCount = () => {
+    addProduct({id});
+  };
+
+  const removeCount = () => {
+    removeProduct({id});
+  };
 
   return (
     <div className={styles.count}>
       <button
         className={styles.minus}
-        onClick={controls.decrement}
-        disabled={num === 1}>
+        onClick={removeCount}
+        disabled={count === 1}>
         <svg
           width="20"
           height="20"
@@ -28,10 +36,10 @@ export const Count = ({ count, id }) => {
           />
         </svg>
       </button>
-      <span className={styles.amount}>{num}</span>
+      <span className={styles.amount}>{count}</span>
       <button
         className={styles.plus}
-        onClick={controls.increment}
+        onClick={addCount}
       >
         <svg
           width="20"

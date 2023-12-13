@@ -1,8 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 
+import { Count } from '../count/Count';
+
 import styles from './product-card.module.css';
-import { Count } from '../count/Count.jsx';
 
 export default function ProductCard({ item }) {
   return (
@@ -37,7 +38,7 @@ export default function ProductCard({ item }) {
       <p className={styles.product__price}>{item.price}</p>
 
       <div className={styles.product__footer}>
-        <Count />
+        <Count id={item.id}/>
 
         <button
           className={styles.product__add}

@@ -50,3 +50,29 @@
   font-weight: 600;
   font-size: 0.875rem;
 }
+
+.sort__select {
+  width: 12.3125rem;
+}
+.filter__select {
+  width: 6.875rem;
+}
+
+@media (min-width: 20rem) and (max-width: 89.9994rem) {
+  .sort {
+    grid-template-columns: 6.875rem auto;
+    column-gap: 1.3rem;
+    justify-content: space-between;
+  }
+  .sort__select {
+    width: 12.3125rem;
+    padding: 0 12px;
+    gap: 6px;
+  }
+}
+
+/* @media (min-width: 20rem) and (max-width: 46.4994rem) {
+  .sort__select {
+    width: 12.3125rem;
+  }
+} */
