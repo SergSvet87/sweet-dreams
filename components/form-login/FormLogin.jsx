@@ -37,7 +37,7 @@ export default function FormLogin({ register, errors }) {
         <input
           className={styles.form__label__input}
           type="email"
-          placeholder="Вкажіть ваш E-mail"
+          placeholder="Enter your e-mail"
           name="email"
           {...register('email')}
           aria-invalid={errors.email ? 'true' : 'false'}
@@ -55,7 +55,7 @@ export default function FormLogin({ register, errors }) {
         <input
           className={`${styles.form__label__input} ${inputClass}`}
           type={passwordType}
-          placeholder="Вкажіть ваш Пароль"
+          placeholder="Enter your password"
           name="password"
           {...register('password')}
           aria-invalid={errors.password ? 'true' : 'false'}
@@ -83,21 +83,21 @@ export default function FormLogin({ register, errors }) {
       <div className={styles.form__memory}>
         <label className={styles.form__memory__label}>
           <input className={styles.form__memory__input} type="checkbox" name="memory" />
-          <span className={styles.form__memory__text}>"Запам'ятати мене"</span>
+          <span className={styles.form__memory__text}>Remember me</span>
         </label>
       </div>
 
       <button className={styles.form__submit} type="submit">
-        Авторизація
+        Authorization
       </button>
 
       <div className={styles.form__reg}>
-        Якщо у Вас не має акаунту, будь ласка,
-        <Link href="/auth/registration"> Зареєструйтеся</Link>
+        If you do not have an account, please
+        <Link href="/auth/registration"> Sign up</Link>
       </div>
 
       <a className={styles.form__lost_pass} href="#">
-        Забули пароль
+        Forgot password
       </a>
     </>
   );

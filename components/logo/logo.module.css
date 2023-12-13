@@ -1,0 +1,19 @@
+.logo img {
+  transition: transform .6s ease-in-out;
+}
+
+.logo img:hover {
+  transform: scale(0.9);
+}
+
+@media (max-width: 46.5rem) {
+  .logo {
+    width: 40px;
+    height: 35px;
+  }
+
+  .logo img {
+    width: 40px;
+    height: 35px;
+  }
+}

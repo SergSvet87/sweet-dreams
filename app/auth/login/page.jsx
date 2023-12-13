@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { toast } from 'react-toastify';
 
 import { showAuthError } from '@/common/errors/index';
-import { instance } from '@/utils/client';
+import { signIn } from '@/utils/client';
 import { LoginSchema } from '@/utils/yup/index';
 import FormAuth from '@/components/form-login/FormLogin';
 
@@ -30,14 +30,20 @@ export default function LoginPage() {
         password: data.password,
       };
 
-      const user = await instance.post('Account/login', userData);
+      const user = await signIn(userData).then((res) => {
+        // Cookies.set('tokenKey', res.data.token);
+        localStorage.setItem('user', JSON.stringify(res.data));
 
-      if (user.data) {
-        toast.success('Вхід виконаний!');
-        router.push('/');
+        return res.data;
+      });
+
+      if (user) {
+        toast.success('Login is complete!');
+        router.push('/userboard');
       }
     } catch (e) {
-      showAuthError(e)
+      toast.error('Invalid credentials :(', e);
+      showAuthError(e);
     }
   };
 

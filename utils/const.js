@@ -7,40 +7,103 @@ import {
 } from 'react-icons/bs';
 
 export const TIME_SHOW_PASSWORD = 5000;
+export const TIME_SHOW_HOME_ANIMATION = 8000;
 
 export const MOBILE_MENU = [
   {
     id: 1,
-    name: 'головна',
-    page: 'home',
-    path: '/',
+    name: 'shop now',
+    page: 'shop now',
+    path: '/shop',
   },
   {
     id: 2,
-    name: 'про нас',
-    page: 'about',
-    path: '/about',
+    name: 'Delivery',
+    page: 'delivery',
+    path: '/delivery',
   },
   {
-    id: 6,
-    name: 'закрити',
-    page: 'close',
-    path: '/',
+    id: 3,
+    name: 'Our team',
+    page: 'team',
+    path: '/team',
   },
 ];
 
 export const MENU = [
   {
     id: 1,
-    name: 'головна',
+    name: 'Home',
     page: 'home',
     path: '/',
   },
   {
     id: 2,
-    name: 'про нас',
-    page: 'about',
-    path: '/about',
+    name: 'shop now',
+    page: 'shop now',
+    path: '/shop',
+  },
+  // {
+  //   id: 3,
+  //   name: 'Chewies',
+  //   page: 'chewies',
+  //   path: '/chewies',
+  // },
+  // {
+  //   id: 4,
+  //   name: 'Jellies',
+  //   page: 'jellies',
+  //   path: '/jellies',
+  // },
+  // {
+  //   id: 5,
+  //   name: 'Chocolates',
+  //   page: 'chocolates',
+  //   path: '/chocolates',
+  // },
+  {
+    id: 3,
+    name: 'Delivery',
+    page: 'delivery',
+    path: '/delivery',
+  },
+  {
+    id: 4,
+    name: 'Our team',
+    page: 'team',
+    path: '/team',
+  },
+];
+export const SUB_MENU = [
+  {
+    id: 1,
+    name: 'Candies',
+    page: 'Candies',
+    path: '/shop',
+  },
+  {
+    id: 2,
+    name: 'Lollies',
+    page: 'Lollies',
+    path: '/shop',
+  },
+  {
+    id: 3,
+    name: 'Chewies',
+    page: 'chewies',
+    path: '/shop',
+  },
+  {
+    id: 4,
+    name: 'Jellies',
+    page: 'jellies',
+    path: '/shop',
+  },
+  {
+    id: 5,
+    name: 'Chocolates',
+    page: 'chocolates',
+    path: '/shop',
   },
 ];
 
@@ -64,23 +127,16 @@ export const MENU_PROFILE_AUTH = [
 export const MENU_PROFILE = [
   {
     id: 1,
-    name: 'профіль',
+    name: 'profile',
     page: 'profile',
     path: '/profile',
-    icon: BsFillPersonFill,
+    icon: <BsFillPersonFill />,
   },
   {
     id: 2,
-    name: 'налаштування',
-    page: 'settings',
-    path: '/settings',
-    icon: BsFillGearFill,
-  },
-  {
-    id: 3,
-    name: 'вихід',
+    name: 'exit',
     page: 'exit',
-    path: '/exit',
-    icon: BsBoxArrowRight,
+    path: '/',
+    icon: <BsBoxArrowRight />,
   },
 ];

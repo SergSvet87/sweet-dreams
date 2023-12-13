@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 import { AuthErrors, showAuthError } from '@/common/errors/index';
 import { RegisterSchema } from '@/utils/yup/index';
-import { instance } from '@/utils/client';
+import { signUp } from '@/utils/client';
 import FormRegistration from '@/components/form-register/FormRegistration';
 
 import styles from '../auth.module.css';
@@ -34,10 +34,10 @@ export default function RegisterPage() {
           password: data.password,
         };
 
-        const user = await instance.post('Account/register', userData);
+        const user = await signUp(userData);
 
         if (user.status === 200) {
-          toast.success('Реєстрація пройшла успішно!');
+          toast.success('Registration was successful!');
           router.push('/auth/login');
         }
       } catch (e) {

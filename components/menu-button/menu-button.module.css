@@ -1,0 +1,34 @@
+.button {
+  position: relative;
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  z-index: 101;
+}
+
+.button img {  
+  border-radius: 1.25rem;
+  background-color: transparent;
+
+  transition: all .4s ease-in-out;
+}
+
+.button:hover img {
+  border-radius: 1.25rem;
+  background-color: var(--footer-color);
+}
+
+@media (max-width: 62.5rem) {
+  .button {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 46.5rem) {
+  .button {
+    width: 2rem;
+    height: 2rem;
+  }
+}

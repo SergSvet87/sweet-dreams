@@ -3,9 +3,32 @@
 }
 
 .profile__button{
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   padding: 0;
   border: 0;
-  border-radius: 50%;
+}
+
+.profile__button img {
+  background: transparent;
+
+  transition: background 0.6s ease-in-out;
+}
+
+.profile__button:hover img {
+  background: url('/images/header/profile_icon_40.png') center/ contain no-repeat;
+}
+
+@media (max-width: 62.5rem) {
+  .profile__button{
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 46.5rem) {
+  .profile__button{
+    width: 2rem;
+    height: 2rem;
+  }
 }

@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for candyheaven on 2023-12-10T22:55:52+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "candyheaven"
+primary_region = "waw"
+
+[build]
+  image = "ihorarkh/candyheaven:latest"
+
+[env]
+ASPNETCORE_URLS="http://+:8080"
+Google__ClientId="522667021581-rqtn3ij8ss221342i01bhgen7fd3go85.apps.googleusercontent.com"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 1024

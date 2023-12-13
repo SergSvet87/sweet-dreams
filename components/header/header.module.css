@@ -1,11 +1,38 @@
 .header {
   position: relative;
   width: 100%;
-  box-shadow: 0rem 0.3125rem 1.375rem 0rem rgba(0, 0, 0, 0.25);
+  padding: 1rem 0;
+  border-radius: 0rem 0rem 5rem 5rem;
+  background-color: var(--accent);
+  font-size: 2rem;
 }
 
 .header__container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.header__icons {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.8125rem;
+}
+
+@media (max-width: 90rem) {
+  .header {
+    font-size: 1.5rem;
+  }
+  .header__icons {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 46.5rem) {
+  .header {
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+  }
 }

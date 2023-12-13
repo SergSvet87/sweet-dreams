@@ -1,0 +1,92 @@
+.banner {
+  width: 100%;
+  height: 12.5rem;
+  background: url('../../public/images/banner/banner.png') center / cover no-repeat;
+}
+
+.banner__wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.banner__title {
+  position: relative;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  font-size: 7.5rem;
+  font-weight: 500;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.title__arrows {
+  display: inline-block;
+  width: 16.7rem;
+  height: 8.375rem;
+  background: url('../../public/images/shop/arrows.png') left top / contain no-repeat;
+  /* visibility: hidden;
+  opacity: 0;
+  transform: scale(0); */
+}
+
+.title__text {
+  margin-left: 14.0625rem;
+}
+
+@media (min-width: 90rem) and (max-width: 119.9994rem) {
+  .banner {
+    height: 8.75rem;
+  }
+  .banner__title {
+    font-size: 6.5rem;
+  }
+  .title__arrows {
+    width: 13.75rem;
+    height: 6.8125rem;
+  }
+  .title__text {
+    margin-left: 5.0625rem;
+  }
+}
+
+@media (min-width: 46.5rem) and (max-width: 89.9994rem)  {
+  .banner {
+    height: 8.75rem;
+  }
+  .banner__title {
+    font-size: 4rem;
+  }
+  .title__arrows {
+    width: 6.25rem;
+    height: 3rem;
+  }
+  .title__text {
+    margin-left: 1.5625rem;
+  }
+}
+
+@media (min-width: 20rem) and (max-width: 46.4994rem) {
+  .banner {
+    height: 6.25rem;
+  }
+  .banner__title {
+    width: 100%;
+    font-size: 2rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .title__arrows {
+    width: 3.375rem;
+    height: 1.625rem;
+  }
+  .title__text {
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+  }
+}

@@ -1,0 +1,79 @@
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+
+  font-size: 7.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  background-color: var(--accent);
+
+  z-index: 2;
+}
+
+.title__arrows {
+  display: inline-block;
+  width: 16.75rem;
+  height: 8.375rem;
+  background: url('../../public/images/arrows.png') 1px top / contain no-repeat;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.title__text {
+  margin-left: 19.4rem;
+}
+
+@media (min-width: 90rem) and (max-width: 119.9994rem) {
+  .title {
+    font-size: 6.5rem;
+  }
+
+  .title__arrows {
+    width: 16.6875rem;
+    height: 8.375rem;
+  }
+
+  .title__text {
+    margin-left: 2.9rem;
+  }
+}
+
+@media (min-width: 46.5rem) and (max-width: 1439.99px) {
+  .title {
+    font-size: 4rem;
+  }
+
+  .title__arrows {
+    width: 6.25rem;
+    height: 3rem;
+  }
+
+  .title__text {
+    margin-left: 1.25rem;
+  }
+}
+
+@media (min-width: 20rem) and (max-width: 743.99px) {
+  .title {
+    font-size: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .title__arrows {
+    display: block;
+    width: 100%;    
+    width: 3.375rem;
+    height: 1.625rem;
+  }
+
+  .title__text {
+    display: block;
+    width: 100%;
+    margin-left: 0rem;
+    text-align: center;
+  }
+}
