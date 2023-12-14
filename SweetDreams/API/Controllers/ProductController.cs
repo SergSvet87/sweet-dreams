@@ -60,8 +60,8 @@ public class ProductController : BaseApiController
     /// <summary>
     /// Get product by Id.
     /// </summary>
-    [HttpGet("{id}")]
-    public async Task<ActionResult<ProductDto>> GetProduct(int id)
+    [HttpGet("GetProductById/{id}")]
+    public async Task<ActionResult<ProductDto>> GetProductById(int id)
     {
         var product = await _unitOfWork.Product.GetById(id);
         if (product == default)
@@ -125,5 +125,15 @@ public class ProductController : BaseApiController
         await _unitOfWork.SaveChangesAsync();
 
         return NoContent();
+    }
+
+    [HttpGet("SearchByName/{name}")]
+    public async Task<ActionResult<IEnumerable<ProductDto>>> GetByName(string name)
+    {
+        var products = _unitOfWork.Product.Find(x => x.Name.Contains(name));
+
+        var result = _mapper.Map<IEnumerable<ProductDto>>(products);
+
+        return Ok(result);
     }
 }
