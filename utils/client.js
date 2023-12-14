@@ -16,4 +16,7 @@ export const signUp = async (authData) =>
 export const signIn = async (authData) =>
   await instance.post('Account/login', authData);
 
+export const getProductId = async (id) =>
+  await instance.get(`Product/${id}`);
+
 export const fetcher = (...args) => fetch(...args).then((res) => res.json());

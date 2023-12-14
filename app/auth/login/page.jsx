@@ -10,6 +10,7 @@ import { showAuthError } from '@/common/errors/index';
 import { signIn } from '@/utils/client';
 import { LoginSchema } from '@/utils/yup/index';
 import FormAuth from '@/components/form-login/FormLogin';
+import Search from '@/components/search/Search';
 
 import styles from '../auth.module.css';
 
@@ -50,9 +51,11 @@ export default function LoginPage() {
   return (
     <div className={styles.auth}>
       <div className={classNames('auth__container', styles.auth__wrapper)}>
-        <form className={styles.auth__form} onSubmit={handleSubmit(handleSubmitForm)}>
-          <div className={styles.auth__title}>Login</div>
+        <Search />
 
+        <h2 className={styles.auth__title}>Login</h2>
+
+        <form className={styles.auth__form} onSubmit={handleSubmit(handleSubmitForm)}>
           <FormAuth register={register} errors={errors} />
         </form>
       </div>

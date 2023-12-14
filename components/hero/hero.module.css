@@ -81,6 +81,9 @@
     max-width: 703px;
     min-height: 673px;
   }
+  .hero:after {
+    background-position-y: bottom;
+  }
 }
 
 @media (min-width: 46.5rem) and (max-width: 89.9994rem) {

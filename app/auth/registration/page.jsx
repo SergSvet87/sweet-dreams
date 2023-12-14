@@ -51,9 +51,9 @@ export default function RegisterPage() {
   return (
     <div className={styles.auth}>
       <div className={classNames('auth__container', styles.auth__wrapper)}>
-        <form className={styles.auth__form} onSubmit={handleSubmit(handleSubmitForm)}>
-          <div className={styles.auth__title}>Registration</div>
+        <h2 className={styles.auth__title}>Create account</h2>
 
+        <form className={styles.auth__form} onSubmit={handleSubmit(handleSubmitForm)}>
           <FormRegistration register={register} errors={errors} />
         </form>
       </div>

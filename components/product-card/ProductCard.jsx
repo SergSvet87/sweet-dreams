@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 
 import { Count } from '../count/Count';
@@ -17,7 +18,9 @@ export default function ProductCard({ item }) {
         priority
       />
 
-      <h2 className={styles.product__title}>{item.title}</h2>
+      <Link href={`/product/${item.id}`}>
+        <h2 className={styles.product__title}>{item.title}</h2>
+      </Link>
 
       <p className={styles.product__count}>{item.count}</p>
 
@@ -38,12 +41,9 @@ export default function ProductCard({ item }) {
       <p className={styles.product__price}>{item.price}</p>
 
       <div className={styles.product__footer}>
-        <Count id={item.id}/>
+        <Count id={item.id} />
 
-        <button
-          className={styles.product__add}
-          type="button"
-        >
+        <button className={styles.product__add} type="button">
           <img src="./images/shop/cart.svg" alt="" />
         </button>
       </div>
