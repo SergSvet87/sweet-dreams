@@ -60,8 +60,8 @@ public class ProductController : BaseApiController
     /// <summary>
     /// Get product by Id.
     /// </summary>
-    [HttpGet("{id}")]
-    public async Task<ActionResult<ProductDto>> GetProduct(int id)
+    [HttpGet("GetProductById/{id}")]
+    public async Task<ActionResult<ProductDto>> GetProductById(int id)
     {
         var product = await _unitOfWork.Product.GetById(id);
         if (product == default)
@@ -125,5 +125,34 @@ public class ProductController : BaseApiController
         await _unitOfWork.SaveChangesAsync();
 
         return NoContent();
+    }
+
+    /// <summary>
+    /// Get product(s) by name.
+    /// </summary>
+    [HttpGet("GetByName/{name}")]
+    public async Task<ActionResult<IEnumerable<ProductDto>>> GetByName(string name)
+    {
+        var products = _unitOfWork.Product.Find(x => x.Name.Contains(name));
+
+        var result = _mapper.Map<IEnumerable<ProductDto>>(products);
+
+        return Ok(result);
+    }
+
+    /// <summary>
+    /// Get products by price range.
+    /// </summary>
+    [HttpGet("GetByPriceRange")]
+    public async Task<ActionResult<IEnumerable<ProductDto>>> GetByPriceRange(
+        [FromQuery] decimal minPrice,
+        [FromQuery] decimal maxPrice)
+    {
+        var products = _unitOfWork.Product.Find(x =>
+            x.Price >= minPrice && x.Price <= maxPrice);
+
+        var result = _mapper.Map<IEnumerable<ProductDto>>(products);
+
+        return Ok(result);
     }
 }
