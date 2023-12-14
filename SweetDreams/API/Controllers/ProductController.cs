@@ -127,6 +127,9 @@ public class ProductController : BaseApiController
         return NoContent();
     }
 
+    /// <summary>
+    /// Get product(s) by name.
+    /// </summary>
     [HttpGet("SearchByName/{name}")]
     public async Task<ActionResult<IEnumerable<ProductDto>>> GetByName(string name)
     {
