@@ -1,10 +1,10 @@
 'use client';
 
-// import { useEffect } from 'react';
-// import { useRouter } from 'next/navigation';
-// import useSWR from 'swr';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import useSWR from 'swr';
 
-// import useUsersStore from '@/store/users/index';
+import useUsersStore from '@/store/users/index';
 // import { fetcher, getUsers } from '@/utils/client';
 import Hero from '@/components/hero/Hero';
 import Products from '@/components/products/Products';
@@ -15,13 +15,11 @@ export default function Home() {
   // const { users } = useUsersStore((state) => state.users);
   // const { getUsers } = useUsersStore((state) => state.getUsers);
 
-  // const data = useSWR(`${process.env.NEXT_PUBLIC_SERVER_URL}User`, fetcher);
-  // const users = getUsers();
-  // console.log('getUsers: ', users);
-
   // useEffect(() => {
   //   const getCurrentUser = () => JSON.parse(localStorage.getItem('user'));
   //   const user = getCurrentUser();
+
+  //   // const  users = getUsers
 
   //   if (user) {
   //     router.push('/userboard');
