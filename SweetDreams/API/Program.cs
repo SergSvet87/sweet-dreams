@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using API.Data;
 using API.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -5,7 +6,10 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(opt =>
+{
+    opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 
 builder.Services.AddSwaggerServices(builder.Configuration);
 builder.Services.AddApplicationServices(builder.Configuration);
@@ -29,13 +33,11 @@ else
     var pgHost = pgHostPort.Split(":")[0];
     var pgPort = pgHostPort.Split(":")[1];
     var updatedHost = pgHost.Replace("flycast", "internal");
-    
+
     connString = $"Server={updatedHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb};";
 }
-builder.Services.AddDbContext<DataContext>(opt =>
-{
-    opt.UseNpgsql(connString);
-});
+
+builder.Services.AddDbContext<DataContext>(opt => { opt.UseNpgsql(connString); });
 
 var app = builder.Build();
 
