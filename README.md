@@ -66,11 +66,11 @@ Back side: С#/.NET
 ## The specific functionality of each component or page
 
 
-## ✍️ Автори проєкту:
+## ✍️ Authors of the project:
 
-**Олександр Вівчар** Project Manager<br/>
-**Сергій Світличний** Front-End Developer<br/>
-**Кирил Череватий** Front-End Developer<br/>
-**Ігор Архипенко** Back-End Developer<br/>
-**Людмила Бардюжа** Designer<br/>
-**Тетяна Лебеда** Quality Assurance<br/>
+**Oleksandr Vivchar & Kristina Shevchenko** Project Manager<br/>
+**Serhii Svitlychnyi** Front-End Developer<br/>
+**Marian Pidchashyi** Front-End Developer<br/>
+**Ihor Arkhypenko** Back-End Developer<br/>
+**Liudmyla Bardiuzha** Designer<br/>
+**Oksana Reznikova** Quality Assurance<br/>
