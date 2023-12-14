@@ -130,10 +130,26 @@ public class ProductController : BaseApiController
     /// <summary>
     /// Get product(s) by name.
     /// </summary>
-    [HttpGet("SearchByName/{name}")]
+    [HttpGet("GetByName/{name}")]
     public async Task<ActionResult<IEnumerable<ProductDto>>> GetByName(string name)
     {
         var products = _unitOfWork.Product.Find(x => x.Name.Contains(name));
+
+        var result = _mapper.Map<IEnumerable<ProductDto>>(products);
+
+        return Ok(result);
+    }
+
+    /// <summary>
+    /// Get products by price range.
+    /// </summary>
+    [HttpGet("GetByPriceRange")]
+    public async Task<ActionResult<IEnumerable<ProductDto>>> GetByPriceRange(
+        [FromQuery] decimal minPrice,
+        [FromQuery] decimal maxPrice)
+    {
+        var products = _unitOfWork.Product.Find(x =>
+            x.Price >= minPrice && x.Price <= maxPrice);
 
         var result = _mapper.Map<IEnumerable<ProductDto>>(products);
 
