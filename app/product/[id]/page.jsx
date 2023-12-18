@@ -1,6 +1,5 @@
-import React from 'react';
+'use client';
 
-import { getProductId } from '@/utils/client';
 import Breadcrumbs from '@/components/breadcrumbs/Breadcrumbs';
 import Search from '@/components/search/Search';
 import SingleProduct from '@/components/single-product/SingleProduct';
@@ -8,23 +7,25 @@ import Like from '@/components/like/Like';
 
 import styles from './product.module.css';
 
-export const metadata = {
-  title: 'Продукт',
-};
+import useSWR from 'swr';
+import { fetcher } from '@/utils/client';
 
-export default function Product({ params }) {
+// export const metadata = {
+//   title: 'Продукт',
+// };
+
+export default async function Product({ params }) {
   const { id } = params;
-  const product = getProductId(id);
-  // const product = products.items.filter((item) => {
-  //   return item.name.includes(id);
-  // });
+
+  const data = useSWR(`${process.env.NEXT_PUBLIC_SERVER_URL}product/${id}`, fetcher);
+  const product = data.data;
 
   return (
     <div className={styles.product}>
       <Search />
       <Breadcrumbs />
 
-      <SingleProduct product={product} />
+      <SingleProduct item={product} />
 
       <Like />
     </div>

@@ -30,7 +30,7 @@ export const menuStyles = (defaultStyles) => ({
 export const selectStyles = {
   indicatorSeparator: () => ({
     border: 'none',
-    background: 'url("../../public/images/shop/arrow-right.svg") center / contain no-repeat',
+    background: 'url("/images/shop/arrow-right.png") center / contain no-repeat',
   }),
   dropdownIndicator: (defaultStyles, state) => ({
     ...defaultStyles,

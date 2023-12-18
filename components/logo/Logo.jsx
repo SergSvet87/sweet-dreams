@@ -27,7 +27,7 @@ export default function Logo({ className }) {
         <Image
           width={76}
           height={67}
-          src={isHovering ? 'images/logo-hover.svg' : 'images/logo.svg'}
+          src={isHovering ? '/images/logo-hover.svg' : '/images/logo.svg'}
           alt="Logo icon"
           priority
         />

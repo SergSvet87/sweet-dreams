@@ -37,8 +37,8 @@ export default function Contacts() {
               height={48}
               src={
                 isHoveringFacebook
-                  ? 'images/contacts/facebook-hover.svg'
-                  : 'images/contacts/facebook.svg'
+                  ? '/images/contacts/facebook-hover.svg'
+                  : '/images/contacts/facebook.svg'
               }
               alt="Facebook icon"
               priority
@@ -55,8 +55,8 @@ export default function Contacts() {
               height={38}
               src={
                 isHoveringInsta
-                  ? 'images/contacts/instagram-hover.svg'
-                  : 'images/contacts/instagram.svg'
+                  ? '/images/contacts/instagram-hover.svg'
+                  : '/images/contacts/instagram.svg'
               }
               alt="Instagram icon"
               priority
