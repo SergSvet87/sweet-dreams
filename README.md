@@ -68,9 +68,9 @@ Back side: С#/.NET
 
 ## ✍️ Автори проєкту:
 
-**Олександр Вівчар** Project Manager<br/>
+**Христина Шевченко** Project Manager<br/>
 **Сергій Світличний** Front-End Developer<br/>
-**Кирил Череватий** Front-End Developer<br/>
+**???** Front-End Developer<br/>
 **Ігор Архипенко** Back-End Developer<br/>
-**Людмила** Designer<br/>
-**Тетяна** Quality Assurance<br/>
+**Людмила Бардюжа** Designer<br/>
+**Оксана Резнікова** Quality Assurance<br/>

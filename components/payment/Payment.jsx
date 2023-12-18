@@ -11,7 +11,7 @@ export default function Payment() {
         <Image
           width={42}
           height={42}
-          src='images/payment/visa.svg'
+          src='/images/payment/visa.svg'
           alt="Visa icon"
           priority
         />
@@ -20,7 +20,7 @@ export default function Payment() {
         <Image
           width={41}
           height={31}
-          src='images/payment/mastercard.svg'
+          src='/images/payment/mastercard.svg'
           alt="Mastercard icon"
           priority
         />
