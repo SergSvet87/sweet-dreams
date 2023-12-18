@@ -70,7 +70,6 @@ Back side: С#/.NET
 
 **Oleksandr Vivchar & Kristina Shevchenko** Project Manager<br/>
 **Serhii Svitlychnyi** Front-End Developer<br/>
-**Marian Pidchashyi** Front-End Developer<br/>
 **Ihor Arkhypenko** Back-End Developer<br/>
 **Liudmyla Bardiuzha** Designer<br/>
 **Oksana Reznikova** Quality Assurance<br/>
