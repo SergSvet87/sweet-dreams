@@ -20,7 +20,7 @@ export default function Basket({count}) {
     <div className={styles.basket} >
       <Link href='/cart' className={styles.basket__button} onClick={() => setOpen(!isOpen)}>
         <Image
-          src='images/header/cart.svg'
+          src='/images/header/cart.svg'
           alt="Basket Icon"
           width={48}
           height={48}

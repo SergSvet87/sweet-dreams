@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 
 import { TIME_SHOW_PASSWORD } from '@/utils/const';
@@ -12,9 +12,19 @@ export default function FormLogin({ register, errors }) {
   const [passwordType, setPasswordType] = useState('password');
   const [passwordSvg, setPasswordSvg] = useState(<BsEyeSlash />);
   const [inputClass, setInputClass] = useState('');
+  const labelTextEmail = useRef();
+  const labelTextPassword = useRef();
 
   const handleClick = () => {
     console.log('click');
+  };
+
+  const handleFocusEmail = () => {
+    labelTextEmail.current.style.opacity = '1';
+  };
+
+  const handleFocusPassword = () => {
+    labelTextPassword.current.style.opacity = '1';
   };
 
   const showPassword = () => {
@@ -34,11 +44,15 @@ export default function FormLogin({ register, errors }) {
   return (
     <>
       <label className={styles.form__label}>
+        <span className={styles.label__text} ref={labelTextEmail}>
+          Email
+        </span>
         <input
           className={styles.form__label__input}
           type="email"
           placeholder="Enter your e-mail"
           name="email"
+          onFocus={handleFocusEmail}
           {...register('email')}
           aria-invalid={errors.email ? 'true' : 'false'}
         />
@@ -52,11 +66,15 @@ export default function FormLogin({ register, errors }) {
       </label>
 
       <label className={styles.form__label}>
+        <span className={styles.label__text} ref={labelTextPassword}>
+          password
+        </span>
         <input
           className={`${styles.form__label__input} ${inputClass}`}
           type={passwordType}
           placeholder="Enter your password"
           name="password"
+          onFocus={handleFocusPassword}
           {...register('password')}
           aria-invalid={errors.password ? 'true' : 'false'}
         />
@@ -80,25 +98,27 @@ export default function FormLogin({ register, errors }) {
         Google
       </button>
 
-      <div className={styles.form__memory}>
+      {/* <div className={styles.form__memory}>
         <label className={styles.form__memory__label}>
           <input className={styles.form__memory__input} type="checkbox" name="memory" />
           <span className={styles.form__memory__text}>Remember me</span>
         </label>
-      </div>
+      </div> */}
 
       <button className={styles.form__submit} type="submit">
-        Authorization
+        Log In
       </button>
 
-      <div className={styles.form__reg}>
-        If you do not have an account, please
-        <Link href="/auth/registration"> Sign up</Link>
-      </div>
+      <div className={styles.form__links}>
+        {/* If you do not have an account, please */}
+        <Link className={styles.form__link} href="/auth/registration">
+          Create account
+        </Link>
 
-      <a className={styles.form__lost_pass} href="#">
-        Forgot password
-      </a>
+        <Link className={styles.form__link} href="/auth/reset">
+          Forgot password
+        </Link>
+      </div>
     </>
   );
 }

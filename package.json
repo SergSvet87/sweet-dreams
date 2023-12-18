@@ -11,6 +11,7 @@
   "dependencies": {
     "@effector/next": "^0.6.1",
     "@hookform/resolvers": "^3.3.2",
+    "@splidejs/react-splide": "^0.7.12",
     "@svgr/webpack": "^8.1.0",
     "classnames": "^2.3.2",
     "effector": "^22.8.7",

@@ -9,16 +9,16 @@ export default function Team() {
         <h2 className={styles.team__title}>Our Team</h2>
         <ul className={styles.team__list}>
           <li className={styles.team__item}>
-            <Link href="#">Oleksandr Vivchar - Project Manager</Link>
+            <Link href="#">Krystyna Shevchenko - Project Manager</Link>
           </li>
           <li className={styles.team__item}>
             <Link href="#">Ihor Arkhypenko - BackEnd</Link>
           </li>
           <li className={styles.team__item}>
-            <Link href="#">Cyrill Cherevatyi - FrontEnd </Link>
+            <Link href="#">??? - FrontEnd </Link>
           </li>
           <li className={styles.team__item}>
-            <Link href="#">Tatiana Lebeda - QA</Link>
+            <Link href="#">Oksana Reznikova - QA</Link>
           </li>
           <li className={styles.team__item}>
             <Link href="#">Serhii Svitlychnyi - FrontEnd</Link>

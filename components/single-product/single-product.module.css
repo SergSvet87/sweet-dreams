@@ -1,0 +1,162 @@
+.item {
+  padding: 3.125rem 0;
+  margin: 0 auto;
+}
+
+.item__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  column-gap: 5.625rem;
+}
+
+.item__img {
+  width: 29rem;
+  height: 39.25rem;
+  position: relative;
+}
+
+.item__img img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.item__content {
+  display: flex;
+  flex-direction: column;
+  color: var(--black);
+}
+
+.item__title {  
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+
+.item__quantity,
+.item__code,
+.item__type {
+  font-weight: 400;
+  font-size: 1rem;
+  text-transform: capitalize;
+  margin-bottom: 0.75rem;
+}
+
+.item__favorite {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 0.875rem;
+}
+
+.item__rating,
+.item__like {
+  height: 1.25rem;
+}
+
+.item__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.item__vote img,
+.item__rating img,
+.item__like img {
+  cursor: pointer;
+}
+
+.item__like {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.item__like span {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.item__price {  
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.item__count {
+  margin-bottom: 1rem;  
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.43; 
+}
+
+.item__btn {
+  width: 13.5rem;
+  display: flex;
+  padding: 0.5rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 3.125rem;
+  background-color: var(--accent);
+  color: var(--black);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+  transition: background-color .4s ease-in-out;
+}
+
+.item__btn svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.item__btn:hover {
+  background-color: var(--footer-color);
+}
+
+.item__share {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.share__title {
+  font-weight: 400;
+  font-size: 0.875rem;
+  margin-right: 1.25rem;
+}
+
+.item__description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.desc__title,
+.vote__text {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.desc__text {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.vote__text {
+  margin-bottom: 0.5rem;
+}
+
+.item__vote img {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+

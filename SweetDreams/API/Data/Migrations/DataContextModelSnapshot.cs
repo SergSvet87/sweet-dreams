@@ -119,9 +119,21 @@ namespace API.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("Category")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsDairyFree")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsGlutenFree")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsVegeterian")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()

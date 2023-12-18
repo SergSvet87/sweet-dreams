@@ -61,3 +61,16 @@ export const RegisterSchema = yup
       ),
   })
   .required();
+
+  export const ResetSchema = yup
+  .object({
+    password: yup
+      .string()
+      .min(8, AuthErrors.minLength)
+      .required(AuthErrors.RequiredField)
+      .matches(
+        /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!@#$%&?]{8,30}$/,
+        AuthErrors.InvalidPassword
+      ),
+  })
+  .required();
