@@ -6,7 +6,7 @@ import ProductCard from '../product-card/ProductCard';
 
 import styles from './catalog.module.css';
 
-const products = [
+export const products = [
   {
     id: 1,
     src: '/images/products/card_1.png',

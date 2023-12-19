@@ -9,6 +9,7 @@ import styles from './product.module.css';
 
 import useSWR from 'swr';
 import { fetcher } from '@/utils/client';
+import { products } from '@/components/catalog/Catalog';
 
 // export const metadata = {
 //   title: 'Продукт',
@@ -27,7 +28,7 @@ export default async function Product({ params }) {
 
       <SingleProduct item={product} />
 
-      <Like />
+      <Like products={products} />
     </div>
   );
 }
