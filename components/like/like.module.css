@@ -10,3 +10,7 @@
   color: var(--black);
   margin-bottom: 2.125rem;
 }
+
+.splide__pagination {
+  display: none;
+}

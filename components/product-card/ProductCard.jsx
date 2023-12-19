@@ -26,25 +26,25 @@ export default function ProductCard({ item }) {
 
       <div className={styles.product__favorite}>
         <div className={styles.product__rating}>
-          <img src="./images/shop/star.svg" alt="" />
-          <img src="./images/shop/star.svg" alt="" />
-          <img src="./images/shop/star.svg" alt="" />
-          <img src="./images/shop/star.svg" alt="" />
-          <img src="./images/shop/star-off.svg" alt="" />
+          <img src="/images/shop/star.svg" alt="" />
+          <img src="/images/shop/star.svg" alt="" />
+          <img src="/images/shop/star.svg" alt="" />
+          <img src="/images/shop/star.svg" alt="" />
+          <img src="/images/shop/star-off.svg" alt="" />
         </div>
 
         <div className={styles.product__like}>
-          <img src="./images/shop/heart.svg" alt="" />
+          <img src="/images/shop/heart.svg" alt="" />
         </div>
       </div>
 
       <p className={styles.product__price}>{item.price}</p>
 
       <div className={styles.product__footer}>
-        <Count id={item.id} />
+        <Count id={item.id} count={item.quantity} />
 
         <button className={styles.product__add} type="button">
-          <img src="./images/shop/cart.svg" alt="" />
+          <img src="/images/shop/cart.svg" alt="" />
         </button>
       </div>
     </article>

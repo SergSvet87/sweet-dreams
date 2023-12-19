@@ -1,6 +1,6 @@
 :root {
-  --max-width: 102rem;
-  --font: 'PoppinsS, sans-serif';
+  --max-width: 75rem;
+  --font: PoppinsS, sans-serif;
   --font-size: 2rem;
   --padding-container: 0 1rem;
   --accent-second: #FDD49E;
