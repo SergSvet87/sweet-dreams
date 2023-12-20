@@ -7,36 +7,52 @@
 
 // import styles from './order.module.css';
 
-import {} from './order.styled';
+import {
+  Form,
+  OrderContainer,
+  Input,
+  LabelCheckbox,
+  Label,
+  HeaderContact,
+  HeaderDelivery,
+  Checkbox,
+  InputsContainer,
+} from './order.styled';
 
 export default function Order() {
   return (
-    <div>
-      <form>
-        <h2>Contact</h2>
-        <input type="text" name="yourInputName" />
+    <OrderContainer>
+      <Form>
+        <HeaderContact>Contact</HeaderContact>
+        <Input type="text" name="yourInputName" />
 
-        <h2>Delivery</h2>
-        <input type="checkbox" name="yourInputName" />
-        <label>
-          Name
-          <input type="text" name="yourInputName" />
-        </label>
-        <label>
-          Last name
-          <input type="text" name="yourInputName" />
-        </label>
-        <label>
-          Country
-          <input type="text" name="yourInputName" />
-          <input type="text" name="yourInputName" />
-          <input type="text" name="yourInputName" />
-          <input type="text" name="yourInputName" />
-          <input type="text" name="yourInputName" />
-          <input type="text" name="yourInputName" />
-          <input type="text" name="yourInputName" />
-        </label>
-      </form>
-    </div>
+        <HeaderDelivery>Delivery</HeaderDelivery>
+
+        <LabelCheckbox>
+          Use saved addresses
+          <Checkbox type="checkbox" name="yourInputName" />
+        </LabelCheckbox>
+        <InputsContainer>
+          <Label>
+            Name
+            <Input type="text" name="yourInputName" />
+          </Label>
+          <Label>
+            Last name
+            <Input type="text" name="yourInputName" />
+          </Label>
+          <Label>
+            Country
+            <Input type="text" name="yourInputName" />
+            <Input type="text" name="yourInputName" />
+            <Input type="text" name="yourInputName" />
+            <Input type="text" name="yourInputName" />
+            <Input type="text" name="yourInputName" />
+            <Input type="text" name="yourInputName" />
+            <Input type="text" name="yourInputName" />
+          </Label>
+        </InputsContainer>
+      </Form>
+    </OrderContainer>
   );
 }
