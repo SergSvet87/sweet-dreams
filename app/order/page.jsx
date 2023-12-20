@@ -7,36 +7,16 @@
 
 // import styles from './order.module.css';
 
-import {} from './order.styled';
+import { OrderContainer, Container } from './order.styled';
+
+import { OrderUserForm } from '../../components/order-user/OrderUserForm';
 
 export default function Order() {
   return (
-    <div>
-      <form>
-        <h2>Contact</h2>
-        <input type="text" name="yourInputName" />
-
-        <h2>Delivery</h2>
-        <input type="checkbox" name="yourInputName" />
-        <label>
-          Name
-          <input type="text" name="yourInputName" />
-        </label>
-        <label>
-          Last name
-          <input type="text" name="yourInputName" />
-        </label>
-        <label>
-          Country
-          <input type="text" name="yourInputName" />
-          <input type="text" name="yourInputName" />
-          <input type="text" name="yourInputName" />
-          <input type="text" name="yourInputName" />
-          <input type="text" name="yourInputName" />
-          <input type="text" name="yourInputName" />
-          <input type="text" name="yourInputName" />
-        </label>
-      </form>
-    </div>
+    <OrderContainer>
+      <Container>
+        <OrderUserForm />
+      </Container>
+    </OrderContainer>
   );
 }
