@@ -11,25 +11,32 @@ import {} from './order.styled';
 
 export default function Order() {
   return (
-    <form>
-      <input type="text" name="yourInputName" />
+    <div>
+      <form>
+        <h2>Contact</h2>
+        <input type="text" name="yourInputName" />
 
-      <label>
-        Name
-        <input type="text" name="yourInputName" />
-      </label>
-      <label>
-        Last name
-        <input type="text" name="yourInputName" />
-      </label>
-      <label>
-        Name
-        <input type="text" name="yourInputName" />
-      </label>
-      <label>
-        Name
-        <input type="text" name="yourInputName" />
-      </label>
-    </form>
+        <h2>Delivery</h2>
+        <input type="checkbox" name="yourInputName" />
+        <label>
+          Name
+          <input type="text" name="yourInputName" />
+        </label>
+        <label>
+          Last name
+          <input type="text" name="yourInputName" />
+        </label>
+        <label>
+          Country
+          <input type="text" name="yourInputName" />
+          <input type="text" name="yourInputName" />
+          <input type="text" name="yourInputName" />
+          <input type="text" name="yourInputName" />
+          <input type="text" name="yourInputName" />
+          <input type="text" name="yourInputName" />
+          <input type="text" name="yourInputName" />
+        </label>
+      </form>
+    </div>
   );
 }
