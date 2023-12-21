@@ -112,10 +112,7 @@ export default function SliderSlick() {
     <Slider {...sliderSettings} className="slider" ref={sliderRef}>
       {data.map((item) => (
         <div className={classNames('slider__slide')} key={item.id}>
-          <Image src={item.image} alt={item.title} width={256} height={251} priority />
-          <h2 className="title">{item.title}</h2>
-          <p className="count">{item.count}</p>
-          <p className="price">{item.price}</p>
+          
         </div>
       ))}
     </Slider>

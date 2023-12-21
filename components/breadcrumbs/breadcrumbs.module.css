@@ -5,3 +5,27 @@
   font-weight: 400;
   margin-bottom: 1rem;
 }
+
+.breadcrumb__link {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb__link a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumb__link span {
+  margin: 0 4px;
+}
+
+@media (max-width: 744px) {
+  .breadcrumb {
+    font-size: 0.75rem;
+  }
+  .breadcrumb__link svg {
+    width: 16px;
+    height: 16px;
+  }
+}

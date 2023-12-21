@@ -10,7 +10,7 @@ export default function Products() {
   return (
     <section className={styles.products}>
       <SectionHeader text="New Products" />
-      <div className={classNames(styles.products_container, 'products__container')}>
+      <div className={classNames(styles.products__wrapper, 'products__container')}>
         <ProductsCard />
       </div>
 
