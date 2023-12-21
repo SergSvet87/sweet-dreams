@@ -20,6 +20,8 @@ import {
   SubmitContainer,
   Subtotal,
   PayButton,
+  PriceContainer,
+  Price,
 } from './OrderUserForm.styled';
 import { OrderGoods } from '../order-goods/OrderGoods';
 
@@ -83,7 +85,10 @@ export function OrderUserForm() {
 
       <div>
         <SubmitContainer>
-          <Subtotal>Subtotal ₴300</Subtotal>
+          <PriceContainer>
+            <Subtotal>Subtotal</Subtotal>
+            <Price>₴300</Price>
+          </PriceContainer>
           <PayButton type="submit">Pay now</PayButton>
         </SubmitContainer>
         <OrderGoods />

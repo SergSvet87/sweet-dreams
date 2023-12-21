@@ -190,3 +190,19 @@ export const PayButton = styled.button`
   line-height: normal;
   text-transform: uppercase;
 `;
+
+export const PriceContainer = styled.div`
+  display: flex;
+  gap: 40px;
+  color: #131313;
+`;
+
+export const Price = styled.div`
+  font-family: PoppinsS;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  color: #131313;
+`;
