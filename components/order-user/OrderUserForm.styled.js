@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
   display: flex;
-  padding-left: 162px;
-  padding-right: 162px;
+  /* padding-left: 162px;
+  padding-right: 162px; */
   flex-direction: column;
   width: 786px;
 `;
