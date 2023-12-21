@@ -53,6 +53,7 @@
 .product__rating img,
 .product__like img {
   cursor: pointer;
+  vertical-align: top;
 }
 
 .product__price {  

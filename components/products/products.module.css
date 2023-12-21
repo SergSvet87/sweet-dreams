@@ -8,7 +8,7 @@
   display: block;
   width: 100%;
   height: 10.875rem;
-  background: url('../../public/images/products/bg-top.png') left top / cover no-repeat;
+  background: url('/images/products/bg-top.png') left top / cover no-repeat;
 }
 
 .products::after {
@@ -22,8 +22,9 @@
   z-index: -1;
 }
 
-.products_container {
+.products__wrapper {
   padding-top: 1.5rem;
+  max-width: 103rem;
 }
 
 .products__angel1 {
@@ -32,7 +33,7 @@
   position : absolute;
   top : 15%;
   right : 0%;
-  background: url('../../public/images/products/angel_1.png') center / cover no-repeat;
+  background: url('/images/products/angel_1.png') center / cover no-repeat;
   z-index: 2;
 }
 
@@ -42,7 +43,7 @@
   position : absolute;
   top : 35%;
   left : 0%;
-  background: url('../../public/images/products/angel_candy.png') center / cover no-repeat;
+  background: url('/images/products/angel_candy.png') center / cover no-repeat;
   z-index: 2;
 }
 
@@ -52,7 +53,7 @@
   position : absolute;
   bottom: 3%;
   left : 15%;
-  background: url('../../public/images/products/angel_2.png') center / cover no-repeat;
+  background: url('/images/products/angel_2.png') center / cover no-repeat;
 }
 
 .products__candy {
@@ -60,8 +61,8 @@
   height: 12.6875rem;
   position : absolute;
   top : 37%;
-  left : 57%;
-  background: url('../../public/images/products/lollipop.png') center / cover no-repeat;
+  left : 54%;
+  background: url('/images/products/lollipop.png') center / cover no-repeat;
   z-index: 2;
 }
 

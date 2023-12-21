@@ -34,7 +34,7 @@ export default function ProductCard({ item }) {
         </div>
 
         <div className={styles.product__like}>
-          <img src="/images/shop/heart.svg" alt="" />
+          <img className={styles.like__img} src="/images/shop/heart.svg" alt="" />
         </div>
       </div>
 

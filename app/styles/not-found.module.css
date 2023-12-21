@@ -18,7 +18,7 @@
 }
 
 .notFound__number {
-  font-size: 200px;
+  font-size: 12.5rem;
   font-weight: 600;
   line-height: 130%;
 }
@@ -43,73 +43,40 @@
   border-radius: 3.125rem;
   border: 0.25rem solid var(--white);
   background-color: var(--accent);
-  transition: background-color .4s ease-in-out;
+  transition: background-color .5s ease-in-out;
 }
 
 .notFound__btn:hover {  
   background-color: var(--footer-color);
 }
 
-.notFound__angel_1,
-.notFound__angel_2,
-.notFound__angel_3,
-.notFound__angel_4,
-.notFound__angel_5,
-.notFound__angel_6 {
-  position: absolute;
-  top: 0;
-  left: 15px;
-}
-
-.notFound__angel_2 {
-  left: auto;
-  right: 15px;
-}
-
-.notFound__angel_3 {
-  top: 50%;
-  left: 10%;
-}
-
-.notFound__angel_4 {
-  top: 60%;
-  left: auto;
-  right: 15px;
-}
-
-.notFound__angel_5 {
-  top: auto;
-  bottom: 15px;
-}
-
-.notFound__angel_6 {
-  top: auto;
-  left: auto;
-  bottom: 10px;
-  right: 10px;
-}
-
 @media (min-width: 90rem) and (max-width: 119.9994rem) {
   .notFound{
     padding-top: 6.25rem;
   }
-  .notFound__title { 
-    font-size: 2.5rem;
+}
+
+@media (min-width: 46.5rem) and (max-width: 89.9994rem) {
+  .notFound{
+    padding-top: 6rem;
   }
 }
 
 @media (min-width: 20rem) and (max-width: 46.4994rem) {
   .notFound{
-    padding-top: 1rem;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
   }
-  .notFound__img {
-    width: 7.5rem;
-    height: 7.5rem;
-    margin-bottom: 1.25rem;
+  .notFound__number {
+    font-size: 7.5rem;
+  }
+  .notFound__img img {
+    width: 6.25rem;
+    height: 6.25rem;
   }
   .notFound__title { 
-    font-size: 1.25rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
   }
   .notFound__btn {
     font-size: 1.5rem;

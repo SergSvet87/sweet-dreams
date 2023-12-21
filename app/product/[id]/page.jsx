@@ -11,10 +11,6 @@ import useSWR from 'swr';
 import { fetcher } from '@/utils/client';
 import { products } from '@/components/catalog/Catalog';
 
-// export const metadata = {
-//   title: 'Продукт',
-// };
-
 export default async function Product({ params }) {
   const { id } = params;
 

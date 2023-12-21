@@ -1,45 +1,47 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 import ProductCard from '../product-card/ProductCard';
-import SliderArrows from '../slider-arrows/SliderArrows';
 
 import '@splidejs/react-splide/css';
-import styles from './like.module.css';
+import './like.css';
 
 export default function Like({ products }) {
   return (
-    <section className={styles.like}>
-      <div className="like__container">
-        <h2 className={styles.like__title}>You may also like</h2>
+    <section className="like">
+        <h2 className="like__title">You may also like</h2>
 
         <Splide
-          className={styles.like__slider}
+          className="like__slider"
           aria-label="You may also like"
           options={{
             rewind: true,
-            width: 1600,
-            gap: '38px',
+            speed: 1200,
+            width: 1200,
+            arrows: true,
+            pagination: false,
+            gap: '3rem',
             type: 'loop',
             perPage: 4,
+            perMove: 1,
+            arrowPath: 'none',
             breakpoints: {
-              744: {
+              1920: {
+                width: 896,
                 perPage: 3,
               },
-              480: {
-                perPage: 2,
+              744: {
+                width: 492,
+                perPage: 1,
               },
             },
           }}>
           {products.length &&
             products.map((item) => (
-              <SplideSlide key={item.id} className={styles.like__slide}>
+              <SplideSlide key={item.id} className="like__slide">
                 <ProductCard item={item} />
               </SplideSlide>
             ))}
-
-          <SliderArrows />
         </Splide>
-      </div>
     </section>
   );
 }
