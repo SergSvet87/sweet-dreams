@@ -29,7 +29,7 @@ export const Table = styled.div`
 export const Test = styled.div`
   width: 114px;
   height: 100%;
-  background-color: green;
+  background-color: grey;
 `;
 
 export const Good = styled.div`
