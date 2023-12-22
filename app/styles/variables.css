@@ -1,5 +1,5 @@
 :root {
-  --max-width: 75rem;
+  --max-width: 1600px;
   --font: PoppinsS, sans-serif;
   --font-size: 2rem;
   --padding-container: 0 1rem;
@@ -24,4 +24,10 @@ html[data-theme="light"] {
   --text-color: var(--black);
 
   --background-color: var(--white);
+}
+
+@media (max-width: 1919.99px) {
+  :root {
+    --max-width: 1200px;
+  }
 }

@@ -8,8 +8,8 @@ export default function Breadcrumbs() {
   return (
     <div className={styles.breadcrumb}>
       <div className="breadcrumb__container">
-        <div className={styles.breadcrumb__link}>
-          <Link href="/">
+        <div className={styles.breadcrumb__links}>
+          <Link className={styles.breadcrumb__home} href="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -21,9 +21,12 @@ export default function Breadcrumbs() {
                 fill="#131313"
               />
             </svg>
-            <span>/</span>
           </Link>
-          Lollies<span>/</span>
+          <span>/</span>
+          <Link className={styles.breadcrumb__shop} href="/shop">
+            Lollies
+          </Link>
+          <span>/</span>
           Candy bird
         </div>
       </div>
