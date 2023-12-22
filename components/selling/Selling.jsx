@@ -83,25 +83,33 @@ export default function Selling() {
           className="sellers__slider"
           aria-label="Best Sellers"
           options={{
+            type: 'loop',
             rewind: true,
             speed: 1200,
-            arrows: true,
-            pagination: true,
-            type: 'loop',
             perPage: 3,
             perMove: 1,
             focus: 1,
+            gap: '198px',
+            pagination: true,
+            arrows: true,
             arrowPath: 'none',
             breakpoints: {
+              1920: {
+                gap: '11.25rem',
+              },
               1440: {
                 perPage: 2,
+                gap: '12rem',
+                focus: 0,
               },
               960: {
                 perPage: 1,
+                gap: '20rem',
                 focus: 0,
               },
               744: {
                 perPage: 1,
+                gap: '10rem',
                 focus: 0,
               },
             },

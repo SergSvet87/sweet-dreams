@@ -1,6 +1,6 @@
 .sort {
   display: grid;
-  grid-template-columns: 12.5rem auto 12.5rem;
+  grid-template-columns: 18.125rem auto 12.5rem;
   column-gap: 2.25rem;
   padding: 1.375rem 0;
   margin-bottom: 8px;
@@ -9,6 +9,7 @@
 .sort__reset {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   gap: 2.1875rem;
 }
 

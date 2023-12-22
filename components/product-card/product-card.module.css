@@ -68,3 +68,7 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.product__add img {
+  vertical-align: middle;
+}

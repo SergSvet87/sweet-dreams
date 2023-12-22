@@ -6,7 +6,7 @@
 }
 
 .sellers__slider .splide__track {
-  max-width: 1610px;
+  max-width: 101.25rem;
   height: 100%;
   margin: 0 auto;
 }
@@ -27,18 +27,17 @@
 }
 
 .sellers__slider .splide__arrow--prev {
-  left: 28%;
+  left: 30%;
 }
 
 .sellers__slider .splide__arrow--next {
-  right: 30%;
+  right: 32%;
 }
 
 .sellers__slider .sellers__slide {
   max-width: 368px;
   min-height: 464px;
   padding: 16px 24px;
-  margin: 0px 100px !important;
   border-radius: 120px;
   background: var(--white);
   color: var(--black);
@@ -71,10 +70,9 @@
 }
 
 .sellers__slider .splide__slide.sellers__slide.is-active {
-  max-width: 464px;
+  min-width: 464px;
   max-height: 720px;
   padding: 1.5rem 1.625rem;
-  margin: 0px 100px !important;
   border-radius: 10rem;
   transform: translateY(0px);
 }
@@ -141,22 +139,21 @@
     padding: 1rem 0 5.625rem;
   }  
   .sellers__slider .splide__track {
-    max-width: 1420px;
+    max-width: 1500px;
   }
   .sellers__slider .splide__arrows button {
     width: 5rem;
     height: 5rem;
   }  
   .sellers__slider .splide__arrow--prev {
-    left: 32%;
+    left: 24%;
   }  
   .sellers__slider .splide__arrow--next {
-    right: 34%;
+    right: 24%;
   }  
   .sellers__slider .sellers__slide {
     max-width: 296px;
     min-height: 369px;
-    margin: 0px 70px !important;
     border-radius: 6.25rem;
   }  
   .sellers__slider .splide__slide.sellers__slide img {
@@ -176,8 +173,8 @@
   }  
   .sellers__slider .splide__slide.sellers__slide.is-active {
     max-width: 408px;
-    min-height: 632px;
-    margin: 0px 90px !important;
+    max-height: 632px;
+    /* margin: 0px 90px !important; */
     border-radius: 8.75rem;  
   }  
   .sellers__slider .splide__slide.sellers__slide.is-next {
@@ -198,7 +195,7 @@
     height: 750px;
   }  
   .sellers__slider .splide__track {
-    max-width: 1000px;
+    max-width: 650px;
   }  
   .sellers__slider .splide__arrows button {
     width: 5rem;
@@ -211,10 +208,9 @@
     right: 4%;
   }  
   .sellers__slider .sellers__slide {
-    max-width: 408px;
-    min-height: 632px;
+    min-width: 408px;
+    max-height: 632px;
     padding: 1.5rem 1.625rem;
-    margin-right: 120px !important;
     border-radius: 8.75rem;
     transform: translateY(0rem);
   }  
@@ -233,8 +229,8 @@
     font-size: 1.5rem;
   }  
   .sellers__slider .splide__slide.sellers__slide.is-active {
-    max-width: 408px;
-    min-height: 632px;
+    min-width: 408px;
+    max-height: 632px;
     border-radius: 8.75rem;
     transform: translateY(0rem);
   }  
@@ -265,7 +261,7 @@
     padding: 16px 0 70px;
   }  
   .sellers__slider .splide__track {
-    max-width: 700px;
+    max-width: 420px;
     z-index: 5;
   }  
   .sellers__slider .splide__arrows button {
@@ -274,14 +270,14 @@
     z-index: 6;
   }  
   .sellers__slider .splide__arrow--prev {
-    left: 3%;
+    left: 5%;
   }  
   .sellers__slider .splide__arrow--next {
-    right: 4%;
+    right: 5%;
   }  
   .sellers__slider .sellers__slide {
-    min-width: 25.5rem;
-    min-height: 39.5rem;
+    min-width: 408px;
+    max-height: 632px;
     padding: 1.5rem 1.625rem;
     border-radius: 8.75rem;
     transform: translateY(0rem);
@@ -329,11 +325,11 @@
 
 @media (min-width: 20rem) and (max-width: 46.4994rem) {
   .splide.sellers__slider {
-    height: 29.375rem;
+    height: 450px;
     padding: 0.5rem 0 3.125rem;
   }  
   .sellers__slider .splide__track {
-    max-width: 45rem;
+    max-width: 300px;
     z-index: 5;
   }  
   .sellers__slider .splide__arrows button {
@@ -348,13 +344,15 @@
     right: 4%;
   }  
   .sellers__slider .sellers__slide {
+    min-width: auto;
+    max-height: auto;
     max-width: 296px;
-    min-height: 23.0625rem;
-    margin: 0 100px !important;
+    min-height: 369px;
+    padding: 1rem 1.5rem;
     border-radius: 6.25rem;
     transform: translateY(0rem);
   }  
-  .sellers__slider .splide__slide .sellers__slide img {
+  .sellers__slider .splide__slide.sellers__slide img {
     width: 182px;
     height: 183px;
     margin-bottom: 2.25rem;
@@ -371,8 +369,11 @@
     font-size: 1.25rem;
   }  
   .sellers__slider .splide__slide.sellers__slide.is-active {
-    max-width: 296px;
+    max-width: 18.5rem;
+    min-width: auto;
+    max-height: auto;
     min-height: 369px;
+    padding: 1rem 1.5rem;
     border-radius: 6.25rem;
     transform: translateY(0rem);
   }  
@@ -405,14 +406,5 @@
   .sellers__slider .splide__pagination__page {
     width: 12px;
     height: 12px;
-  }
-}
-
-@media (min-width: 20rem) and (max-width: 30rem) {
-  .sellers__slider .splide__track {
-    max-width: 28.75rem;
-  } 
-  .sellers__slider .sellers__slide {
-    margin: 0 15px !important;
   }
 }
