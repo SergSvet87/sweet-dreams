@@ -1,4 +1,3 @@
-// AccountDetails.tsx
 import React from 'react';
 import styles from './account-details.module.css';
 
