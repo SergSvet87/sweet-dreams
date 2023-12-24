@@ -1,6 +1,6 @@
-import { ProfileItemI } from '@/types/interfaces';
+import { IProfileItem } from '@/types/interfaces';
 
-export const PROFILE: ProfileItemI[] = [
+export const PROFILE: IProfileItem[] = [
   {
     id: 1,
     name: 'account details',
