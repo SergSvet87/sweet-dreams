@@ -24,7 +24,7 @@ export default function Shop() {
       <div className={styles.shop}>
         <div className={classNames('shop__container')}>
           <Sorting />
-          
+
           <div className={styles.shop__content}>
             {isMobile1440 ? null : <Filters />}
 

@@ -1,30 +1,27 @@
-import {create} from 'zustand';
+import { create } from 'zustand';
 
-import { closeModal } from "../modalOrder/index.js";
-import { clearOrder } from "../order/orderSlice.js";
+import { closeModal } from '../modalOrder/index.js';
+import { clearOrder } from '../order/orderSlice.js';
 
 const initialState = {
-  name: "",
-  surname: "",
-  email: "",
-  phone: "",
-  address: "",
+  name: '',
+  surname: '',
+  email: '',
+  phone: '',
+  address: '',
 };
 
 export const submitForm = createAsyncThunk(
-  "form/submit",
+  'form/submit',
   async (data, { dispatch, rejectWithValue }) => {
     try {
-      const res = await fetch(
-        "https://cloudy-slash-rubidium.glitch.me/api/order",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      const res = await fetch('https://cloudy-slash-rubidium.glitch.me/api/order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
       if (!res.ok) {
         throw new Error(`Ошибка: ${res.statusText}`);

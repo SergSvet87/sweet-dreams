@@ -62,7 +62,7 @@ export const RegisterSchema = yup
   })
   .required();
 
-  export const ResetSchema = yup
+export const ResetSchema = yup
   .object({
     password: yup
       .string()
