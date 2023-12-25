@@ -54,14 +54,14 @@ export default function ProductsCard() {
     <div className={styles.cards}>
       <ul className={styles.cards__list}>
         {images.map((photo, index) => (
-          <Link href="/shop">
-            <li className={styles.cards__item} data-index={index} key={index}>
+          <li className={styles.cards__item} data-index={index} key={photo.name}>
+            <Link href="/shop">
               <Image src={photo.src} alt={index} fill sizes="100vw" priority />
               <div className={styles.cards__name}>
                 <p>{photo.name}</p>
               </div>
-            </li>
-          </Link>
+            </Link>
+          </li>
         ))}
       </ul>
     </div>
