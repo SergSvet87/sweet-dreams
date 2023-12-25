@@ -4,7 +4,7 @@ export const controlStyles = (defaultStyles) => ({
   ...defaultStyles,
   cursor: 'pointer',
   backgroundColor: 'transparent',
-  border: '1px solid #131313',
+  border: 'none',
   maxWidth: '197px',
   height: '40px',
   padding: '4px 12px',
