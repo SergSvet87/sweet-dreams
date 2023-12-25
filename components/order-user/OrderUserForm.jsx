@@ -154,12 +154,14 @@ export function OrderUserForm() {
       </FieldsContainer>
 
       <div>
-        <SubmitContainer>
-          <PriceContainer>
-            <Subtotal>Subtotal</Subtotal>
-            <Price>₴300</Price>
+        <SubmitContainer className={styles.submit_container}>
+          <PriceContainer className={styles.price_container}>
+            <Subtotal className={styles.subtotal}>Subtotal</Subtotal>
+            <Price className={styles.price}>₴300</Price>
           </PriceContainer>
-          <PayButton type="submit">Pay now</PayButton>
+          <PayButton className={styles.pay_button} type="submit">
+            Pay now
+          </PayButton>
         </SubmitContainer>
         <OrderGoods />
       </div>

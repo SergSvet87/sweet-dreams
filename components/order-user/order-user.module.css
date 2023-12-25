@@ -420,3 +420,55 @@
   font-weight: 500;
   line-height: normal;
 }
+
+.submit_container {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-end;
+  align-items: end;
+  margin-bottom: 40px;
+}
+
+.price_container {
+  display: flex;
+  gap: 40px;
+  color: #131313;
+}
+
+.subtotal {
+  font-family: PoppinsS;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.price {
+  font-family: PoppinsS;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  color: #131313;
+}
+
+.pay_button {
+  margin-top: 20px;
+  width: 180px;
+  display: flex;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #d4d4d4;
+  border-radius: 50px;
+
+  font-family: PoppinsS;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+}
