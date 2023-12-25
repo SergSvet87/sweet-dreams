@@ -54,7 +54,7 @@ const useOrderStore = create((set) => ({
   addProduct: (id) =>
     set((state) => {
       const productOrderGoods = state.orderGoods.find((item) => item.id === id);
-      state.count += 1;
+      productOrderGoods.count += 1;
 
       [state.count, state.price, state.subTotal] = calcTotal(state.orderGoods);
     }),

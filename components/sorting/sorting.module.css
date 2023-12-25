@@ -1,6 +1,6 @@
 .sort {
   display: grid;
-  grid-template-columns: 18.125rem auto 12.5rem;
+  grid-template-columns: 18.125rem auto 245px;
   column-gap: 2.25rem;
   padding: 1.375rem 0;
   margin-bottom: 8px;
@@ -52,28 +52,24 @@
   font-size: 0.875rem;
 }
 
-.sort__select {
-  width: 12.3125rem;
-}
 .filter__select {
-  width: 6.875rem;
+  width: 210px;
 }
 
 @media (min-width: 20rem) and (max-width: 89.9994rem) {
   .sort {
-    grid-template-columns: 6.875rem auto;
+    grid-template-columns: 210px 245px;
     column-gap: 1.3rem;
     justify-content: space-between;
   }
-  .sort__select {
-    width: 12.3125rem;
-    padding: 0 12px;
-    gap: 6px;
-  }
 }
 
-/* @media (min-width: 20rem) and (max-width: 46.4994rem) {
-  .sort__select {
-    width: 12.3125rem;
+@media (min-width: 20rem) and (max-width: 34rem) {
+  .sort {
+    grid-template-columns: 110px 12.3125rem;
+    gap: 1.25rem;
   }
-} */
+  .filter__select {
+    width: 110px;
+}
+}

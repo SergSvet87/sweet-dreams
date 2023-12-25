@@ -21,7 +21,7 @@ export const Count = ({ id, count }) => {
       <button
         className={styles.minus}
         onClick={removeCount}
-        disabled={count === 1}>
+        disabled={count === 1 || count === '1'}>
         <svg
           width="20"
           height="20"

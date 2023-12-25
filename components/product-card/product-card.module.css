@@ -1,4 +1,5 @@
 .product {
+  position: relative;
   width: 15.5rem;
   height: 26.5rem;
   padding: 1rem 1.5rem 2rem;
@@ -6,6 +7,15 @@
   border: 0.0625rem solid var(--black);
   background-color: var(--white);
   color: var(--black);
+}
+
+.product__sale {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  z-index: 5;
 }
 
 .product__img {
@@ -50,10 +60,44 @@
   gap: 0.25rem;
 }
 
-.product__rating img,
 .product__like img {
   cursor: pointer;
   vertical-align: top;
+  transition: background .5s ease-in-out;
+}
+
+/* .product__rating span {
+  width: 14px;
+  height: 14px;
+  background: url('/images/product/star.svg') no-repeat center / cover;
+  color: transparent;
+}
+.react-stars-08550810372047124:before {
+  display: none;
+} */
+/* 
+.rating__item {
+  display: inline-block;
+  width: 14px;
+  height: 18px;
+  background: url('/images/product/star.svg') no-repeat 50% 0;
+  cursor: pointer;
+  transition: background .5s ease-in-out;
+}
+
+.rating__item:hover,
+.rating__item:hover ~ .rating__item,
+.rating__item ~ .rating__item.rating__active
+{
+  background: url('/images/product/star-full.svg') no-repeat 50% 0;
+}
+
+.rating__active {
+  background: url('/images/product/star-full.svg') no-repeat 50% 0;
+} */
+
+.like__img:hover {
+  background: var(--footer-color)
 }
 
 .product__price {  
@@ -61,6 +105,20 @@
   font-style: normal;
   font-weight: 500;
   margin-bottom: 0.4375rem;
+}
+
+.product__price .product__price_sale {
+  display: inline-block;
+  margin-right: 0.5rem;
+  color: var(--red-btn);
+}
+
+.product__price .product__price_was {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--grey);
+  text-decoration: line-through;
 }
 
 .product__footer {
@@ -71,4 +129,9 @@
 
 .product__add img {
   vertical-align: middle;
+  transition: background .5s ease-in-out;
+}
+
+.product__add img:hover {
+  background: url('/images/product/cart-hover.svg') center / cover no-repeat;
 }

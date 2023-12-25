@@ -1,10 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import classNames from 'classnames';
+
+import PriceRange from '../price-range/PriceRange';
 
 import styles from './filters.module.css';
-import PriceRange from '../price-range/PriceRange.jsx';
-import classNames from 'classnames';
 
 const categories = [
   {
@@ -163,7 +164,7 @@ export default function FiltersDesktop() {
           <label className={styles.filters__checkbox} key={item.id}>
             <input
               className={styles.checkbox__input}
-              type="checkbox"
+              type="radio"
               onChange={toggleAcceptWithRules}
               aria-label={item.type}
               name="price"

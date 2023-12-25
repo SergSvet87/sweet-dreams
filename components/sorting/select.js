@@ -4,10 +4,10 @@ export const controlStyles = (defaultStyles) => ({
   ...defaultStyles,
   cursor: 'pointer',
   backgroundColor: 'transparent',
-  border: 'none',
-  maxWidth: '197px',
+  border: '1px solid #131313',
+  maxWidth: '245px',
   height: '40px',
-  padding: '4px 12px',
+  padding: '2px 12px',
   fontSize: '20px',
   fontWeight: '500',
   boxShadow: 'none',
@@ -23,23 +23,29 @@ export const menuStyles = (defaultStyles) => ({
   borderRadius: '25px',
   fontSize: '24px',
   height: 'auto',
+  marginTop: '8px',
+  padding: '12px 4px',
   overflow: 'hidden',
   backgroundColor: '#fff',
 });
 
 export const selectStyles = {
   indicatorSeparator: () => ({
+    width: '0px',
+    height: '0px',
     border: 'none',
-    background: 'url("/images/shop/arrow-right.png") center / contain no-repeat',
   }),
   dropdownIndicator: (defaultStyles, state) => ({
     ...defaultStyles,
+    // width: '24px',
+    // height: '24px',
+    // border: 'none',
+    // background: 'url("/images/shop/arrow-right.png") center / contain no-repeat',
     transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : '',
     color: '#131313',
   }),
   menuList: (defaultStyles) => ({
     ...defaultStyles,
-    paddingTop: '5px',
     paddingBottom: 0,
   }),
   placeholder: (defaultStyles) => ({
@@ -51,35 +57,11 @@ export const selectStyles = {
 export const optionStyles = (defaultStyles, state) => {
   const backgroundHoverForLightMode = state.isSelected
     ? state.isSelected
-      ? '#fca'
+      ? '#FCA'
       : '#fff'
     : state.isSelected
-    ? '#fca7b5'
+    ? '#FCA'
     : '#f2f2f2';
-
-  const backgroundHoverForDarkMode = state.isSelected
-    ? state.isSelected
-      ? '#f2f2f2'
-      : '#9e9e9e'
-    : state.isSelected
-    ? '#9e9e9e'
-    : '#f2f2f2';
-
-  const colorHoverForLightMode = state.isSelected
-    ? state.isSelected
-      ? '#f2f2f2'
-      : '#9e9e9e'
-    : state.isSelected
-    ? '#9e9e9e'
-    : '#f2f2f2';
-
-  const colorHoverForDarkMode = state.isSelected
-    ? state.isSelected
-      ? '#9e9e9e'
-      : '#f2f2f2'
-    : state.isSelected
-    ? '#f2f2f2'
-    : '#9e9e9e';
 
   return {
     ...defaultStyles,
@@ -89,7 +71,7 @@ export const optionStyles = (defaultStyles, state) => {
     '&:hover': {
       backgroundColor: backgroundHoverForLightMode,
     },
-    backgroundColor: state.isSelected ? '#fca7b5' : '#fff',
-    color: state.isSelected ? '#fff' : '#fca7b5',
+    backgroundColor: state.isSelected ? '#fff' : '#fff',
+    color: state.isSelected ? '#000' : '#b9babb',
   };
 };
