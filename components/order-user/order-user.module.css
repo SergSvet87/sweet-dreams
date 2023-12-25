@@ -328,3 +328,95 @@
   width: 24px;
   height: 24px;
 }
+
+.inputs_container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  color: #575757;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.flex_inputs_container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.input_container {
+  width: 462px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.big_input {
+  width: 300px;
+  border-radius: 8px;
+  height: 32px;
+
+  padding-left: 8px;
+  padding-right: 8px;
+  border: 1px solid #575757;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.small_input {
+  width: 138px;
+  border-radius: 8px;
+  height: 32px;
+
+  padding-left: 8px;
+  padding-right: 8px;
+  border: 1px solid #575757;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.header_payment {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.payment_checkbox {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
+  gap: 16px;
+  margin-bottom: 40px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.save_checkbox {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
+  gap: 16px;
+  margin-top: 44px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

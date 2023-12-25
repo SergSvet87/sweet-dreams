@@ -44,37 +44,59 @@ export function OrderUserForm() {
           Use saved addresses
           <Checkbox className={styles.checkbox} type="checkbox" />
         </LabelCheckbox>
-        <InputsContainer>
-          <Label>
+        <InputsContainer className={styles.inputs_container}>
+          <Label className={styles.label}>
             Name
-            <Input type="text" name="user name" />
+            <Input className={styles.input} type="text" name="user name" />
           </Label>
-          <Label>
+          <Label className={styles.label}>
             Last name
-            <Input type="text" name="user last name" />
+            <Input className={styles.input} type="text" name="user last name" />
           </Label>
-          <Label>
+          <Label className={styles.label}>
             Country
-            <FlexInputsContainer>
-              <Input type="text" name="yourInputName" />
-              <InputContainer>
-                <BiggerInput type="text" name="region" placeholder="Region" />
+            <FlexInputsContainer className={styles.flex_inputs_container}>
+              <Input
+                className={styles.input}
+                type="text"
+                name="yourInputName"
+              />
+              <InputContainer className={styles.input_container}>
+                <BiggerInput
+                  className={styles.big_input}
+                  type="text"
+                  name="region"
+                  placeholder="Region"
+                />
                 <SmallInput
+                  className={styles.small_input}
                   type="text"
                   name="ZIP code"
                   placeholder="ZIP code"
                 />
               </InputContainer>
-              <Input type="text" name="city" placeholder="City" />
-              <InputContainer>
+              <Input
+                className={styles.input}
+                type="text"
+                name="city"
+                placeholder="City"
+              />
+              <InputContainer className={styles.input_container}>
                 <SmallInput
+                  className={styles.small_input}
                   type="text"
                   name="building"
                   placeholder="Building"
                 />
-                <SmallInput type="text" name="unit" placeholder="Unit" />
+                <SmallInput
+                  className={styles.small_input}
+                  type="text"
+                  name="unit"
+                  placeholder="Unit"
+                />
               </InputContainer>
               <Input
+                className={styles.input}
                 type="text"
                 name="user phone number"
                 placeholder="Phone number"
@@ -82,36 +104,52 @@ export function OrderUserForm() {
             </FlexInputsContainer>
           </Label>
         </InputsContainer>
-        <HeaderPayment>Payment</HeaderPayment>
-        <PaymentCheckbox>
+        <HeaderPayment className={styles.header_payment}>Payment</HeaderPayment>
+        <PaymentCheckbox className={styles.payment_checkbox}>
           Use saved payment methods
-          <Checkbox type="checkbox" name="yourInputName" />
+          <Checkbox
+            className={styles.checkbox}
+            type="checkbox"
+            name="yourInputName"
+          />
         </PaymentCheckbox>
-        <Label>
-          <FlexInputsContainer>
-            <Input type="text" name="card number" placeholder="Card number" />
-            <InputContainer>
+        <Label className={styles.label}>
+          <FlexInputsContainer className={styles.flex_inputs_container}>
+            <Input
+              className={styles.input}
+              type="text"
+              name="card number"
+              placeholder="Card number"
+            />
+            <InputContainer className={styles.input_container}>
               <SmallInput
+                className={styles.small_input}
                 type="text"
                 name="user phone number"
                 placeholder="MM/YY"
               />
               <SmallInput
+                className={styles.small_input}
                 type="text"
                 name="user phone number"
                 placeholder="Security code"
               />
             </InputContainer>
             <Input
+              className={styles.input}
               type="text"
               name="user phone number"
               placeholder="Name on the card"
             />
           </FlexInputsContainer>
         </Label>
-        <SaveCheckbox>
+        <SaveCheckbox className={styles.save_checkbox}>
           Save my information
-          <Checkbox type="checkbox" name="yourInputName" />
+          <Checkbox
+            className={styles.checkbox}
+            type="checkbox"
+            name="yourInputName"
+          />
         </SaveCheckbox>
       </FieldsContainer>
 
