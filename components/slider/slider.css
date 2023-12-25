@@ -4,7 +4,7 @@
   z-index: 10;
 }
 
-.slick-list {
+/* .slick-list {
   width: 102rem;
   height: 51.125rem;
   margin: 0 auto;
@@ -142,10 +142,10 @@
 
 .slick-dots li:hover button {
   background-color: var(--footer-color);
-}
+} */
 
 @media (min-width: 90rem) and (max-width: 119.9994rem) {
-  .slick-list {
+  /* .slick-list {
     width: 1600px;
     height: 672px;
   }
@@ -206,11 +206,11 @@
   .slick-dots li button {
     width: 1.5rem;
     height: 1.5rem;
-  }
+  } */
 }
 
 @media (min-width: 46.5rem) and (max-width: 89.9994rem) {
-  .slider {
+  /* .slider {
     margin-top: 5.25rem;
   }
   .slick-list {
@@ -268,11 +268,11 @@
     width: 5rem;
     height: 5rem;
     right: 4%;
-  }
+  } */
 }
 
 @media (min-width: 20rem) and (max-width: 46.4994rem) {
-  .slider {
+  /* .slider {
     margin-top: 0.2rem;
   }
   .slick-list {
@@ -359,5 +359,5 @@
   .slick-dots li button {
     width: 0.75rem;
     height: 0.75rem;
-  }
+  } */
 }

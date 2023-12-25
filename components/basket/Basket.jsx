@@ -20,13 +20,13 @@ export default function Basket({count}) {
     <div className={styles.basket} >
       <Link href='/cart' className={styles.basket__button} onClick={() => setOpen(!isOpen)}>
         <Image
-          src='/images/header/cart.svg'
+          src={count === 0 ? '/images/header/basket.svg' : '/images/header/cart.svg'}
           alt="Basket Icon"
           width={48}
           height={48}
           priority
         />
-        <div className={styles.basket__count}>{count}</div>
+        {count === 0 ? '' : <div className={styles.basket__count}>{count}</div>}
       </Link>
     </div>
   );

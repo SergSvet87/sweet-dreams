@@ -3,6 +3,10 @@
   background-color: var(--accent-second);
 }
 
+.hero__content {
+  max-width: 100rem;
+}
+
 .hero::before {
   content: '';
   width: 100%;
@@ -11,7 +15,7 @@
   inset: 0;
   top: 0;
   left: 0;
-  background: url('../../public/images/hero/hero-bg-top.png') left -50% / contain no-repeat;
+  background: url('/images/hero/hero-bg-top.png') left -50% / contain no-repeat;
 }
 
 .hero:after {
@@ -22,7 +26,7 @@
   inset: 0;
   /* top: 0;
   left: 0; */
-  background: url('../../public/images/hero/hero-bg-mid.png') left 73% / contain no-repeat;
+  background: url('/images/hero/hero-bg-mid.png') left 73% / contain no-repeat;
 }
 
 .hero__content {

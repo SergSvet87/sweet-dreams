@@ -16,16 +16,22 @@ export default function Shop() {
   const isMobile1440 = useMediaQuery(1440);
 
   return (
-    <div className={styles.shop}>
+    <>
       <Search />
+
       <Banner />
-      <div className={classNames('shop__container')}>
-        <Sorting />
-        <div className={styles.shop__content}>
-          {isMobile1440 ? null : <Filters />}
-          <Catalog />
+
+      <div className={styles.shop}>
+        <div className={classNames('shop__container')}>
+          <Sorting />
+          
+          <div className={styles.shop__content}>
+            {isMobile1440 ? null : <Filters />}
+
+            <Catalog />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

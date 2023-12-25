@@ -1,0 +1,76 @@
+.profile__sidebar {
+  display: flex;
+  flex-direction: column;
+  /* gap: 16px; */
+}
+
+.profile__name {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  font-weight: 500;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.profile__name span {
+  font-family: PoppinsS;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.profile__email {
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 29px;
+  line-height: normal;
+  color: var(--black);
+}
+
+.profile__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 239px;
+}
+
+.profile__item {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+
+  font-family: PoppinsS;
+  font-weight: 600;
+  font-size: 16px;
+  font-style: normal;
+  text-transform: uppercase;
+  color: var(--black);
+  background-color: transparent;
+}
+.profile_active {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  font-family: PoppinsS;
+  font-weight: 600;
+  font-size: 16px;
+  font-style: normal;
+  text-transform: uppercase;
+  color: var(--black);
+  background-color: var(--footer-color);
+  cursor: pointer;
+}
+
+.icon {
+margin-right: 16px;
+}
+
+.profile__item:hover {
+  background-color: var(--accent-second);
+  cursor: pointer;
+}
