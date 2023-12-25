@@ -5,20 +5,20 @@
 
 // import { cartGoods } from '@/components/cart/Cart';
 
-// import styles from './order.module.css';
+import styles from './order.module.css';
 
-import { OrderContainer, Container } from './order.styled';
+// import { OrderContainer, Container } from './order.styled';
 
 import { OrderUserForm } from '../../components/order-user/OrderUserForm';
 // import { OrderGoods } from '../../components/order-goods/OrderGoods';
 
 export default function Order() {
   return (
-    <OrderContainer>
-      <Container>
+    <section className={styles.order}>
+      <div className={styles.container}>
         <OrderUserForm />
         {/* <OrderGoods /> */}
-      </Container>
-    </OrderContainer>
+      </div>
+    </section>
   );
 }
