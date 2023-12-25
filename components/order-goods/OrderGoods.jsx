@@ -23,7 +23,7 @@ export function OrderGoods() {
   // const isMobile744 = useMediaQuery(744);
 
   return (
-    <div>
+    <>
       <div className={styles.table}>
         <p className={styles.table_name}>Product</p>
         <p className={styles.table_name}>Total</p>
@@ -60,6 +60,6 @@ export function OrderGoods() {
           </div>
         </div>
       </ul>
-    </div>
+    </>
   );
 }

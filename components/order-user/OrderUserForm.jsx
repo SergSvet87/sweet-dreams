@@ -33,23 +33,28 @@ export function OrderUserForm() {
         <h2 className={styles.header_contact}>Contact</h2>
         <input
           className={styles.input}
-          type="text"
+          type="email"
           name="email"
           placeholder="youremail@gmail.com"
+          required
         />
         <h2 className={styles.header_delivery}>Delivery</h2>
         <label className={styles.label_checkbox}>
           Use saved addresses
-          <input className={styles.checkbox} type="checkbox" />
+          <input
+            className={styles.checkbox}
+            type="checkbox"
+            name="saved address"
+          />
         </label>
         <div className={styles.inputs_container}>
           <label className={styles.label}>
             Name
-            <input className={styles.input} type="text" name="user name" />
+            <input className={styles.input} type="text" name="name" required />
           </label>
           <label className={styles.label}>
             Last name
-            <input className={styles.input} type="text" name="user last name" />
+            <input className={styles.input} type="text" name="last name" />
           </label>
           <label className={styles.label}>
             Country
@@ -57,7 +62,8 @@ export function OrderUserForm() {
               <input
                 className={styles.input}
                 type="text"
-                name="yourInputName"
+                name="country"
+                required
               />
               <div className={styles.input_container}>
                 <input
@@ -65,12 +71,14 @@ export function OrderUserForm() {
                   type="text"
                   name="region"
                   placeholder="Region"
+                  required
                 />
                 <input
                   className={styles.small_input}
                   type="text"
-                  name="ZIP code"
+                  name="ZIP"
                   placeholder="ZIP code"
+                  required
                 />
               </div>
               <input
@@ -78,6 +86,7 @@ export function OrderUserForm() {
                 type="text"
                 name="city"
                 placeholder="City"
+                required
               />
               <div className={styles.input_container}>
                 <input
@@ -85,19 +94,22 @@ export function OrderUserForm() {
                   type="text"
                   name="building"
                   placeholder="Building"
+                  required
                 />
                 <input
                   className={styles.small_input}
                   type="text"
                   name="unit"
                   placeholder="Unit"
+                  required
                 />
               </div>
               <input
                 className={styles.input}
                 type="text"
-                name="user phone number"
+                name="phone number"
                 placeholder="Phone number"
+                required
               />
             </div>
           </label>
@@ -108,7 +120,7 @@ export function OrderUserForm() {
           <input
             className={styles.checkbox}
             type="checkbox"
-            name="yourInputName"
+            name="payment methods"
           />
         </label>
         <label className={styles.label}>
@@ -116,28 +128,32 @@ export function OrderUserForm() {
             <input
               className={styles.input}
               type="text"
-              name="card number"
+              name="card"
               placeholder="Card number"
+              required
             />
             <div className={styles.input_container}>
               <input
                 className={styles.small_input}
                 type="text"
-                name="user phone number"
+                name="mm/yy"
                 placeholder="MM/YY"
+                required
               />
               <input
                 className={styles.small_input}
                 type="text"
-                name="user phone number"
+                name="security code"
                 placeholder="Security code"
+                required
               />
             </div>
             <input
               className={styles.input}
               type="text"
-              name="user phone number"
+              name="card name"
               placeholder="Name on the card"
+              required
             />
           </div>
         </label>
@@ -146,7 +162,7 @@ export function OrderUserForm() {
           <input
             className={styles.checkbox}
             type="checkbox"
-            name="yourInputName"
+            name="save information"
           />
         </label>
       </div>
