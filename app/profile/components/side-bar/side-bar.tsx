@@ -18,7 +18,8 @@ const Sidebar: React.FC<ISidebar> = ({ activeTab, onTabClick }) => {
           <li
             className={activeTab === item.page ? styles.profile_active : styles.profile__item}
             key={item.id}
-            onClick={() => onTabClick(item.page)}>
+            onClick={() => onTabClick(item.page)}
+          >
             <Image
               className={styles.icon}
               priority

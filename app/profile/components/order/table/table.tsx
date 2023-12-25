@@ -20,7 +20,8 @@ export const Table: React.FC<IProfileOrderTable> = ({ orders, handleRowClick, se
               <tr
                 className={`${styles.lineOrder} ${selectedRow === order.id ? styles.selected : ''}`}
                 key={order.id}
-                onClick={() => handleRowClick(order.id)}>
+                onClick={() => handleRowClick(order.id)}
+              >
                 <td className={styles.td}>{order.number}</td>
                 <td className={styles.td}>{order.date}</td>
                 <td className={styles.td}>{order.total}</td>

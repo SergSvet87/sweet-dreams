@@ -34,11 +34,9 @@ export default function Profile() {
 
   return (
     <div className={styles.profile}>
-      <button
-        className={styles.profile__button}
-        onClick={() => setOpen(!isOpen)}>
+      <button className={styles.profile__button} onClick={() => setOpen(!isOpen)}>
         <Image
-          src='/images/header/profile.svg'
+          src="/images/header/profile.svg"
           alt="Profile icon"
           width={48}
           height={48}

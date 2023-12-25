@@ -51,7 +51,7 @@ export const cartGoods = [
   },
 ];
 
-export default function Cart({orderGoods, count, price}) {
+export default function Cart({ orderGoods, count, price }) {
   const isMobile744 = useMediaQuery(744);
 
   return (
