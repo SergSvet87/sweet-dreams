@@ -18,7 +18,7 @@ export const Table: React.FC<IProfileOrderTable> = ({ orders, handleRowClick, se
           <tbody className={styles.tbody}>
             {orders.map((order) => (
               <tr
-                className={`${styles.tr} ${selectedRow === order.id ? styles.selected : ''}`}
+                className={`${styles.lineOrder} ${selectedRow === order.id ? styles.selected : ''}`}
                 key={order.id}
                 onClick={() => handleRowClick(order.id)}>
                 <td className={styles.td}>{order.number}</td>

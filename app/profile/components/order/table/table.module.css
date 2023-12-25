@@ -47,7 +47,7 @@ width: 280px;
   width: 100%;
 }
 
-.tr:hover {
+.lineOrder:hover {
   background-color: var(--accent-second);
   cursor: pointer;
 }
