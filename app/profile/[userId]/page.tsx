@@ -7,7 +7,7 @@ import Search from '@/components/search/Search.jsx';
 import styles from './profile.module.css';
 import Sidebar from '@/app/profile/components/side-bar/side-bar';
 import AccountDetails from '../components/account/account-details';
-import OrderHistory from '../components/order/order-history';
+import { OrderHistory } from '../components/order/order-history';
 
 export default function Profile() {
   const query = useParams();

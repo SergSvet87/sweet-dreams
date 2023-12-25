@@ -63,6 +63,7 @@
   text-transform: uppercase;
   color: var(--black);
   background-color: var(--footer-color);
+  cursor: pointer;
 }
 
 .icon {
@@ -71,4 +72,5 @@ margin-right: 16px;
 
 .profile__item:hover {
   background-color: var(--accent-second);
+  cursor: pointer;
 }
