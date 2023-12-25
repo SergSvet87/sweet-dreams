@@ -7,8 +7,6 @@
 
 import styles from './order.module.css';
 
-// import { OrderContainer, Container } from './order.styled';
-
 import { OrderUserForm } from '../../components/order-user/OrderUserForm';
 // import { OrderGoods } from '../../components/order-goods/OrderGoods';
 

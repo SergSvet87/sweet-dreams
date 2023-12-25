@@ -1,28 +1,5 @@
 'use client';
 
-// import {
-//   Form,
-//   Input,
-//   LabelCheckbox,
-//   Label,
-//   HeaderContact,
-//   HeaderDelivery,
-//   Checkbox,
-//   InputsContainer,
-//   HeaderPayment,
-//   PaymentCheckbox,
-//   SaveCheckbox,
-//   SmallInput,
-//   InputContainer,
-//   FlexInputsContainer,
-//   BiggerInput,
-//   FieldsContainer,
-//   SubmitContainer,
-//   Subtotal,
-//   PayButton,
-//   PriceContainer,
-//   Price,
-// } from './OrderUserForm.styled';
 import { OrderGoods } from '../order-goods/OrderGoods';
 import styles from './order-user.module.css';
 

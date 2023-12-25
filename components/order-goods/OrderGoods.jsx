@@ -2,21 +2,6 @@
 
 // import Image from 'next/image';
 
-// import { useMediaQuery } from '@/hooks/useMediaQuery';
-// import { Count } from '../count/Count';
-// import {
-//   FlexContainer,
-//   FlexContainerPrice,
-//   HeaderGood,
-//   GoodDetails,
-//   Test,
-//   Good,
-//   Table,
-//   TableName,
-//   SinglePrice,
-//   Amount,
-//   AmountPrice,
-// } from './OrderGoods.styled';
 import styles from './order-goods.module.css';
 
 export function OrderGoods() {
