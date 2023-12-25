@@ -52,7 +52,7 @@ width: 280px;
   cursor: pointer;
 }
 
-.tr.selected {
+.lineOrder.selected {
   background-color: var(--footer-color);
 }
 
