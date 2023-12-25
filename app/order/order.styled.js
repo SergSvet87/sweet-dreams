@@ -13,5 +13,4 @@ export const Container = styled.div`
   /* padding-left: 162px;
   padding-right: 162px; */
   width: 1920px;
-  display: flex;
 `;
