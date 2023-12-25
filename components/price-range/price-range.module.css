@@ -29,7 +29,7 @@
 .price__label span svg {
   width: 1.5rem;
   height: 1.5rem;
-  transform: translateY(-27%);
+  transform: translateY(-50%);
 }
 
 .price__inputs  input {

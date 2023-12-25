@@ -1,6 +1,7 @@
 .shop {
   background-color: var(--white);
   color: var(--black);
+  padding-bottom: 2.5rem;
 }
 
 .shop__content {
