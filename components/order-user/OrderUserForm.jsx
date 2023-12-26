@@ -2,11 +2,12 @@
 
 import { OrderGoods } from '../order-goods/OrderGoods';
 import styles from './order-user.module.css';
+import Image from 'next/image';
 
 export function OrderUserForm() {
   return (
     <form className={styles.form}>
-      <div>
+      <div className={styles.form_container}>
         <h2 className={styles.header_contact}>Contact</h2>
         <input
           className={styles.input}
@@ -67,14 +68,14 @@ export function OrderUserForm() {
               />
               <div className={styles.input_container}>
                 <input
-                  className={styles.small_input}
+                  className={styles.building_unit}
                   type="text"
                   name="building"
                   placeholder="Building"
                   required
                 />
                 <input
-                  className={styles.small_input}
+                  className={styles.building_unit}
                   type="text"
                   name="unit"
                   placeholder="Unit"
@@ -91,7 +92,24 @@ export function OrderUserForm() {
             </div>
           </label>
         </div>
-        <h2 className={styles.header_payment}>Payment</h2>
+        <div className={styles.payment_container}>
+          <h2 className={styles.header_payment}>Payment</h2>
+          <div className={styles.icons_container}>
+            <Image
+              src="/images/order/visa.svg"
+              alt="visa"
+              width={42}
+              height={42}
+            />
+            <Image
+              src="/images/order/mastercard.svg"
+              alt="visa"
+              width={41}
+              height={31}
+            />
+          </div>
+        </div>
+
         <label className={styles.payment_checkbox}>
           Use saved payment methods
           <input
@@ -100,6 +118,7 @@ export function OrderUserForm() {
             name="payment methods"
           />
         </label>
+
         <label className={styles.label}>
           <div className={styles.flex_inputs_container}>
             <input
@@ -109,7 +128,7 @@ export function OrderUserForm() {
               placeholder="Card number"
               required
             />
-            <div className={styles.input_container}>
+            <div className={styles.input_container_flex}>
               <input
                 className={styles.small_input}
                 type="text"
@@ -145,6 +164,7 @@ export function OrderUserForm() {
       </div>
 
       <div>
+        <OrderGoods />
         <div className={styles.submit_container}>
           <div className={styles.price_container}>
             <p className={styles.subtotal}>Subtotal</p>
@@ -154,7 +174,6 @@ export function OrderUserForm() {
             Pay now
           </button>
         </div>
-        <OrderGoods />
       </div>
     </form>
   );
