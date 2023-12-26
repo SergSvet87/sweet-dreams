@@ -7,7 +7,7 @@ import Image from 'next/image';
 export function OrderUserForm() {
   return (
     <form className={styles.form}>
-      <div>
+      <div className={styles.form_container}>
         <h2 className={styles.header_contact}>Contact</h2>
         <input
           className={styles.input}
@@ -68,14 +68,14 @@ export function OrderUserForm() {
               />
               <div className={styles.input_container}>
                 <input
-                  className={styles.small_input}
+                  className={styles.building_unit}
                   type="text"
                   name="building"
                   placeholder="Building"
                   required
                 />
                 <input
-                  className={styles.small_input}
+                  className={styles.building_unit}
                   type="text"
                   name="unit"
                   placeholder="Unit"
@@ -128,7 +128,7 @@ export function OrderUserForm() {
               placeholder="Card number"
               required
             />
-            <div className={styles.input_container}>
+            <div className={styles.input_container_flex}>
               <input
                 className={styles.small_input}
                 type="text"
@@ -164,6 +164,7 @@ export function OrderUserForm() {
       </div>
 
       <div>
+        <OrderGoods />
         <div className={styles.submit_container}>
           <div className={styles.price_container}>
             <p className={styles.subtotal}>Subtotal</p>
@@ -173,7 +174,6 @@ export function OrderUserForm() {
             Pay now
           </button>
         </div>
-        <OrderGoods />
       </div>
     </form>
   );

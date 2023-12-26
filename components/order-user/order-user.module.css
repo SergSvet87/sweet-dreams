@@ -98,14 +98,33 @@
   gap: 28px;
 }
 
-.input_container {
-  width: 462px;
+.input_container_flex {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
+.form_container {
+  margin-bottom: 44px;
+}
+
+.input_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media screen and (min-width: 744px) {
+  .input_container {
+    width: 462px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 .big_input {
-  width: 300px;
+  width: 100%;
   border-radius: 8px;
   height: 32px;
 
@@ -117,10 +136,17 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+@media screen and (min-width: 744px) {
+  .big_input {
+    width: 300px;
+    margin-bottom: 0;
+  }
 }
 
 .small_input {
-  width: 138px;
+  width: 122px;
   border-radius: 8px;
   height: 32px;
 
@@ -134,9 +160,35 @@
   line-height: normal;
 }
 
+@media screen and (min-width: 744px) {
+  .small_input {
+    width: 138px;
+  }
+}
+
+.building_unit {
+  width: 100%;
+
+  border-radius: 8px;
+  height: 32px;
+
+  padding-left: 8px;
+  padding-right: 8px;
+  border: 1px solid var(--grey);
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media screen and (min-width: 744px) {
+  .building_unit {
+    width: 138px;
+  }
+}
+
 .header_payment {
-  margin-top: 24px;
-  margin-bottom: 24px;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
@@ -169,6 +221,7 @@
 }
 
 .submit_container {
+  margin-top: 16px;
   display: flex;
   flex-direction: column;
 
@@ -223,6 +276,8 @@
 .payment_container {
   display: flex;
   justify-content: space-between;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .icons_container {
