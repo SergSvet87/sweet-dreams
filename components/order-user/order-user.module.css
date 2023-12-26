@@ -1,9 +1,7 @@
 .form {
   display: flex;
-  gap: 70px;
-  /* padding-left: 162px;
-  padding-right: 162px; */
-  /* flex-direction: column; */
+  gap: 348px;
+  padding-left: 162px;
   width: 786px;
 }
 

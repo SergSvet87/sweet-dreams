@@ -6,10 +6,23 @@
 }
 
 .container {
-  margin-left: auto;
-  margin-right: auto;
-  /* padding-left: 162px;
-  padding-right: 162px; */
+  margin: 0 auto;
+  padding-left: 162px;
+  padding-right: 162px;
   width: 1920px;
+}
+
+.header {
+  margin-bottom: 39px;
+  font-family: var(--font);
+  color: var(--black);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.header_container {
   display: flex;
 }
