@@ -25,9 +25,12 @@ export interface IOrder {
   date: string;
   total: string;
   status: string;
+  address: string;
+  recipient: string
+  phone: string;
 }
 
-export interface IOrderHistor {}
+export interface IOrderHistory {}
 
 export interface ISelect {
   options: IOptions[];

@@ -1,0 +1,31 @@
+
+.tableContainer {
+    /* border: 1px solid blue;d */
+    overflow-y: auto;
+    max-height: 360px; 
+    /* margin-right: 90px; */
+}
+
+.tableContainer .table {
+    width: 100%;
+    color: var(--black);
+    font-size: 14px;
+}
+
+.tableHeader {
+display: flex;
+justify-content: space-between;
+color: var(--black);
+margin-top: 32px;
+
+border-bottom: 1px solid var(--black);
+font-size: 16px;
+}
+
+.card td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid var(--grey);
+    font-size: 16px;
+    font-weight: 500;
+}
