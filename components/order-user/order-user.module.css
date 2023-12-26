@@ -1,8 +1,20 @@
 .form {
-  display: flex;
-  gap: 348px;
-  padding-left: 162px;
-  width: 786px;
+  width: 328px;
+}
+
+@media screen and (min-width: 744px) {
+}
+
+@media screen and (min-width: 1440px) {
+}
+
+@media screen and (min-width: 1920px) {
+  .form {
+    display: flex;
+    gap: 348px;
+    padding-left: 162px;
+    width: 786px;
+  }
 }
 
 .header_contact {
@@ -15,7 +27,7 @@
 }
 
 .input {
-  width: 462px;
+  width: 100%;
   border-radius: 8px;
   height: 32px;
 
@@ -31,13 +43,20 @@
 }
 
 .header_delivery {
-  margin-top: 32px;
-  margin-bottom: 24px;
+  margin-top: 24px;
+  margin-bottom: 18px;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   text-transform: capitalize;
+}
+
+@media screen and (min-width: 744px) {
+  .header_delivery {
+    margin-top: 28px;
+    margin-bottom: 24px;
+  }
 }
 
 .label_checkbox {
@@ -199,4 +218,14 @@
   font-weight: 600;
   line-height: normal;
   text-transform: uppercase;
+}
+
+.payment_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons_container {
+  display: flex;
+  gap: 40px;
 }

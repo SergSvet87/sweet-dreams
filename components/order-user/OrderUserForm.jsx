@@ -2,6 +2,7 @@
 
 import { OrderGoods } from '../order-goods/OrderGoods';
 import styles from './order-user.module.css';
+import Image from 'next/image';
 
 export function OrderUserForm() {
   return (
@@ -91,7 +92,24 @@ export function OrderUserForm() {
             </div>
           </label>
         </div>
-        <h2 className={styles.header_payment}>Payment</h2>
+        <div className={styles.payment_container}>
+          <h2 className={styles.header_payment}>Payment</h2>
+          <div className={styles.icons_container}>
+            <Image
+              src="/images/order/visa.svg"
+              alt="visa"
+              width={42}
+              height={42}
+            />
+            <Image
+              src="/images/order/mastercard.svg"
+              alt="visa"
+              width={41}
+              height={31}
+            />
+          </div>
+        </div>
+
         <label className={styles.payment_checkbox}>
           Use saved payment methods
           <input
@@ -100,6 +118,7 @@ export function OrderUserForm() {
             name="payment methods"
           />
         </label>
+
         <label className={styles.label}>
           <div className={styles.flex_inputs_container}>
             <input
