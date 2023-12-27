@@ -1,25 +1,20 @@
 .auth {
+  position: relative;
   padding: 3rem 0;
   font-size: 1.25rem;
+  background-color: var(--accent-second);
 }
 
 .auth__wrapper {
+  position: relative;
   width: 100%;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
+  color: var(--black);
+  z-index: 5;
 }
 
 .auth__form {
-  /* display: inline-block; */
   margin: 0 auto;
-  max-width: 28.125rem;
-  padding: 1.875rem;
-  border: 0.125rem solid var(--white);
-  border-radius: 0.4375rem;
-  transition: 0.3s;
-  text-align: center;
-  vertical-align: middle;
+  max-width: 29rem;
 }
 
 .auth__title {
@@ -27,7 +22,7 @@
   font-size: 2.5rem;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .form__label {
@@ -93,6 +88,52 @@
   height: 20px;
 }
 
+.form__checkbox {
+  position: relative;
+  cursor  : pointer;
+  display : flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.checkbox__text {
+  user-select: none;
+  font-weight: 500;
+  font-size  : 1rem;
+  text-transform: capitalize;
+}
+
+.checkbox__input {
+  position: absolute;
+  opacity : 0;
+}
+
+.checkbox__input+.checkbox__span::before {
+  content      : '';
+  display      : inline-block;
+  border: 2px solid var(--black);
+  border-radius: 0.125rem;
+  width        : 20px;
+  height       : 20px;
+  outline: 2px transparent;
+}
+
+.checkbox__input:checked+.checkbox__span::before {
+  height: 1.8rem;
+  background-image   : url('/images/shop/checkBox.png');
+  background-repeat  : no-repeat;
+  background-position: center center;
+  background-size    : cover;
+  border-color       : transparent;
+  animation          : pop 180ms ease-in;
+}
+
+.checkbox__input:focus+.checkbox__span::before {
+  outline: 0.125rem;
+}
+
 .form__or {
   display: flex;
   align-items: center;
@@ -106,9 +147,16 @@
 }
 
 .form__google {
-  display: block;
-  margin-bottom: 20px;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  margin: 0 auto 1.25rem;
+  border-radius: 3.125rem;
+  border: 0.0625rem solid var(--black);
+  background: var(--white);
+  }
 
 .form__or span {
   margin: 0 10px;
@@ -122,7 +170,8 @@
   background-color: var(--white);
 }
 
-.form__submit {  
+.form__submit {
+  display: block;
   padding: 1rem 2rem;
   border-radius: 3.125rem;
   background-color: var(--accent);
@@ -130,6 +179,7 @@
   font-size: 1.5rem;
   font-weight: 600;
   text-transform: uppercase;
+  margin: 0 auto 1.5rem;
 }
 
 .form__submit:disabled {
@@ -205,4 +255,18 @@
 @keyframes passwordanimation {
   0% {background-position-x: 100%;}
   100% {background-position-x: 0;}
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+
+  90% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
