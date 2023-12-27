@@ -40,6 +40,9 @@
 @media screen and (min-width: 744px) {
   .good {
     margin-top: 24px;
+    flex-direction: row;
+    gap: 21px;
+    padding-bottom: 0;
   }
 }
 
@@ -58,6 +61,12 @@
 .info_container_image {
   display: flex;
   gap: 8px;
+}
+
+@media screen and (min-width: 744px) {
+  .info_container_image {
+    gap: 12px;
+  }
 }
 
 .good_name {
@@ -86,10 +95,28 @@
   line-height: normal;
 }
 
+@media screen and (min-width: 744px) {
+  .price_container {
+    column-gap: 14px;
+  }
+}
+
+/* @media screen and (min-width: 744px) {
+  .price_container {
+    flex-direction: row;
+  }
+} */
+
 .price_container_paragraph {
   display: flex;
   flex-direction: column;
   gap: 17px;
+}
+
+@media screen and (min-width: 744px) {
+  .price_container_paragraph {
+    flex-direction: row;
+  }
 }
 
 .price_single {
@@ -102,9 +129,22 @@
   margin-right: 10px; */
 }
 
+@media screen and (min-width: 744px) {
+  .price_single {
+    font-size: 16px;
+  }
+}
+
 .price_amount {
-  width: 65px;
+  /* width: 65px; */
   margin-right: 28px;
+}
+
+@media screen and (min-width: 744px) {
+  .price_amount {
+    font-size: 16px;
+    width: 45px;
+  }
 }
 
 .price_total {
@@ -117,4 +157,11 @@
   width: 82px;
   height: 93px;
   background-color: grey;
+}
+
+@media screen and (min-width: 744px) {
+  .image {
+    width: 114px;
+    height: 100%;
+  }
 }
