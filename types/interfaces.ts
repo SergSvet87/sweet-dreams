@@ -25,9 +25,12 @@ export interface IOrder {
   date: string;
   total: string;
   status: string;
+  address: string;
+  recipient: string
+  phone: string;
 }
 
-export interface IOrderHistor {}
+export interface IOrderHistory {}
 
 export interface ISelect {
   options: IOptions[];
@@ -50,4 +53,14 @@ export interface IProfileOrderTable {
   orders: IOrder[];
   handleRowClick: (id: number) => void;
   selectedRow: number | null
+}
+
+export interface IReceipt {
+  image: string;
+  name: string;
+  info: string;
+  item_no: string;
+  price: string;
+  quantity: string;
+  total: string;
 }

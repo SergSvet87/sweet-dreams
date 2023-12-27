@@ -1,0 +1,42 @@
+.background_top {
+  width: 100%;
+  height: 306px;
+  position: absolute;
+  top: 65px;
+  left: 0;
+  background: url('/images/background/top.svg') center / cover no-repeat;
+}
+
+.background_bottom {
+  width: 100%;
+  height: 306px;
+  position: absolute;
+  bottom: 0;
+  left: 0;  
+  background: url('/images/background/bot.svg') center / cover no-repeat;
+}
+
+.background__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.background__image_2 {
+  left: auto;
+  top: 30%;
+  right: 20%;
+}
+
+.background__image_3 {
+  top: auto;
+  bottom: 0;
+  left: 10%;
+}
+
+.background__image_4 {
+  top: auto;
+  left: auto;
+  bottom: 0;
+  right: 20%;
+}

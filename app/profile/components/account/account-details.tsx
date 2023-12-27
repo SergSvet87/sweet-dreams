@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './account-details.module.css';
+import Button from '@/components/button/button';
 
 const AccountDetails = () => {
   return (
@@ -39,12 +40,12 @@ const AccountDetails = () => {
           placeholder="youremail@gmail.com"
           defaultValue=""
         />
-        <button type="submit" className={styles.editButton}>
-          Edit
-        </button>
-        <button type="button" className={styles.deleteButton}>
-          Delete Account
-        </button>
+        <Button type={'submit'} children={'Edit'} background={'var(--accent)'} />
+        <Button
+          children={'Delete Account'}
+          color={'var(--red-btn)'}
+          border={'1px solid var(--red-btn)'}
+        />
       </form>
     </div>
   );

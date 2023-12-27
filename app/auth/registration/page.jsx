@@ -10,6 +10,7 @@ import { AuthErrors, showAuthError } from '@/common/errors/index';
 import { RegisterSchema } from '@/utils/yup/index';
 import { signUp } from '@/utils/client';
 import FormRegistration from '@/components/form-register/FormRegistration';
+import Background from '@/components/backgroud/Background';
 
 import styles from '../auth.module.css';
 
@@ -50,6 +51,8 @@ export default function RegisterPage() {
 
   return (
     <div className={styles.auth}>
+      <Background />
+
       <div className={classNames('auth__container', styles.auth__wrapper)}>
         <h2 className={styles.auth__title}>Create account</h2>
 

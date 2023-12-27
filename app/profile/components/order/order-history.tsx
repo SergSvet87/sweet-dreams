@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './order-history.module.css';
-import { IOptions, IOrder, IOrderHistor } from '@/types/interfaces';
+import { IOptions, IOrder, IOrderHistory } from '@/types/interfaces';
 import Select from '@/components/select/select';
-import {
-  options,
-  orders as mockOrders,
-  sortByDate,
-  filterOrdersLastMonths,
-  filterOrdersFor2023,
-} from '@/app/profile/[userId]/helpers';
+import { options, orders as mockOrders } from '@/app/profile/[userId]/helpers';
 import {
   containerStyle,
   controlStyles,
@@ -18,45 +12,28 @@ import {
   menuStyle,
   optionStyle,
 } from '@/components/select/style';
-import { ActionMeta, SingleValue } from 'react-select';
 import { Table } from './table/table';
+import { handleChangeOption } from './helpers/handle-order-change.ts';
+import Modal from '@/components/modal/modal';
+import OrderModal from './components/order-modal/order-modal';
+import OrderProducts from './components/products/products';
+import { receipt } from '@/app/profile/[userId]/mock-data';
 
-export const OrderHistory: React.FC<IOrderHistor> = () => {
+export const OrderHistory: React.FC<IOrderHistory> = () => {
   const [orders, setOrders] = useState<IOrder[]>(mockOrders);
+  const [selectedOrder, setSelectedOrder] = useState<IOrder | null>(null);
   const [selectedRow, setSelectedRow] = useState<number | null>(null);
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  const handChangeOtion = (newValue: SingleValue<IOptions>) => {
-    if (newValue && newValue.value.toLowerCase() === options[0].value.toLowerCase()) {
-      const sortedByDate = sortByDate(mockOrders);
-      setOrders(sortedByDate);
-    } else if (newValue) {
-      const filteredOrders = mockOrders.filter((order) => order.status === newValue.label);
-      const sortedByDate = sortByDate(filteredOrders);
-      setOrders(sortedByDate);
-    }
-
-    if (newValue && newValue.value.toLowerCase() === options[5].value.toLowerCase()) {
-      const filteredOrders = filterOrdersLastMonths(mockOrders, 1);
-      const sortedByDate = sortByDate(filteredOrders);
-      setOrders(sortedByDate);
-    }
-
-    if (newValue && newValue.value.toLowerCase() === options[6].value.toLowerCase()) {
-      const filteredOrders = filterOrdersLastMonths(mockOrders, 6);
-      const sortedByDate = sortByDate(filteredOrders);
-      setOrders(sortedByDate);
-    }
-
-    if (newValue && newValue.value.toLowerCase() === options[7].value.toLowerCase()) {
-      const filteredOrders = filterOrdersFor2023(mockOrders);
-      const sortedByDate = sortByDate(filteredOrders);
-      setOrders(sortedByDate);
-    }
-
-    setSelectedRow(null);
+  const handleRowClick = (id: number) => {
+    setSelectedRow(id);
+    setModalOpen(true);
   };
 
-  const handleRowClick = (id: number) => setSelectedRow(id);
+  useEffect(() => {
+    const filteredOrder = orders.find((order) => order.id === selectedRow);
+    setSelectedOrder(filteredOrder || null);
+  }, [selectedRow]);
 
   return (
     <div className={styles.orderContainer}>
@@ -66,7 +43,9 @@ export const OrderHistory: React.FC<IOrderHistor> = () => {
           <span>Sort:</span>
           <Select
             options={options}
-            onChange={handChangeOtion}
+            onChange={(event) =>
+              handleChangeOption(event, setOrders, setSelectedRow, mockOrders, options)
+            }
             defaultOption={{ value: 'all orders', label: 'All Orders' }}
             indicatorSeparatorStyle={indicatorSeparatorStyle}
             // @ts-ignore
@@ -82,6 +61,13 @@ export const OrderHistory: React.FC<IOrderHistor> = () => {
         </label>
       </div>
       <Table orders={orders} handleRowClick={handleRowClick} selectedRow={selectedRow} />
+
+      {selectedOrder && (
+        <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+          <OrderModal order={selectedOrder} />
+          <OrderProducts receipt={receipt} />
+        </Modal>
+      )}
     </div>
   );
 };

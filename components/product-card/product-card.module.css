@@ -60,44 +60,14 @@
   gap: 0.25rem;
 }
 
-.product__like img {
+.product__like .like__img {
   cursor: pointer;
   vertical-align: top;
   transition: background .5s ease-in-out;
 }
 
-/* .product__rating span {
-  width: 14px;
-  height: 14px;
-  background: url('/images/product/star.svg') no-repeat center / cover;
-  color: transparent;
-}
-.react-stars-08550810372047124:before {
-  display: none;
-} */
-/* 
-.rating__item {
-  display: inline-block;
-  width: 14px;
-  height: 18px;
-  background: url('/images/product/star.svg') no-repeat 50% 0;
-  cursor: pointer;
-  transition: background .5s ease-in-out;
-}
-
-.rating__item:hover,
-.rating__item:hover ~ .rating__item,
-.rating__item ~ .rating__item.rating__active
-{
-  background: url('/images/product/star-full.svg') no-repeat 50% 0;
-}
-
-.rating__active {
-  background: url('/images/product/star-full.svg') no-repeat 50% 0;
-} */
-
 .like__img:hover {
-  background: var(--footer-color)
+  background: url('/images/product/heart-hover.svg') center / cover no-repeat;
 }
 
 .product__price {  
