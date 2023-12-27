@@ -3,7 +3,7 @@ import style from './order-modal.module.css';
 import { IOrder } from '@/types/interfaces';
 
 interface IOrderModal {
-  order: IOrder;
+  order: IOrder | null;
 }
 
 const OrderModal: FC<IOrderModal> = ({ order }) => {

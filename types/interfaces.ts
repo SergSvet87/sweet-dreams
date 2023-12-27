@@ -54,3 +54,13 @@ export interface IProfileOrderTable {
   handleRowClick: (id: number) => void;
   selectedRow: number | null
 }
+
+export interface IReceipt {
+  image: string;
+  name: string;
+  info: string;
+  item_no: string;
+  price: string;
+  quantity: string;
+  total: string;
+}

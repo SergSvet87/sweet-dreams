@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './order-history.module.css';
 import { IOptions, IOrder, IOrderHistory } from '@/types/interfaces';
 import Select from '@/components/select/select';
@@ -13,17 +13,27 @@ import {
   optionStyle,
 } from '@/components/select/style';
 import { Table } from './table/table';
-import { handleChangeOption } from './helpers/handleOrderChange.ts';
+import { handleChangeOption } from './helpers/handle-order-change.ts';
 import Modal from '@/components/modal/modal';
 import OrderModal from './components/order-modal/order-modal';
 import OrderProducts from './components/products/products';
+import { receipt } from '@/app/profile/[userId]/mock-data';
 
 export const OrderHistory: React.FC<IOrderHistory> = () => {
   const [orders, setOrders] = useState<IOrder[]>(mockOrders);
+  const [selectedOrder, setSelectedOrder] = useState<IOrder | null>(null);
   const [selectedRow, setSelectedRow] = useState<number | null>(null);
-  const [isModalOpen, setModalOpen] = useState(true);
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  const handleRowClick = (id: number) => setSelectedRow(id);
+  const handleRowClick = (id: number) => {
+    setSelectedRow(id);
+    setModalOpen(true);
+  };
+
+  useEffect(() => {
+    const filteredOrder = orders.find((order) => order.id === selectedRow);
+    setSelectedOrder(filteredOrder || null);
+  }, [selectedRow]);
 
   return (
     <div className={styles.orderContainer}>
@@ -52,10 +62,12 @@ export const OrderHistory: React.FC<IOrderHistory> = () => {
       </div>
       <Table orders={orders} handleRowClick={handleRowClick} selectedRow={selectedRow} />
 
-      <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-        <OrderModal order={orders[0]} />
-        <OrderProducts />
-      </Modal>
+      {selectedOrder && (
+        <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+          <OrderModal order={selectedOrder} />
+          <OrderProducts receipt={receipt} />
+        </Modal>
+      )}
     </div>
   );
 };

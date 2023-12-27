@@ -1,10 +1,13 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import style from './products.module.css';
+import { IReceipt } from '@/types/interfaces';
 
-interface IOrderProducts {}
+interface IOrderProducts {
+  receipt: IReceipt[];
+}
 
-const OrderProducts: FC<IOrderProducts> = () => {
+const OrderProducts: FC<IOrderProducts> = ({ receipt }) => {
   return (
     <>
       <div className={style.tableHeader}>
@@ -12,66 +15,28 @@ const OrderProducts: FC<IOrderProducts> = () => {
         <p>Total</p>
       </div>
       <div className={style.tableContainer}>
-        <div className={style.cardContainer}>
-          <div className={style.card}>
-            <div className={style.imgContainer}>
-              <img className={style.img} src={'/images/products/card_3.png'} alt="Product" />
-            </div>
-            <div className={style.descriptionContainer}>
-              <p className={style.candyName}>Candy Bird</p>
-              <p className={style.candyInf}>Box of 10</p>
-              <p className={style.candyInf}>Item No: 112</p>
-            </div>
-            <div className={style.descriptionContainer}>
-              <p className={(style.candyName, style.candyNameMg)}>₴270</p>
-              <p className={(style.candyName, style.candyNameMg)}>x</p>
-              <p className={style.candyName}>1</p>
-            </div>
-            <div className={style.descriptionContainer}>
-              <p className={(style.candyName, style.total)}>₴270</p>
-            </div>
-          </div>
-        </div>
-        <div className={style.cardContainer}>
-          <div className={style.card}>
-            <div className={style.imgContainer}>
-              <img className={style.img} src={'/images/products/card_1.png'} alt="Product" />
-            </div>
-            <div className={style.descriptionContainer}>
-              <p className={style.candyName}>Candy Bird</p>
-              <p className={style.candyInf}>Box of 10</p>
-              <p className={style.candyInf}>Item No: 112</p>
-            </div>
-            <div className={style.descriptionContainer}>
-              <p className={(style.candyName, style.candyNameMg)}>₴270</p>
-              <p className={(style.candyName, style.candyNameMg)}>x</p>
-              <p className={style.candyName}>1</p>
-            </div>
-            <div className={style.descriptionContainer}>
-              <p className={(style.candyName, style.total)}>₴270</p>
+        {receipt.map((product) => (
+          <div className={style.cardContainer} key={product.item_no}>
+            <div className={style.card}>
+              <div className={style.imgContainer}>
+                <img className={style.img} src={product.image} alt={product.name} />
+              </div>
+              <div className={style.descriptionContainer}>
+                <p className={style.candyName}>{product.name}</p>
+                <p className={style.candyInf}>{product.info}</p>
+                <p className={style.candyInf}>Item No: {product.item_no}</p>
+              </div>
+              <div className={style.descriptionContainer}>
+                <p className={style.candyName}>{product.price}</p>
+                <p className={style.candyName}>x</p>
+                <p className={style.candyName}>{product.quantity}</p>
+              </div>
+              <div className={style.descriptionContainer}>
+                <p className={style.candyName}>{product.total}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={style.cardContainer}>
-          <div className={style.card}>
-            <div className={style.imgContainer}>
-              <img className={style.img} src={'/images/products/card_4.png'} alt="Product" />
-            </div>
-            <div className={style.descriptionContainer}>
-              <p className={style.candyName}>Candy Bird</p>
-              <p className={style.candyInf}>Box of 10</p>
-              <p className={style.candyInf}>Item No: 112</p>
-            </div>
-            <div className={style.descriptionContainer}>
-              <p className={(style.candyName, style.candyNameMg)}>₴270</p>
-              <p className={(style.candyName, style.candyNameMg)}>x</p>
-              <p className={style.candyName}>1</p>
-            </div>
-            <div className={style.descriptionContainer}>
-              <p className={(style.candyName, style.total)}>₴270</p>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </>
   );
