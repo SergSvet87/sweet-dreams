@@ -6,14 +6,14 @@ import styles from './count.module.css';
 
 export const Count = ({ id, count }) => {
   const addProduct = useOrderStore((state) => state.addProduct);
-  const removeProduct = useOrderStore(({removeProduct}) => removeProduct);
+  const removeProduct = useOrderStore(({ removeProduct }) => removeProduct);
 
   const addCount = () => {
-    addProduct({id});
+    addProduct({ id });
   };
 
   const removeCount = () => {
-    removeProduct({id});
+    removeProduct({ id });
   };
 
   return (
@@ -21,13 +21,15 @@ export const Count = ({ id, count }) => {
       <button
         className={styles.minus}
         onClick={removeCount}
-        disabled={count === 1 || count === '1'}>
+        disabled={count === 1 || count === '1'}
+      >
         <svg
           width="20"
           height="20"
           viewBox="0 0 20 20"
           fill="none"
-          xmlns="http://www.w3.org/2000/svg">
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -37,16 +39,14 @@ export const Count = ({ id, count }) => {
         </svg>
       </button>
       <span className={styles.amount}>{count}</span>
-      <button
-        className={styles.plus}
-        onClick={addCount}
-      >
+      <button className={styles.plus} onClick={addCount}>
         <svg
           width="20"
           height="20"
           viewBox="0 0 20 20"
           fill="none"
-          xmlns="http://www.w3.org/2000/svg">
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             fillRule="evenodd"
             clipRule="evenodd"
