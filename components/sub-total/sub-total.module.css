@@ -19,6 +19,7 @@
 }
 
 .total__order {
+  display: flex;
   text-align: center;
 }
 

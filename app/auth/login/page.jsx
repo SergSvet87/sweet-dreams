@@ -11,6 +11,7 @@ import { signIn } from '@/utils/client';
 import { LoginSchema } from '@/utils/yup/index';
 import FormAuth from '@/components/form-login/FormLogin';
 import Search from '@/components/search/Search';
+import Background from '@/components/backgroud/Background';
 
 import styles from '../auth.module.css';
 
@@ -49,16 +50,20 @@ export default function LoginPage() {
   };
 
   return (
-    <div className={styles.auth}>
-      <div className={classNames('auth__container', styles.auth__wrapper)}>
-        <Search />
+    <>
+      <Search />
+      
+      <div className={styles.auth}>
+        <Background />
 
-        <h2 className={styles.auth__title}>Login</h2>
+        <div className={classNames('auth__container', styles.auth__wrapper)}>
+          <h2 className={styles.auth__title}>Login</h2>
 
-        <form className={styles.auth__form} onSubmit={handleSubmit(handleSubmitForm)}>
-          <FormAuth register={register} errors={errors} />
-        </form>
+          <form className={styles.auth__form} onSubmit={handleSubmit(handleSubmitForm)}>
+            <FormAuth register={register} errors={errors} />
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
