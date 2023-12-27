@@ -2,34 +2,46 @@
   width: 624px;
   display: flex;
   gap: 486px;
-  border-bottom: 1px solid var(--black);
+  /* border-bottom: 1px solid var(--black); */
 }
 
 .table_name {
-  font-family: var(--font);
+  /* font-family: var(--font);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: normal; */
+
+  font-weight: 400;
+  width: 59px;
 }
 
 .good {
   display: flex;
-  gap: 16px;
-  height: 140px;
-  margin-top: 16px;
+  flex-direction: column;
+  gap: 8px;
+  height: 170px;
+  margin-top: 12px;
   border-bottom: 1px solid var(--grey);
+  padding-bottom: 12px;
+  /* margin-bottom: 12px; */
 }
 
 .info_container {
   display: flex;
-  flex-wrap: wrap;
+
+  flex-direction: column;
 
   font-family: var(--font);
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+}
+
+.info_container_image {
+  display: flex;
+  gap: 8px;
 }
 
 .good_name {
@@ -50,13 +62,28 @@
 
 .price_container {
   display: flex;
-  gap: 30px;
-  margin-left: 21px;
+  column-gap: 24px;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.price_container_paragraph {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
 }
 
 .price_single {
   width: 59px;
-  margin-right: 10px;
+  /* font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal; */
+  /* width: 59px;
+  margin-right: 10px; */
 }
 
 .price_amount {
@@ -65,11 +92,13 @@
 }
 
 .price_total {
-  width: 59px;
+  /* width: 59px; */
+  font-size: 16px;
 }
 
 .image {
-  width: 114px;
-  height: 100%;
+  /* width: 114px; */
+  width: 82px;
+  height: 93px;
   background-color: grey;
 }
