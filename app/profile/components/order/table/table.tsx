@@ -2,7 +2,11 @@ import React from 'react';
 import styles from './table.module.css';
 import { IProfileOrderTable } from '@/types/interfaces';
 
-export const Table: React.FC<IProfileOrderTable> = ({ orders, handleRowClick, selectedRow }) => {
+export const Table: React.FC<IProfileOrderTable> = ({
+  orders,
+  handleRowClick,
+  selectedRow,
+}) => {
   return (
     <table className={styles.table}>
       <thead className={styles.headerTable}>
@@ -16,11 +20,14 @@ export const Table: React.FC<IProfileOrderTable> = ({ orders, handleRowClick, se
       <div className={styles.tbodyWrapper}>
         <table className={styles.table}>
           <tbody className={styles.tbody}>
-            {orders.map((order) => (
+            {orders.map(order => (
               <tr
-                className={`${styles.lineOrder} ${selectedRow === order.id ? styles.selected : ''}`}
+                className={`${styles.lineOrder} ${
+                  selectedRow === order.id ? styles.selected : ''
+                }`}
                 key={order.id}
-                onClick={() => handleRowClick(order.id)}>
+                onClick={() => handleRowClick(order.id)}
+              >
                 <td className={styles.rowCellTable}>{order.number}</td>
                 <td className={styles.rowCellTable}>{order.date}</td>
                 <td className={styles.rowCellTable}>{order.total}</td>
