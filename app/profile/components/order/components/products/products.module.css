@@ -1,31 +1,83 @@
 
 .tableContainer {
-    /* border: 1px solid blue;d */
     overflow-y: auto;
     max-height: 360px; 
-    /* margin-right: 90px; */
 }
 
-.tableContainer .table {
+.tableContainer {
     width: 100%;
     color: var(--black);
     font-size: 14px;
 }
 
 .tableHeader {
-display: flex;
-justify-content: space-between;
-color: var(--black);
-margin-top: 32px;
-
-border-bottom: 1px solid var(--black);
-font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--black);
+    margin-top: 32px;
+    border-bottom: 1px solid var(--black);
+    font-size: 16px;
 }
 
-.card td {
-    text-align: left;
-    padding: 8px;
+.tableHeader p:nth-child(2){
+  width: 130px;
+}
+
+.cardContainer {
+    margin-top: 14px;
     border-bottom: 1px solid var(--grey);
     font-size: 16px;
     font-weight: 500;
+    overflow: hidden;
+}
+
+.card {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    color: var(--black);
+}
+
+.imgContainer{
+    display: flex;
+    width: 100%;
+}
+.img {
+    width: 115px;
+    max-height: 140px;
+    object-fit: contain;
+}
+
+.descriptionContainer{
+    width: 100%;
+    margin-left: 16px;
+}
+
+.descriptionContainer:nth-child(3){
+    display: flex;
+}
+
+.candyInf{
+    margin: 8px 0px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.candyName {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.candyNameMg{
+    width: 75px;
+    margin-right: 10px;
+}
+
+.candyNameMg:nth-child(2){
+    width: 8px;
+    margin-right: 8px;
+}
+
+.total{
+    margin-left: 8px;
 }
