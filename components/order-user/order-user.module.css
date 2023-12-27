@@ -218,15 +218,15 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  text-transform: uppercase;
 }
 
 .submit_container {
   margin-top: 16px;
   display: flex;
-  flex-direction: column;
 
-  justify-content: flex-end;
-  align-items: end;
+  /* justify-content: flex-end;  */
+  align-items: center;
   margin-bottom: 40px;
 }
 
@@ -234,11 +234,12 @@
   display: flex;
   gap: 40px;
   color: var(--black);
+  margin-right: 28px;
 }
 
 .subtotal {
   font-family: var(--font);
-  font-size: 32px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -246,7 +247,7 @@
 
 .price {
   font-family: var(--font);
-  font-size: 32px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -255,10 +256,11 @@
 }
 
 .pay_button {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   width: 180px;
   display: flex;
-  padding: 16px 32px;
+  padding: 8px 24px;
+  /* padding: 16px 32px; */
   justify-content: center;
   align-items: center;
 
@@ -266,7 +268,8 @@
   border-radius: 50px;
 
   font-family: var(--font);
-  font-size: 24px;
+  font-size: 16px;
+  /*  font-size: 24px; */
   font-style: normal;
   font-weight: 600;
   line-height: normal;
