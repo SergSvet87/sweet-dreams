@@ -4,7 +4,7 @@
 
 @media screen and (min-width: 744px) {
   .form {
-    width: 462px;
+    width: 624px;
   }
 }
 
@@ -115,6 +115,13 @@
 
 .form_container {
   margin-bottom: 44px;
+}
+
+@media screen and (min-width: 744px) {
+  .form_container {
+    width: 462px;
+    margin: 0 auto;
+  }
 }
 
 .input_container {
