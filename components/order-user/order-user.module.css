@@ -3,6 +3,9 @@
 }
 
 @media screen and (min-width: 744px) {
+  .form {
+    width: 462px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -82,6 +85,12 @@
   gap: 6px;
 }
 
+@media screen and (min-width: 744px) {
+  .inputs_container {
+    gap: 4px;
+  }
+}
+
 .label {
   display: flex;
   flex-direction: column;
@@ -119,6 +128,7 @@
   .input_container {
     width: 462px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
   }
 }
@@ -225,9 +235,17 @@
   margin-top: 16px;
   display: flex;
 
-  /* justify-content: flex-end;  */
   align-items: center;
   margin-bottom: 40px;
+}
+
+@media screen and (min-width: 744px) {
+  .submit_container {
+    display: flex;
+    align-items: end;
+    /* justify-content: flex-start; */
+    flex-direction: column;
+  }
 }
 
 .price_container {
@@ -235,6 +253,12 @@
   gap: 40px;
   color: var(--black);
   margin-right: 28px;
+}
+
+@media screen and (min-width: 744px) {
+  .price_container {
+    margin-right: 0;
+  }
 }
 
 .subtotal {
@@ -245,6 +269,12 @@
   line-height: normal;
 }
 
+@media screen and (min-width: 744px) {
+  .subtotal {
+    font-size: 32px;
+  }
+}
+
 .price {
   font-family: var(--font);
   font-size: 18px;
@@ -253,6 +283,12 @@
   line-height: normal;
 
   color: var(--black);
+}
+
+@media screen and (min-width: 744px) {
+  .price {
+    font-size: 32px;
+  }
 }
 
 .pay_button {
@@ -269,11 +305,18 @@
 
   font-family: var(--font);
   font-size: 16px;
-  /*  font-size: 24px; */
+
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   text-transform: uppercase;
+}
+
+@media screen and (min-width: 744px) {
+  .pay_button {
+    font-size: 24px;
+    padding: 16px 32px;
+  }
 }
 
 .payment_container {

@@ -19,6 +19,8 @@
 
 @media screen and (min-width: 744px) {
   .container {
+    padding-left: 141px;
+    padding-right: 141px;
     width: 744px;
   }
 }
