@@ -1,0 +1,16 @@
+.deliveryContainer{
+  border: 1px solid blue;
+  height: 100%;
+}
+
+.title {
+  font-family: PoppinsS;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 22px;
+  padding-left: 8px;
+}
