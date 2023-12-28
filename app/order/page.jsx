@@ -2,7 +2,8 @@
 
 import styles from './order.module.css';
 
-import { OrderUserForm } from '../../components/order-user/OrderUserForm';
+import { OrderUserForm } from '@/components/order-user/OrderUserForm';
+
 import Image from 'next/image';
 
 export default function Order() {

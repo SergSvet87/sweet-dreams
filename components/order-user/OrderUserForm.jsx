@@ -1,6 +1,6 @@
 'use client';
 
-import { OrderGoods } from '../order-goods/OrderGoods';
+import { OrderGoods } from '@/components/order-goods/OrderGoods';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import styles from './order-user.module.css';
 import Image from 'next/image';
