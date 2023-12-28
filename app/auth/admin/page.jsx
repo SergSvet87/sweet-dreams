@@ -63,8 +63,7 @@ export default function AdminEntry() {
         <form
           className={styles.auth__form}
           onSubmit={handleSubmit(handleSubmitForm)}
-          name="admin-form"
-        >
+          name="admin-form">
           <div className={styles.auth__title}>Authorization</div>
 
           <label className={styles.form__label}>

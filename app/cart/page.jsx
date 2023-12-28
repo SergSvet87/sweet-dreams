@@ -54,8 +54,7 @@ export default function CartPage() {
                 className={styles.cart__total}
                 style={
                   isMobile744 ? { justifyContent: 'flex-start' } : { justifyContent: 'flex-end' }
-                }
-              >
+                }>
                 <SubTotal subTotal={subTotal} />
               </div>
             </div>
@@ -63,7 +62,7 @@ export default function CartPage() {
         </section>
       ) : (
         <section className={styles.cart__empty}>
-          <div className={classNames('cart__container', styles.empty__wrapper)}>
+          <div className={classNames("cart__container", styles.empty__wrapper)}>
             <div className={styles.empty__img}>
               <Image src="/images/cart/basket.svg" alt="Basket icon" width={240} height={240} />
             </div>

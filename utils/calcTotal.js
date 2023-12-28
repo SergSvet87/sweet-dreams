@@ -9,3 +9,4 @@ export const calcTotal = (orderGoods) =>
     },
     [0, 0, 0]
   );
+  

@@ -44,7 +44,7 @@ export default function Profile() {
     <div className={styles.profile}>
       <button className={styles.profile__button} onClick={handleClick}>
         <Image
-          src="/images/header/profile.svg"
+          src='/images/header/profile.svg'
           alt="Profile icon"
           width={48}
           height={48}
