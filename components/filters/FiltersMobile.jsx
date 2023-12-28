@@ -14,8 +14,7 @@ export default function FiltersMobile() {
         <div className={styles.filters__boiler_manufacturers}>
           <button
             className={`${styles.filters__manufacturer__btn} ${darkModeClass}`}
-            onClick={handleOpenBoilers}
-          >
+            onClick={handleOpenBoilers}>
             Производитель котлов
           </button>
           <FiltersPopup
@@ -33,8 +32,7 @@ export default function FiltersMobile() {
         <div className={styles.filters__boiler_manufacturers}>
           <button
             className={`${styles.filters__manufacturer__btn} ${darkModeClass}`}
-            onClick={handleOpenParts}
-          >
+            onClick={handleOpenParts}>
             Производитель запчастей
           </button>
           <FiltersPopup
@@ -54,8 +52,7 @@ export default function FiltersMobile() {
             title="Цена"
             titleClass={`${styles.filters__manufacturer__btn} ${darkModeClass}`}
             hideArrowClass={styles.hide_arrow}
-            isMobileForFilters={isMobile}
-          >
+            isMobileForFilters={isMobile}>
             <div className={styles.filters__manufacturer__inner}>
               <PriceRange
                 priceRange={priceRange}
@@ -71,8 +68,7 @@ export default function FiltersMobile() {
         <button
           className={styles.filters__actions__show}
           onClick={applyFiltersAndClosePopup}
-          disabled={resetFilterBtnDisabled}
-        >
+          disabled={resetFilterBtnDisabled}>
           {spinner ? (
             <span className={spinnerStyles.spinner} style={{ top: 6, left: '47%' }} />
           ) : (

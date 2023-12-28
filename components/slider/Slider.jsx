@@ -66,8 +66,9 @@ function PrevArrow({ className, onClick }) {
     <button
       className={className}
       // style={{ ...style, display: "block", background: "green" }}
-      onClick={onClick}
-    ></button>
+      onClick={onClick}>
+      
+    </button>
   );
 }
 
@@ -76,8 +77,9 @@ function NextArrow({ className, onClick }) {
     <button
       className={className}
       // style={{ ...style, display: "block", background: "green" }}
-      onClick={onClick}
-    ></button>
+      onClick={onClick}>
+      
+    </button>
   );
 }
 
@@ -109,7 +111,9 @@ export default function SliderSlick() {
   return (
     <Slider {...sliderSettings} className="slider" ref={sliderRef}>
       {data.map((item) => (
-        <div className={classNames('slider__slide')} key={item.id}></div>
+        <div className={classNames('slider__slide')} key={item.id}>
+          
+        </div>
       ))}
     </Slider>
   );

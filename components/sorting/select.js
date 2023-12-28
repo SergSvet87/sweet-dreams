@@ -60,8 +60,8 @@ export const optionStyles = (defaultStyles, state) => {
       ? '#FCA'
       : '#fff'
     : state.isSelected
-      ? '#FCA'
-      : '#f2f2f2';
+    ? '#FCA'
+    : '#f2f2f2';
 
   return {
     ...defaultStyles,

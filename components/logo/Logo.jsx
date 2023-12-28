@@ -22,8 +22,7 @@ export default function Logo({ className }) {
     <div
       className={classNames(styles.logo, className)}
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+      onMouseLeave={handleMouseLeave}>
       <Link href="/">
         <Image
           width={76}

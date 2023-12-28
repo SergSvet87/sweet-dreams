@@ -21,7 +21,7 @@ export default function HomeAnimation() {
       scale: 1,
       duration: 2,
       delay: 2,
-      ease: 'power2.out',
+      ease: "power2.out",
     });
 
     gsap.to('.angel2', {
@@ -30,7 +30,7 @@ export default function HomeAnimation() {
       scale: 1,
       duration: 2.2,
       delay: 2.5,
-      ease: 'power2.out',
+      ease: "power2.out",
     });
 
     gsap.to('.cloud1', {
@@ -39,7 +39,7 @@ export default function HomeAnimation() {
       scale: 1,
       duration: 2,
       delay: 3,
-      ease: 'power2.out',
+      ease: "power2.out",
     });
 
     gsap.to('.cloud2', {
@@ -48,7 +48,7 @@ export default function HomeAnimation() {
       scale: 1,
       duration: 2.5,
       delay: 3.5,
-      ease: 'power2.out',
+      ease: "power2.out",
     });
 
     gsap.to('.cloud3', {
@@ -57,7 +57,7 @@ export default function HomeAnimation() {
       scale: 1,
       duration: 2.3,
       delay: 3.7,
-      ease: 'power2.out',
+      ease: "power2.out",
     });
 
     gsap.to('.cloud4', {
@@ -66,7 +66,7 @@ export default function HomeAnimation() {
       scale: 1,
       duration: 2.3,
       delay: 3.8,
-      ease: 'power2.out',
+      ease: "power2.out",
     });
 
     gsap.to('.cloud5', {
@@ -75,7 +75,7 @@ export default function HomeAnimation() {
       scale: 1,
       duration: 2,
       delay: 4,
-      ease: 'power2.out',
+      ease: "power2.out",
     });
     // gsap.fromTo('.angel1', { y: -200 }, { y: 0, x: -130, duration: 2, delay: 2 });
     // gsap.fromTo('.cloud1', { y: -200, x: 50 }, { y: 0, x: 250, duration: 2, delay: 3 });

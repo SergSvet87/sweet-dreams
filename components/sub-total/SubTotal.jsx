@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import styles from './sub-total.module.css';
 
-export default function SubTotal({ subTotal }) {
+export default function SubTotal({subTotal}) {
   return (
     <div className={styles.total}>
       <div className={styles.total__head}>

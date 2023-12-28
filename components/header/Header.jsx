@@ -18,7 +18,7 @@ export default function Header() {
   const [isActive, setActive] = useState();
   const [isOpen, setOpen] = useState(false);
 
-  const count = useOrderStore((state) => state.orderGoods.length);
+  const count = useOrderStore(state => state.orderGoods.length);
 
   const pathname = usePathname();
   const isMobile1440 = useMediaQuery(1440);

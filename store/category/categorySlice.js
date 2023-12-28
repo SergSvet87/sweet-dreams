@@ -1,24 +1,27 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import { instance } from '@/utils/client';
 
 const initialState = {
   category: [],
-  error: '',
+  error: "",
   activeCategory: 0,
 };
 
-export const categoryRequestAsync = createAsyncThunk('category/fetch', async () => {
-  try {
-    const req = await instance.get(`category`);
-    return await req.json();
-  } catch (error) {
-    return { error };
+export const categoryRequestAsync = createAsyncThunk(
+  "category/fetch",
+  async () => {
+    try {
+      const req = await instance.get(`category`);
+      return await req.json();
+    } catch (error) {
+      return { error };
+    }
   }
-});
+);
 
 const categorySlice = createSlice({
-  name: 'category',
+  name: "category",
   initialState,
   reducers: {
     changeCategory(state, action) {
@@ -28,10 +31,10 @@ const categorySlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(categoryRequestAsync.pending, (state) => {
-        state.error = '';
+        state.error = "";
       })
       .addCase(categoryRequestAsync.fulfilled, (state, action) => {
-        state.error = '';
+        state.error = "";
         state.category = action.payload;
       })
       .addCase(categoryRequestAsync.rejected, (state, action) => {

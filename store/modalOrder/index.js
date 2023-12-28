@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const modalDeliverySlice = createSlice({
-  name: 'modalDelivery',
+  name: "modalDelivery",
   initialState: {
     isOpen: false,
   },

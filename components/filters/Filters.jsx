@@ -7,9 +7,11 @@ import FiltersDesktop from './FiltersDesktop';
 import styles from './filters.module.css';
 
 export default function Filters() {
+
   return (
     <aside className={styles.filters}>
-      <FiltersDesktop />
+      
+        <FiltersDesktop />
     </aside>
   );
 }

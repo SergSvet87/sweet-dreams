@@ -24,12 +24,10 @@ export default function Menu({ isOpen, setOpen, pathname }) {
           <li
             key={id}
             className={classNames(styles.menu__item, styles.menu__item_mobile)}
-            onClick={closeMenu}
-          >
+            onClick={closeMenu}>
             <Link
               className={classNames('menu__link', pathname === path ? styles.active : '')}
-              href={path}
-            >
+              href={path}>
               {name}
             </Link>
             {name === 'shop now' ? (
@@ -58,12 +56,10 @@ export default function Menu({ isOpen, setOpen, pathname }) {
             className={classNames(
               styles.menu__item,
               name === 'shop now' ? styles.menu__item_drop : ''
-            )}
-          >
+            )}>
             <Link
               className={classNames(styles.menu__link, pathname === path ? styles.active : '')}
-              href={path}
-            >
+              href={path}>
               {name}
             </Link>
             {name === 'shop now' ? (

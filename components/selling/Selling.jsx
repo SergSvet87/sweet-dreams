@@ -113,8 +113,7 @@ export default function Selling() {
                 focus: 0,
               },
             },
-          }}
-        >
+          }}>
           {data.length &&
             data.map((item) => (
               <SplideSlide key={item.id} className="sellers__slide">
