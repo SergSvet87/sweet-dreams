@@ -18,7 +18,7 @@ export const handleChangeOption = (
     const sortedByDate = sortByDate(mockOrders);
     setOrders(sortedByDate);
   } else if (newValue) {
-    const filteredOrders = mockOrders.filter((order) => order.status === newValue.label);
+    const filteredOrders = mockOrders.filter(order => order.status === newValue.label);
     const sortedByDate = sortByDate(filteredOrders);
     setOrders(sortedByDate);
   }
