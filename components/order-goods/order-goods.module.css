@@ -13,6 +13,7 @@
 @media screen and (min-width: 744px) {
   .table {
     margin-top: 44px;
+    gap: 423px;
   }
 }
 
@@ -43,6 +44,13 @@
     flex-direction: row;
     gap: 21px;
     padding-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .good {
+    margin-top: 16px;
+    height: 140px;
   }
 }
 

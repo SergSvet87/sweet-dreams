@@ -9,13 +9,18 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .form {
+    width: 462px;
+    display: flex;
+    gap: 110px;
+  }
 }
 
 @media screen and (min-width: 1920px) {
   .form {
     display: flex;
     gap: 348px;
-    padding-left: 162px;
+    margin-left: 162px;
     width: 786px;
   }
 }
@@ -252,6 +257,7 @@
     align-items: end;
     /* justify-content: flex-start; */
     flex-direction: column;
+    gap: 20px;
   }
 }
 
@@ -336,4 +342,10 @@
 .icons_container {
   display: flex;
   gap: 40px;
+}
+
+@media screen and (min-width: 1440px) {
+  .submit_goods_container {
+    width: 624px;
+  }
 }

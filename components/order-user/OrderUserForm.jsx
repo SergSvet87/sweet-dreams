@@ -1,10 +1,13 @@
 'use client';
 
 import { OrderGoods } from '../order-goods/OrderGoods';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 import styles from './order-user.module.css';
 import Image from 'next/image';
 
 export function OrderUserForm() {
+  const isMobile1440 = useMediaQuery(1440);
+
   return (
     <form className={styles.form}>
       <div className={styles.form_container}>
@@ -19,11 +22,7 @@ export function OrderUserForm() {
         <h2 className={styles.header_delivery}>Delivery</h2>
         <label className={styles.label_checkbox}>
           Use saved addresses
-          <input
-            className={styles.checkbox}
-            type="checkbox"
-            name="saved address"
-          />
+          <input className={styles.checkbox} type="checkbox" name="saved address" />
         </label>
         <div className={styles.inputs_container}>
           <label className={styles.label}>
@@ -37,12 +36,7 @@ export function OrderUserForm() {
           <label className={styles.label}>
             Country
             <div className={styles.flex_inputs_container}>
-              <input
-                className={styles.input}
-                type="text"
-                name="country"
-                required
-              />
+              <input className={styles.input} type="text" name="country" required />
               <div className={styles.input_container}>
                 <input
                   className={styles.big_input}
@@ -59,13 +53,7 @@ export function OrderUserForm() {
                   required
                 />
               </div>
-              <input
-                className={styles.input}
-                type="text"
-                name="city"
-                placeholder="City"
-                required
-              />
+              <input className={styles.input} type="text" name="city" placeholder="City" required />
               <div className={styles.input_container}>
                 <input
                   className={styles.building_unit}
@@ -95,28 +83,14 @@ export function OrderUserForm() {
         <div className={styles.payment_container}>
           <h2 className={styles.header_payment}>Payment</h2>
           <div className={styles.icons_container}>
-            <Image
-              src="/images/order/visa.svg"
-              alt="visa"
-              width={42}
-              height={42}
-            />
-            <Image
-              src="/images/order/mastercard.svg"
-              alt="visa"
-              width={41}
-              height={31}
-            />
+            <Image src="/images/order/visa.svg" alt="visa" width={42} height={42} />
+            <Image src="/images/order/mastercard.svg" alt="visa" width={41} height={31} />
           </div>
         </div>
 
         <label className={styles.payment_checkbox}>
           Use saved payment methods
-          <input
-            className={styles.checkbox}
-            type="checkbox"
-            name="payment methods"
-          />
+          <input className={styles.checkbox} type="checkbox" name="payment methods" />
         </label>
 
         <label className={styles.label}>
@@ -155,16 +129,12 @@ export function OrderUserForm() {
         </label>
         <label className={styles.save_checkbox}>
           Save my information
-          <input
-            className={styles.checkbox}
-            type="checkbox"
-            name="save information"
-          />
+          <input className={styles.checkbox} type="checkbox" name="save information" />
         </label>
       </div>
 
-      <div>
-        <OrderGoods />
+      <div className={styles.submit_goods_container}>
+        {isMobile1440 && <OrderGoods />}
         <div className={styles.submit_container}>
           <div className={styles.price_container}>
             <p className={styles.subtotal}>Subtotal</p>
@@ -174,6 +144,7 @@ export function OrderUserForm() {
             Pay now
           </button>
         </div>
+        {!isMobile1440 && <OrderGoods />}
       </div>
     </form>
   );
