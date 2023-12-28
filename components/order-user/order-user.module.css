@@ -255,7 +255,7 @@
   .submit_container {
     display: flex;
     align-items: end;
-    /* justify-content: flex-start; */
+
     flex-direction: column;
     gap: 20px;
   }
@@ -305,11 +305,10 @@
 }
 
 .pay_button {
-  /* margin-top: 20px; */
   width: 180px;
   display: flex;
   padding: 8px 24px;
-  /* padding: 16px 32px; */
+
   justify-content: center;
   align-items: center;
 

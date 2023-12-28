@@ -1,6 +1,5 @@
 'use client';
 
-// import Image from 'next/image';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import styles from './order-goods.module.css';
 

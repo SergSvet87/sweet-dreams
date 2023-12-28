@@ -35,7 +35,6 @@
   margin-top: 12px;
   border-bottom: 1px solid var(--grey);
   padding-bottom: 12px;
-  /* margin-bottom: 12px; */
 }
 
 @media screen and (min-width: 744px) {
@@ -109,12 +108,6 @@
   }
 }
 
-/* @media screen and (min-width: 744px) {
-  .price_container {
-    flex-direction: row;
-  }
-} */
-
 .price_container_paragraph {
   display: flex;
   flex-direction: column;
@@ -129,12 +122,6 @@
 
 .price_single {
   width: 59px;
-  /* font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal; */
-  /* width: 59px;
-  margin-right: 10px; */
 }
 
 @media screen and (min-width: 744px) {
@@ -144,7 +131,6 @@
 }
 
 .price_amount {
-  /* width: 65px; */
   margin-right: 28px;
 }
 
@@ -156,12 +142,10 @@
 }
 
 .price_total {
-  /* width: 59px; */
   font-size: 16px;
 }
 
 .image {
-  /* width: 114px; */
   width: 82px;
   height: 93px;
   background-color: grey;
