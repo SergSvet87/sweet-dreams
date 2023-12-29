@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Button from '@/components/button/button';
 import style from './payment-form.module.css';
@@ -19,6 +19,22 @@ export const PaymentForm: FC<IPaymentForm> = ({
   removeForm,
   isFormFilled,
 }) => {
+  const [visaMaster, setVisaMaster] = useState<boolean | null>(null);
+  useEffect(() => {
+    if (form.cardNumber) {
+      const firstDigit = form.cardNumber.charAt(0);
+      if (firstDigit === '5') {
+        setVisaMaster(true);
+      } else if (firstDigit === '4') {
+        setVisaMaster(false);
+      } else {
+        setVisaMaster(null);
+      }
+    }
+  }, [form.cardNumber]);
+
+  console.log('visaMaster', visaMaster);
+
   return (
     <div className={style.formContainer}>
       <div className={style.header}>
@@ -35,14 +51,16 @@ export const PaymentForm: FC<IPaymentForm> = ({
         </Button>
       </div>
       <div className={style.typeCardImg}>
-        <Image
-          className={style.img}
-          width={24}
-          height={24}
-          src={'/images/profile/close.svg'}
-          alt={'Close'}
-          priority
-        />
+        {visaMaster !== null && (
+          <Image
+            className={style.img}
+            width={41}
+            height={41}
+            src={`${visaMaster ? '/images/order/mastercard.svg' : '/images/order/visa.svg'}`}
+            alt={'Visa/Master'}
+            priority
+          />
+        )}
       </div>
       <form className={style.form}>
         <input

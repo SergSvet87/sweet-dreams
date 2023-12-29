@@ -57,7 +57,7 @@ const Payment: FC<IPayment> = () => {
           alt={'Plus'}
           priority
         />
-        Add address
+        Add method
       </Button>
     </div>
   );
