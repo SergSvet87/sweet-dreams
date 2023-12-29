@@ -3,6 +3,13 @@
   height: 100%;
 }
 
+.formContainer {
+  margin-bottom: 36px;
+}
+.formContainer:last-of-type {
+  margin-bottom: 0px;
+}
+
 .title {
   font-family: PoppinsS;
   font-size: 18px;

@@ -1,5 +1,5 @@
 import { SingleValue } from 'react-select';
-import { IOptions, IOrder } from '@/types/interfaces';
+import { IOptions, IOrder } from '@/types/interfaces/profile';
 import {
   sortByDate,
   filterOrdersLastMonths,

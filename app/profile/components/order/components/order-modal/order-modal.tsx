@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import style from './order-modal.module.css';
-import { IOrder } from '@/types/interfaces';
+import { IOrder } from '@/types/interfaces/profile';
 
 interface IOrderModal {
   order: IOrder | null;

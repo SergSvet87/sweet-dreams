@@ -3,7 +3,7 @@ const nextConfig = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ["@svgr/webpack"],
+      use: ['@svgr/webpack'],
     });
 
     config.ignoreWarnings = [
@@ -13,6 +13,7 @@ const nextConfig = {
 
     return config;
   },
-}
+  reactStrictMode: false,
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

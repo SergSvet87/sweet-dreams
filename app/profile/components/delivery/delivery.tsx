@@ -1,81 +1,51 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import Image from 'next/image';
 import Button from '@/components/button/button';
 import style from './delivery.module.css';
+import { IForm } from '@/types/interfaces/profile';
+import AddressForm from './components/address-form';
+import { mockAddress } from '@/profile/[userId]/mock-data';
 
 interface IDelivery {}
 
 const Delivery: FC<IDelivery> = () => {
+  const [forms, setForms] = useState<IForm[]>(mockAddress);
+
+  const addForm = () => {
+    setForms([...forms, {}]);
+  };
+
+  const removeForm = (index: number) => {
+    const newForms = forms.filter((_, i) => i !== index);
+    setForms(newForms);
+  };
+
+  const handleInputChange = (index: number, field: keyof IForm, value: string) => {
+    const newForms = [...forms];
+    newForms[index] = { ...newForms[index], [field]: value };
+    setForms(newForms);
+  };
+
+  const isFormFilled = (form: IForm) => {
+    return Object.values(form).some(value => value !== undefined && value !== '');
+  };
+
   return (
     <div className={style.deliveryContainer}>
       <h2 className={style.title}>Delivery addresses</h2>
 
-      <div className={style.header}>
-        <h2>Address</h2>
-        <Button margin="0" padding="0" border="none">
-          <Image
-            className={style.img}
-            width={24}
-            height={24}
-            src={'/images/profile/close.svg'}
-            alt={'Plus'}
-            priority
-          />
-        </Button>
-      </div>
+      {forms.map((form, index) => (
+        <AddressForm
+          key={index}
+          form={form}
+          index={index}
+          handleInputChange={handleInputChange}
+          removeForm={removeForm}
+          isFormFilled={isFormFilled}
+        />
+      ))}
 
-      <form className={style.form}>
-        <input
-          type="text"
-          id="country"
-          name="country"
-          className={style.input}
-          placeholder="Country"
-        />
-        <div className={style.inputContainer}>
-          <input
-            type="text"
-            id="region"
-            name="region"
-            className={style.input}
-            placeholder="Region"
-          />
-          <input
-            type="text"
-            id="zipCode"
-            name="zipCode"
-            className={style.input}
-            placeholder="ZIP code"
-          />
-        </div>
-        <input type="text" id="city" name="city" className={style.input} placeholder="City" />
-        <div className={style.inputContainer}>
-          <input
-            type="text"
-            id="building"
-            name="building"
-            className={style.input}
-            placeholder="Building"
-          />
-          <input type="text" id="unit" name="unit" className={style.input} placeholder="Unit" />
-        </div>
-        <input
-          type="text"
-          id="phoneNumber"
-          name="phoneNumber"
-          className={style.input}
-          placeholder="Phone number"
-          defaultValue=""
-        />
-        <Button
-          type={'submit'}
-          margin="16px 0px 0px 0px"
-          children={'Edit'}
-          background={'var(--accent)'}
-        />
-      </form>
-
-      <Button margin="56px 0px 0px 0px">
+      <Button onClick={addForm} margin="56px 0px 0px 0px">
         <Image
           className={style.img}
           width={24}
