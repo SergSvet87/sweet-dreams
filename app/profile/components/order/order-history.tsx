@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './order-history.module.css';
-import { IOrder, IOrderHistory } from '@/types/interfaces/profile';
+import { IOrder } from '@/types/interfaces/profile';
 import { options, orders as mockOrders } from '@/app/profile/[userId]/mock-data';
 import {
   containerStyle,
@@ -18,6 +18,8 @@ import OrderModal from './components/order-modal/order-modal';
 import OrderProducts from './components/products/products';
 import Select from '@/components/select/select';
 import { receipt } from '@/profile/[userId]/mock-data';
+
+interface IOrderHistory {}
 
 export const OrderHistory: React.FC<IOrderHistory> = () => {
   const [orders, setOrders] = useState<IOrder[]>(mockOrders);
