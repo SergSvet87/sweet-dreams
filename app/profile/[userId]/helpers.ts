@@ -1,5 +1,6 @@
 import { IOptions, IProfileItem, IOrder } from '@/types/interfaces/profile';
 
+export const defaultSetDropList = { value: 'all orders', label: 'All Orders' };
 export function filterOrdersLastMonths(orders: IOrder[], quantityMonth: number) {
   const sixMonthsAgo = new Date();
   sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - quantityMonth);

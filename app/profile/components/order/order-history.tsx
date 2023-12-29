@@ -18,6 +18,7 @@ import OrderModal from './components/order-modal/order-modal';
 import OrderProducts from './components/products/products';
 import Select from '@/components/select/select';
 import { receipt } from '@/profile/[userId]/mock-data';
+import { defaultSetDropList } from '@/profile/[userId]/helpers';
 
 interface IOrderHistory {}
 
@@ -48,7 +49,7 @@ export const OrderHistory: React.FC<IOrderHistory> = () => {
             onChange={event =>
               handleChangeOption(event, setOrders, setSelectedRow, mockOrders, options)
             }
-            defaultOption={{ value: 'all orders', label: 'All Orders' }}
+            defaultOption={defaultSetDropList}
             indicatorSeparatorStyle={indicatorSeparatorStyle}
             // @ts-ignore
             indicatorContainerStyle={indicatorContainerStyle}
