@@ -6,7 +6,7 @@ import styles from './order-user.module.css';
 import Image from 'next/image';
 
 export function OrderUserForm() {
-  const isMobile1440 = useMediaQuery(1440);
+  const isMobile1440 = useMediaQuery(1439);
 
   return (
     <form className={styles.form}>
