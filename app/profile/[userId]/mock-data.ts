@@ -1,4 +1,11 @@
-import { IForm, IOptions, IOrder, IProfileItem, IReceipt } from '@/types/interfaces/profile';
+import {
+  IFormDelivery,
+  IOptions,
+  IOrder,
+  IProfileItem,
+  IReceipt,
+} from '@/types/interfaces/profile';
+import { IFormPayment } from '@App-Components/payment/payment';
 
 export const PROFILE: IProfileItem[] = [
   {
@@ -209,7 +216,7 @@ export const receipt: IReceipt[] = [
   },
 ];
 
-export const mockAddress: IForm[] = [
+export const mockAddress: IFormDelivery[] = [
   {
     country: 'Ukraine',
     region: 'Desnjansky district',
@@ -221,7 +228,7 @@ export const mockAddress: IForm[] = [
   },
 ];
 
-export const mockPayment: IForm[] = [
+export const mockPayment: IFormPayment[] = [
   {
     cardNumber: '4149499343215727',
     mmYY: '09/24',
