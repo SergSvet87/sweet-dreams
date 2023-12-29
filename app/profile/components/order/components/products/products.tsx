@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import style from './products.module.css';
-import { IReceipt } from '@/types/interfaces';
+import { IReceipt } from '@/types/interfaces/profile';
 
 interface IOrderProducts {
   receipt: IReceipt[];
@@ -15,7 +15,7 @@ const OrderProducts: FC<IOrderProducts> = ({ receipt }) => {
         <p>Total</p>
       </div>
       <div className={style.tableContainer}>
-        {receipt.map((product) => (
+        {receipt.map(product => (
           <div className={style.cardContainer} key={product.item_no}>
             <div className={style.card}>
               <div className={style.imgContainer}>

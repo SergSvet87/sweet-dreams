@@ -1,4 +1,4 @@
-import { IOptions, IProfileItem, IOrder } from '@/types/interfaces';
+import { IOptions, IProfileItem, IOrder } from '@/types/interfaces/profile';
 
 export const PROFILE: IProfileItem[] = [
   {
@@ -183,14 +183,14 @@ export function filterOrdersLastMonths(orders: IOrder[], quantityMonth: number) 
   const sixMonthsAgo = new Date();
   sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - quantityMonth);
 
-  return orders.filter((order) => {
+  return orders.filter(order => {
     const orderDate = new Date(order.date.split('.').reverse().join('-'));
     return orderDate >= sixMonthsAgo;
   });
 }
 
 export function filterOrdersFor2023(orders: IOrder[]) {
-  return orders.filter((order) => {
+  return orders.filter(order => {
     const orderYear = new Date(order.date.split('.').reverse().join('-')).getFullYear();
     return orderYear === 2023;
   });

@@ -1,4 +1,4 @@
-import { IReceipt } from '@/types/interfaces';
+import { IForm, IReceipt } from '@/types/interfaces/profile';
 
 export const receipt: IReceipt[] = [
   {
@@ -27,5 +27,17 @@ export const receipt: IReceipt[] = [
     price: '₴100',
     quantity: '3',
     total: '₴300',
+  },
+];
+
+export const mockAddress: IForm[] = [
+  {
+    country: 'Ukraine',
+    region: 'Desnjansky district',
+    zipCode: '02225',
+    city: 'Kyiv',
+    building: '10A',
+    unit: '111',
+    phoneNumber: '+380507620564',
   },
 ];
