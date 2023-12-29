@@ -51,14 +51,12 @@ export const OrderHistory: React.FC<IOrderHistory> = () => {
             }
             defaultOption={defaultSetDropList}
             indicatorSeparatorStyle={indicatorSeparatorStyle}
-            // @ts-ignore
+            // @ts-expect-error props child
             indicatorContainerStyle={indicatorContainerStyle}
             containerStyle={containerStyle}
             controlStyle={controlStyles}
-            // @ts-ignore
             dropdownIndicatorStyle={dropdownIndicatorStyle}
             menuStyle={menuStyle}
-            // @ts-ignore
             optionStyle={optionStyle}
           />
         </label>
