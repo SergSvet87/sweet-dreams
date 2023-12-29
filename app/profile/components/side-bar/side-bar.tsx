@@ -2,8 +2,8 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './side-bar.module.css';
-import { PROFILE } from '../../[userId]/helpers';
 import { ISidebar, IProfileItem } from '@/types/interfaces/profile';
+import { PROFILE } from '@/app/profile/[userId]/mock-data';
 
 const Sidebar: React.FC<ISidebar> = ({ activeTab, onTabClick }) => {
   return (

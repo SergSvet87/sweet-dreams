@@ -1,15 +1,20 @@
 import { FC, useState } from 'react';
 import Image from 'next/image';
 import Button from '@/components/button/button';
-import style from './delivery.module.css';
-import { IFormDelivery } from '@/types/interfaces/profile';
-import AddressForm from './components/address-form';
-import { mockAddress } from '@/profile/[userId]/mock-data';
+import style from './payment.module.css';
+import { PaymentForm } from './components/payment-form';
+import { mockPayment } from '@/profile/[userId]/mock-data';
 
-interface IDelivery {}
+interface IPayment {}
+export interface IFormPayment {
+  cardNumber?: string;
+  mmYY?: string;
+  securityCode?: string;
+  cardName?: string;
+}
 
-const Delivery: FC<IDelivery> = () => {
-  const [forms, setForms] = useState<IFormDelivery[]>(mockAddress);
+const Payment: FC<IPayment> = () => {
+  const [forms, setForms] = useState<IFormPayment[]>(mockPayment);
 
   const addForm = () => {
     setForms([...forms, {}]);
@@ -20,22 +25,20 @@ const Delivery: FC<IDelivery> = () => {
     setForms(newForms);
   };
 
-  const handleInputChange = (index: number, field: keyof IFormDelivery, value: string) => {
+  const handleInputChange = (index: number, field: keyof IFormPayment, value: string) => {
     const newForms = [...forms];
     newForms[index] = { ...newForms[index], [field]: value };
     setForms(newForms);
   };
 
-  const isFormFilled = (form: IFormDelivery) => {
+  const isFormFilled = (form: IFormPayment) => {
     return Object.values(form).some(value => value !== undefined && value !== '');
   };
 
   return (
     <div className={style.deliveryContainer}>
-      <h2 className={style.title}>Delivery addresses</h2>
-
       {forms.map((form, index) => (
-        <AddressForm
+        <PaymentForm
           key={index}
           form={form}
           index={index}
@@ -59,4 +62,4 @@ const Delivery: FC<IDelivery> = () => {
     </div>
   );
 };
-export default Delivery;
+export default Payment;

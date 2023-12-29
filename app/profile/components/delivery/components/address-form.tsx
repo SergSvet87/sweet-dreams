@@ -2,7 +2,15 @@ import { FC } from 'react';
 import Image from 'next/image';
 import Button from '@/components/button/button';
 import style from './address-form.module.css';
-import { IAddressForm } from '@/types/interfaces/profile';
+import { IFormDelivery } from '@/types/interfaces/profile';
+
+interface IAddressForm {
+  form: IFormDelivery;
+  index: number;
+  handleInputChange: (index: number, field: keyof IFormDelivery, value: string) => void;
+  removeForm: (index: number) => void;
+  isFormFilled: (form: IFormDelivery) => boolean;
+}
 
 const AddressForm: FC<IAddressForm> = ({
   form,

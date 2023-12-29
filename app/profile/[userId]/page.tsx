@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import classNames from 'classnames';
-import { useParams } from 'next/navigation';
+// import { useParams } from 'next/navigation';
 import Search from '@/components/search/Search.jsx';
 import styles from './profile.module.css';
 import AccountDetails from '@App-Components/account/account-details';
@@ -9,9 +9,10 @@ import Sidebar from '@/app/profile/components/side-bar/side-bar';
 import { OrderHistory } from '@/app/profile/components/order/order-history';
 import Delivery from '@/app/profile/components/delivery/delivery';
 import Favorites from '@/app/profile/components/favorites/favorites';
+import Payment from '@App-Components/payment/payment';
 
 export default function Profile() {
-  const query = useParams();
+  // const query = useParams();
   const [activeTab, setActiveTab] = useState<string>('account');
 
   const handleTabClick = (page: string) => {
@@ -31,7 +32,7 @@ export default function Profile() {
             {activeTab === 'order' && <OrderHistory />}
             {activeTab === 'favorites' && <Favorites />}
             {activeTab === 'delivery' && <Delivery />}
-            {activeTab === 'payment' && <div className={styles.profile_title}>Payment Methods</div>}
+            {activeTab === 'payment' && <Payment />}
           </div>
         </div>
       </section>
