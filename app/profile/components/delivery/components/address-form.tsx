@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import Button from '@/components/button/button';
-import style from '@App-Components/delivery/delivery.module.css';
+import style from './address-form.module.css';
 import { IAddressForm } from '@/types/interfaces/profile';
 
 const AddressForm: FC<IAddressForm> = ({
