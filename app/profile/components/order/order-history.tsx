@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './order-history.module.css';
 import { IOrder } from '@/types/interfaces/profile';
-import { options, orders as mockOrders } from '@/app/profile/[userId]/mock-data';
+import { options, orders as mockOrders, receipt } from '@/app/profile/[userId]/mock-data';
 import {
   containerStyle,
   controlStyles,
@@ -17,8 +17,7 @@ import Modal from '@/components/modal/modal';
 import OrderModal from './components/order-modal/order-modal';
 import OrderProducts from './components/products/products';
 import Select from '@/components/select/select';
-import { receipt } from '@/profile/[userId]/mock-data';
-import { defaultSetDropList } from '@/profile/[userId]/helpers';
+import { defaultSetDropList } from '@app/profile/[userId]/helpers';
 
 interface IOrderHistory {}
 
@@ -36,7 +35,7 @@ export const OrderHistory: React.FC<IOrderHistory> = () => {
   useEffect(() => {
     const filteredOrder = orders.find(order => order.id === selectedRow);
     setSelectedOrder(filteredOrder || null);
-  }, [selectedRow]);
+  }, [orders, selectedRow]);
 
   return (
     <div className={styles.orderContainer}>

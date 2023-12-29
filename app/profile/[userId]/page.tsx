@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
 import classNames from 'classnames';
-// import { useParams } from 'next/navigation';
 import Search from '@/components/search/Search.jsx';
 import styles from './profile.module.css';
 import AccountDetails from '@App-Components/account/account-details';
@@ -12,7 +11,6 @@ import Favorites from '@/app/profile/components/favorites/favorites';
 import Payment from '@App-Components/payment/payment';
 
 export default function Profile() {
-  // const query = useParams();
   const [activeTab, setActiveTab] = useState<string>('account');
 
   const handleTabClick = (page: string) => {
