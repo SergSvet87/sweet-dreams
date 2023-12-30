@@ -2,14 +2,14 @@ import { FC, useState } from 'react';
 import Image from 'next/image';
 import Button from '@/components/button/button';
 import style from './delivery.module.css';
-import { IForm } from '@/types/interfaces/profile';
+import { IFormDelivery } from '@/types/interfaces/profile';
 import AddressForm from './components/address-form';
 import { mockAddress } from '@/profile/[userId]/mock-data';
 
 interface IDelivery {}
 
 const Delivery: FC<IDelivery> = () => {
-  const [forms, setForms] = useState<IForm[]>(mockAddress);
+  const [forms, setForms] = useState<IFormDelivery[]>(mockAddress);
 
   const addForm = () => {
     setForms([...forms, {}]);
@@ -20,13 +20,13 @@ const Delivery: FC<IDelivery> = () => {
     setForms(newForms);
   };
 
-  const handleInputChange = (index: number, field: keyof IForm, value: string) => {
+  const handleInputChange = (index: number, field: keyof IFormDelivery, value: string) => {
     const newForms = [...forms];
     newForms[index] = { ...newForms[index], [field]: value };
     setForms(newForms);
   };
 
-  const isFormFilled = (form: IForm) => {
+  const isFormFilled = (form: IFormDelivery) => {
     return Object.values(form).some(value => value !== undefined && value !== '');
   };
 
