@@ -43,9 +43,18 @@ export interface IReceipt {
 export interface IFormDelivery {
   country?: string;
   city?: string;
+  street?: string;
   region?: string;
   zipCode?: string;
   building?: string;
   unit?: string;
   phoneNumber?: string;
+}
+
+export interface IAddressForm {
+  form: IFormDelivery;
+  index: number;
+  handleInputChange: (index: number, field: keyof IFormDelivery, value: string) => void;
+  removeForm: (index: number) => void;
+  isFormFilled: (form: IFormDelivery) => boolean;
 }

@@ -222,6 +222,7 @@ export const mockAddress: IFormDelivery[] = [
     region: 'Desnjansky district',
     zipCode: '02225',
     city: 'Kyiv',
+    street: 'Mayakovski',
     building: '10A',
     unit: '111',
     phoneNumber: '+380507620564',

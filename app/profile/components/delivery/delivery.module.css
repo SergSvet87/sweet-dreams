@@ -1,6 +1,7 @@
 .deliveryContainer {
-  max-width: 464px;
   height: 100%;
+  max-width: 1110px;
+  padding: 24px 485px 32px 163px;
 }
 
 .title {
