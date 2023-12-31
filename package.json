@@ -13,6 +13,7 @@
     "@splidejs/react-splide": "^0.7.12",
     "@svgr/webpack": "^8.1.0",
     "classnames": "^2.3.2",
+    "formik": "^2.4.5",
     "gsap": "^3.12.2",
     "next": "14.0.1",
     "normalize.css": "^8.0.1",
