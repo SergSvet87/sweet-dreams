@@ -2,150 +2,170 @@
 
 import { OrderGoods } from '@/components/order-goods/OrderGoods';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import styles from './order-user.module.css';
 import Image from 'next/image';
+import { useState } from 'react';
 
 export function OrderUserForm() {
+  const [isValid, setIsValid] = useState(true);
   const isMobile1440 = useMediaQuery(1439);
 
   return (
-    <form className={styles.form}>
-      <div className={styles.form_container}>
-        <h2 className={styles.header_contact}>Contact</h2>
-        <input
-          className={styles.input}
-          type="email"
-          name="email"
-          placeholder="youremail@gmail.com"
-          required
-        />
-        <h2 className={styles.header_delivery}>Delivery</h2>
-        <label className={styles.label_checkbox}>
-          Use saved addresses
-          <input className={styles.checkbox} type="checkbox" name="saved address" />
-        </label>
-        <div className={styles.inputs_container}>
-          <label className={styles.label}>
-            Name
-            <input className={styles.input} type="text" name="name" required />
+    <Formik>
+      <form className={styles.form}>
+        <div className={styles.form_container}>
+          <h2 className={styles.header_contact}>Contact</h2>
+          <input
+            className={isValid ? styles.input : styles.error_input}
+            type="email"
+            name="email"
+            placeholder="youremail@gmail.com"
+            required
+          />
+          <h2 className={styles.header_delivery}>Delivery</h2>
+          <label className={styles.label_checkbox}>
+            Use saved addresses
+            <input className={styles.checkbox} type="checkbox" name="saved address" />
           </label>
-          <label className={styles.label}>
-            Last name
-            <input className={styles.input} type="text" name="last name" />
-          </label>
-          <label className={styles.label}>
-            Country
-            <div className={styles.flex_inputs_container}>
-              <input className={styles.input} type="text" name="country" required />
-              <div className={styles.input_container}>
+          <div className={styles.inputs_container}>
+            <label className={styles.label}>
+              Name
+              <Field className={styles.input} type="text" name="name" required />
+              <ErrorMessage name="name" component="div" className={styles.error} />
+            </label>
+            <label className={styles.label}>
+              Last name
+              <input className={styles.input} type="text" name="last name" />
+            </label>
+            <label className={styles.label}>
+              Country
+              <div className={styles.flex_inputs_container}>
+                <input className={styles.input} type="text" name="country" required />
+                <div className={styles.input_container}>
+                  <input
+                    className={styles.big_input}
+                    type="text"
+                    name="region"
+                    placeholder="Region"
+                    required
+                  />
+                  <input
+                    className={styles.small_input}
+                    type="text"
+                    name="ZIP"
+                    placeholder="ZIP code"
+                    required
+                  />
+                </div>
                 <input
-                  className={styles.big_input}
+                  className={styles.input}
                   type="text"
-                  name="region"
-                  placeholder="Region"
+                  name="city"
+                  placeholder="City"
+                  required
+                />
+                <input
+                  className={styles.input}
+                  type="text"
+                  name="street"
+                  placeholder="Street"
+                  required
+                />
+                <div className={styles.input_container}>
+                  <input
+                    className={styles.building_unit}
+                    type="text"
+                    name="building"
+                    placeholder="Building"
+                    required
+                  />
+                  <input
+                    className={styles.building_unit}
+                    type="text"
+                    name="unit"
+                    placeholder="Unit"
+                    required
+                  />
+                </div>
+                <input
+                  className={styles.input}
+                  type="text"
+                  name="phone number"
+                  placeholder="Phone number"
+                  required
+                />
+              </div>
+            </label>
+          </div>
+          <div className={styles.payment_container}>
+            <h2 className={styles.header_payment}>Payment</h2>
+            <div className={styles.icons_container}>
+              <Image src="/images/order/visa.svg" alt="visa" width={42} height={42} />
+              <Image src="/images/order/mastercard.svg" alt="visa" width={41} height={31} />
+            </div>
+          </div>
+
+          <label className={styles.payment_checkbox}>
+            Use saved payment methods
+            <input className={styles.checkbox} type="checkbox" name="payment methods" />
+          </label>
+
+          <label className={styles.label}>
+            <div className={styles.flex_inputs_container}>
+              <input
+                className={styles.input}
+                type="text"
+                name="card"
+                placeholder="Card number"
+                required
+              />
+              <div className={styles.input_container_flex}>
+                <input
+                  className={styles.small_input}
+                  type="text"
+                  name="mm/yy"
+                  placeholder="MM/YY"
                   required
                 />
                 <input
                   className={styles.small_input}
                   type="text"
-                  name="ZIP"
-                  placeholder="ZIP code"
-                  required
-                />
-              </div>
-              <input className={styles.input} type="text" name="city" placeholder="City" required />
-              <div className={styles.input_container}>
-                <input
-                  className={styles.building_unit}
-                  type="text"
-                  name="building"
-                  placeholder="Building"
-                  required
-                />
-                <input
-                  className={styles.building_unit}
-                  type="text"
-                  name="unit"
-                  placeholder="Unit"
+                  name="security code"
+                  placeholder="Security code"
                   required
                 />
               </div>
               <input
                 className={styles.input}
                 type="text"
-                name="phone number"
-                placeholder="Phone number"
+                name="card name"
+                placeholder="Name on the card"
                 required
               />
             </div>
           </label>
-        </div>
-        <div className={styles.payment_container}>
-          <h2 className={styles.header_payment}>Payment</h2>
-          <div className={styles.icons_container}>
-            <Image src="/images/order/visa.svg" alt="visa" width={42} height={42} />
-            <Image src="/images/order/mastercard.svg" alt="visa" width={41} height={31} />
-          </div>
+          <label className={styles.save_checkbox}>
+            Save my information
+            <input className={styles.checkbox} type="checkbox" name="save information" />
+          </label>
         </div>
 
-        <label className={styles.payment_checkbox}>
-          Use saved payment methods
-          <input className={styles.checkbox} type="checkbox" name="payment methods" />
-        </label>
-
-        <label className={styles.label}>
-          <div className={styles.flex_inputs_container}>
-            <input
-              className={styles.input}
-              type="text"
-              name="card"
-              placeholder="Card number"
-              required
-            />
-            <div className={styles.input_container_flex}>
-              <input
-                className={styles.small_input}
-                type="text"
-                name="mm/yy"
-                placeholder="MM/YY"
-                required
-              />
-              <input
-                className={styles.small_input}
-                type="text"
-                name="security code"
-                placeholder="Security code"
-                required
-              />
+        <div className={styles.submit_goods_container}>
+          {isMobile1440 && <OrderGoods />}
+          <div className={styles.submit_container}>
+            <div className={styles.price_container}>
+              <p className={styles.subtotal}>Subtotal</p>
+              <p className={styles.price}>₴300</p>
             </div>
-            <input
-              className={styles.input}
-              type="text"
-              name="card name"
-              placeholder="Name on the card"
-              required
-            />
+            <button className={styles.pay_button} type="submit">
+              Pay now
+            </button>
           </div>
-        </label>
-        <label className={styles.save_checkbox}>
-          Save my information
-          <input className={styles.checkbox} type="checkbox" name="save information" />
-        </label>
-      </div>
-
-      <div className={styles.submit_goods_container}>
-        {isMobile1440 && <OrderGoods />}
-        <div className={styles.submit_container}>
-          <div className={styles.price_container}>
-            <p className={styles.subtotal}>Subtotal</p>
-            <p className={styles.price}>₴300</p>
-          </div>
-          <button className={styles.pay_button} type="submit">
-            Pay now
-          </button>
+          {!isMobile1440 && <OrderGoods />}
         </div>
-        {!isMobile1440 && <OrderGoods />}
-      </div>
-    </form>
+      </form>
+    </Formik>
   );
 }
