@@ -1,3 +1,35 @@
+.input:hover,
+.input:focus {
+  border: 1px solid var(--black);
+}
+
+.error_input {
+  width: 100%;
+  border-radius: 8px;
+  height: 32px;
+
+  padding-left: 8px;
+  padding-right: 8px;
+
+  border: 1px solid var(--red);
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.error {
+  margin-top: 10px;
+  color: var(--red);
+}
+
+@media screen and (min-width: 744px) {
+  .error {
+    margin-top: 8px;
+  }
+}
+
 .form {
   width: 328px;
 }
@@ -87,12 +119,12 @@
 .inputs_container {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
 }
 
 @media screen and (min-width: 744px) {
   .inputs_container {
-    gap: 4px;
+    gap: 6px;
   }
 }
 
