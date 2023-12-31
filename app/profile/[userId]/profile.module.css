@@ -7,5 +7,4 @@
 .profile__wrapper {
   display: grid;
   grid-template-columns: 300px auto;
-  /* column-gap: 1.5rem; */
 }
