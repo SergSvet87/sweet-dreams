@@ -43,6 +43,7 @@ export interface IReceipt {
 export interface IFormDelivery {
   country?: string;
   city?: string;
+  street?: string;
   region?: string;
   zipCode?: string;
   building?: string;

@@ -74,6 +74,15 @@ const AddressForm: FC<IAddressForm> = ({
           placeholder="City"
           defaultValue={form.city}
         />
+        <input
+          type="text"
+          id="street"
+          name="street"
+          className={style.input}
+          onChange={e => handleInputChange(index, 'street', e.target.value)}
+          placeholder="Street"
+          defaultValue={form.street}
+        />
         <div className={style.inputContainer}>
           <input
             type="text"

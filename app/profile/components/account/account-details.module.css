@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 462px;
-  
+  padding: 24px 485px 293px 163px;
+  max-width: 1110px;
 }
 
 .title {
@@ -25,15 +25,15 @@
 
 .label {
   font-family: PoppinsS;
-  font-size: 12px; 
-  color: var(--grey); 
-  margin-bottom: 4px; 
+  font-size: 12px;
+  color: var(--grey);
+  margin-bottom: 4px;
 }
 
 .input {
   font-family: PoppinsS;
-  font-size: 16px; 
-  padding: 4px 8px; 
+  font-size: 16px;
+  padding: 4px 8px;
   margin-bottom: 8px;
   border: 1px solid var(--grey);
   color: var(--black);
@@ -80,4 +80,3 @@
   text-transform: uppercase;
   color: var(--red-btn);
 }
-
