@@ -22,6 +22,7 @@
     "baseUrl": "./",
     "paths": {
       "@App-Components/*": ["app/profile/components/*", "app/shop/components/*"],
+      "@*": ["*", "app/*"],
       "@/*": ["*", "app/*"]
     }
   },

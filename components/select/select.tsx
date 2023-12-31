@@ -1,6 +1,23 @@
-import React, { useState } from 'react';
-import ReactSelect, { CSSObjectWithLabel } from 'react-select';
-import { ISelect } from '@/types/interfaces/profile';
+import { IOptions } from '@/types/interfaces/profile';
+import React, { CSSProperties } from 'react';
+import ReactSelect, { SingleValue } from 'react-select';
+
+interface ISelect {
+  options: IOptions[];
+  onChange: (newValue: SingleValue<IOptions>) => void;
+  defaultOption?: IOptions;
+  placeholder?: string;
+  indicatorSeparatorStyle?: CSSProperties;
+  controlStyle?: CSSProperties;
+  containerStyle?: CSSProperties;
+  indicatorContainerStyle?: CSSProperties;
+  dropdownIndicatorStyle?: CSSProperties;
+  menuStyle?: CSSProperties;
+  optionStyle?: CSSProperties;
+  selectedColor?: string;
+  hideSelectedOptions?: boolean;
+  isSearchable?: boolean;
+}
 
 const Select: React.FC<ISelect> = ({
   options,

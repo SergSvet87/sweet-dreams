@@ -1,6 +1,12 @@
 import React from 'react';
 import styles from './table.module.css';
-import { IProfileOrderTable } from '@/types/interfaces/profile';
+import { IOrder } from '@/types/interfaces/profile';
+
+interface IProfileOrderTable {
+  orders: IOrder[];
+  handleRowClick: (id: number) => void;
+  selectedRow: number | null;
+}
 
 export const Table: React.FC<IProfileOrderTable> = ({ orders, handleRowClick, selectedRow }) => {
   return (

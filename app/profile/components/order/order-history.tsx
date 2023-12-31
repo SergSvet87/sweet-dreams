@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './order-history.module.css';
-import { IOrder, IOrderHistory } from '@/types/interfaces/profile';
-import { options, orders as mockOrders } from '@/app/profile/[userId]/helpers';
+import { IOrder } from '@/types/interfaces/profile';
+import { options, orders as mockOrders, receipt } from '@/app/profile/[userId]/mock-data';
 import {
   containerStyle,
   controlStyles,
@@ -14,10 +14,12 @@ import {
 import { Table } from './table/table';
 import { handleChangeOption } from './helpers/handle-order-change.ts';
 import Modal from '@/components/modal/modal';
-import OrderModal from './components/order-modal/order-modal';
-import OrderProducts from './components/products/products';
+import OrderModal from '@App-Components/order/components/order-modal/order-modal';
+import OrderProducts from '@App-Components/order/components/products/products';
 import Select from '@/components/select/select';
-import { receipt } from '@/profile/[userId]/mock-data';
+import { defaultSetDropList } from '@app/profile/[userId]/helpers';
+
+interface IOrderHistory {}
 
 export const OrderHistory: React.FC<IOrderHistory> = () => {
   const [orders, setOrders] = useState<IOrder[]>(mockOrders);
@@ -33,7 +35,7 @@ export const OrderHistory: React.FC<IOrderHistory> = () => {
   useEffect(() => {
     const filteredOrder = orders.find(order => order.id === selectedRow);
     setSelectedOrder(filteredOrder || null);
-  }, [selectedRow]);
+  }, [orders, selectedRow]);
 
   return (
     <div className={styles.orderContainer}>
@@ -46,16 +48,14 @@ export const OrderHistory: React.FC<IOrderHistory> = () => {
             onChange={event =>
               handleChangeOption(event, setOrders, setSelectedRow, mockOrders, options)
             }
-            defaultOption={{ value: 'all orders', label: 'All Orders' }}
+            defaultOption={defaultSetDropList}
             indicatorSeparatorStyle={indicatorSeparatorStyle}
-            // @ts-ignore
+            // @ts-expect-error props child
             indicatorContainerStyle={indicatorContainerStyle}
             containerStyle={containerStyle}
             controlStyle={controlStyles}
-            // @ts-ignore
             dropdownIndicatorStyle={dropdownIndicatorStyle}
             menuStyle={menuStyle}
-            // @ts-ignore
             optionStyle={optionStyle}
           />
         </label>

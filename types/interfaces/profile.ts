@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { ActionMeta, CSSObjectWithLabel, SingleValue } from 'react-select';
+import { SingleValue } from 'react-select';
 
 export interface IProfileItem {
   id: number;
@@ -30,31 +30,6 @@ export interface IOrder {
   phone: string;
 }
 
-export interface IOrderHistory {}
-
-export interface ISelect {
-  options: IOptions[];
-  onChange: (newValue: SingleValue<IOptions>) => void;
-  defaultOption?: IOptions;
-  placeholder?: string;
-  indicatorSeparatorStyle?: CSSProperties;
-  controlStyle?: CSSProperties;
-  containerStyle?: CSSProperties;
-  indicatorContainerStyle?: CSSProperties;
-  dropdownIndicatorStyle?: CSSProperties;
-  menuStyle?: CSSProperties;
-  optionStyle?: CSSProperties;
-  selectedColor?: string;
-  hideSelectedOptions?: boolean;
-  isSearchable?: boolean;
-}
-
-export interface IProfileOrderTable {
-  orders: IOrder[];
-  handleRowClick: (id: number) => void;
-  selectedRow: number | null;
-}
-
 export interface IReceipt {
   image: string;
   name: string;
@@ -74,12 +49,4 @@ export interface IFormDelivery {
   building?: string;
   unit?: string;
   phoneNumber?: string;
-}
-
-export interface IAddressForm {
-  form: IFormDelivery;
-  index: number;
-  handleInputChange: (index: number, field: keyof IFormDelivery, value: string) => void;
-  removeForm: (index: number) => void;
-  isFormFilled: (form: IFormDelivery) => boolean;
 }
