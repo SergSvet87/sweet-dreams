@@ -1,17 +1,9 @@
-import { CSSProperties } from 'react';
-import { SingleValue } from 'react-select';
-
 export interface IProfileItem {
   id: number;
   name: string;
   path: string;
   page: string;
   icon: string;
-}
-
-export interface ISidebar {
-  activeTab: string;
-  onTabClick: (page: string) => void;
 }
 
 export interface IOptions {
@@ -49,12 +41,4 @@ export interface IFormDelivery {
   building?: string;
   unit?: string;
   phoneNumber?: string;
-}
-
-export interface IAddressForm {
-  form: IFormDelivery;
-  index: number;
-  handleInputChange: (index: number, field: keyof IFormDelivery, value: string) => void;
-  removeForm: (index: number) => void;
-  isFormFilled: (form: IFormDelivery) => boolean;
 }

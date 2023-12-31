@@ -1,8 +1,7 @@
-.deliveryContainer {
-  width: 1110px;
+.paymentContainer {
   height: 100%;
-
   padding: 23px 487px 108px 161px;
+  width: fit-content;
 }
 
 .title {

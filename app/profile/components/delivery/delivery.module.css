@@ -1,7 +1,7 @@
 .deliveryContainer {
   height: 100%;
-  max-width: 1110px;
   padding: 24px 485px 32px 163px;
+  width: fit-content;
 }
 
 .title {
@@ -22,4 +22,19 @@
 
 .img:nth-child(1) {
   margin-right: 8px;
+}
+
+@media screen {
+}
+
+@media (max-width: 1919.99px) {
+  .deliveryContainer {
+    padding: 24px 125px 32px 121px;
+  }
+}
+
+@media (max-width: 1439.99px) {
+}
+
+@media (max-width: 743.99px) {
 }
