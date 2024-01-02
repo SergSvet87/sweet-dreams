@@ -8,7 +8,7 @@ const Favorites: FC<IFavorites> = () => {
   return (
     <div className={style.favoritesContainer}>
       <div className={style.header}>
-        <h2>Favorites list</h2>
+        <h2 className={style.titleFilter}>Favorites list</h2>
         <SortSelect onChange={() => {}} />
       </div>
       <div className={style.shop__content}>

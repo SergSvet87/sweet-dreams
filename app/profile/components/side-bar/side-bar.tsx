@@ -1,9 +1,13 @@
-// Sidebar.tsx
 import React from 'react';
 import Image from 'next/image';
 import styles from './side-bar.module.css';
-import { ISidebar, IProfileItem } from '@/types/interfaces/profile';
+import { IProfileItem } from '@/types/interfaces/profile';
 import { PROFILE } from '@/app/profile/[userId]/mock-data';
+
+export interface ISidebar {
+  activeTab: string;
+  onTabClick: (page: string) => void;
+}
 
 const Sidebar: React.FC<ISidebar> = ({ activeTab, onTabClick }) => {
   return (

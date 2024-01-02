@@ -1,7 +1,7 @@
 .profile__sidebar {
   display: flex;
   flex-direction: column;
-  /* gap: 16px; */
+  background: var(--white);
 }
 
 .profile__name {
@@ -67,10 +67,19 @@
 }
 
 .icon {
-margin-right: 16px;
+  margin-right: 16px;
 }
 
 .profile__item:hover {
   background-color: var(--accent-second);
   cursor: pointer;
+}
+
+@media (max-width: 1439.99px) {
+  .profile__name span {
+    font-size: 18px;
+  }
+  .profile__email {
+    font-size: 16px;
+  }
 }

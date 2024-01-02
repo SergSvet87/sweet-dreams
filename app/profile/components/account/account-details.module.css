@@ -1,9 +1,12 @@
+.accountContainer {
+  padding: 24px 485px 293px 163px;
+  width: fit-content;
+}
 .accountDetails {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 24px 485px 293px 163px;
-  max-width: 1110px;
+  width: 462px;
 }
 
 .title {
@@ -79,4 +82,19 @@
   line-height: normal;
   text-transform: uppercase;
   color: var(--red-btn);
+}
+
+@media (max-width: 1919.99px) {
+  /* .accountContainer {
+    padding: 24px 246px 245px 122px;
+  } */
+}
+
+@media (max-width: 1439.99px) {
+  .accountContainer {
+    padding: 24px 78px 388px 78px;
+  }
+}
+
+@media (max-width: 743.99px) {
 }

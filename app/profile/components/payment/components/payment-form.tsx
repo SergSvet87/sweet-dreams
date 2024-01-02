@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Button from '@/components/button/button';
 import style from './payment-form.module.css';
 import { IFormPayment } from '@App-Components/payment/payment';
+import { cardType } from '@app/profile/[userId]/helpers';
 
 interface IPaymentForm {
   form: IFormPayment;
@@ -23,17 +24,15 @@ export const PaymentForm: FC<IPaymentForm> = ({
   useEffect(() => {
     if (form.cardNumber) {
       const firstDigit = form.cardNumber.charAt(0);
-      if (firstDigit === '5') {
+      if (firstDigit === cardType.mastercard) {
         setVisaMaster(true);
-      } else if (firstDigit === '4') {
+      } else if (firstDigit === cardType.visa) {
         setVisaMaster(false);
       } else {
         setVisaMaster(null);
       }
     }
   }, [form.cardNumber]);
-
-  console.log('visaMaster', visaMaster);
 
   return (
     <div className={style.formContainer}>

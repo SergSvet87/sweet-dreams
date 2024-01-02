@@ -1,8 +1,7 @@
-.deliveryContainer {
-  width: 1110px;
+.paymentContainer {
   height: 100%;
-
   padding: 23px 487px 108px 161px;
+  width: fit-content;
 }
 
 .title {
@@ -23,4 +22,10 @@
 
 .img:nth-child(1) {
   margin-right: 8px;
+}
+
+@media (max-width: 1439.99px) {
+  .paymentContainer {
+    padding: 0;
+  }
 }

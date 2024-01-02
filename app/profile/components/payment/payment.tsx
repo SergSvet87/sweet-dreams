@@ -36,7 +36,7 @@ const Payment: FC<IPayment> = () => {
   };
 
   return (
-    <div className={style.deliveryContainer}>
+    <div className={style.paymentContainer}>
       {forms.map((form, index) => (
         <PaymentForm
           key={index}

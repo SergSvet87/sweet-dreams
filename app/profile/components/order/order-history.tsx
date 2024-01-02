@@ -39,35 +39,37 @@ export const OrderHistory: React.FC<IOrderHistory> = () => {
 
   return (
     <div className={styles.orderContainer}>
-      <div className={styles.aboveTableBlock}>
-        <h2 className={styles.title}>Order History</h2>
-        <label className={styles.selectComponent}>
-          <span>Sort:</span>
-          <Select
-            options={options}
-            onChange={event =>
-              handleChangeOption(event, setOrders, setSelectedRow, mockOrders, options)
-            }
-            defaultOption={defaultSetDropList}
-            indicatorSeparatorStyle={indicatorSeparatorStyle}
-            // @ts-expect-error props child
-            indicatorContainerStyle={indicatorContainerStyle}
-            containerStyle={containerStyle}
-            controlStyle={controlStyles}
-            dropdownIndicatorStyle={dropdownIndicatorStyle}
-            menuStyle={menuStyle}
-            optionStyle={optionStyle}
-          />
-        </label>
-      </div>
-      <Table orders={orders} handleRowClick={handleRowClick} selectedRow={selectedRow} />
+      <div className={styles.orderContent}>
+        <div className={styles.aboveTableBlock}>
+          <h2 className={styles.title}>Order History</h2>
+          <label className={styles.selectComponent}>
+            <span>Sort:</span>
+            <Select
+              options={options}
+              onChange={event =>
+                handleChangeOption(event, setOrders, setSelectedRow, mockOrders, options)
+              }
+              defaultOption={defaultSetDropList}
+              indicatorSeparatorStyle={indicatorSeparatorStyle}
+              // @ts-expect-error props child
+              indicatorContainerStyle={indicatorContainerStyle}
+              containerStyle={containerStyle}
+              controlStyle={controlStyles}
+              dropdownIndicatorStyle={dropdownIndicatorStyle}
+              menuStyle={menuStyle}
+              optionStyle={optionStyle}
+            />
+          </label>
+        </div>
+        <Table orders={orders} handleRowClick={handleRowClick} selectedRow={selectedRow} />
 
-      {selectedOrder && (
-        <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-          <OrderModal order={selectedOrder} />
-          <OrderProducts receipt={receipt} />
-        </Modal>
-      )}
+        {selectedOrder && (
+          <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+            <OrderModal order={selectedOrder} />
+            <OrderProducts receipt={receipt} />
+          </Modal>
+        )}
+      </div>
     </div>
   );
 };
