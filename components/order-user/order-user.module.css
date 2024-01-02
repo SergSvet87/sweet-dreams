@@ -22,6 +22,12 @@
 .error {
   margin-top: 10px;
   color: var(--red);
+
+  font-family: var(--font);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 @media screen and (min-width: 744px) {

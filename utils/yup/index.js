@@ -62,7 +62,7 @@ export const RegisterSchema = yup
   })
   .required();
 
-  export const ResetSchema = yup
+export const ResetSchema = yup
   .object({
     password: yup
       .string()
@@ -74,3 +74,58 @@ export const RegisterSchema = yup
       ),
   })
   .required();
+
+export const validationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email('Invalid email address')
+    .required('Required')
+    .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, 'Invalid email address format'),
+  name: yup
+    .string()
+    .matches(/[a-zA-Z]/, 'Only use letters')
+    .required('Required'),
+  lastName: yup
+    .string()
+    .matches(/[a-zA-Z]/, 'Only use letters')
+    .required('Required'),
+  country: yup
+    .string()
+    .matches(/[a-zA-Z]/, 'Only use letters')
+    .required('Required'),
+  region: yup
+    .string()
+    .matches(/[a-zA-Z]/, 'Only use letters')
+    .required('Required'),
+  zip: yup.string().matches(/^\d+$/, 'Only use numbers').required('Required'),
+  city: yup
+    .string()
+    .matches(/[a-zA-Z]/, 'Only use letters')
+    .required('Required'),
+  street: yup
+    .string()
+    .matches(/[a-zA-Z]/, 'Only use letters')
+    .required('Required'),
+  building: yup.string().matches(/^\d+$/, 'Only use numbers').required('Required'),
+  unit: yup.string().matches(/^\d+$/, 'Only use numbers').required('Required'),
+  phone: yup
+    .string()
+    .matches(/^\+380\d{9}$/, 'Invalid phone format')
+    .required('Required'),
+  card: yup
+    .string()
+    .matches(/^\d{4}\s?\d{4}\s?\d{4}\s?\d{4}$/, 'Only use numbers')
+    .required('Required'),
+  date: yup
+    .string()
+    .matches(/^(0[1-9]|1[0-2])\/\d{2}$/, 'Only use numbers')
+    .required('Required'),
+  security: yup
+    .string()
+    .matches(/^\d{4}$/, 'Only use numbers')
+    .required('Required'),
+  cardName: yup
+    .string()
+    .matches(/[a-zA-Z]/, 'Only use letters')
+    .required('Required'),
+});
