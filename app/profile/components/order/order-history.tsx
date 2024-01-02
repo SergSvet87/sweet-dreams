@@ -14,8 +14,8 @@ import {
 import { Table } from './table/table';
 import { handleChangeOption } from './helpers/handle-order-change.ts';
 import Modal from '@/components/modal/modal';
-import OrderModal from './components/order-modal/order-modal';
-import OrderProducts from './components/products/products';
+import OrderModal from '@App-Components/order/components/order-modal/order-modal';
+import OrderProducts from '@App-Components/order/components/products/products';
 import Select from '@/components/select/select';
 import { defaultSetDropList } from '@app/profile/[userId]/helpers';
 

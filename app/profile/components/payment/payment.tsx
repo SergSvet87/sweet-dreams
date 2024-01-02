@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import Image from 'next/image';
 import Button from '@/components/button/button';
 import style from './payment.module.css';
-import { PaymentForm } from './components/payment-form';
+import { PaymentForm } from '@App-Components/payment/components/payment-form';
 import { mockPayment } from '@/profile/[userId]/mock-data';
 
 interface IPayment {}

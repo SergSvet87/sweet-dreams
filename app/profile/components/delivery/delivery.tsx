@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Button from '@/components/button/button';
 import style from './delivery.module.css';
 import { IFormDelivery } from '@/types/interfaces/profile';
-import AddressForm from './components/address-form';
+import AddressForm from '@App-Components/delivery/components/address-form';
 import { mockAddress } from '@/profile/[userId]/mock-data';
 
 interface IDelivery {}
