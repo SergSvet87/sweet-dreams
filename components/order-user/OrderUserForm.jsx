@@ -3,169 +3,200 @@
 import { OrderGoods } from '@/components/order-goods/OrderGoods';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import styles from './order-user.module.css';
 import Image from 'next/image';
-import { useState } from 'react';
+import { validationSchema } from '@/utils/yup/index';
+import { initialValues } from '@/utils/formik/initialValues';
 
 export function OrderUserForm() {
-  const [isValid, setIsValid] = useState(true);
   const isMobile1440 = useMediaQuery(1439);
 
   return (
-    <Formik>
-      <form className={styles.form}>
-        <div className={styles.form_container}>
-          <h2 className={styles.header_contact}>Contact</h2>
-          <input
-            className={isValid ? styles.input : styles.error_input}
-            type="email"
-            name="email"
-            placeholder="youremail@gmail.com"
-            required
-          />
-          <h2 className={styles.header_delivery}>Delivery</h2>
-          <label className={styles.label_checkbox}>
-            Use saved addresses
-            <input className={styles.checkbox} type="checkbox" name="saved address" />
-          </label>
-          <div className={styles.inputs_container}>
-            <label className={styles.label}>
-              Name
-              <Field className={styles.input} type="text" name="name" required />
-              <ErrorMessage name="name" component="div" className={styles.error} />
+    <Formik initialValues={initialValues} validationSchema={validationSchema}>
+      {({ touched, errors }) => (
+        <Form className={styles.form}>
+          <div className={styles.form_container}>
+            <h2 className={styles.header_contact}>Contact</h2>
+            <Field
+              className={touched.email && errors.email ? styles.error_input : styles.input}
+              type="email"
+              name="email"
+              placeholder="youremail@gmail.com"
+            />
+            <ErrorMessage name="email" component="p" className={styles.error} />
+            <h2 className={styles.header_delivery}>Delivery</h2>
+            <label className={styles.label_checkbox}>
+              Use saved addresses
+              <Field className={styles.checkbox} type="checkbox" name="isSaveAddress" />
             </label>
-            <label className={styles.label}>
-              Last name
-              <input className={styles.input} type="text" name="last name" />
+            <div className={styles.inputs_container}>
+              <label className={styles.label}>
+                Name
+                <Field
+                  className={`${touched.name && errors.name ? styles.error_input : styles.input}`}
+                  type="text"
+                  name="name"
+                />
+                <ErrorMessage name="name" component="p" className={styles.error} />
+              </label>
+              <label className={styles.label}>
+                Last name
+                <Field
+                  className={
+                    touched.lastName && errors.lastName ? styles.error_input : styles.input
+                  }
+                  type="text"
+                  name="lastName"
+                />
+                <ErrorMessage name="lastName" component="p" className={styles.error} />
+              </label>
+              <label className={styles.label}>
+                Country
+                <div className={styles.flex_inputs_container}>
+                  <Field
+                    className={
+                      touched.country && errors.country ? styles.error_input : styles.input
+                    }
+                    type="text"
+                    name="country"
+                  />
+                  <ErrorMessage name="country" component="p" className={styles.error} />
+                  <div className={styles.input_container}>
+                    <Field
+                      className={
+                        touched.region && errors.region ? styles.error_input : styles.input
+                      }
+                      type="text"
+                      name="region"
+                      placeholder="Region"
+                    />
+                    <ErrorMessage name="region" component="p" className={styles.error} />
+                    <Field
+                      className={touched.zip && errors.zip ? styles.error_input : styles.input}
+                      type="text"
+                      name="zip"
+                      placeholder="ZIP code"
+                    />
+                    <ErrorMessage name="zip" component="p" className={styles.error} />
+                  </div>
+                  <Field
+                    className={touched.city && errors.city ? styles.error_input : styles.input}
+                    type="text"
+                    name="city"
+                    placeholder="City"
+                  />
+                  <ErrorMessage name="city" component="p" className={styles.error} />
+                  <Field
+                    className={touched.street && errors.street ? styles.error_input : styles.input}
+                    type="text"
+                    name="street"
+                    placeholder="Street"
+                  />
+                  <ErrorMessage name="street" component="p" className={styles.error} />
+                  <div className={styles.input_container}>
+                    <Field
+                      className={
+                        touched.building && errors.building ? styles.error_input : styles.input
+                      }
+                      type="text"
+                      name="building"
+                      placeholder="Building"
+                    />
+                    <ErrorMessage name="building" component="p" className={styles.error} />
+                    <Field
+                      className={touched.unit && errors.unit ? styles.error_input : styles.input}
+                      type="text"
+                      name="unit"
+                      placeholder="Unit"
+                    />
+                    <ErrorMessage name="unit" component="p" className={styles.error} />
+                  </div>
+                  <Field
+                    className={touched.phone && errors.phone ? styles.error_input : styles.input}
+                    type="text"
+                    name="phone"
+                    placeholder="Phone number"
+                  />
+                  <ErrorMessage name="phone" component="p" className={styles.error} />
+                </div>
+              </label>
+            </div>
+            <div className={styles.payment_container}>
+              <h2 className={styles.header_payment}>Payment</h2>
+              <div className={styles.icons_container}>
+                <Image src="/images/order/visa.svg" alt="visa" width={42} height={42} />
+                <Image src="/images/order/mastercard.svg" alt="visa" width={41} height={31} />
+              </div>
+            </div>
+
+            <label className={styles.payment_checkbox}>
+              Use saved payment methods
+              <Field className={styles.checkbox} type="checkbox" name="isSavePayment" />
             </label>
+
             <label className={styles.label}>
-              Country
               <div className={styles.flex_inputs_container}>
-                <input className={styles.input} type="text" name="country" required />
-                <div className={styles.input_container}>
-                  <input
-                    className={styles.big_input}
-                    type="text"
-                    name="region"
-                    placeholder="Region"
-                    required
-                  />
-                  <input
-                    className={styles.small_input}
-                    type="text"
-                    name="ZIP"
-                    placeholder="ZIP code"
-                    required
-                  />
+                <Field
+                  className={touched.card && errors.card ? styles.error_input : styles.input}
+                  type="text"
+                  name="card"
+                  placeholder="Card number"
+                />
+                <ErrorMessage name="card" component="p" className={styles.error} />
+                <div className={styles.input_container_flex}>
+                  <div>
+                    <Field
+                      className={touched.date && errors.date ? styles.error_input : styles.input}
+                      type="text"
+                      name="date"
+                      placeholder="MM/YY"
+                    />
+                    <ErrorMessage name="date" component="p" className={styles.error} />
+                  </div>
+                  <div>
+                    <Field
+                      className={
+                        touched.security && errors.security ? styles.error_input : styles.input
+                      }
+                      type="text"
+                      name="security"
+                      placeholder="Security code"
+                    />
+                    <ErrorMessage name="security" component="p" className={styles.error} />
+                  </div>
                 </div>
-                <input
-                  className={styles.input}
+                <Field
+                  className={
+                    touched.cardName && errors.cardName ? styles.error_input : styles.input
+                  }
                   type="text"
-                  name="city"
-                  placeholder="City"
-                  required
+                  name="cardName"
+                  placeholder="Name on the card"
                 />
-                <input
-                  className={styles.input}
-                  type="text"
-                  name="street"
-                  placeholder="Street"
-                  required
-                />
-                <div className={styles.input_container}>
-                  <input
-                    className={styles.building_unit}
-                    type="text"
-                    name="building"
-                    placeholder="Building"
-                    required
-                  />
-                  <input
-                    className={styles.building_unit}
-                    type="text"
-                    name="unit"
-                    placeholder="Unit"
-                    required
-                  />
-                </div>
-                <input
-                  className={styles.input}
-                  type="text"
-                  name="phone number"
-                  placeholder="Phone number"
-                  required
-                />
+                <ErrorMessage name="cardName" component="p" className={styles.error} />
               </div>
             </label>
-          </div>
-          <div className={styles.payment_container}>
-            <h2 className={styles.header_payment}>Payment</h2>
-            <div className={styles.icons_container}>
-              <Image src="/images/order/visa.svg" alt="visa" width={42} height={42} />
-              <Image src="/images/order/mastercard.svg" alt="visa" width={41} height={31} />
-            </div>
+            <label className={styles.save_checkbox}>
+              Save my information
+              <Field className={styles.checkbox} type="checkbox" name="isSaveInformation" />
+            </label>
           </div>
 
-          <label className={styles.payment_checkbox}>
-            Use saved payment methods
-            <input className={styles.checkbox} type="checkbox" name="payment methods" />
-          </label>
-
-          <label className={styles.label}>
-            <div className={styles.flex_inputs_container}>
-              <input
-                className={styles.input}
-                type="text"
-                name="card"
-                placeholder="Card number"
-                required
-              />
-              <div className={styles.input_container_flex}>
-                <input
-                  className={styles.small_input}
-                  type="text"
-                  name="mm/yy"
-                  placeholder="MM/YY"
-                  required
-                />
-                <input
-                  className={styles.small_input}
-                  type="text"
-                  name="security code"
-                  placeholder="Security code"
-                  required
-                />
+          <div className={styles.submit_goods_container}>
+            {isMobile1440 && <OrderGoods />}
+            <div className={styles.submit_container}>
+              <div className={styles.price_container}>
+                <p className={styles.subtotal}>Subtotal</p>
+                <p className={styles.price}>₴300</p>
               </div>
-              <input
-                className={styles.input}
-                type="text"
-                name="card name"
-                placeholder="Name on the card"
-                required
-              />
+              <button className={styles.pay_button} type="submit">
+                Pay now
+              </button>
             </div>
-          </label>
-          <label className={styles.save_checkbox}>
-            Save my information
-            <input className={styles.checkbox} type="checkbox" name="save information" />
-          </label>
-        </div>
-
-        <div className={styles.submit_goods_container}>
-          {isMobile1440 && <OrderGoods />}
-          <div className={styles.submit_container}>
-            <div className={styles.price_container}>
-              <p className={styles.subtotal}>Subtotal</p>
-              <p className={styles.price}>₴300</p>
-            </div>
-            <button className={styles.pay_button} type="submit">
-              Pay now
-            </button>
+            {!isMobile1440 && <OrderGoods />}
           </div>
-          {!isMobile1440 && <OrderGoods />}
-        </div>
-      </form>
+        </Form>
+      )}
     </Formik>
   );
 }
