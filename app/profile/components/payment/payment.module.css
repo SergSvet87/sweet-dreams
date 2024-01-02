@@ -23,3 +23,9 @@
 .img:nth-child(1) {
   margin-right: 8px;
 }
+
+@media (max-width: 1439.99px) {
+  .paymentContainer {
+    padding: 0;
+  }
+}

@@ -3,15 +3,17 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import useModalStore from '@hooks/useModalStore';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import ProfileMenu from '../profile-menu/ProfileMenu';
 
 import styles from './profile.module.css';
 
 export default function Profile() {
+  const { openModal } = useModalStore();
+  const isMobile1440 = useMediaQuery(1440);
   const [isLogged, setIsLogged] = useState(true);
-  const [isOpen, setOpen] = useState(false);
   const router = useRouter();
   const profileMenuRef = useRef(null);
 
@@ -19,7 +21,7 @@ export default function Profile() {
     if (!isLogged) {
       router.push('/profile');
     } else {
-      router.push('/auth/login');
+      openModal();
     }
   };
 
@@ -44,7 +46,7 @@ export default function Profile() {
     <div className={styles.profile}>
       <button className={styles.profile__button} onClick={handleClick}>
         <Image
-          src='/images/header/profile.svg'
+          src="/images/header/profile.svg"
           alt="Profile icon"
           width={48}
           height={48}

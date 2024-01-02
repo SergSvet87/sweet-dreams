@@ -9,7 +9,6 @@
   display: grid;
   grid-template-columns: 300px auto;
   height: 100%;
-  /* border: 1px solid blue; */
 }
 
 @media (max-width: 1919.99px) {
@@ -20,7 +19,4 @@
     grid-template-columns: none;
     justify-content: center;
   }
-}
-
-@media (max-width: 743.99px) {
 }

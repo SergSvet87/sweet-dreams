@@ -74,3 +74,12 @@
   background-color: var(--accent-second);
   cursor: pointer;
 }
+
+@media (max-width: 1439.99px) {
+  .profile__name span {
+    font-size: 18px;
+  }
+  .profile__email {
+    font-size: 16px;
+  }
+}
