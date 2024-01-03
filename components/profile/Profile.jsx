@@ -20,7 +20,7 @@ export default function Profile() {
   const handleClick = () => {
     if (!isLogged) {
       router.push('/profile');
-    } else {
+    } else if (isMobile1440) {
       openModal();
     }
   };
