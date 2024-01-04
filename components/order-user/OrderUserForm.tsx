@@ -6,13 +6,17 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import styles from './order-user.module.css';
 import Image from 'next/image';
 import { validationSchema } from '@/utils/yup/index';
-import { initialValues } from '@/utils/formik/initialValues';
+import { initialValues, Values } from '@/utils/formik/initialValues';
 
 export function OrderUserForm() {
   const isMobile1440 = useMediaQuery(1439);
 
+  const submitForm = (values: Values): void => {
+    console.log(values);
+  };
+
   return (
-    <Formik initialValues={initialValues} validationSchema={validationSchema}>
+    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={submitForm}>
       {({ touched, errors }) => (
         <Form className={styles.form}>
           <div className={styles.form_container}>
