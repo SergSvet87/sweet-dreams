@@ -1,84 +1,30 @@
-@media screen and (min-width: 744px) {
-  .list_goods {
-    width: 624px;
-  }
-}
-
-.table {
-  display: flex;
-  gap: 486px;
-  border-bottom: 1px solid var(--black);
-}
-
-@media screen and (min-width: 744px) {
-  .table {
-    margin-top: 44px;
-    gap: 423px;
-  }
-}
-
-@media screen and (min-width: 744px) {
-  .table_name {
-    font-family: var(--font);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-}
-
-.good {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  height: 170px;
-  margin-top: 12px;
-  border-bottom: 1px solid var(--grey);
-  padding-bottom: 12px;
-}
-
-@media screen and (min-width: 744px) {
-  .good {
-    margin-top: 24px;
-    flex-direction: row;
-    gap: 21px;
-    padding-bottom: 0;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .good {
-    margin-top: 16px;
-    height: 140px;
-  }
-}
-
-.info_container {
-  display: flex;
-
-  flex-direction: column;
-
-  font-family: var(--font);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-
-.info_container_image {
-  display: flex;
-  gap: 8px;
-}
-
-@media screen and (min-width: 744px) {
-  .info_container_image {
-    gap: 12px;
-  }
-}
-
 .good_name {
   margin-bottom: 12px;
   width: 173px;
+}
+
+.price_container_paragraph {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.price_single {
+  width: 59px;
+}
+
+.price_amount {
+  margin-right: 28px;
+}
+
+.price_total {
+  font-size: 16px;
+}
+
+.image {
+  width: 82px;
+  height: 93px;
+  background-color: grey;
 }
 
 .good_detail {
@@ -102,58 +48,89 @@
   line-height: normal;
 }
 
-@media screen and (min-width: 744px) {
-  .price_container {
-    column-gap: 14px;
-  }
-}
-
-.price_container_paragraph {
+.good {
   display: flex;
   flex-direction: column;
-  gap: 17px;
+  gap: 8px;
+  height: 170px;
+  margin-top: 12px;
+
+  border-bottom: 1px solid var(--grey);
+  padding-bottom: 12px;
+}
+
+.table {
+  display: flex;
+  gap: 486px;
+  border-bottom: 1px solid var(--black);
+}
+
+.info_container {
+  display: flex;
+  flex-direction: column;
+
+  font-family: var(--font);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.info_container_image {
+  display: flex;
+  gap: 8px;
 }
 
 @media screen and (min-width: 744px) {
   .price_container_paragraph {
     flex-direction: row;
   }
-}
 
-.price_single {
-  width: 59px;
-}
-
-@media screen and (min-width: 744px) {
-  .price_single {
-    font-size: 16px;
-  }
-}
-
-.price_amount {
-  margin-right: 28px;
-}
-
-@media screen and (min-width: 744px) {
   .price_amount {
     font-size: 16px;
     width: 45px;
   }
-}
 
-.price_total {
-  font-size: 16px;
-}
-
-.image {
-  width: 82px;
-  height: 93px;
-  background-color: grey;
-}
-
-@media screen and (min-width: 744px) {
   .image {
     width: 114px;
     height: 100%;
+  }
+
+  .price_single {
+    font-size: 16px;
+  }
+
+  .list_goods {
+    width: 624px;
+  }
+  .table {
+    margin-top: 44px;
+    gap: 423px;
+  }
+  .table_name {
+    font-family: var(--font);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .good {
+    margin-top: 24px;
+    flex-direction: row;
+    gap: 21px;
+    padding-bottom: 0;
+  }
+  .info_container_image {
+    gap: 12px;
+  }
+  .price_container {
+    column-gap: 14px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .good {
+    margin-top: 16px;
+    height: 140px;
   }
 }
