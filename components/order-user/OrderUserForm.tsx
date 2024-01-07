@@ -1,12 +1,12 @@
 'use client';
 
+import Image from 'next/image';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { OrderGoods } from '@/components/order-goods/OrderGoods';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import styles from './order-user.module.css';
-import Image from 'next/image';
 import { validationSchema } from '@/utils/yup/index';
 import { initialValues, Values } from '@/utils/formik/initialValues';
+import styles from './order-user.module.css';
 
 export function OrderUserForm() {
   const isMobile1440 = useMediaQuery(1439);

@@ -1,11 +1,8 @@
 'use client';
-
-import styles from './order.module.css';
-
+import Image from 'next/image';
 import { OrderUserForm } from '@/components/order-user/OrderUserForm';
 import Search from '@/components/search/Search';
-
-import Image from 'next/image';
+import styles from './order.module.css';
 
 export default function Order() {
   return (
