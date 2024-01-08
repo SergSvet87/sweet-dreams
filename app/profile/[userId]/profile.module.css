@@ -1,0 +1,14 @@
+.profile {
+  padding: 3rem;
+  background-color: white;
+}
+
+.profile__wrapper {
+  display: grid;
+  grid-template-columns: 300px auto;
+  column-gap: 1.5rem;
+}
+
+.profile__content {
+  padding: 0 0 0 10rem;
+}

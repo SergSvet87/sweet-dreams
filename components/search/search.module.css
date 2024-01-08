@@ -81,6 +81,10 @@
 } */
 
 @media (min-width: 46.5rem) and (max-width: 89.9994rem) {
+  .search {
+    position: relative;
+    z-index: 1;
+  }
   .search__input {
     padding: 0rem 0.25rem 0rem 3.375rem;  
     font-size: 1rem;
@@ -100,6 +104,10 @@
 }
 
 @media (min-width: 20rem) and (max-width: 46.4994rem) {
+  .search {
+    position: relative;
+    z-index: 1;
+  }
   .search__form {
     gap: 1rem;
   }

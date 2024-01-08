@@ -68,6 +68,8 @@ public class AccountController : BaseApiController
         var userDto = _mapper.Map<UserDto>(user);
         userDto.Token = _tokenService.CreateToken(user);
 
+        SetJwtCookie(userDto.Token);
+
         return StatusCode(201, userDto);
     }
 
@@ -131,6 +133,8 @@ public class AccountController : BaseApiController
         var userDto = _mapper.Map<UserDto>(user);
         userDto.Token = _tokenService.CreateToken(user);
 
+        SetJwtCookie(userDto.Token);
+
         return userDto;
     }
 
@@ -147,6 +151,8 @@ public class AccountController : BaseApiController
 
         var userDto = _mapper.Map<UserDto>(user);
         userDto.Token = _tokenService.CreateToken(user);
+
+        SetJwtCookie(userDto.Token);
 
         return userDto;
     }
@@ -194,6 +200,19 @@ public class AccountController : BaseApiController
         var userDto = _mapper.Map<UserDto>(user);
         userDto.Token = _tokenService.CreateToken(user);
 
+        SetJwtCookie(userDto.Token);
+
         return StatusCode(201, userDto);
+    }
+
+    private void SetJwtCookie(string token)
+    {
+        Response.Cookies.Append("jwtToken", token, new CookieOptions
+        {
+            HttpOnly = true,
+            Expires = DateTime.Now.AddDays(1),
+            Secure = true,
+            SameSite = SameSiteMode.Strict
+        });
     }
 }

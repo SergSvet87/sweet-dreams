@@ -13,12 +13,13 @@
 .selling__wrapper::after {
   content: '';
   width: 100%;
-  height: 800px;
+  height: 750px;
   position: absolute;
-  bottom: 50px;
+  bottom: 80px;
   left: 0px;
-  background: url('../../public/images/sellers/bg.png') left bottom / contain no-repeat;
+  background: url('/images/sellers/bg.png') left bottom / cover no-repeat;
   background-origin: padding-box;
+  z-index: 0;
 }
 
 .angel {  
@@ -30,11 +31,14 @@
   visibility: hidden;
   opacity: 0;
   transform: scale(0);
-  background: url('../../public/images/sellers/angel.png') center / cover no-repeat;
+  background: url('/images/sellers/angel.png') center / cover no-repeat;
   z-index: 10;
 }
 
 @media (min-width: 90rem) and (max-width: 119.9994rem) {
+  .selling__wrapper::after {
+    background-size: contain;
+  }
   .angel {
     top: 1%;
     right: 1%;
@@ -47,7 +51,8 @@
     background-size: cover;
   }
 
-  .angel {  
+  .angel {
+    top: 3%;
     width: 7.1875rem;
     height: 7.25rem;
   }

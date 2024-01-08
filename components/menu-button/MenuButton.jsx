@@ -24,7 +24,7 @@ export const MenuButton = ({ isOpen, setOpen }) => {
         <Image
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          src='/images/header/menu-close.svg'
+          src="/images/header/menu-close.svg"
           width={48}
           height={48}
           alt="menu-close"
@@ -34,7 +34,7 @@ export const MenuButton = ({ isOpen, setOpen }) => {
         <Image
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          src='/images/header/menu.svg'
+          src="/images/header/menu.svg"
           width={48}
           height={48}
           alt="menu"

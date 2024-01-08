@@ -23,6 +23,20 @@
   margin-top: 50px;
 }
 
-/* @media (min-width: 1024px) {
-  
-} */
+@media (max-width: 1919.99px) {
+  .catalog__list {
+    gap: 3.8rem;
+  }
+}
+
+@media (max-width: 1439.99px) {
+  .catalog__list {
+    row-gap: 2rem;
+  }
+}
+
+@media (max-width: 743.99px) {
+  .catalog__list {
+    row-gap: 1.5rem;
+  }
+}

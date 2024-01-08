@@ -9,11 +9,14 @@
 .menu__list_sub {
   display: none;
   position: absolute;
+  top: 53px;
   left: -3%;
   flex-direction: column;
   row-gap: 1.25rem;
   z-index: 10;
-  padding-top: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent);
+  color: var(--white);
 }
 
 .menu__item.menu__item_drop:hover .menu__list_sub {
@@ -32,7 +35,8 @@
 }
 
 .menu__item a {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem;  
+  border: 0.125rem solid transparent;
   transition: all 0.6s ease-in-out;
 }
 

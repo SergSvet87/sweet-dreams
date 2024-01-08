@@ -10,7 +10,6 @@ import Payment from '../payment/Payment';
 
 import styles from './footer.module.css';
 
-
 const MENU = [
   {
     id: 1,
@@ -44,15 +43,14 @@ export default function Footer() {
           <nav className={styles.footer__menu}>
             <ul className={styles.footer__menu__list}>
               {MENU.map(({ id, name, path }) => (
-                <li
-                  key={id}
-                  className={styles.footer__menu__item}>
+                <li key={id} className={styles.footer__menu__item}>
                   <Link
                     className={classNames(
                       styles.footer__menu__link,
                       pathname === path ? styles.active : ''
                     )}
-                    href={path}>
+                    href={path}
+                  >
                     {name}
                   </Link>
                 </li>

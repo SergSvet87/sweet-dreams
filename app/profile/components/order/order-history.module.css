@@ -1,0 +1,49 @@
+.orderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* max-width: 462px; */
+  
+}
+.aboveTableBlock{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.title {
+  font-family: PoppinsS;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 22px;
+}
+.selectComponent{
+  position: relative;
+  top:-8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 215px;
+  height: 40px ;
+  padding: 0px 12px;
+  color: var(--black);
+  border-radius: 25px;
+  border: 1px solid var(--black);
+  background: var(--white);
+
+  font-family: PoppinsS;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.selectComponent span {
+  position: 'relative';
+  z-index: 4;
+}
+

@@ -30,7 +30,8 @@ export default function Contacts() {
         <li
           className={styles.contacts__item}
           onMouseEnter={handleMouseEnterFB}
-          onMouseLeave={handleMouseLeaveFB}>
+          onMouseLeave={handleMouseLeaveFB}
+        >
           <Link href="#">
             <Image
               width={48}
@@ -48,7 +49,8 @@ export default function Contacts() {
         <li
           className={styles.contacts__item}
           onMouseEnter={handleMouseEnterIG}
-          onMouseLeave={handleMouseLeaveIG}>
+          onMouseLeave={handleMouseLeaveIG}
+        >
           <Link href="#">
             <Image
               width={48}

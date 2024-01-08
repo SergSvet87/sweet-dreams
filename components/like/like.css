@@ -1,0 +1,85 @@
+.like {
+  padding: 2.5rem 0;
+}
+
+.like__title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 2.125rem;
+}
+
+.splide.like__slider {
+  margin: 0 auto;
+}
+
+.like__slider .splide__arrows button {
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--footer-color);
+}
+
+.like__slider .splide__arrows button svg {
+  fill: var(--white);
+  background: url('/images/arrow-right.svg') center / cover no-repeat;
+}
+
+.like__slider .splide__arrow--prev {
+  left: -12%;
+}
+
+.like__slider .splide__arrow--next {
+  right: -10%;
+}
+
+.like__slider .splide__slide img {
+  vertical-align: middle;
+}
+
+.like__slider .splide__slide .product-card_product__like__dYScC img {
+  vertical-align: top;
+}
+
+@media (max-width: 90rem) {
+  .like__slider .splide__arrow--prev {
+    left: 10%;
+  }
+  
+  .like__slider .splide__arrow--next {
+    right: 10%;
+  }
+}
+
+@media (max-width: 46.5rem) {
+  .like__slider .splide__slide {
+    margin: 0 25%;
+  }
+  .like__slider .splide__arrows button {
+    width: 3rem;
+    height: 3rem;
+  }
+  .like__slider .splide__arrow--prev {
+    left: 0.625rem;
+  }  
+  .like__slider .splide__arrow--next {
+    right: 0.625rem;
+  }
+  .like__slider .splide__arrows button svg {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+}
+
+@media (max-width: 28.125rem) {
+  .like__slider .splide__slide {
+    margin: 0 15%;
+  }
+}
+
+@media (max-width: 360px) {
+  .like__slider .splide__slide {
+    margin: 0 10%;
+  }
+}

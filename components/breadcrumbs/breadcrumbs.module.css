@@ -5,3 +5,40 @@
   font-weight: 400;
   margin-bottom: 1rem;
 }
+
+.breadcrumb__links {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb__links a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumb__links .breadcrumb__shop {
+  padding-bottom: 1px;
+  transition: text-decoration .4s linear;
+}
+
+.breadcrumb__links .breadcrumb__home:hover {
+  background-color: var(--footer-color);
+}
+
+.breadcrumb__links .breadcrumb__shop:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb__links span {
+  margin: 0 4px;
+}
+
+@media (max-width: 744px) {
+  .breadcrumb {
+    font-size: 0.75rem;
+  }
+  .breadcrumb__links svg {
+    width: 16px;
+    height: 16px;
+  }
+}

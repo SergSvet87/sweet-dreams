@@ -48,7 +48,7 @@
 
 .checkbox__input:checked+.checkbox__span::before {
   height: 1.8rem;
-  background-image   : url('../../public/images/shop/checkBox.png');
+  background-image   : url('/images/shop/checkBox.png');
   background-repeat  : no-repeat;
   background-position: center center;
   background-size    : cover;
@@ -69,23 +69,23 @@
 }
 
 .rating__input+.rating__span_5.rating__span::before {
-  background: url('../../public/images/shop/star_rating_5.png') center / cover no-repeat;
+  background: url('/images/shop/star_rating_5.png') center / cover no-repeat;
 }
 
 .rating__input+.rating__span_4.rating__span::before {
-  background: url('../../public/images/shop/star_rating_4.png') center / cover no-repeat;
+  background: url('/images/shop/star_rating_4.png') center / cover no-repeat;
 }
 
 .rating__input+.rating__span_3.rating__span::before {
-  background: url('../../public/images/shop/star_rating_3.png') center / cover no-repeat;
+  background: url('/images/shop/star_rating_3.png') center / cover no-repeat;
 }
 
 .rating__input+.rating__span_2.rating__span::before {
-  background: url('../../public/images/shop/star_rating_2.png') center / cover no-repeat;
+  background: url('/images/shop/star_rating_2.png') center / cover no-repeat;
 }
 
 .rating__input+.rating__span_1.rating__span::before {
-  background: url('../../public/images/shop/star_rating_1.png') center / cover no-repeat;
+  background: url('/images/shop/star_rating_1.png') center / cover no-repeat;
 }
 
 .rating__input:checked+.rating__span::before {

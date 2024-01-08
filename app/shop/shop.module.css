@@ -1,12 +1,17 @@
 .shop {
   background-color: var(--white);
   color: var(--black);
+  padding-bottom: 2.5rem;
 }
 
 .shop__content {
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
-  gap: 2.125rem;
-  padding: 2.7rem 0;
+  gap: 2rem;
+}
+
+@media (max-width: 1919.99px) {
+  .shop__content {
+    gap: 0.5rem;
+  }
 }

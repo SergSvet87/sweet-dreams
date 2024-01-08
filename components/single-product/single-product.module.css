@@ -160,3 +160,56 @@
   margin-right: 0.5rem;
 }
 
+@media (max-width: 1440px) {
+  .item__wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .item__img {
+    margin-bottom: 1.75rem;
+  }
+}
+
+@media (max-width: 46.5rem) {
+  .item__img {
+    width: 13.4375rem;
+    height: 15.3125rem;
+  }
+  .item__title {
+    font-size: 1.5rem;
+  }
+  .item__quantity,
+  .item__code,
+  .item__type {
+    margin-bottom: 0.75rem;
+  }
+
+  .item__rating,
+  .item__like {
+    height: 1.5rem;
+  }
+
+  .item__like {
+    gap: 0.625rem;
+  }
+
+  .item__price {  
+    font-size: 24px;
+  }
+
+  .item__share {
+    margin-bottom: 2.5rem;
+  }
+
+  .share__title {
+    font-size: 12px;
+    margin-right: 2.5rem;
+  }
+
+  .desc__title,
+  .vote__text {
+    font-weight: 500;
+    font-size: 1rem;
+  }
+}
+

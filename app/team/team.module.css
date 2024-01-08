@@ -6,6 +6,10 @@
   background-color: var(--accent);
 }
 
+.team__wrapper {
+  max-width: 1600px;
+}
+
 .team__title {  
   font-size: 7.5rem;
   font-weight: 400;
@@ -21,7 +25,7 @@
 }
 
 .team__item {
-  max-width: 39.125rem;
+  max-width: 41rem;
   padding-bottom: 16px;
   border-bottom: 2px solid var(--white);
 }

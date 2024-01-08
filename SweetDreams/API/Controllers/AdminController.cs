@@ -39,11 +39,26 @@ public class AdminController : BaseApiController
                 return Unauthorized("Invalid password.");
         }
 
-        return new AdminDto
+        var adminDto = new AdminDto
         {
             Email = user.Email,
             Token = _tokenService.CreateToken(user, true)
         };
+        
+        SetJwtCookie(adminDto.Token);
+
+        return adminDto;
+    }
+    
+    private void SetJwtCookie(string token)
+    {
+        Response.Cookies.Append("jwtToken", token, new CookieOptions
+        {
+            HttpOnly = true,
+            Expires = DateTime.Now.AddDays(1),
+            Secure = true,
+            SameSite = SameSiteMode.Strict
+        });
     }
 
     // [HttpPost("register")] // development method created for adding admins

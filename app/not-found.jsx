@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
+import Search from '@/components/search/Search';
+import Decor from '@/components/decor/Decor';
+
 import styles from './styles/not-found.module.css';
-import Search from '@/components/search/Search.jsx';
 
 export default function NotFound() {
   return (
@@ -22,29 +24,7 @@ export default function NotFound() {
           </Link>
         </div>
 
-        <div className={styles.notFound__angel_1}>
-          <Image src="/images/not_found/angel.svg" alt="Angel Icon" width={96} height={95} />
-        </div>
-
-        <div className={styles.notFound__angel_2}>
-          <Image src="/images/not_found/angel_2.svg" alt="Angel Icon" width={96} height={95} />
-        </div>
-
-        <div className={styles.notFound__angel_3}>
-          <Image src="/images/not_found/angel_1.svg" alt="Angel Icon" width={96} height={95} />
-        </div>
-
-        <div className={styles.notFound__angel_4}>
-          <Image src="/images/not_found/angel.svg" alt="Angel Icon" width={96} height={95} />
-        </div>
-
-        <div className={styles.notFound__angel_5}>
-          <Image src="/images/not_found/angel.svg" alt="Angel Icon" width={96} height={95} />
-        </div>
-
-        <div className={styles.notFound__angel_6}>
-          <Image src="/images/not_found/angel_1.svg" alt="Angel Icon" width={96} height={95} />
-        </div>
+        <Decor />
       </section>
     </>
   );
