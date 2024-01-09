@@ -75,6 +75,8 @@ export const ResetSchema = yup
   })
   .required();
 
+// ------- For cart_page_order (order) page -------
+
 export const validationSchema = yup.object().shape({
   email: yup
     .string()
