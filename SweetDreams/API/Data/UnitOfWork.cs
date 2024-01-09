@@ -21,6 +21,8 @@ public class UnitOfWork : IUnitOfWork, IDisposable
     public IAppAdminRepository AppAdmin { get; private set; }
 
     public IProductRepository Product { get; private set; }
+    
+    public ICartRepository Cart { get; set; }
 
     public async Task<bool> SaveChangesAsync()
     {

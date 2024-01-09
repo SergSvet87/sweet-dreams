@@ -9,6 +9,8 @@ public interface IUnitOfWork : IDisposable
     public IAppAdminRepository AppAdmin { get; }
 
     public IProductRepository Product { get; }
+    
+    public ICartRepository Cart { get; set; }
 
     Task<bool> SaveChangesAsync();
 }
