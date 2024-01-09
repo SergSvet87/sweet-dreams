@@ -14,6 +14,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         AppUser = new AppUserRepository(_context);
         AppAdmin = new AppAdminRepository(_context);
         Product = new ProductRepository(_context);
+        Cart = new CartRepository(_context);
     }
 
     public IAppUserRepository AppUser { get; private set; }

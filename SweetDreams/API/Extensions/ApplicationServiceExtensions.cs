@@ -15,6 +15,7 @@ public static class ApplicationServiceExtensions
         services.AddTransient<IUnitOfWork, UnitOfWork>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddTransient<ISortingAndPagingService<Product>, SortingAndPagingService<Product>>();
+        services.AddTransient<ICartService, CartService>();
 
         return services;
     }

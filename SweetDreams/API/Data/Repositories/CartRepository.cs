@@ -18,13 +18,27 @@ public class CartRepository : GenericRepository<Cart>, ICartRepository
 
     public void AddOrUpdateCartItem(CartItem cartItem)
     {
-        if (cartItem.CartItemId == 0)
+        var cart = _context.Carts
+            .Include(c => c.CartItems)
+            .FirstOrDefault(c => c.CartId == cartItem.CartId);
+
+        if (cart == null)
         {
-            _context.CartItems.Add(cartItem);
+            cart = new Cart { CartId = cartItem.CartId, CartItems = new List<CartItem>() };
+            _context.Carts.Add(cart);
+        }
+
+        var existingCartItem = cart.CartItems
+            .FirstOrDefault(x => x.CartId == cartItem.CartId && x.CartItemId == cartItem.CartItemId);
+
+        if (existingCartItem == null)
+        {
+            existingCartItem = new CartItem { CartItemId = cartItem.CartItemId, Quantity = cartItem.Quantity };
+            cart.CartItems.Add(existingCartItem);
         }
         else
         {
-            _context.CartItems.Update(cartItem);
+            existingCartItem.Quantity = cartItem.Quantity;
         }
     }
 

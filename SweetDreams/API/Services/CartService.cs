@@ -20,25 +20,35 @@ public class CartService : ICartService
 
     public void AddOrUpdateCartItem(Guid cartId, int cartItemId, int quantity)
     {
-        var cart = _unitOfWork.Cart.GetCartById(cartId);
+        // var cart = _unitOfWork.Cart.GetCartById(cartId);
+        //
+        // if (cart == null)
+        // {
+        //     cart = new Cart { CartId = cartId, CartItems = new List<CartItem>() };
+        // }
+        //
+        // var cartItem = cart.CartItems.FirstOrDefault(item => item.CartItemId == cartItemId);
+        //
+        // if (cartItem == null)
+        // {
+        //     cartItem = new CartItem { CartItemId = cartItemId, Quantity = quantity };
+        //     cart.CartItems.Add(cartItem);
+        // }
+        // else
+        // {
+        //     cartItem.Quantity = quantity;
+        // }
+        //
+        // _unitOfWork.Cart.AddOrUpdateCartItem(cartItem);
+        // _unitOfWork.SaveChangesAsync();
 
-        if (cart == null)
+        var cartItem = new CartItem()
         {
-            cart = new Cart { CartId = cartId, CartItems = new List<CartItem>() };
-        }
-
-        var cartItem = cart.CartItems.FirstOrDefault(item => item.CartItemId == cartItemId);
-
-        if (cartItem == null)
-        {
-            cartItem = new CartItem { CartItemId = cartItemId, Quantity = quantity };
-            cart.CartItems.Add(cartItem);
-        }
-        else
-        {
-            cartItem.Quantity = quantity;
-        }
-
+            CartId = cartId,
+            CartItemId = cartItemId,
+            Quantity = quantity
+        };
+        
         _unitOfWork.Cart.AddOrUpdateCartItem(cartItem);
         _unitOfWork.SaveChangesAsync();
     }
