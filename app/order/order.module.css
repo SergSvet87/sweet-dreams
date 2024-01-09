@@ -25,6 +25,8 @@
   color: var(--black);
 }
 
+/* ------ Media rules ------ */
+
 @media screen and (min-width: 360px) {
   .order {
     padding-bottom: 16px;
