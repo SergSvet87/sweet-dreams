@@ -76,7 +76,7 @@ export default function Selling() {
 
   return (
     <section className={styles.selling}>
-      <div className={styles.selling__wrapper}>
+      <div className={(styles.container, styles.selling__wrapper)}>
         <SectionHeader text="Best Sellers" />
 
         <Splide
@@ -95,7 +95,7 @@ export default function Selling() {
             arrowPath: 'none',
             breakpoints: {
               1920: {
-                gap: '11.25rem',
+                gap: '198px',
               },
               1440: {
                 perPage: 2,
@@ -113,20 +113,21 @@ export default function Selling() {
                 focus: 0,
               },
             },
-          }}>
+          }}
+        >
           {data.length &&
-            data.map((item) => (
+            data.map(item => (
               <SplideSlide key={item.id} className="sellers__slide">
-                <Image src={item.image} alt={item.title} width={253} height={251} priority />
-                <h2 className="sellers__title">{item.title}</h2>
-                <p className="sellers__count">{item.count}</p>
-                <p className="sellers__price">{item.price}</p>
+                {/* <Image src={item.image} alt={item.title} width={253} height={251} priority /> */}
+                {/* <h2 className="sellers__title">{item.title}</h2>
+                  <p className="sellers__count">{item.count}</p>
+                  <p className="sellers__price">{item.price}</p> */}
               </SplideSlide>
             ))}
         </Splide>
-      </div>
 
-      <div className={classNames(styles.angel, 'angel')}></div>
+        <div className={classNames(styles.angel, 'angel')}></div>
+      </div>
     </section>
   );
 }

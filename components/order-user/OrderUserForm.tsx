@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { useRef } from 'react';
 import { OrderGoods } from '@/components/order-goods/OrderGoods';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { validationSchema } from '@/utils/yup/index';
@@ -11,8 +12,30 @@ import styles from './order-user.module.css';
 export function OrderUserForm() {
   const isMobile1440 = useMediaQuery(1439);
 
+  const labelName = useRef();
+  const labelLastName = useRef();
+
   const submitForm = (values: Values): void => {
     console.log(values);
+  };
+
+  const handleFocus = e => {
+    e.target.placeholder = '';
+    if (e.target.name === 'name') {
+      labelName.current.style.opacity = '1';
+    } else if (e.target.name === 'lastName') {
+      labelLastName.current.style.opacity = '1';
+    }
+  };
+
+  const handleBlur = e => {
+    if (!e.target.value && e.target.name === 'name') {
+      labelName.current.style.opacity = '0';
+      e.target.placeholder = 'Name';
+    } else if (!e.target.value && e.target.name === 'lastName') {
+      labelLastName.current.style.opacity = '0';
+      e.target.placeholder = 'Last name';
+    }
   };
 
   return (
@@ -40,22 +63,32 @@ export function OrderUserForm() {
             </label>
             <div className={styles.inputs_container}>
               <label className={styles.label}>
-                Name
+                <span className={styles.span} ref={labelName}>
+                  Name
+                </span>
                 <Field
                   className={`${touched.name && errors.name ? styles.error_input : styles.input}`}
                   type="text"
                   name="name"
+                  placeholder="Name"
+                  onBlur={handleBlur}
+                  onFocus={handleFocus}
                 />
                 <ErrorMessage name="name" component="p" className={styles.error} />
               </label>
               <label className={styles.label}>
-                Last name
+                <span className={styles.span} ref={labelLastName}>
+                  Last name
+                </span>
                 <Field
-                  className={
+                  className={`${
                     touched.lastName && errors.lastName ? styles.error_input : styles.input
-                  }
+                  }`}
                   type="text"
                   name="lastName"
+                  placeholder="Last name"
+                  onBlur={handleBlur}
+                  onFocus={handleFocus}
                 />
                 <ErrorMessage name="lastName" component="p" className={styles.error} />
               </label>

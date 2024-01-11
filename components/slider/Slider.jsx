@@ -66,9 +66,8 @@ function PrevArrow({ className, onClick }) {
     <button
       className={className}
       // style={{ ...style, display: "block", background: "green" }}
-      onClick={onClick}>
-      
-    </button>
+      onClick={onClick}
+    ></button>
   );
 }
 
@@ -77,9 +76,8 @@ function NextArrow({ className, onClick }) {
     <button
       className={className}
       // style={{ ...style, display: "block", background: "green" }}
-      onClick={onClick}>
-      
-    </button>
+      onClick={onClick}
+    ></button>
   );
 }
 
@@ -87,19 +85,19 @@ export default function SliderSlick() {
   const [sliderRef, setSliderRef] = useState(null);
 
   const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    className: 'center',
     centerMode: true,
+    infinite: true,
+    centerPadding: '60px',
+    slidesToShow: 3,
+    speed: 500,
     arrows: true,
     responsive: [
       {
         breakpoint: 1440,
         settings: {
-          slidesToShow: 1,
-          centerMode: false,
+          slidesToShow: 3,
+          centerMode: true,
         },
       },
     ],
@@ -110,10 +108,8 @@ export default function SliderSlick() {
 
   return (
     <Slider {...sliderSettings} className="slider" ref={sliderRef}>
-      {data.map((item) => (
-        <div className={classNames('slider__slide')} key={item.id}>
-          
-        </div>
+      {data.map(item => (
+        <div className={classNames('slider__slide')} key={item.id}></div>
       ))}
     </Slider>
   );
