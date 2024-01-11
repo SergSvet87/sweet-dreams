@@ -3,6 +3,25 @@
   padding-top: 1rem;
 }
 
+.container {
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 1920px) {
+  .container {
+    padding-left: 162px;
+    padding-right: 162px;
+    width: 1920px;
+  }
+}
+
+/* .sliderSlick {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+
 .selling__wrapper {
   width: 100%;
   position: relative;
@@ -22,12 +41,12 @@
   z-index: 0;
 }
 
-.angel {  
+.angel {
   width: 14.625rem;
   height: 14.8125rem;
-  position : absolute;
-  top : -5%;
-  right : 5%;
+  position: absolute;
+  top: -5%;
+  right: 5%;
   visibility: hidden;
   opacity: 0;
   transform: scale(0);
