@@ -12,27 +12,27 @@ import styles from './order-user.module.css';
 export function OrderUserForm() {
   const isMobile1440 = useMediaQuery(1439);
 
-  const labelName = useRef();
-  const labelLastName = useRef();
+  const labelName = useRef<HTMLSpanElement>(null);
+  const labelLastName = useRef<HTMLSpanElement>(null);
 
   const submitForm = (values: Values): void => {
     console.log(values);
   };
 
-  const handleFocus = e => {
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     e.target.placeholder = '';
-    if (e.target.name === 'name') {
+    if (e.target.name === 'name' && labelName.current) {
       labelName.current.style.opacity = '1';
-    } else if (e.target.name === 'lastName') {
+    } else if (e.target.name === 'lastName' && labelLastName.current) {
       labelLastName.current.style.opacity = '1';
     }
   };
 
-  const handleBlur = e => {
-    if (!e.target.value && e.target.name === 'name') {
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (!e.target.value && e.target.name === 'name' && labelName.current) {
       labelName.current.style.opacity = '0';
       e.target.placeholder = 'Name';
-    } else if (!e.target.value && e.target.name === 'lastName') {
+    } else if (!e.target.value && e.target.name === 'lastName' && labelLastName.current) {
       labelLastName.current.style.opacity = '0';
       e.target.placeholder = 'Last name';
     }
