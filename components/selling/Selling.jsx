@@ -1,6 +1,6 @@
 import { useLayoutEffect } from 'react';
 import Image from 'next/image';
-import { gsap } from 'gsap';
+// import { gsap } from 'gsap';
 import classNames from 'classnames';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
@@ -63,16 +63,16 @@ const data = [
 ];
 
 export default function Selling() {
-  useLayoutEffect(() => {
-    gsap.to('.angel', {
-      visibility: 'visible',
-      opacity: 1,
-      scale: 1,
-      duration: 3,
-      delay: 2,
-      ease: 'power2.out',
-    });
-  }, []);
+  // useLayoutEffect(() => {
+  //   gsap.to('.angel', {
+  //     visibility: 'visible',
+  //     opacity: 1,
+  //     scale: 1,
+  //     duration: 3,
+  //     delay: 2,
+  //     ease: 'power2.out',
+  //   });
+  // }, []);
 
   return (
     <section className={styles.selling}>
@@ -85,34 +85,15 @@ export default function Selling() {
           options={{
             type: 'loop',
             rewind: true,
-            speed: 1200,
+            speed: 1000,
             perPage: 3,
             perMove: 1,
             focus: 1,
             gap: '198px',
+            drag: false,
+
             pagination: true,
             arrows: true,
-            arrowPath: 'none',
-            breakpoints: {
-              1920: {
-                gap: '198px',
-              },
-              1440: {
-                perPage: 2,
-                gap: '12rem',
-                focus: 0,
-              },
-              960: {
-                perPage: 1,
-                gap: '20rem',
-                focus: 0,
-              },
-              744: {
-                perPage: 1,
-                gap: '10rem',
-                focus: 0,
-              },
-            },
           }}
         >
           {data.length &&
@@ -125,8 +106,6 @@ export default function Selling() {
               </SplideSlide>
             ))}
         </Splide>
-
-        <div className={classNames(styles.angel, 'angel')}></div>
       </div>
     </section>
   );

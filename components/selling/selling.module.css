@@ -29,7 +29,7 @@
   flex-direction: column;
 }
 
-.selling__wrapper::after {
+/* .selling__wrapper::after {
   content: '';
   width: 100%;
   height: 750px;
@@ -39,9 +39,9 @@
   background: url('/images/sellers/bg.png') left bottom / cover no-repeat;
   background-origin: padding-box;
   z-index: 0;
-}
+} */
 
-.angel {
+/* .angel {
   width: 14.625rem;
   height: 14.8125rem;
   position: absolute;
@@ -52,7 +52,7 @@
   transform: scale(0);
   background: url('/images/sellers/angel.png') center / cover no-repeat;
   z-index: 10;
-}
+} */
 
 @media (min-width: 90rem) and (max-width: 119.9994rem) {
   .selling__wrapper::after {

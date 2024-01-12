@@ -12,6 +12,7 @@
     "@hookform/resolvers": "^3.3.2",
     "@splidejs/react-splide": "^0.7.12",
     "@svgr/webpack": "^8.1.0",
+    "animate.css": "^4.1.1",
     "classnames": "^2.3.2",
     "formik": "^2.4.5",
     "gsap": "^3.12.2",
