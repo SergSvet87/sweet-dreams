@@ -6,7 +6,7 @@ import SectionHeader from '../section-header/SectionHeader';
 
 import styles from './selling.module.css';
 // import './slider.css';
-// ss
+
 import 'swiper/css';
 import './swiper.css';
 import 'swiper/css/navigation';
