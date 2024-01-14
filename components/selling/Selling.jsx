@@ -1,14 +1,17 @@
-import { useLayoutEffect } from 'react';
 import Image from 'next/image';
-// import { gsap } from 'gsap';
-import classNames from 'classnames';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-
+import { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import SectionHeader from '../section-header/SectionHeader';
 
-import '@splidejs/react-splide/css';
 import styles from './selling.module.css';
-import './slider.css';
+// import './slider.css';
+
+import 'swiper/css';
+import './swiper.css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 const data = [
   {
@@ -42,71 +45,118 @@ const data = [
   {
     id: 5,
     image: '/images/sellers/card2.png',
-    title: 'Mickey Mouse 2',
+    title: 'Mickey Mouse 5',
     count: 'Box of 10',
     price: '₴350',
   },
   {
     id: 6,
     image: '/images/sellers/card3.png',
-    title: 'Mickey Mouse 3',
+    title: 'Mickey Mouse 6',
     count: 'Box of 10',
     price: '₴350',
   },
   {
     id: 7,
     image: '/images/sellers/card2.png',
-    title: 'Mickey Mouse 2',
+    title: 'Mickey Mouse 7',
+    count: 'Box of 10',
+    price: '₴350',
+  },
+  {
+    id: 8,
+    image: '/images/sellers/card1.png',
+    title: 'Mickey Mouse 8',
     count: 'Box of 10',
     price: '₴350',
   },
 ];
 
 export default function Selling() {
-  // useLayoutEffect(() => {
-  //   gsap.to('.angel', {
-  //     visibility: 'visible',
-  //     opacity: 1,
-  //     scale: 1,
-  //     duration: 3,
-  //     delay: 2,
-  //     ease: 'power2.out',
-  //   });
-  // }, []);
-
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   return (
-    <section className={styles.selling}>
-      <div className={(styles.container, styles.selling__wrapper)}>
-        <SectionHeader text="Best Sellers" />
+    <>
+      <SectionHeader />
+      <section className={styles.selling}>
+        <div className={styles.selling__wrapper}>
+          <Swiper
+            effect={'creative'}
+            speed={800}
+            watchOverflow={true}
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            spaceBetween={198}
+            slidesPerView={3}
+            centeredSlides={true}
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+              clickable: true,
+            }}
+            pagination={{ clickable: true }}
+            onSlideChange={swiper => {
+              console.log(swiper.activeIndex);
+              setActiveSlideIndex(swiper.activeIndex);
+            }}
+          >
+            {data.length &&
+              data.map(item => (
+                <SwiperSlide key={item.id} className="sellers__slide">
+                  <div
+                    className={styles.sellers_img}
+                    onClick={() => console.log(item.title, item.id, activeSlideIndex + 1)}
+                  >
+                    <div
+                      className={
+                        item.id === activeSlideIndex + 1
+                          ? styles.sellers__img_container_active
+                          : styles.sellers__img_container
+                      }
+                    >
+                      <Image src={item.image} alt={item.title} width={500} height={251} />
+                    </div>
+                    <div className={styles.sellers__container}>
+                      <h2
+                        className={
+                          item.id === activeSlideIndex + 1
+                            ? styles.sellers__title_active
+                            : styles.sellers__title
+                        }
+                      >
+                        {item.title}
+                      </h2>
+                      <p
+                        className={
+                          item.id === activeSlideIndex + 1
+                            ? styles.sellers__count_active
+                            : styles.sellers__count
+                        }
+                      >
+                        {item.count}
+                      </p>
+                      <p
+                        className={
+                          item.id === activeSlideIndex + 1
+                            ? styles.sellers__price_active
+                            : styles.sellers__price
+                        }
+                      >
+                        {item.price}
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            <div className={styles.pagination}></div>
 
-        <Splide
-          className="sellers__slider"
-          aria-label="Best Sellers"
-          options={{
-            type: 'loop',
-            rewind: true,
-            speed: 1000,
-            perPage: 3,
-            perMove: 1,
-            focus: 1,
-            gap: '198px',
-            drag: false,
-
-            pagination: true,
-            arrows: true,
-          }}
-        >
-          {data.length &&
-            data.map(item => (
-              <SplideSlide key={item.id} className="sellers__slide">
-                {/* <Image src={item.image} alt={item.title} width={253} height={251} priority /> */}
-                {/* <h2 className="sellers__title">{item.title}</h2>
-                  <p className="sellers__count">{item.count}</p>
-                  <p className="sellers__price">{item.price}</p> */}
-              </SplideSlide>
-            ))}
-        </Splide>
-      </div>
-    </section>
+            <div className="swiper-button-prev">
+              <Image src="images/arrow-right.svg" width={70} height={70} />
+            </div>
+            <div className="swiper-button-next">
+              <Image src="images/arrow-right.svg" width={70} height={70} />
+            </div>
+          </Swiper>
+        </div>
+      </section>
+    </>
   );
 }
