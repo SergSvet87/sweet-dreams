@@ -3,12 +3,14 @@ import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import SectionHeader from '../section-header/SectionHeader';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 import styles from './selling.module.css';
 // import './slider.css';
 
 import 'swiper/css';
 import './swiper.css';
+import './index.css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
@@ -73,7 +75,14 @@ const data = [
 ];
 
 export default function Selling() {
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const isMobile744 = useMediaQuery(744);
+  const isMobile1440 = useMediaQuery(1440);
+  const isMobile1920 = useMediaQuery(1920);
+
+  console.log(isMobile744);
+
+  // const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+
   return (
     <>
       <SectionHeader />
@@ -82,10 +91,10 @@ export default function Selling() {
           <Swiper
             effect={'creative'}
             speed={800}
-            watchOverflow={true}
             modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={198}
-            slidesPerView={3}
+            spaceBetween={10}
+            slidesPerView={1}
+            loop={true}
             centeredSlides={true}
             navigation={{
               nextEl: '.swiper-button-next',
@@ -93,55 +102,32 @@ export default function Selling() {
               clickable: true,
             }}
             pagination={{ clickable: true }}
-            onSlideChange={swiper => {
-              console.log(swiper.activeIndex);
-              setActiveSlideIndex(swiper.activeIndex);
+            breakpoints={{
+              744: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              1440: {
+                slidesPerView: 3,
+                spaceBetween: 98,
+              },
+              1920: {
+                slidesPerView: 3,
+                spaceBetween: 198,
+              },
             }}
           >
             {data.length &&
               data.map(item => (
                 <SwiperSlide key={item.id} className="sellers__slide">
-                  <div
-                    className={styles.sellers_img}
-                    onClick={() => console.log(item.title, item.id, activeSlideIndex + 1)}
-                  >
-                    <div
-                      className={
-                        item.id === activeSlideIndex + 1
-                          ? styles.sellers__img_container_active
-                          : styles.sellers__img_container
-                      }
-                    >
+                  <div className={styles.sellers_img}>
+                    <div className={styles.sellers__img_container}>
                       <Image src={item.image} alt={item.title} width={500} height={251} />
                     </div>
                     <div className={styles.sellers__container}>
-                      <h2
-                        className={
-                          item.id === activeSlideIndex + 1
-                            ? styles.sellers__title_active
-                            : styles.sellers__title
-                        }
-                      >
-                        {item.title}
-                      </h2>
-                      <p
-                        className={
-                          item.id === activeSlideIndex + 1
-                            ? styles.sellers__count_active
-                            : styles.sellers__count
-                        }
-                      >
-                        {item.count}
-                      </p>
-                      <p
-                        className={
-                          item.id === activeSlideIndex + 1
-                            ? styles.sellers__price_active
-                            : styles.sellers__price
-                        }
-                      >
-                        {item.price}
-                      </p>
+                      <h2 className={styles.sellers__title}>{item.title}</h2>
+                      <p className={styles.sellers__count}>{item.count}</p>
+                      <p className={styles.sellers__price}>{item.price}</p>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -149,10 +135,21 @@ export default function Selling() {
             <div className={styles.pagination}></div>
 
             <div className="swiper-button-prev">
-              <Image src="images/arrow-right.svg" width={70} height={70} />
+              <Image
+                src="images/arrow-right.svg"
+                width={isMobile744 ? 35 : 55}
+                height={isMobile744 ? 35 : 55}
+              />
+
+              {/* {isMobile1920 && <Image src="images/arrow-right.svg" width={55} height={55} />} */}
             </div>
             <div className="swiper-button-next">
-              <Image src="images/arrow-right.svg" width={70} height={70} />
+              <Image
+                src="images/arrow-right.svg"
+                width={isMobile744 ? 35 : 55}
+                height={isMobile744 ? 35 : 55}
+              />
+              {/* {isMobile1920 && <Image src="images/arrow-right.svg" width={55} height={55} />} */}
             </div>
           </Swiper>
         </div>

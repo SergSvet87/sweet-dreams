@@ -1,0 +1,85 @@
+.swiper-slide.sellers__slide.swiper-slide-active
+  .selling_sellers_img__uCuO3
+  .selling_sellers__container__6E9NE
+  .selling_sellers__title__F8jxR {
+  font-size: 24px;
+}
+
+.swiper-slide.sellers__slide.swiper-slide-active
+  .selling_sellers_img__uCuO3
+  .selling_sellers__container__6E9NE
+  .selling_sellers__count__B8pNN {
+  font-size: 16px;
+}
+
+.swiper-slide.sellers__slide.swiper-slide-active
+  .selling_sellers_img__uCuO3
+  .selling_sellers__container__6E9NE
+  .selling_sellers__price__aYwmr {
+  font-size: 20px;
+}
+
+.swiper-slide.sellers__slide.swiper-slide-active
+  .selling_sellers_img__uCuO3
+  .selling_sellers__img_container__JXn_q {
+  width: 182px;
+}
+
+@media screen and (min-width: 744px) {
+  .swiper-slide.sellers__slide.swiper-slide-active
+    .selling_sellers_img__uCuO3
+    .selling_sellers__img_container__JXn_q {
+    width: 425px;
+  }
+
+  .swiper-slide.sellers__slide.swiper-slide-active
+    .selling_sellers_img__uCuO3
+    .selling_sellers__container__6E9NE
+    .selling_sellers__title__F8jxR {
+    font-size: 40px;
+  }
+
+  .swiper-slide.sellers__slide.swiper-slide-active
+    .selling_sellers_img__uCuO3
+    .selling_sellers__container__6E9NE
+    .selling_sellers__count__B8pNN {
+    font-size: 18px;
+  }
+
+  .swiper-slide.sellers__slide.swiper-slide-active
+    .selling_sellers_img__uCuO3
+    .selling_sellers__container__6E9NE
+    .selling_sellers__price__aYwmr {
+    font-size: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+}
+@media screen and (min-width: 1920px) {
+  .swiper-slide.sellers__slide.swiper-slide-active
+    .selling_sellers_img__uCuO3
+    .selling_sellers__container__6E9NE
+    .selling_sellers__title__F8jxR {
+    font-size: 40px;
+  }
+
+  .swiper-slide.sellers__slide.swiper-slide-active
+    .selling_sellers_img__uCuO3
+    .selling_sellers__container__6E9NE
+    .selling_sellers__count__B8pNN {
+    font-size: 18px;
+  }
+
+  .swiper-slide.sellers__slide.swiper-slide-active
+    .selling_sellers_img__uCuO3
+    .selling_sellers__container__6E9NE
+    .selling_sellers__price__aYwmr {
+    font-size: 32px;
+  }
+
+  .swiper-slide.sellers__slide.swiper-slide-active
+    .selling_sellers_img__uCuO3
+    .selling_sellers__img_container__JXn_q {
+    width: 425px;
+  }
+}
