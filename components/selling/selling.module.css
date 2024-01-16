@@ -175,14 +175,13 @@
 .pagination {
   height: 44px;
   width: 100%;
-  margin-top: 18px;
+  background-color: var(--accent-second);
 }
 
 @media screen and (min-width: 744px) {
   .pagination {
     height: 74px;
     width: 100%;
-    margin-top: 18px;
   }
 }
 
@@ -190,7 +189,6 @@
   .pagination {
     height: 80px;
     width: 100%;
-    margin-top: 18px;
   }
 }
 
@@ -214,15 +212,83 @@
 } */
 
 .selling__wrapper {
+  position: relative;
+  padding-bottom: 50px;
   padding-left: 32px;
   padding-right: 32px;
-  background: linear-gradient(to bottom, transparent 60%, var(--accent-second) 40%);
+  background:
+    url('/images/sellers/360_vector.png') center / contain no-repeat,
+    linear-gradient(to bottom, transparent 70%, var(--accent-second) 30%);
+}
+
+@media screen and (min-width: 390px) and (max-width: 743px) {
+  .selling__wrapper {
+    padding-bottom: 50px;
+    padding-left: 32px;
+    padding-right: 32px;
+    background:
+      url('/images/sellers/bg.png') center / cover no-repeat,
+      linear-gradient(to bottom, transparent 80%, var(--accent-second) 20%);
+  }
+
+  .selling__wrapper::after {
+    content: ''; /* Создайте пустой контент для псевдоэлемента */
+    position: absolute; /* Абсолютное позиционирование относительно .selling__wrapper */
+    top: 30px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom, transparent 90%, var(--accent-second) 10%);
+    z-index: 1; /* Установите z-index, чтобы псевдоэлемент находился поверх изображения */
+  }
 }
 
 @media screen and (min-width: 744px) {
   .selling__wrapper {
     padding-left: 162px;
     padding-right: 162px;
+    background:
+      url('/images/sellers/744_vector.png') left bottom / contain no-repeat,
+      linear-gradient(to bottom, transparent 60%, var(--accent-second) 40%);
+    background-position: 0% 33%;
+  }
+}
+
+@media screen and (min-width: 830px) and (max-width: 1439px) {
+  .selling__wrapper {
+    padding-left: 32px;
+    padding-right: 32px;
+    background:
+      url('/images/sellers/bg.png') center / cover no-repeat,
+      linear-gradient(to bottom, transparent 80%, var(--accent-second) 20%);
+  }
+
+  .selling__wrapper::after {
+    content: ''; /* Создайте пустой контент для псевдоэлемента */
+    position: absolute; /* Абсолютное позиционирование относительно .selling__wrapper */
+    top: 150px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom, transparent 90%, var(--accent-second) 10%);
+    z-index: 1; /* Установите z-index, чтобы псевдоэлемент находился поверх изображения */
+  }
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+  .selling__wrapper {
+    width: 100%;
+  }
+  .selling__wrapper::after {
+    content: ''; /* Создайте пустой контент для псевдоэлемента */
+    /* margin-top: 10px; */
+    position: absolute; /* Абсолютное позиционирование относительно .selling__wrapper */
+    top: 150px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom, transparent 90%, var(--accent-second) 10%);
+    z-index: 1; /* Установите z-index, чтобы псевдоэлемент находился поверх изображения */
   }
 }
 
@@ -230,6 +296,8 @@
   .selling__wrapper {
     padding-left: 122px;
     padding-right: 122px;
+
+    background: url('/images/sellers/1440_vector.png') left bottom / cover no-repeat;
   }
 }
 
@@ -237,19 +305,23 @@
   .selling__wrapper {
     padding-left: 162px;
     padding-right: 162px;
+    background:
+      url('/images/sellers/bg.png') left bottom / contain no-repeat,
+      linear-gradient(to bottom, transparent 60%, var(--accent-second) 40%);
+    background-position: 0% 20%;
   }
-}
 
-.selling__wrapper::after {
-  content: '';
-  width: 100%;
-  height: 750px;
-  position: absolute;
-  bottom: 80px;
-  left: 0px;
-  background: url('/images/sellers/bg.png') left bottom / cover no-repeat;
-  /* background-origin: padding-box;
-  z-index: 0; */
+  .selling__wrapper::after {
+    content: ''; /* Создайте пустой контент для псевдоэлемента */
+    /* margin-top: 10px; */
+    position: absolute; /* Абсолютное позиционирование относительно .selling__wrapper */
+    top: 150px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom, transparent 90%, var(--accent-second) 10%);
+    z-index: 1; /* Установите z-index, чтобы псевдоэлемент находился поверх изображения */
+  }
 }
 
 /* .angel {
