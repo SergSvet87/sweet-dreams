@@ -12,5 +12,7 @@ public interface IUnitOfWork : IDisposable
     
     public ICartRepository Cart { get; set; }
 
+    public IOrderRepository Order { get; set; }
+
     Task<bool> SaveChangesAsync();
 }

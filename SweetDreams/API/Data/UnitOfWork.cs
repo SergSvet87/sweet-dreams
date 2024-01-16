@@ -1,4 +1,5 @@
 ﻿using API.Data.Repositories;
+using API.Entities;
 using API.Interfaces;
 using API.Interfaces.IRepositories;
 
@@ -15,6 +16,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         AppAdmin = new AppAdminRepository(_context);
         Product = new ProductRepository(_context);
         Cart = new CartRepository(_context);
+        Order = new OrderRepository(_context);
     }
 
     public IAppUserRepository AppUser { get; private set; }
@@ -22,8 +24,10 @@ public class UnitOfWork : IUnitOfWork, IDisposable
     public IAppAdminRepository AppAdmin { get; private set; }
 
     public IProductRepository Product { get; private set; }
-    
+
     public ICartRepository Cart { get; set; }
+
+    public IOrderRepository Order { get; set; }
 
     public async Task<bool> SaveChangesAsync()
     {

@@ -11,6 +11,7 @@ public class CartItem
 
     public Guid CartId { get; set; }
 
-    [JsonIgnore] public Cart Cart { get; set; }
+    [JsonIgnore] 
+    public Cart Cart { get; set; }
     public int Quantity { get; set; }
 }
