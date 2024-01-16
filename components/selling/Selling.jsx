@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import SectionHeader from '../section-header/SectionHeader';
@@ -76,8 +76,6 @@ const data = [
 
 export default function Selling() {
   const isMobile744 = useMediaQuery(744);
-  const isMobile1440 = useMediaQuery(1440);
-  const isMobile1920 = useMediaQuery(1920);
 
   console.log(isMobile744);
 
@@ -90,9 +88,9 @@ export default function Selling() {
         <div className={styles.selling__wrapper}>
           <Swiper
             effect={'creative'}
-            speed={800}
+            speed={500}
             modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={10}
+            spaceBetween={50}
             slidesPerView={1}
             loop={true}
             centeredSlides={true}
@@ -104,7 +102,7 @@ export default function Selling() {
             pagination={{ clickable: true }}
             breakpoints={{
               744: {
-                slidesPerView: 1,
+                slidesPerView: 'auto',
                 spaceBetween: 20,
               },
               1440: {
@@ -132,7 +130,6 @@ export default function Selling() {
                   </div>
                 </SwiperSlide>
               ))}
-            <div className={styles.pagination}></div>
 
             <div className="swiper-button-prev">
               <Image
@@ -153,6 +150,7 @@ export default function Selling() {
             </div>
           </Swiper>
         </div>
+        {/* <div className={styles.pagination}></div> */}
       </section>
     </>
   );
