@@ -14,6 +14,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         AppUser = new AppUserRepository(_context);
         AppAdmin = new AppAdminRepository(_context);
         Product = new ProductRepository(_context);
+        Cart = new CartRepository(_context);
     }
 
     public IAppUserRepository AppUser { get; private set; }
@@ -21,6 +22,8 @@ public class UnitOfWork : IUnitOfWork, IDisposable
     public IAppAdminRepository AppAdmin { get; private set; }
 
     public IProductRepository Product { get; private set; }
+    
+    public ICartRepository Cart { get; set; }
 
     public async Task<bool> SaveChangesAsync()
     {
