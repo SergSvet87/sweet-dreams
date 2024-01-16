@@ -29,26 +29,29 @@ public class CartRepository : GenericRepository<Cart>, ICartRepository
         }
 
         var existingCartItem = cart.CartItems
-            .FirstOrDefault(x => x.CartId == cartItem.CartId && x.CartItemId == cartItem.CartItemId);
+            .FirstOrDefault(x => x.CartId == cartItem.CartId && x.ProductId == cartItem.ProductId);
 
         if (existingCartItem == null)
         {
-            existingCartItem = new CartItem { CartItemId = cartItem.CartItemId, Quantity = cartItem.Quantity };
+            existingCartItem = new CartItem { ProductId = cartItem.ProductId, Quantity = cartItem.Quantity };
             cart.CartItems.Add(existingCartItem);
         }
         else
         {
             existingCartItem.Quantity = cartItem.Quantity;
         }
+
+        _context.SaveChanges();
     }
 
-    public void RemoveCartItem(int cartItemId)
+    public void RemoveCartItem(Guid cartId, int productId)
     {
-        var cartItem = _context.CartItems.Find(cartItemId);
+        var cartItem = _context.CartItems.FirstOrDefault(x => x.CartId == cartId && x.ProductId == productId);
 
         if (cartItem != null)
         {
             _context.CartItems.Remove(cartItem);
+            _context.SaveChanges();
         }
     }
 }

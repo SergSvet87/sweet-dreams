@@ -8,5 +8,5 @@ public interface ICartService
     
     void AddOrUpdateCartItem(Guid cartId, int productId, int quantity);
     
-    void RemoveCartItem(int cartItemId);
+    void RemoveCartItem(Guid cartId, int productId);
 }

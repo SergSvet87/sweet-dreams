@@ -1,6 +1,6 @@
 ﻿namespace API.Extensions;
 
-public class AddOrUpdateCartItemDto
+public class AddOrUpdateCartDto
 {
     public Guid CartId { get; set; }
 

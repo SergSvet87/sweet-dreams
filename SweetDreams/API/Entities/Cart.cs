@@ -7,6 +7,5 @@ public class Cart
 {
     public Guid CartId { get; set; }
 
-    [JsonIgnore]
     public List<CartItem> CartItems { get; set; }
 }

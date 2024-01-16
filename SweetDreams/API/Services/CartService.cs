@@ -18,44 +18,21 @@ public class CartService : ICartService
         return _unitOfWork.Cart.GetCartById(cartId);
     }
 
-    public void AddOrUpdateCartItem(Guid cartId, int cartItemId, int quantity)
+    public void AddOrUpdateCartItem(Guid cartId, int productId, int quantity)
     {
-        // var cart = _unitOfWork.Cart.GetCartById(cartId);
-        //
-        // if (cart == null)
-        // {
-        //     cart = new Cart { CartId = cartId, CartItems = new List<CartItem>() };
-        // }
-        //
-        // var cartItem = cart.CartItems.FirstOrDefault(item => item.CartItemId == cartItemId);
-        //
-        // if (cartItem == null)
-        // {
-        //     cartItem = new CartItem { CartItemId = cartItemId, Quantity = quantity };
-        //     cart.CartItems.Add(cartItem);
-        // }
-        // else
-        // {
-        //     cartItem.Quantity = quantity;
-        // }
-        //
-        // _unitOfWork.Cart.AddOrUpdateCartItem(cartItem);
-        // _unitOfWork.SaveChangesAsync();
-
         var cartItem = new CartItem()
         {
             CartId = cartId,
-            CartItemId = cartItemId,
+            ProductId = productId,
             Quantity = quantity
         };
-        
+
         _unitOfWork.Cart.AddOrUpdateCartItem(cartItem);
-        _unitOfWork.SaveChangesAsync();
     }
 
-    public void RemoveCartItem(int cartItemId)
+    public void RemoveCartItem(Guid cartId, int productId)
     {
-        _unitOfWork.Cart.RemoveCartItem(cartItemId);
+        _unitOfWork.Cart.RemoveCartItem(cartId, productId);
         _unitOfWork.SaveChangesAsync();
     }
 }

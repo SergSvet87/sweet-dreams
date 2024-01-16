@@ -13,29 +13,39 @@ public class CartController : BaseApiController
     {
         _cartService = cartService;
     }
-    
+
+    /// <summary>
+    /// Get cart by id(guid).
+    /// </summary>
     [HttpGet("{cartId}")]
-    public ActionResult<Cart> GetCart(Guid cartId) // TODO: Сделать так, чтобы возвращалось содержимое корзины, а не только ИД.
+    public ActionResult<Cart> GetCart(Guid cartId)
     {
         var cart = _cartService.GetCart(cartId);
-        
+
         return Ok(cart);
     }
 
+
+    /// <summary>
+    /// Add or update cart.
+    /// </summary>
     [HttpPost]
-    public ActionResult AddOrUpdateCartItem(AddOrUpdateCartItemDto addOrUpdateCartItemDto)
+    public ActionResult AddOrUpdateCart(AddOrUpdateCartDto addOrUpdateCartDto)
     {
-        _cartService.AddOrUpdateCartItem(addOrUpdateCartItemDto.CartId, addOrUpdateCartItemDto.ProductId, 
-            addOrUpdateCartItemDto.Quantity);
-        
+        _cartService.AddOrUpdateCartItem(addOrUpdateCartDto.CartId, addOrUpdateCartDto.ProductId,
+            addOrUpdateCartDto.Quantity);
+
         return Ok();
     }
 
-    [HttpDelete("{cartItemId}")]
-    public ActionResult RemoveCartItem(int cartItemId)
+    /// <summary>
+    /// Remove item form cart.
+    /// </summary>
+    [HttpDelete("{cartId}/{productId}")]
+    public ActionResult RemoveCartItem(Guid cartId, int productId)
     {
-        _cartService.RemoveCartItem(cartItemId);
-        
+        _cartService.RemoveCartItem(cartId, productId);
+
         return Ok();
     }
 }

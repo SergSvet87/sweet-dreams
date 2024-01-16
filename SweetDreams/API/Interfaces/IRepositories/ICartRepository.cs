@@ -8,6 +8,6 @@ public interface ICartRepository : IGenericRepository<Cart>
     Cart GetCartById(Guid cartId);
     
     void AddOrUpdateCartItem(CartItem cartItem);
-    
-    void RemoveCartItem(int cartItemId);
+
+    void RemoveCartItem(Guid cartId, int productId);
 }
