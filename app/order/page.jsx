@@ -1,4 +1,3 @@
-'use client';
 import Image from 'next/image';
 import { OrderUserForm } from '@/components/order-user/OrderUserForm';
 import Search from '@/components/search/Search';
@@ -6,17 +5,19 @@ import styles from './order.module.css';
 
 export default function Order() {
   return (
-    <section className={styles.order}>
-      <div className={styles.container}>
-        <div className={styles.search_container}>
-          <Search />
-          <div className={styles.header_container}>
-            <Image src="/images/order/checkout.svg" alt="checkout arrow" width={54} height={26} />
-            <h1 className={styles.header}>checkout</h1>
+    <>
+      <section className={styles.order}>
+        <div className={styles.container}>
+          <div className={styles.search_container}>
+            <Search />
+            <div className={styles.header_container}>
+              <Image src="/images/order/checkout.svg" alt="checkout arrow" width={54} height={26} />
+              <h1 className={styles.header}>checkout</h1>
+            </div>
           </div>
+          <OrderUserForm />
         </div>
-        <OrderUserForm />
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

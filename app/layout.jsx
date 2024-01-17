@@ -4,6 +4,7 @@ import HomeAnimation from '@/components/home-animation/HomeAnimation';
 import ThemeProvider from '@/providers/ThemeProvider';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
+import ModalOrderCheckout from '@/components/modalOrderCheckout/modalOrderCheckout';
 
 import 'react-toastify/dist/ReactToastify.css';
 import 'normalize.css';
@@ -43,6 +44,9 @@ export default function RootLayout({ children }) {
           </div>
 
           {/* <HomeAnimation /> */}
+          <div id="modal-root">
+            <ModalOrderCheckout></ModalOrderCheckout>
+          </div>
         </body>
       </html>
     </ThemeProvider>
