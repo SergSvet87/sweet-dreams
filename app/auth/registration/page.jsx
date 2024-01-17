@@ -10,7 +10,7 @@ import { AuthErrors, showAuthError } from '@/common/errors/index';
 import { RegisterSchema } from '@/utils/yup/index';
 import { signUp } from '@/utils/client';
 import FormRegistration from '@/components/form-register/FormRegistration';
-import Background from '@/components/backgroud/Background';
+import Background from '@/components/background/Background';
 
 import styles from '../auth.module.css';
 
