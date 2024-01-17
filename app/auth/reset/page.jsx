@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import { ResetSchema } from '@/utils/yup/index';
 import { TIME_SHOW_PASSWORD } from '@/utils/const';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
-import Background from '@/components/backgroud/Background';
+import Background from '@/components/background/Background';
 import Search from '@/components/search/Search';
 
 import styles from '../auth.module.css';

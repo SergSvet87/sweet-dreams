@@ -11,7 +11,7 @@ import { signIn } from '@/utils/client';
 import { LoginSchema } from '@/utils/yup/index';
 import FormAuth from '@/components/form-login/FormLogin';
 import Search from '@/components/search/Search';
-import Background from '@/components/backgroud/Background';
+import Background from '@/components/background/Background';
 
 import styles from '../auth.module.css';
 

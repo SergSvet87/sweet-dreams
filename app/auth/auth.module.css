@@ -270,3 +270,42 @@
     transform: scale(1);
   }
 }
+
+@media (max-width: 743.99px) {
+  .auth {
+    padding: 42px 0;
+  }
+  .auth__wrapper {
+    padding-bottom: 2.5rem;
+  }
+  .auth__form {
+    margin: 0 auto;
+    max-width: 20.5rem;
+  }  
+  .auth__title {
+    font-size: 1.5rem;
+    margin-bottom: 1.375rem;
+  }  
+  .form__label {
+    margin-bottom: 0.5rem;
+  }  
+  .label__text {
+    min-height: 1rem;
+    font-size: 0.75rem;
+  } 
+  .form__checkbox {
+    gap: 1rem;
+    margin: 20px 0 44px;
+  }
+  .form__button {
+    margin-bottom: 20px;
+  }
+  .form__google {
+    margin: 0 auto 1.5rem;
+  }  
+  .form__submit {
+    padding: 8px 1.5rem;
+    font-size: 1rem;
+    margin: 0 auto 1.5rem;
+  }
+}
