@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.25);
   z-index: 999;
 }
 
@@ -15,7 +15,7 @@
   transform: translate(-50%, -50%);
   width: 300px;
   height: 650px;
-  background-color: red;
+  background-color: var(--white);
   border-radius: 32px;
   width: 622px;
   height: 689px;

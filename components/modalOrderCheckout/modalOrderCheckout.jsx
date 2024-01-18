@@ -5,7 +5,7 @@ import { useState } from 'react';
 import styles from './modal-checkout.module.css';
 
 const ModalOrderCheckout = ({ children }) => {
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(true);
 
   function openModal() {
     setIsOpen(true);
