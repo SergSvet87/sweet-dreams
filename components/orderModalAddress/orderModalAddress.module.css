@@ -60,6 +60,9 @@
 .icons_container,
 .payment_checkbox {
   display: flex;
+  color: grey;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 /* ------ Main styles ------ */
@@ -75,14 +78,55 @@
 }
 
 .form {
-  width: 100%;
+  max-width: 328px;
   margin: 0 auto;
+  margin-bottom: 28px;
+}
+
+.input_container_region {
+  display: flex;
+  flex-direction: column;
+  /* flex-direction: row; */
+  justify-content: space-between;
+  gap: 10px;
+}
+
+@media screen and (min-width: 744px) {
+  .input_container_region {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+.input_region {
+  width: 100%;
+  border-radius: 8px;
+  height: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border: 1px solid var(--black);
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+@media screen and (min-width: 744px) {
+  .input_region {
+    width: 300px;
+  }
 }
 
 .input_container {
   flex-direction: column;
   width: 100%;
-  gap: 32px;
+  gap: 10px;
+}
+
+@media screen and (min-width: 744px) {
+  .input_container {
+    width: 300px;
+    gap: 186px;
+  }
 }
 
 .header_contact {
@@ -93,11 +137,12 @@
   width: 100%;
   border-radius: 8px;
   height: 32px;
+  margin-top: 4px;
 
   padding-left: 8px;
   padding-right: 8px;
 
-  border: 1px solid var(--grey);
+  border: 1px solid var(--black);
 }
 
 .header_delivery {
@@ -106,8 +151,10 @@
 }
 
 .label_checkbox {
+  display: flex;
   flex-direction: row-reverse;
   justify-content: left;
+  align-items: center;
   gap: 16px;
   margin-bottom: 18px;
   text-transform: uppercase;
@@ -138,7 +185,7 @@
 
 .flex_inputs_container {
   flex-direction: column;
-  gap: 28px;
+  gap: 10px;
 }
 
 .input_container_flex {
@@ -265,7 +312,7 @@
   }
 
   .form {
-    /* width: 624px; */
+    max-width: 462px;
   }
 
   .header_delivery {
@@ -299,6 +346,7 @@
   .form {
     display: flex;
     gap: 348px;
+
     /* margin-left: 162px; */
     /* width: 786px; */
   }

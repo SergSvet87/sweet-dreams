@@ -12,7 +12,6 @@ function OrderModalAddress() {
       {({ values }) => (
         <Form className={styles.form}>
           <div>
-            {' '}
             <label className={styles.label_checkbox}>
               Address 1
               {values ? (
@@ -22,62 +21,61 @@ function OrderModalAddress() {
               )}
               <Field className={styles.checkbox} type="checkbox" name="isSaveAddress" />
             </label>
-            <label className={styles.label}>
-              Country
-              <div className={styles.flex_inputs_container}>
+
+            <div className={styles.flex_inputs_container}>
+              <label>
+                Country
                 <div>
                   <Field className={styles.input} type="text" name="country" />
-                  <ErrorMessage name="country" component="p" className={styles.error} />
                 </div>
-                <div className={styles.input_container}>
+              </label>
+              <div className={styles.input_container_region}>
+                <label>
+                  Region
                   <div>
-                    <Field
-                      className={styles.input}
-                      type="text"
-                      name="region"
-                      placeholder="Region"
-                    />
-                    <ErrorMessage name="region" component="p" className={styles.error} />
+                    <Field className={styles.input_region} type="text" name="region" />
                   </div>
+                </label>
+                <label>
+                  ZIP
                   <div>
-                    <Field className={styles.input} type="text" name="zip" placeholder="ZIP code" />
-                    <ErrorMessage name="zip" component="p" className={styles.error} />
+                    <Field className={styles.input} type="text" name="zip" />
                   </div>
-                </div>
-                <div>
-                  <Field className={styles.input} type="text" name="city" placeholder="City" />
-                  <ErrorMessage name="city" component="p" className={styles.error} />
-                </div>
-                <div>
-                  <Field className={styles.input} type="text" name="street" placeholder="Street" />
-                  <ErrorMessage name="street" component="p" className={styles.error} />{' '}
-                </div>
-                <div className={styles.input_container}>
-                  <div>
-                    <Field
-                      className={styles.input}
-                      type="text"
-                      name="building"
-                      placeholder="Building"
-                    />
-                    <ErrorMessage name="building" component="p" className={styles.error} />
-                  </div>
-                  <div>
-                    <Field className={styles.input} type="text" name="unit" placeholder="Unit" />
-                    <ErrorMessage name="unit" component="p" className={styles.error} />
-                  </div>
-                </div>
-                <div>
-                  <Field
-                    className={styles.input}
-                    type="text"
-                    name="phone"
-                    placeholder="Phone number"
-                  />
-                  <ErrorMessage name="phone" component="p" className={styles.error} />
-                </div>
+                </label>
               </div>
-            </label>
+              <label>
+                City
+                <div>
+                  <Field className={styles.input} type="text" name="city" />
+                </div>
+              </label>
+              <label>
+                Street
+                <div>
+                  <Field className={styles.input} type="text" name="street" />
+                </div>
+              </label>
+              <div className={styles.input_container}>
+                <label htmlFor="">
+                  Building
+                  <div>
+                    <Field className={styles.input} type="text" name="building" />
+                  </div>
+                </label>
+                <label htmlFor="">
+                  Unit
+                  <div>
+                    <Field className={styles.input} type="text" name="unit" />
+                  </div>
+                </label>
+              </div>
+              <label>
+                Phone number
+                <div>
+                  <Field className={styles.input} type="text" name="phone" />
+                </div>
+              </label>
+            </div>
           </div>
         </Form>
       )}

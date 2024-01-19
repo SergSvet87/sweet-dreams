@@ -17,9 +17,15 @@
   height: 650px;
   background-color: var(--white);
   border-radius: 32px;
-  width: 622px;
+  width: 360px;
   height: 689px;
   padding: 24px 24px 0px 24px;
+}
+
+@media screen and (min-width: 744px) {
+  .modal {
+    width: 622px;
+  }
 }
 
 .container_button {
