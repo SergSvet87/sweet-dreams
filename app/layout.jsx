@@ -1,6 +1,7 @@
 import { ToastContainer } from 'react-toastify';
 
 import OrderModalAddress from '@/components/orderModalAddress/orderModalAddress';
+import OrderModalCard from '@/components/orderModalCard/orderModalCard';
 import HomeAnimation from '@/components/home-animation/HomeAnimation';
 import ThemeProvider from '@/providers/ThemeProvider';
 import Header from '@/components/header/Header';
@@ -47,7 +48,8 @@ export default function RootLayout({ children }) {
           {/* <HomeAnimation /> */}
           <div id="modal-root">
             <ModalOrderCheckout>
-              <OrderModalAddress />
+              <OrderModalCard />
+              {/* <OrderModalAddress /> */}
             </ModalOrderCheckout>
           </div>
         </body>
