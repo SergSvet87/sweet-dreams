@@ -12,6 +12,7 @@ import Payment from '@App-Components/payment/payment';
 import { useMediaQuery } from '@hooks/useMediaQuery';
 import useModalStore from '@hooks/useModalStore';
 import Modal from '@components/modal/modal';
+import { useRouter } from 'next/navigation';
 
 export default function Profile() {
   const { isOpen, openModal, closeModal, page, setPage } = useModalStore();
@@ -20,15 +21,16 @@ export default function Profile() {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const [activeTab, setActiveTab] = useState<string>('account');
 
+  const router = useRouter();
+
   useEffect(() => {
     setPage('profile');
     isMobile1440 ? setIsMobile(true) : setIsMobile(false);
     return () => setPage('');
   }, [setPage, isMobile1440]);
 
-  console.log('isMobile', isMobile);
-
   const handleTabClick = (page: string) => {
+    page === 'logout' && router.push('/auth/login');
     setActiveTab(page);
     closeModal();
   };
@@ -48,10 +50,11 @@ export default function Profile() {
           <Modal
             isOpen={isOpen}
             onClose={closeModal}
-            justifyContent="flex-start"
+            justifyContent={isMobile744 ? 'center' : 'flex-start'}
             padding="122px 0px"
             alightItems="flex-start"
             width="321px"
+            borderRadius="35px"
           >
             <Sidebar activeTab={activeTab} onTabClick={handleTabClick} />
           </Modal>

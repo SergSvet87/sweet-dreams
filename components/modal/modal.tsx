@@ -10,6 +10,7 @@ interface ModalProps {
   justifyContent?: string;
   padding?: string;
   width?: string;
+  borderRadius?: string;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -20,6 +21,7 @@ const Modal: React.FC<ModalProps> = ({
   alightItems,
   padding,
   width,
+  borderRadius,
 }) => {
   if (!isOpen) return null;
 
@@ -27,9 +29,17 @@ const Modal: React.FC<ModalProps> = ({
     <div
       className={style.modal}
       onClick={onClose}
-      style={{ justifyContent: justifyContent, padding, alignItems: alightItems }}
+      style={{
+        justifyContent: justifyContent,
+        padding,
+        alignItems: alightItems,
+      }}
     >
-      <div style={{ width }} className={style.modalContent} onClick={e => e.stopPropagation()}>
+      <div
+        style={{ maxWidth: width, borderRadius }}
+        className={style.modalContent}
+        onClick={e => e.stopPropagation()}
+      >
         <span className={style.close} onClick={onClose}>
           <Image width={32} height={32} src={'/images/close-modal.svg'} alt="Close" priority />
         </span>
