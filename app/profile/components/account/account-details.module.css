@@ -97,4 +97,11 @@
 }
 
 @media (max-width: 743.99px) {
+  .accountDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid blue;
+    max-width: 328px;
+  }
 }
