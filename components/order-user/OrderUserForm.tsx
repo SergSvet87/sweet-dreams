@@ -1,19 +1,25 @@
 'use client';
 
 import Image from 'next/image';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { useRef } from 'react';
-import { OrderGoods } from '@/components/order-goods/OrderGoods';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { OrderUserSubmit } from '@/components/order-userSubmit/orderUserSubmit';
+import { OrderUserPaymnet } from '@/components/order-userPayment/orderUserPayment';
 import { validationSchema } from '@/utils/yup/index';
 import { initialValues, Values } from '@/utils/formik/initialValues';
 import styles from './order-user.module.css';
 
 export function OrderUserForm() {
-  const isMobile1440 = useMediaQuery(1439);
-
   const labelName = useRef<HTMLSpanElement>(null);
   const labelLastName = useRef<HTMLSpanElement>(null);
+  const labelCountry = useRef<HTMLSpanElement>(null);
+  const labelRegion = useRef<HTMLSpanElement>(null);
+  const labelZIP = useRef<HTMLSpanElement>(null);
+  const labelCity = useRef<HTMLSpanElement>(null);
+  const labelStreet = useRef<HTMLSpanElement>(null);
+  const labelBuilding = useRef<HTMLSpanElement>(null);
+  const labelUnit = useRef<HTMLSpanElement>(null);
+  const labelPhone = useRef<HTMLSpanElement>(null);
 
   const submitForm = (values: Values): void => {
     console.log(values);
@@ -25,6 +31,22 @@ export function OrderUserForm() {
       labelName.current.style.opacity = '1';
     } else if (e.target.name === 'lastName' && labelLastName.current) {
       labelLastName.current.style.opacity = '1';
+    } else if (e.target.name === 'country' && labelCountry.current) {
+      labelCountry.current.style.opacity = '1';
+    } else if (e.target.name === 'region' && labelRegion.current) {
+      labelRegion.current.style.opacity = '1';
+    } else if (e.target.name === 'zip' && labelZIP.current) {
+      labelZIP.current.style.opacity = '1';
+    } else if (e.target.name === 'city' && labelCity.current) {
+      labelCity.current.style.opacity = '1';
+    } else if (e.target.name === 'street' && labelStreet.current) {
+      labelStreet.current.style.opacity = '1';
+    } else if (e.target.name === 'building' && labelBuilding.current) {
+      labelBuilding.current.style.opacity = '1';
+    } else if (e.target.name === 'unit' && labelUnit.current) {
+      labelUnit.current.style.opacity = '1';
+    } else if (e.target.name === 'phone' && labelPhone.current) {
+      labelPhone.current.style.opacity = '1';
     }
   };
 
@@ -35,6 +57,24 @@ export function OrderUserForm() {
     } else if (!e.target.value && e.target.name === 'lastName' && labelLastName.current) {
       labelLastName.current.style.opacity = '0';
       e.target.placeholder = 'Last name';
+    } else if (!e.target.value && e.target.name === 'country' && labelCountry.current) {
+      labelCountry.current.style.opacity = '0';
+      e.target.placeholder = 'Country';
+    } else if (!e.target.value && e.target.name === 'region' && labelRegion.current) {
+      labelRegion.current.style.opacity = '0';
+      e.target.placeholder = 'Region';
+    } else if (!e.target.value && e.target.name === 'zip' && labelZIP.current) {
+      labelZIP.current.style.opacity = '0';
+      e.target.placeholder = 'ZIP code';
+    } else if (!e.target.value && e.target.name === 'city' && labelCity.current) {
+      labelCity.current.style.opacity = '0';
+      e.target.placeholder = 'City';
+    } else if (!e.target.value && e.target.name === 'unit' && labelUnit.current) {
+      labelUnit.current.style.opacity = '0';
+      e.target.placeholder = 'Unit';
+    } else if (!e.target.value && e.target.name === 'phone' && labelPhone.current) {
+      labelPhone.current.style.opacity = '0';
+      e.target.placeholder = 'Phone';
     }
   };
 
@@ -92,51 +132,84 @@ export function OrderUserForm() {
                 />
                 <ErrorMessage name="lastName" component="p" className={styles.error} />
               </label>
-              <label className={styles.label}>
-                Country
-                <div className={styles.flex_inputs_container}>
+
+              <div className={styles.flex_inputs_container}>
+                <label className={styles.label}>
+                  <span className={styles.span} ref={labelCountry}>
+                    Country
+                  </span>
                   <div>
-                    {' '}
                     <Field
                       className={
                         touched.country && errors.country ? styles.error_input : styles.input
                       }
                       type="text"
                       name="country"
+                      placeholder="Country"
+                      onBlur={handleBlur}
+                      onFocus={handleFocus}
                     />
                     <ErrorMessage name="country" component="p" className={styles.error} />
                   </div>
-                  <div className={styles.input_container}>
+                </label>
+                <div className={`${styles.input_container} ${styles.input_container_regionZIP}`}>
+                  <label className={styles.label}>
+                    <span className={styles.span} ref={labelRegion}>
+                      Region
+                    </span>
                     <div>
                       <Field
-                        className={
+                        className={`${
                           touched.region && errors.region ? styles.error_input : styles.input
-                        }
+                        } ${styles.big_input}`}
                         type="text"
                         name="region"
                         placeholder="Region"
+                        onBlur={handleBlur}
+                        onFocus={handleFocus}
                       />
                       <ErrorMessage name="region" component="p" className={styles.error} />
                     </div>
+                  </label>
+                  <label className={styles.label}>
+                    <span className={styles.span} ref={labelZIP}>
+                      ZIP code
+                    </span>
                     <div>
                       <Field
-                        className={touched.zip && errors.zip ? styles.error_input : styles.input}
+                        className={`${
+                          touched.name && errors.name ? styles.error_input : styles.input
+                        } ${styles.small_input}`}
                         type="text"
                         name="zip"
                         placeholder="ZIP code"
+                        onBlur={handleBlur}
+                        onFocus={handleFocus}
                       />
                       <ErrorMessage name="zip" component="p" className={styles.error} />
                     </div>
-                  </div>
+                  </label>
+                </div>
+                <label className={styles.label}>
+                  <span className={styles.span} ref={labelCity}>
+                    City
+                  </span>
                   <div>
                     <Field
                       className={touched.city && errors.city ? styles.error_input : styles.input}
                       type="text"
                       name="city"
                       placeholder="City"
+                      onBlur={handleBlur}
+                      onFocus={handleFocus}
                     />
                     <ErrorMessage name="city" component="p" className={styles.error} />
                   </div>
+                </label>
+                <label className={styles.label}>
+                  <span className={styles.span} ref={labelStreet}>
+                    Street
+                  </span>
                   <div>
                     <Field
                       className={
@@ -145,10 +218,17 @@ export function OrderUserForm() {
                       type="text"
                       name="street"
                       placeholder="Street"
+                      onBlur={handleBlur}
+                      onFocus={handleFocus}
                     />
                     <ErrorMessage name="street" component="p" className={styles.error} />{' '}
                   </div>
-                  <div className={styles.input_container}>
+                </label>
+                <div className={styles.input_container}>
+                  <label className={styles.label}>
+                    <span className={styles.span} ref={labelBuilding}>
+                      Building
+                    </span>
                     <div>
                       <Field
                         className={
@@ -157,109 +237,59 @@ export function OrderUserForm() {
                         type="text"
                         name="building"
                         placeholder="Building"
+                        onBlur={handleBlur}
+                        onFocus={handleFocus}
                       />
                       <ErrorMessage name="building" component="p" className={styles.error} />
                     </div>
+                  </label>
+                  <label className={styles.label}>
+                    <span className={styles.span} ref={labelUnit}>
+                      Unit
+                    </span>
                     <div>
                       <Field
                         className={touched.unit && errors.unit ? styles.error_input : styles.input}
                         type="text"
                         name="unit"
                         placeholder="Unit"
+                        onBlur={handleBlur}
+                        onFocus={handleFocus}
                       />
                       <ErrorMessage name="unit" component="p" className={styles.error} />
                     </div>
-                  </div>
+                  </label>
+                </div>
+                <label className={styles.label}>
+                  <span className={styles.span} ref={labelPhone}>
+                    Phone number
+                  </span>
                   <div>
                     <Field
                       className={touched.phone && errors.phone ? styles.error_input : styles.input}
                       type="text"
                       name="phone"
                       placeholder="Phone number"
+                      onBlur={handleBlur}
+                      onFocus={handleFocus}
                     />
                     <ErrorMessage name="phone" component="p" className={styles.error} />
                   </div>
-                </div>
-              </label>
-            </div>
-            <div className={styles.payment_container}>
-              <h2 className={styles.header_payment}>Payment</h2>
-              <div className={styles.icons_container}>
-                <Image src="/images/order/visa.svg" alt="visa" width={42} height={42} />
-                <Image src="/images/order/mastercard.svg" alt="visa" width={41} height={31} />
+                </label>
               </div>
             </div>
-
-            <label className={styles.payment_checkbox}>
-              Use saved payment methods
-              <Field className={styles.checkbox} type="checkbox" name="isSavePayment" />
-            </label>
-
-            <label className={styles.label}>
-              <div className={styles.flex_inputs_container}>
-                <div>
-                  <Field
-                    className={touched.card && errors.card ? styles.error_input : styles.input}
-                    type="text"
-                    name="card"
-                    placeholder="Card number"
-                  />
-                  <ErrorMessage name="card" component="p" className={styles.error} />
-                </div>
-                <div className={styles.input_container_flex}>
-                  <div>
-                    <Field
-                      className={touched.date && errors.date ? styles.error_input : styles.input}
-                      type="text"
-                      name="date"
-                      placeholder="MM/YY"
-                    />
-                    <ErrorMessage name="date" component="p" className={styles.error} />
-                  </div>
-                  <div>
-                    <Field
-                      className={
-                        touched.security && errors.security ? styles.error_input : styles.input
-                      }
-                      type="text"
-                      name="security"
-                      placeholder="Security code"
-                    />
-                    <ErrorMessage name="security" component="p" className={styles.error} />
-                  </div>
-                </div>
-                <div>
-                  <Field
-                    className={
-                      touched.cardName && errors.cardName ? styles.error_input : styles.input
-                    }
-                    type="text"
-                    name="cardName"
-                    placeholder="Name on the card"
-                  />
-                  <ErrorMessage name="cardName" component="p" className={styles.error} />
-                </div>
-              </div>
-            </label>
-            <label className={styles.save_checkbox}>
-              Save my information
+            <OrderUserPaymnet touched={touched} errors={errors} values={values} />
+            <label className={styles.label_checkbox}>
+              SAVE MY INFORMATION
+              {values.isSaveInformation ? (
+                <Image src="/images/order/true.svg" alt="true" width={24} height={24} />
+              ) : (
+                <Image src="/images/order/checbox.svg" alt="visa" width={24} height={24} />
+              )}
               <Field className={styles.checkbox} type="checkbox" name="isSaveInformation" />
             </label>
           </div>
-
-          <div className={styles.submit_goods_container}>
-            {isMobile1440 && <OrderGoods />}
-            <div className={styles.submit_container}>
-              <div className={styles.price_container}>
-                <p className={styles.subtotal}>Subtotal</p>
-                <p className={styles.price}>₴300</p>
-              </div>
-              <button className={styles.pay_button} type="submit">
-                Pay now
-              </button>
-            </div>
-            {!isMobile1440 && <OrderGoods />}
-          </div>
+          <OrderUserSubmit />
         </Form>
       )}
     </Formik>
