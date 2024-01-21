@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useRef } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { OrderUserSubmit } from '@/components/order-userSubmit/OrderUserSubmit';
+import { OrderUserSubmit } from '@/components/order-userSubmit/orderUserSubmit';
 import { OrderUserPaymnet } from '@/components/order-userPayment/orderUserPayment';
 import { validationSchema } from '@/utils/yup/index';
 import { initialValues, Values } from '@/utils/formik/initialValues';
