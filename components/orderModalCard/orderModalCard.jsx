@@ -1,9 +1,7 @@
 'use client';
 import Image from 'next/image';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form } from 'formik';
 
-// import { validationSchema } from '@/utils/yup/index';
-// import { initialValues, Values } from '@/utils/formik/initialValues';
 import styles from './orderModalCard.module.css';
 
 function OrderModalCard() {
@@ -29,16 +27,16 @@ function OrderModalCard() {
               </label>
               <div className={styles.input_container}>
                 <label htmlFor="">
-                  Exp
+                  Expiration date (MM/YY)
                   <Field className={styles.input} type="text" name="date" />
                 </label>
                 <label htmlFor="">
-                  Code
+                  Security code
                   <Field className={styles.input} type="text" name="security" />
                 </label>
               </div>
               <label>
-                Name
+                Name on the card
                 <Field className={styles.input} type="text" name="cardName" />
               </label>
             </div>

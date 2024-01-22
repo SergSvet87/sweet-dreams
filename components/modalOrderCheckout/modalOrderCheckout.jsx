@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
+import { useState } from 'react';
 import styles from './modal-checkout.module.css';
 
 const ModalOrderCheckout = ({ children }) => {
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(true);
 
   function openModal() {
     setIsOpen(true);
