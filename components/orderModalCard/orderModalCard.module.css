@@ -80,13 +80,12 @@
 .form {
   max-width: 328px;
   margin: 0 auto;
-  margin-bottom: 28px;
+  margin-bottom: 92px;
 }
 
 .input_container_region {
   display: flex;
-  /* flex-direction: column; */
-  /* flex-direction: row; */
+
   justify-content: space-between;
   gap: 10px;
 }
@@ -117,7 +116,6 @@
 }
 
 .input_container {
-  /* flex-direction: column; */
   width: 100%;
   gap: 52px;
 }
