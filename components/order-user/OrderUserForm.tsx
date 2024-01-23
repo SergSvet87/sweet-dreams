@@ -75,6 +75,12 @@ export function OrderUserForm() {
     } else if (!e.target.value && e.target.name === 'phone' && labelPhone.current) {
       labelPhone.current.style.opacity = '0';
       e.target.placeholder = 'Phone';
+    } else if (!e.target.value && e.target.name === 'building' && labelBuilding.current) {
+      labelBuilding.current.style.opacity = '0';
+      e.target.placeholder = 'Building';
+    } else if (!e.target.value && e.target.name === 'street' && labelStreet.current) {
+      labelStreet.current.style.opacity = '0';
+      e.target.placeholder = 'Street';
     }
   };
 

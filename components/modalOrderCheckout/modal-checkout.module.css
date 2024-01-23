@@ -30,6 +30,12 @@
   justify-content: right;
 }
 
+/* .button:hover,
+.button:focus {
+  fill: red;
+  color: red;
+} */
+
 /* ------ Media rules ------ */
 
 @media screen and (min-width: 744px) {

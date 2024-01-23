@@ -122,6 +122,7 @@
 
 .span {
   opacity: 0;
+  margin-left: 4px;
 }
 
 .flex_inputs_container {
