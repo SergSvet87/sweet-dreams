@@ -22,21 +22,24 @@ function OrderModalCard() {
 
             <div className={styles.flex_inputs_container}>
               <label>
-                Card Number
+                <span className={styles.span}>Expiration date (MM/YY)</span>
                 <Field className={styles.input} type="text" name="card" />
               </label>
               <div className={styles.input_container}>
-                <label htmlFor="">
-                  Expiration date (MM/YY)
-                  <Field className={styles.input} type="text" name="date" />
+                <label>
+                  <Field className={`${styles.input}`} type="text" name="date" />
                 </label>
-                <label htmlFor="">
-                  Security code
-                  <Field className={styles.input} type="text" name="security" />
+                <label>
+                  <span className={styles.span}>Security code</span>
+                  <Field
+                    className={`${styles.input} ${styles.input_date_code}`}
+                    type="text"
+                    name="security"
+                  />
                 </label>
               </div>
               <label>
-                Name on the card
+                <span className={styles.span}>Name on the card</span>
                 <Field className={styles.input} type="text" name="cardName" />
               </label>
             </div>

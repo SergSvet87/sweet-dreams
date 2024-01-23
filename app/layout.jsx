@@ -48,8 +48,8 @@ export default function RootLayout({ children }) {
           {/* <HomeAnimation /> */}
           <div id="modal-root">
             <ModalOrderCheckout>
-              <OrderModalCard />
-              {/* <OrderModalAddress /> */}
+              {/* <OrderModalCard /> */}
+              <OrderModalAddress />
             </ModalOrderCheckout>
           </div>
         </body>

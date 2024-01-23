@@ -11,6 +11,35 @@ export function OrderUserPaymnet({ touched, errors, values }) {
   const cardSecurity = useRef(null);
   const cardName = useRef(null);
 
+  const handleFocus = e => {
+    e.target.placeholder = '';
+    if (e.target.name === 'card' && cardNumber.current) {
+      cardNumber.current.style.opacity = '1';
+    } else if (e.target.name === 'date' && cardDate.current) {
+      cardDate.current.style.opacity = '1';
+    } else if (e.target.name === 'security' && cardSecurity.current) {
+      cardSecurity.current.style.opacity = '1';
+    } else if (e.target.name === 'cardName' && cardName.current) {
+      cardName.current.style.opacity = '1';
+    }
+  };
+
+  const handleBlur = e => {
+    if (!e.target.value && e.target.name === 'card' && cardNumber.current) {
+      cardNumber.current.style.opacity = '0';
+      e.target.placeholder = 'Card number';
+    } else if (!e.target.value && e.target.name === 'date' && cardDate.current) {
+      cardDate.current.style.opacity = '0';
+      e.target.placeholder = 'MM/YY';
+    } else if (!e.target.value && e.target.name === 'security' && cardSecurity.current) {
+      cardSecurity.current.style.opacity = '0';
+      e.target.placeholder = 'Security code';
+    } else if (!e.target.value && e.target.name === 'cardName' && cardName.current) {
+      cardName.current.style.opacity = '0';
+      e.target.placeholder = 'Name on the card';
+    }
+  };
+
   return (
     <div className={styles.form_container}>
       <div className={styles.payment_container}>
@@ -43,6 +72,8 @@ export function OrderUserPaymnet({ touched, errors, values }) {
                 type="text"
                 name="card"
                 placeholder="Card number"
+                onBlur={handleBlur}
+                onFocus={handleFocus}
               />
               <ErrorMessage name="card" component="p" className={styles.error} />
             </div>
@@ -59,6 +90,8 @@ export function OrderUserPaymnet({ touched, errors, values }) {
                   type="text"
                   name="date"
                   placeholder="MM/YY"
+                  onBlur={handleBlur}
+                  onFocus={handleFocus}
                 />
                 <ErrorMessage name="date" component="p" className={styles.error} />
               </div>
@@ -75,6 +108,8 @@ export function OrderUserPaymnet({ touched, errors, values }) {
                   type="text"
                   name="security"
                   placeholder="Security code"
+                  onBlur={handleBlur}
+                  onFocus={handleFocus}
                 />
                 <ErrorMessage name="security" component="p" className={styles.error} />
               </div>
@@ -90,6 +125,8 @@ export function OrderUserPaymnet({ touched, errors, values }) {
                 type="text"
                 name="cardName"
                 placeholder="Name on the card"
+                onBlur={handleBlur}
+                onFocus={handleFocus}
               />
               <ErrorMessage name="cardName" component="p" className={styles.error} />
             </div>
