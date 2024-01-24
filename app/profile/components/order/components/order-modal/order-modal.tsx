@@ -4,15 +4,17 @@ import { IOrder } from '@/types/interfaces/profile';
 
 interface IOrderModal {
   order: IOrder | null;
+  isMobile744: boolean;
 }
 
-const OrderModal: FC<IOrderModal> = ({ order }) => {
+const OrderModal: FC<IOrderModal> = ({ order, isMobile744 }) => {
   return (
     <div className={style.orderContainer}>
-      <h1 className={style.orderNumber}>
-        Order № <span className={style.numberOrder}>{order?.number}</span>
-      </h1>
       <table>
+        <tr className={style.orderParagraph}>
+          <td>Order №</td>
+          <td className={style.numberOrder}>{order?.number}</td>
+        </tr>
         <tr className={style.orderParagraph}>
           <td>Order date:</td>
           <td className={style.orderValues}>{order?.date}</td>
@@ -29,10 +31,18 @@ const OrderModal: FC<IOrderModal> = ({ order }) => {
           <td className={style.contactName}>Phone number:</td>
           <td className={style.orderValues}>{order?.phone}</td>
         </tr>
+        {isMobile744 && (
+          <tr className={style.orderParagraph}>
+            <td className={style.contactName}>Subtotal </td>
+            <td className={style.orderValues}>{order?.total}</td>
+          </tr>
+        )}
       </table>
-      <p className={style.orderTotal}>
-        Subtotal <span className={style.numberOrder}>{order?.total}</span>
-      </p>
+      {!isMobile744 && (
+        <p className={style.orderTotal}>
+          Subtotal <span className={style.numberOrder}>{order?.total}</span>
+        </p>
+      )}
     </div>
   );
 };

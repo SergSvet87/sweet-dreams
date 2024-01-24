@@ -19,6 +19,7 @@ export default function Profile() {
   const isMobile1440 = useMediaQuery(1440);
   const isMobile744 = useMediaQuery(744);
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
+  const [isMobileMin, setIsMobileMin] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<string>('account');
 
   const router = useRouter();
@@ -26,14 +27,20 @@ export default function Profile() {
   useEffect(() => {
     setPage('profile');
     isMobile1440 ? setIsMobile(true) : setIsMobile(false);
+    isMobile744 ? setIsMobileMin(true) : setIsMobileMin(false);
     return () => setPage('');
-  }, [setPage, isMobile1440]);
+  }, [setPage, isMobile1440, isMobile744]);
+
+  // useEffect(() => {
+  //   isMobile744 ? setIsMobileMin(true) : setIsMobileMin(false);
+  // }, [isMobile744]);
 
   const handleTabClick = (page: string) => {
     page === 'logout' && router.push('/auth/login');
     setActiveTab(page);
     closeModal();
   };
+  console.log('profile', isMobileMin);
 
   return (
     <>
@@ -43,7 +50,7 @@ export default function Profile() {
         <div className={classNames('profile__container', styles.profile__wrapper)}>
           {isMobile === false && <Sidebar activeTab={activeTab} onTabClick={handleTabClick} />}
           {activeTab === 'account' && <AccountDetails />}
-          {activeTab === 'order' && <OrderHistory />}
+          {activeTab === 'order' && <OrderHistory isMobile744={isMobileMin} />}
           {activeTab === 'favorites' && <Favorites />}
           {activeTab === 'delivery' && <Delivery />}
           {activeTab === 'payment' && <Payment />}

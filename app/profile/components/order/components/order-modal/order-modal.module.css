@@ -1,39 +1,77 @@
 .orderContainer {
-    color: var(--black);
+  color: var(--black);
 }
 
 .orderNumber {
-    font-size: 32px;
-    font-weight: 400;
-    margin-bottom: 10px;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 10px;
 }
 
 .numberOrder {
-    margin-left: 27px;
-    font-weight: 500;
+  margin-left: 27px;
+  font-size: 32px;
+  font-weight: 500;
 }
 
 .contactName {
-    min-width: 220px;
+  min-width: 220px;
 }
 
-.orderParagraph{
-   height: 45px;
-    font-size: 24px;
-    font-weight: 400;
+.orderParagraph {
+  height: 45px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.orderParagraph:first-child {
+  font-size: 32px;
+  height: 65px;
 }
 
 .orderValues {
-    font-family: PoppinsS;
-    font-size: 24px;
-    font-weight: 500;
-    line-height: normal;
+  font-family: PoppinsS;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: normal;
 }
+
 .orderTotal {
-    margin-top: 36px;
-    margin-right: 3%;
-    text-align: end;
+  margin-top: 36px;
+  margin-right: 3%;
+  text-align: end;
+  font-size: 24px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+@media (max-width: 743.99px) {
+  .orderContainer {
+    margin-top: 16px;
+  }
+  .orderNumber {
+    display: flex;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .numberOrder {
     font-size: 24px;
+    padding-left: 3%;
+  }
+  .orderParagraph {
+    font-size: 18px;
     font-weight: 400;
-    margin-left: 10px;
+    height: 45px;
+  }
+  .contactName {
+    min-width: 154px;
+  }
+  .orderValues {
+    font-size: 18px;
+    padding-left: 3%;
+  }
+  .orderParagraph:first-child {
+    font-size: 18px;
+    height: 45px;
+  }
 }

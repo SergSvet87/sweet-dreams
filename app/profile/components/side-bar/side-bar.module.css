@@ -76,10 +76,18 @@
 }
 
 @media (max-width: 1439.99px) {
+  .profile__sidebar {
+    margin-top: 26px;
+  }
+  .profile__name {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
   .profile__name span {
     font-size: 18px;
   }
   .profile__email {
+    margin-bottom: 18px;
     font-size: 16px;
   }
 }

@@ -1,25 +1,29 @@
 import { FC } from 'react';
-import Image from 'next/image';
 import style from './products.module.css';
 import { IReceipt } from '@/types/interfaces/profile';
 
 interface IOrderProducts {
   receipt: IReceipt[];
+  isMobile744: boolean;
 }
 
-const OrderProducts: FC<IOrderProducts> = ({ receipt }) => {
+const OrderProducts: FC<IOrderProducts> = ({ receipt, isMobile744 }) => {
   return (
     <>
-      <div className={style.tableHeader}>
-        <p>Products</p>
-        <p>Total</p>
-      </div>
+      {!isMobile744 && (
+        <div className={style.tableHeader}>
+          <p>Products</p>
+          <p>Total</p>
+        </div>
+      )}
+
       <div className={style.tableContainer}>
         {receipt.map(product => (
           <div className={style.cardContainer} key={product.item_no}>
             <div className={style.card}>
               <div className={style.imgContainer}>
                 <img className={style.img} src={product.image} alt={product.name} />
+                <p>Total</p>
               </div>
               <div className={style.descriptionContainer}>
                 <p className={style.candyName}>{product.name}</p>

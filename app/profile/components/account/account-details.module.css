@@ -85,9 +85,9 @@
 }
 
 @media (max-width: 1919.99px) {
-  /* .accountContainer {
+  .accountContainer {
     padding: 24px 246px 245px 122px;
-  } */
+  }
 }
 
 @media (max-width: 1439.99px) {
@@ -97,11 +97,13 @@
 }
 
 @media (max-width: 743.99px) {
+  .accountContainer {
+    padding: 0;
+  }
   .accountDetails {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border: 1px solid blue;
     max-width: 328px;
   }
 }

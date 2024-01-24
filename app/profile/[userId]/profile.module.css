@@ -11,12 +11,18 @@
   height: 100%;
 }
 
-@media (max-width: 1919.99px) {
-}
-
 @media (max-width: 1439.99px) {
+  .profile {
+    padding: 0;
+  }
   .profile__wrapper {
     grid-template-columns: none;
     justify-content: center;
+  }
+}
+
+@media (max-width: 743.99px) {
+  .profile {
+    padding: 0px 0px 37px 0px;
   }
 }

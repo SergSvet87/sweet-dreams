@@ -18,10 +18,13 @@ import OrderModal from '@App-Components/order/components/order-modal/order-modal
 import OrderProducts from '@App-Components/order/components/products/products';
 import Select from '@/components/select/select';
 import { defaultSetDropList } from '@app/profile/[userId]/helpers';
+import { TableMobile } from './tableMobile/tableMobile';
 
-interface IOrderHistory {}
+interface IOrderHistory {
+  isMobile744: boolean;
+}
 
-export const OrderHistory: React.FC<IOrderHistory> = () => {
+export const OrderHistory: React.FC<IOrderHistory> = ({ isMobile744 }) => {
   const [orders, setOrders] = useState<IOrder[]>(mockOrders);
   const [selectedOrder, setSelectedOrder] = useState<IOrder | null>(null);
   const [selectedRow, setSelectedRow] = useState<number | null>(null);
@@ -61,12 +64,20 @@ export const OrderHistory: React.FC<IOrderHistory> = () => {
             />
           </label>
         </div>
-        <Table orders={orders} handleRowClick={handleRowClick} selectedRow={selectedRow} />
+        {isMobile744 ? (
+          <TableMobile orders={orders} handleRowClick={handleRowClick} selectedRow={selectedRow} />
+        ) : (
+          <Table orders={orders} handleRowClick={handleRowClick} selectedRow={selectedRow} />
+        )}
 
         {selectedOrder && (
-          <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-            <OrderModal order={selectedOrder} />
-            <OrderProducts receipt={receipt} />
+          <Modal
+            borderRadius={isMobile744 ? '16px' : '35px'}
+            isOpen={isModalOpen}
+            onClose={() => setModalOpen(false)}
+          >
+            {/* <OrderModal isMobile744={isMobile744} order={selectedOrder} /> */}
+            <OrderProducts isMobile744={isMobile744} receipt={receipt} />
           </Modal>
         )}
       </div>
