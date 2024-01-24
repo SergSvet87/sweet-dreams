@@ -40,3 +40,17 @@
   color: black;
   cursor: pointer;
 }
+
+@media (max-width: 743.99px) {
+  .modal {
+    padding: 8px;
+  }
+  .close {
+    padding-right: 20px;
+  }
+  .modalContent {
+    max-height: 100%;
+    width: 328px;
+    padding: 20px 0px 20px 1px;
+  }
+}

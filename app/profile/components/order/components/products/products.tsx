@@ -23,21 +23,39 @@ const OrderProducts: FC<IOrderProducts> = ({ receipt, isMobile744 }) => {
             <div className={style.card}>
               <div className={style.imgContainer}>
                 <img className={style.img} src={product.image} alt={product.name} />
-                <p>Total</p>
+                {isMobile744 && (
+                  <div className={style.totalContainer}>
+                    <p>Total:</p>
+                    <p className={style.total}>{product.total}</p>
+                  </div>
+                )}
               </div>
               <div className={style.descriptionContainer}>
                 <p className={style.candyName}>{product.name}</p>
                 <p className={style.candyInf}>{product.info}</p>
                 <p className={style.candyInf}>Item No: {product.item_no}</p>
+                {isMobile744 && (
+                  <div className={style.quantityContainer}>
+                    <p className={style.candyPrice}>{product.price}</p>
+                    <div className={style.factor}>
+                      <p className={style.candyPrice}>x</p>
+                      <p className={style.candyPrice}>{product.quantity}</p>
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className={style.descriptionContainer}>
-                <p className={style.candyName}>{product.price}</p>
-                <p className={style.candyName}>x</p>
-                <p className={style.candyName}>{product.quantity}</p>
-              </div>
-              <div className={style.descriptionContainer}>
-                <p className={style.candyName}>{product.total}</p>
-              </div>
+              {!isMobile744 && (
+                <>
+                  <div className={style.descriptionContainer}>
+                    <p className={style.candyName}>{product.price}</p>
+                    <p className={style.candyName}>x</p>
+                    <p className={style.candyName}>{product.quantity}</p>
+                  </div>
+                  <div className={style.descriptionContainer}>
+                    <p className={style.candyName}>{product.total}</p>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         ))}

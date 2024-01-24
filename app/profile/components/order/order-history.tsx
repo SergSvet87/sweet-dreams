@@ -76,7 +76,7 @@ export const OrderHistory: React.FC<IOrderHistory> = ({ isMobile744 }) => {
             isOpen={isModalOpen}
             onClose={() => setModalOpen(false)}
           >
-            {/* <OrderModal isMobile744={isMobile744} order={selectedOrder} /> */}
+            <OrderModal isMobile744={isMobile744} order={selectedOrder} />
             <OrderProducts isMobile744={isMobile744} receipt={receipt} />
           </Modal>
         )}

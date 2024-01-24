@@ -54,6 +54,7 @@
 
 .descriptionContainer:nth-child(3) {
   display: flex;
+  justify-content: space-evenly;
 }
 
 .candyInf {
@@ -82,7 +83,53 @@
 }
 
 @media (max-width: 743.99px) {
+  .cardContainer {
+    border-bottom: 1px solid var(--black);
+  }
+  .tableContainer {
+    overflow-y: auto;
+    max-height: 608px;
+  }
   .imgContainer {
     flex-direction: column;
+  }
+  .img {
+    width: 82px;
+    height: 93px;
+  }
+  .quantityContainer {
+    margin-left: 0px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: -6px;
+  }
+  .candyPrice {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .candyInf:nth-child(3) {
+    font-size: 12px;
+  }
+  .factor {
+    display: flex;
+  }
+  .factor p:first-child {
+    margin-right: 10px;
+  }
+  .descriptionContainer {
+    width: max-content;
+    margin-left: 12px;
+  }
+  .imgContainer {
+    width: max-content;
+  }
+  .totalContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 37px -10px 8px 5px;
+  }
+  .total {
+    position: relative;
+    left: 33px;
   }
 }
