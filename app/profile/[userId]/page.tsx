@@ -31,16 +31,11 @@ export default function Profile() {
     return () => setPage('');
   }, [setPage, isMobile1440, isMobile744]);
 
-  // useEffect(() => {
-  //   isMobile744 ? setIsMobileMin(true) : setIsMobileMin(false);
-  // }, [isMobile744]);
-
   const handleTabClick = (page: string) => {
     page === 'logout' && router.push('/auth/login');
     setActiveTab(page);
     closeModal();
   };
-  console.log('profile', isMobileMin);
 
   return (
     <>
