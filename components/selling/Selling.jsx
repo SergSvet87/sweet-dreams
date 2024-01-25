@@ -77,8 +77,6 @@ const data = [
 export default function Selling() {
   const isMobile744 = useMediaQuery(744);
 
-  console.log(isMobile744);
-
   // const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
   return (

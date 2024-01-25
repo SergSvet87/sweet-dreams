@@ -1,0 +1,153 @@
+/* ------ General rules ------ */
+
+.input:hover,
+.input:focus {
+  border: 1px solid var(--black);
+}
+
+.input {
+  width: 100%;
+  border-radius: 8px;
+  height: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border: 1px solid var(--grey);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.label {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.label_checkbox {
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.input_container,
+.label_checkbox,
+.inputs_container,
+.label,
+.flex_inputs_container {
+  display: flex;
+  color: grey;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* ------ Main styles ------ */
+
+.form {
+  max-width: 328px;
+  margin: 0 auto;
+  margin-bottom: 92px;
+}
+
+.input_container {
+  width: 100%;
+  gap: 52px;
+}
+
+.header_contact {
+  margin-bottom: 32px;
+}
+
+.input {
+  width: 100%;
+  border-radius: 8px;
+  height: 32px;
+  margin-top: 4px;
+
+  padding-left: 8px;
+  padding-right: 8px;
+
+  border: 1px solid var(--black);
+}
+
+.input_date_code {
+  width: 138px;
+}
+
+.span {
+  margin-left: 4px;
+}
+
+.header_delivery {
+  margin-top: 24px;
+  margin-bottom: 18px;
+}
+
+.label_checkbox {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.checkbox {
+  display: none;
+
+  width: 24px;
+  height: 24px;
+}
+
+.flex_inputs_container {
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ------ Media rules ------ */
+
+@media screen and (min-width: 744px) {
+  .input_container_region {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .input_region {
+    width: 300px;
+  }
+
+  .input_container {
+    width: 300px;
+    gap: 180px;
+  }
+
+  .input_container {
+    width: 462px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .form {
+    max-width: 462px;
+  }
+
+  .inputs_container {
+    gap: 6px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .form {
+    width: 462px;
+    display: flex;
+    gap: 110px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .form {
+    display: flex;
+    gap: 348px;
+  }
+}

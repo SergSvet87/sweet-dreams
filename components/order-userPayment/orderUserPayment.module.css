@@ -6,7 +6,8 @@
 }
 
 .input,
-.error_input {
+.error_input,
+.building_unit {
   width: 100%;
   border-radius: 8px;
   height: 32px;
@@ -24,27 +25,22 @@
   font-weight: 400;
 }
 
-.header_contact,
-.header_delivery {
+.header_payment {
   font-family: var(--font);
   font-size: 24px;
   font-weight: 600;
 }
 
-.label_checkbox,
-.save_checkbox {
+.payment_checkbox {
   font-family: var(--font);
   font-size: 16px;
   font-weight: 500;
 }
 
-.input_container,
-.label_checkbox,
-.inputs_container,
 .label,
 .flex_inputs_container,
 .input_container_flex,
-.save_checkbox .payment_container,
+.payment_container,
 .icons_container,
 .payment_checkbox {
   display: flex;
@@ -62,20 +58,6 @@
   color: var(--red);
 }
 
-.form {
-  width: 328px;
-}
-
-.input_container {
-  flex-direction: column;
-  width: 100%;
-  gap: 6px;
-}
-
-.header_contact {
-  margin-bottom: 32px;
-}
-
 .input {
   width: 100%;
   border-radius: 8px;
@@ -87,32 +69,11 @@
   border: 1px solid var(--grey);
 }
 
-.header_delivery {
-  margin-top: 24px;
-  margin-bottom: 18px;
-}
-
-.small_input {
-  width: 138px;
-}
-
-.label_checkbox {
-  flex-direction: row-reverse;
-  justify-content: left;
-  gap: 16px;
-  margin-bottom: 18px;
-}
-
 .checkbox {
   display: none;
 
   width: 24px;
   height: 24px;
-}
-
-.inputs_container {
-  flex-direction: column;
-  gap: 10px;
 }
 
 .label {
@@ -130,39 +91,35 @@
   gap: 6px;
 }
 
+.input_container_flex {
+  width: 100%;
+  gap: 52px;
+}
+
 .form_container {
   margin-bottom: 44px;
 }
 
-.save_checkbox {
+.payment_checkbox {
   flex-direction: row-reverse;
   justify-content: left;
   gap: 16px;
-  margin-top: 44px;
+  margin-bottom: 15px;
+}
 
-  text-transform: uppercase;
+.payment_container {
+  justify-content: space-between;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .icons_container {
   gap: 40px;
 }
 
-.input_container_regionZIP {
-  gap: 24px;
-}
-
 /* ------ Media rules ------ */
 
 @media screen and (min-width: 744px) {
-  .big_input {
-    width: 300px;
-    margin-bottom: 0;
-  }
-
-  .input_container_regionZIP {
-    gap: 24px;
-  }
-
   .input_container {
     width: 462px;
     display: flex;
@@ -170,42 +127,17 @@
     justify-content: space-between;
   }
 
+  .input_container_flex {
+    gap: 186px;
+  }
+
   .error {
     margin-top: 8px;
-  }
-
-  .form {
-    width: 624px;
-  }
-
-  .header_delivery {
-    margin-top: 28px;
-    margin-bottom: 24px;
-  }
-
-  .inputs_container {
-    gap: 6px;
   }
 
   .form_container {
     width: 462px;
     margin: 0 auto;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .form {
-    width: 462px;
-    display: flex;
-    gap: 110px;
-  }
-}
-
-@media screen and (min-width: 1920px) {
-  .form {
-    display: flex;
-    gap: 348px;
-    margin-left: 162px;
-    width: 786px;
+    margin-bottom: 44px;
   }
 }
