@@ -99,6 +99,7 @@
 @media (max-width: 743.99px) {
   .accountContainer {
     padding: 0;
+    margin-bottom: 93px;
   }
   .accountDetails {
     display: flex;

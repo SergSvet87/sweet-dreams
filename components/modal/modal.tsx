@@ -11,6 +11,7 @@ interface ModalProps {
   padding?: string;
   width?: string;
   borderRadius?: string;
+  closeIconPath?: string;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -22,6 +23,7 @@ const Modal: React.FC<ModalProps> = ({
   padding,
   width,
   borderRadius,
+  closeIconPath = '/images/close-modal.svg',
 }) => {
   if (!isOpen) return null;
 
@@ -41,7 +43,7 @@ const Modal: React.FC<ModalProps> = ({
         onClick={e => e.stopPropagation()}
       >
         <span className={style.close} onClick={onClose}>
-          <Image width={32} height={32} src={'/images/close-modal.svg'} alt="Close" priority />
+          <Image width={32} height={32} src={closeIconPath} alt="Close" priority />
         </span>
         {children}
       </div>

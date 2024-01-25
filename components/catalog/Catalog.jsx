@@ -83,20 +83,19 @@ export const products = [
 ];
 
 export default function Catalog() {
-
   return (
     <div className={styles.catalog}>
       {products.length ? (
-          <ul className={styles.catalog__list}>
-            {products.map((item) => (
-              <li key={item.src} className={styles.catalog__item}>
-                <ProductCard item={item} />
-              </li>
-            ))}
-          </ul>
+        <ul className={styles.catalog__list}>
+          {products.map(item => (
+            <li key={item.src} className={styles.catalog__item}>
+              <ProductCard item={item} />
+            </li>
+          ))}
+        </ul>
       ) : (
         <div className={styles.alert}>Товарів за заданим фільтром не має!</div>
       )}
     </div>
   );
-};
+}

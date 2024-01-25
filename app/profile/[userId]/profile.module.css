@@ -25,4 +25,10 @@
   .profile {
     padding: 0px 0px 37px 0px;
   }
+  .profile__wrapper {
+    grid-template-columns: 1fr;
+    max-width: 348px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
 }
