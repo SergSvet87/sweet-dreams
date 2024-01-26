@@ -25,14 +25,14 @@ export default function LoginPage() {
     resolver: yupResolver(LoginSchema),
   });
 
-  const handleSubmitForm = async (data) => {
+  const handleSubmitForm = async data => {
     try {
       const userData = {
         email: data.email,
         password: data.password,
       };
 
-      const user = await signIn(userData).then((res) => {
+      const user = await signIn(userData).then(res => {
         // Cookies.set('tokenKey', res.data.token);
         localStorage.setItem('user', JSON.stringify(res.data));
 
@@ -52,7 +52,7 @@ export default function LoginPage() {
   return (
     <>
       <Search />
-      
+
       <div className={styles.auth}>
         <Background />
 
