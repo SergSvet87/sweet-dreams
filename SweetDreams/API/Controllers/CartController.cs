@@ -15,7 +15,7 @@ public class CartController : BaseApiController
     }
 
     /// <summary>
-    /// Get cart by id(guid).
+    /// Get cart by id (guid).
     /// </summary>
     [HttpGet("{cartId}")]
     public ActionResult<Cart> GetCart(Guid cartId)
@@ -39,7 +39,7 @@ public class CartController : BaseApiController
     }
 
     /// <summary>
-    /// Remove item form cart.
+    /// Remove item from cart.
     /// </summary>
     [HttpDelete("{cartId}/{productId}")]
     public ActionResult RemoveCartItem(Guid cartId, int productId)

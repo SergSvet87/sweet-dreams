@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using API.DTOs;
 using API.Entities;
 using API.Interfaces.IRepositories;
 using Microsoft.EntityFrameworkCore;
@@ -11,15 +12,30 @@ public class OrderRepository : GenericRepository<Order>, IOrderRepository
     {
     }
 
-    public IEnumerable<Order> GetUserOrders(int userId, params Expression<Func<Order, object>>[] includes)
+    public IEnumerable<Order> GetUserOrders(int userId)
     {
-        var query = _context.Orders.Where(order => order.UserId == userId).AsQueryable();
+        var orders = _context.Orders
+            .Include(x => x.OrderItems)
+            .Where(x => x.UserId == userId)
+            .ToList();
 
-        foreach (var include in includes)
+        return orders;
+    }
+
+    public async Task CreateOrder(int userId, List<CartItemDto> cartItems)
+    {
+        var order = new Order
         {
-            query = query.Include(include);
-        }
+            UserId = userId,
+            OrderDate = DateTime.UtcNow,
+            OrderItems = cartItems.Select(ci => new OrderItem
+            {
+                ProductId = ci.ProductId,
+                Quantity = ci.Quantity
+            }).ToList()
+        };
 
-        return query.ToList();
+        _context.Add(order);
+        await _context.SaveChangesAsync();
     }
 }
