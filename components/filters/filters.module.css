@@ -2,6 +2,7 @@
   flex-basis: 18.125rem;
   width: 100%;
   color: var(--black);
+  background-color: var(--white);
 }
 
 .filters__item {
