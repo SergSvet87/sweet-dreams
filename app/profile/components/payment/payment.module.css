@@ -1,7 +1,10 @@
 .paymentContainer {
   height: 100%;
-  padding: 23px 487px 108px 161px;
-  width: fit-content;
+  /* padding: 23px 487px 108px 161px; */
+  width: 462px;
+  margin-top: 23px;
+  margin-left: 161px;
+  margin-bottom: 36px;
 }
 
 .title {
@@ -24,8 +27,26 @@
   margin-right: 8px;
 }
 
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.deleteTitle {
+  color: var(--black);
+  font-size: 16px;
+}
+
 @media (max-width: 1439.99px) {
   .paymentContainer {
     padding: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 100%;
+  }
+}
+@media (max-width: 743.99px) {
+  .paymentContainer {
+    width: 328px;
   }
 }

@@ -70,7 +70,7 @@ export default function FiltersDesktop() {
       <div className={styles.filters__item}>
         <h3 className={styles.filters__title}>Type</h3>
 
-        {categories.map((item) => (
+        {categories.map(item => (
           <label className={styles.filters__checkbox} key={item.id}>
             <input
               className={styles.checkbox__input}
@@ -88,7 +88,7 @@ export default function FiltersDesktop() {
       <div className={styles.filters__item}>
         <h3 className={styles.filters__title}>Food Specifications</h3>
 
-        {specifications.map((item) => (
+        {specifications.map(item => (
           <label className={styles.filters__checkbox} key={item.id}>
             <input
               className={styles.checkbox__input}
@@ -160,7 +160,7 @@ export default function FiltersDesktop() {
       <div className={styles.filters__item}>
         <h3 className={styles.filters__title}>Price</h3>
 
-        {price.map((item) => (
+        {price.map(item => (
           <label className={styles.filters__checkbox} key={item.id}>
             <input
               className={styles.checkbox__input}

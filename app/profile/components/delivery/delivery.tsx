@@ -5,19 +5,28 @@ import style from './delivery.module.css';
 import { IFormDelivery } from '@/types/interfaces/profile';
 import AddressForm from '@App-Components/delivery/components/address-form';
 import { mockAddress } from '@/profile/[userId]/mock-data';
+import Modal from '@components/modal/modal';
 
 interface IDelivery {}
 
 const Delivery: FC<IDelivery> = () => {
   const [forms, setForms] = useState<IFormDelivery[]>(mockAddress);
+  const [idAdress, setIdAdress] = useState<number>();
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   const addForm = () => {
     setForms([...forms, {}]);
   };
 
-  const removeForm = (index: number) => {
-    const newForms = forms.filter((_, i) => i !== index);
+  const removeFormModal = (index: number) => {
+    setIdAdress(index);
+    setIsOpenModal(true);
+  };
+
+  const removeForm = () => {
+    const newForms = forms.filter((_, i) => i !== idAdress);
     setForms(newForms);
+    setIsOpenModal(false);
   };
 
   const handleInputChange = (index: number, field: keyof IFormDelivery, value: string) => {
@@ -30,8 +39,10 @@ const Delivery: FC<IDelivery> = () => {
     return Object.values(form).some(value => value !== undefined && value !== '');
   };
 
+  const handleCloseModal = () => setIsOpenModal(false);
+
   return (
-    <div className={style.deliveryContainer}>
+    <div className={forms.length ? style.deliveryContainer : style.marginBottom}>
       <h2 className={style.title}>Delivery addresses</h2>
 
       {forms.map((form, index) => (
@@ -40,7 +51,7 @@ const Delivery: FC<IDelivery> = () => {
           form={form}
           index={index}
           handleInputChange={handleInputChange}
-          removeForm={removeForm}
+          removeForm={removeFormModal}
           isFormFilled={isFormFilled}
         />
       ))}
@@ -56,6 +67,27 @@ const Delivery: FC<IDelivery> = () => {
         />
         Add address
       </Button>
+
+      <Modal
+        isOpen={isOpenModal}
+        onClose={handleCloseModal}
+        closeIconPath="/images/close-modal-cross.svg"
+        borderRadius="45px"
+        width="282px"
+      >
+        <div className={style.modalContainer}>
+          <p className={style.deleteTitle}>Delete delivery adress?</p>
+          <Button
+            onClick={removeForm}
+            margin="12px 0px 0px 0px"
+            border="none"
+            background="var(--accent)"
+            color="var(--white)"
+          >
+            delete
+          </Button>
+        </div>
+      </Modal>
     </div>
   );
 };

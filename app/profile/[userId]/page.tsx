@@ -12,23 +12,27 @@ import Payment from '@App-Components/payment/payment';
 import { useMediaQuery } from '@hooks/useMediaQuery';
 import useModalStore from '@hooks/useModalStore';
 import Modal from '@components/modal/modal';
+import { useRouter } from 'next/navigation';
 
 export default function Profile() {
   const { isOpen, openModal, closeModal, page, setPage } = useModalStore();
   const isMobile1440 = useMediaQuery(1440);
   const isMobile744 = useMediaQuery(744);
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
+  const [isMobileMin, setIsMobileMin] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<string>('account');
+
+  const router = useRouter();
 
   useEffect(() => {
     setPage('profile');
     isMobile1440 ? setIsMobile(true) : setIsMobile(false);
+    isMobile744 ? setIsMobileMin(true) : setIsMobileMin(false);
     return () => setPage('');
-  }, [setPage, isMobile1440]);
-
-  console.log('isMobile', isMobile);
+  }, [setPage, isMobile1440, isMobile744]);
 
   const handleTabClick = (page: string) => {
+    page === 'logout' && router.push('/auth/login');
     setActiveTab(page);
     closeModal();
   };
@@ -41,17 +45,18 @@ export default function Profile() {
         <div className={classNames('profile__container', styles.profile__wrapper)}>
           {isMobile === false && <Sidebar activeTab={activeTab} onTabClick={handleTabClick} />}
           {activeTab === 'account' && <AccountDetails />}
-          {activeTab === 'order' && <OrderHistory />}
+          {activeTab === 'order' && <OrderHistory isMobile744={isMobileMin} />}
           {activeTab === 'favorites' && <Favorites />}
           {activeTab === 'delivery' && <Delivery />}
           {activeTab === 'payment' && <Payment />}
           <Modal
             isOpen={isOpen}
             onClose={closeModal}
-            justifyContent="flex-start"
+            justifyContent={isMobile744 ? 'center' : 'flex-start'}
             padding="122px 0px"
             alightItems="flex-start"
             width="321px"
+            borderRadius="35px"
           >
             <Sidebar activeTab={activeTab} onTabClick={handleTabClick} />
           </Modal>

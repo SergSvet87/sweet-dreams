@@ -1,83 +1,135 @@
-
 .tableContainer {
-    overflow-y: auto;
-    max-height: 360px; 
+  overflow-y: auto;
+  max-height: 360px;
 }
 
 .tableContainer {
-    width: 100%;
-    color: var(--black);
-    font-size: 14px;
+  width: 100%;
+  color: var(--black);
+  font-size: 14px;
 }
 
 .tableHeader {
-    display: flex;
-    justify-content: space-between;
-    color: var(--black);
-    margin-top: 32px;
-    border-bottom: 1px solid var(--black);
-    font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--black);
+  margin-top: 32px;
+  border-bottom: 1px solid var(--black);
+  font-size: 16px;
 }
 
-.tableHeader p:nth-child(2){
+.tableHeader p:nth-child(2) {
   width: 130px;
 }
 
 .cardContainer {
-    margin-top: 14px;
-    border-bottom: 1px solid var(--grey);
-    font-size: 16px;
-    font-weight: 500;
-    overflow: hidden;
+  margin-top: 14px;
+  border-bottom: 1px solid var(--grey);
+  font-size: 16px;
+  font-weight: 500;
+  overflow: hidden;
 }
 
 .card {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    color: var(--black);
+  display: flex;
+  height: 100%;
+  width: 100%;
+  color: var(--black);
 }
 
-.imgContainer{
-    display: flex;
-    width: 100%;
+.imgContainer {
+  display: flex;
+  width: 100%;
 }
 .img {
-    width: 115px;
-    max-height: 140px;
-    object-fit: contain;
+  width: 115px;
+  max-height: 140px;
+  object-fit: contain;
 }
 
-.descriptionContainer{
-    width: 100%;
-    margin-left: 16px;
+.descriptionContainer {
+  width: 100%;
+  margin-left: 16px;
 }
 
-.descriptionContainer:nth-child(3){
-    display: flex;
+.descriptionContainer:nth-child(3) {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.candyInf{
-    margin: 8px 0px;
-    font-size: 14px;
-    font-weight: 400;
+.candyInf {
+  margin: 8px 0px;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .candyName {
-    font-size: 16px;
-    font-weight: 500;
+  font-size: 16px;
+  font-weight: 500;
 }
 
-.candyNameMg{
-    width: 75px;
+.candyNameMg {
+  width: 75px;
+  margin-right: 10px;
+}
+
+.candyNameMg:nth-child(2) {
+  width: 8px;
+  margin-right: 8px;
+}
+
+.total {
+  margin-left: 8px;
+}
+
+@media (max-width: 743.99px) {
+  .cardContainer {
+    border-bottom: 1px solid var(--black);
+  }
+  .tableContainer {
+    overflow-y: auto;
+    max-height: 608px;
+  }
+  .imgContainer {
+    flex-direction: column;
+  }
+  .img {
+    width: 82px;
+    height: 93px;
+  }
+  .quantityContainer {
+    margin-left: 0px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: -6px;
+  }
+  .candyPrice {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .candyInf:nth-child(3) {
+    font-size: 12px;
+  }
+  .factor {
+    display: flex;
+  }
+  .factor p:first-child {
     margin-right: 10px;
-}
-
-.candyNameMg:nth-child(2){
-    width: 8px;
-    margin-right: 8px;
-}
-
-.total{
-    margin-left: 8px;
+  }
+  .descriptionContainer {
+    width: max-content;
+    margin-left: 12px;
+  }
+  .imgContainer {
+    width: max-content;
+  }
+  .totalContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 37px -10px 8px 5px;
+  }
+  .total {
+    position: relative;
+    left: 33px;
+  }
 }

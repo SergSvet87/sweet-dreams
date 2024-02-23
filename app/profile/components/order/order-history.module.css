@@ -46,3 +46,32 @@
   position: 'relative';
   z-index: 4;
 }
+
+@media (max-width: 1439.99px) {
+  .orderContent {
+    width: 618px;
+  }
+  .orderContainer {
+    padding-top: 50px 163px 374px 161px;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 743.99px) {
+  .orderContent {
+    width: 328px;
+  }
+  .orderContainer {
+    padding: 0;
+  }
+
+  .aboveTableBlock {
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 8px;
+  }
+  .title {
+    align-self: start;
+    margin-bottom: 28px;
+  }
+}

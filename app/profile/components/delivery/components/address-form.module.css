@@ -1,6 +1,6 @@
 .formContainer {
   margin-bottom: 36px;
-  width: 462px;
+  max-width: 462px;
 }
 .formContainer:last-of-type {
   margin-bottom: 0px;
@@ -50,4 +50,21 @@
 }
 .form:last-of-type input:nth-child(5) {
   margin-bottom: 0;
+}
+
+@media (max-width: 743.99px) {
+  .inputContainer input:first-of-type {
+    width: 100%;
+    margin-right: auto;
+  }
+  .inputContainer:last-of-type input:first-of-type {
+    width: 100%;
+    margin-right: auto;
+  }
+  .inputContainer input:last-of-type {
+    max-width: 138px;
+  }
+  .inputContainer {
+    flex-direction: column;
+  }
 }

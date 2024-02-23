@@ -23,18 +23,28 @@
 .img:nth-child(1) {
   margin-right: 8px;
 }
-
-@media screen {
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.deleteTitle {
+  color: var(--black);
+  font-size: 16px;
 }
 
 @media (max-width: 1919.99px) {
   .deliveryContainer {
     padding: 24px 125px 32px 121px;
   }
-}
-
-@media (max-width: 1439.99px) {
+  .marginBottom {
+    margin-bottom: 100%;
+  }
 }
 
 @media (max-width: 743.99px) {
+  .deliveryContainer {
+    padding: 0;
+    width: 100%;
+  }
 }
