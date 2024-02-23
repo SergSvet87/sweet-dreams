@@ -15,7 +15,7 @@
   position: absolute;
   top: 16px;
   left: 24px;
-  z-index: 5;
+  z-index: 0;
 }
 
 .product__img {
