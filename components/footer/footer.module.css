@@ -1,4 +1,5 @@
 .footer {
+  position: relative;
   padding: 1.5rem 0 4.875rem;
   background-color: var(--footer-color);
   /* box-shadow: 0rem 0.9375rem 1.5625rem 0rem rgba(0, 0, 0, 0.35); */
