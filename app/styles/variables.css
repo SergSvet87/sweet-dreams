@@ -1,6 +1,6 @@
 :root {
-  --max-width: 102rem;
-  --font: 'PoppinsS, sans-serif';
+  --max-width: 1600px;
+  --font: PoppinsS, sans-serif;
   --font-size: 2rem;
   --padding-container: 0 1rem;
   --accent-second: #FDD49E;
@@ -24,4 +24,10 @@ html[data-theme="light"] {
   --text-color: var(--black);
 
   --background-color: var(--white);
+}
+
+@media (max-width: 1919.99px) {
+  :root {
+    --max-width: 1200px;
+  }
 }

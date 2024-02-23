@@ -1,65 +1,44 @@
 'use client';
 
-// import Image from 'next/image';
-
-// import { useMediaQuery } from '@/hooks/useMediaQuery';
-// import { Count } from '../count/Count';
-import {
-  FlexContainer,
-  FlexContainerPrice,
-  HeaderGood,
-  GoodDetails,
-  Test,
-  Good,
-  Table,
-  TableName,
-  SinglePrice,
-  Amount,
-  AmountPrice,
-} from './OrderGoods.styled';
-// import styles from './order-goods.module.css';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import styles from './order-goods.module.css';
 
 export function OrderGoods() {
-  // const isMobile744 = useMediaQuery(744);
+  const isMobile744 = useMediaQuery(744);
 
   return (
-    <div>
-      <Table>
-        <TableName>Product</TableName>
-        <TableName>Total</TableName>
-      </Table>
-      <ul>
-        <Good>
-          <Test className="image"></Test>
-          <FlexContainer>
-            <div>
-              <HeaderGood>Candy Bird</HeaderGood>
-              <GoodDetails>Box of 10</GoodDetails>
-              <GoodDetails>Item No: 112</GoodDetails>
+    <>
+      {!isMobile744 && (
+        <div className={styles.table}>
+          <p className={styles.table_name}>Product</p>
+          <p className={styles.table_name}>Total</p>
+        </div>
+      )}
+
+      <ul className={styles.list_goods}>
+        <div className={styles.good}>
+          <div className={styles.info_container_image}>
+            <div className={styles.image}></div>
+            <div className={styles.info_container}>
+              <h2 className={styles.good_name}>Candy Bird</h2>
+              <div className={styles.good_detail}>
+                <p>Box of 10</p>
+                <p>Item No: 112</p>
+              </div>
             </div>
-            <FlexContainerPrice>
-              <SinglePrice>₴300</SinglePrice>
-              <Amount>x 2</Amount>
-              <AmountPrice>₴600</AmountPrice>
-            </FlexContainerPrice>
-          </FlexContainer>
-        </Good>
-        <Good>
-          <Test className="image"></Test>
-          <FlexContainer>
-            <div>
-              <HeaderGood>Candy Bird</HeaderGood>
-              <GoodDetails>Box of 10</GoodDetails>
-              <GoodDetails>Item No: 112</GoodDetails>
+          </div>
+          <div className={styles.price_container}>
+            <div className={styles.price_container_paragraph}>
+              <p className={styles.price_single}>₴300</p>
+              {isMobile744 && <p className={styles.table_name}>Total</p>}
             </div>
-            <FlexContainerPrice>
-              <SinglePrice>₴300</SinglePrice>
-              <Amount>x 2</Amount>
-              <AmountPrice>₴600</AmountPrice>
-            </FlexContainerPrice>
-          </FlexContainer>
-        </Good>
+            <div className={styles.price_container_paragraph}>
+              <p className={styles.price_amount}>x 2</p>
+              <p className={styles.price_total}>₴600</p>
+            </div>
+          </div>
+        </div>
       </ul>
-    </div>
+    </>
   );
 }

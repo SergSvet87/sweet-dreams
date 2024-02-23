@@ -55,10 +55,11 @@ export default function Menu({ isOpen, setOpen, pathname }) {
             key={id}
             className={classNames(
               styles.menu__item,
-              pathname === path ? styles.active : '',
               name === 'shop now' ? styles.menu__item_drop : ''
             )}>
-            <Link className={styles.menu__link} href={path}>
+            <Link
+              className={classNames(styles.menu__link, pathname === path ? styles.active : '')}
+              href={path}>
               {name}
             </Link>
             {name === 'shop now' ? (

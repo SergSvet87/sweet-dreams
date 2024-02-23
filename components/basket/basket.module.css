@@ -19,13 +19,13 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -35%);
   
 	background-color: transparent;
 
 	font-weight: 500;
 	font-size: 1.75rem;
-  color: var(--accent);
+  color: var(--white);
   z-index: 2;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .basket__button:hover img {
-  background: url('/images/header/basket_icon_40.png') center/ contain no-repeat;
+  background: url('/images/header/basket_hover.svg') center/ contain no-repeat;
 }
 
 @media (max-width: 62.5rem) {

@@ -1,24 +1,25 @@
 'use client';
 
-// import Image from 'next/image';
-// import classNames from 'classnames';
+import styles from './order.module.css';
 
-// import { cartGoods } from '@/components/cart/Cart';
+import { OrderUserForm } from '@/components/order-user/OrderUserForm';
+import Search from '@/components/search/Search';
 
-// import styles from './order.module.css';
-
-import { OrderContainer, Container } from './order.styled';
-
-import { OrderUserForm } from '../../components/order-user/OrderUserForm';
-// import { OrderGoods } from '../../components/order-goods/OrderGoods';
+import Image from 'next/image';
 
 export default function Order() {
   return (
-    <OrderContainer>
-      <Container>
+    <section className={styles.order}>
+      <div className={styles.container}>
+        <div className={styles.search_container}>
+          <Search />
+          <div className={styles.header_container}>
+            <Image src="/images/order/checkout.svg" alt="checkout arrow" width={54} height={26} />
+            <h1 className={styles.header}>checkout</h1>
+          </div>
+        </div>
         <OrderUserForm />
-        {/* <OrderGoods /> */}
-      </Container>
-    </OrderContainer>
+      </div>
+    </section>
   );
 }

@@ -1,280 +1,125 @@
-.modal {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  cursor: pointer;
-  overflow-y: auto;
-  display: flex;
+.order {
+  font-family: var(--font);
+
+  background-color: var(--white);
+  color: var(--black);
 }
 
-.modal__close {
-  color: #B1B1B1;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  outline: 1px solid transparent;
-  outline-offset: 3px;
-  border-radius: 3px;
-  transition: color .3s ease-in-out;
+@media screen and (min-width: 360px) {
+  .order {
+    padding-bottom: 16px;
+  }
 }
 
-.modal__close:hover {
-  color: #FF7020;
+@media screen and (min-width: 744px) {
+  .order {
+    padding-bottom: 44px;
+  }
 }
 
-.modal__close:focus-visible {
-  color: #FF7020;
-  outline-color: #FF7020;
+@media screen and (min-width: 1440px) {
+  .order {
+    padding-bottom: 36px;
+  }
 }
 
-.modal__order {
-  position: relative;
-  cursor: default;
-  margin: auto;
-  --gap: 8px;
-  background-color: #FFFFFF;
-  width: 100%;
-  max-width: 684px;
-  min-height: auto;
-  padding: 16px 24px;
-  /* padding: 32px 10px; */
-  display: flex;
+@media screen and (min-width: 1920px) {
+  .order {
+    padding-bottom: 16px;
+  }
 }
 
 .container {
-  max-width: 400px;
   margin: 0 auto;
-  padding: 16px 32px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: #e4e4e4;
-
 }
 
-.title {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 100%;
-  text-align: center;
-  margin-bottom: 18px;
-}
-
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  flex-grow: 1;
-  margin-bottom: 18px;
-}
-
-.fieldset {
-  display: flex;
-  gap: var(--gap);
-  padding: 0;
-}
-
-.fieldset_radio {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gap);
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.fieldset_hide {
-  visibility: hidden;
-}
-
-.input {
-  width: 100%;
-  height: 30px;
-  border: 1px solid #F2F2F3;
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 130%;
-  color: #000;
-}
-
-.input_half {
-  flex-basis: calc((100% - var(--gap)) / 2);
-}
-
-.input::placeholder {
-  color: #B1B1B1;
-}
-
-.label {
-  display: flex;
-  gap: 8px;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 14px;
-}
-
-.radio {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  position: relative;
-  width: 12px;
-}
-
-.radio:before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  display: block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 1px solid #F2F2F3;
-
-}
-
-.radio:after {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #000;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-}
-
-.radio:checked:after {
-  opacity: 1;
-}
-
-.submit {
-  padding: 9px;
-  background-color: #FF7020;
-  border-radius: 8px;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 100%;
-  color: #FFFFFF;
-  transition: transform .1s ease, background-color .3s ease-in-out;
-}
-
-.submit:hover {
-  background-color: #FFAB08;
-}
-
-.submit:focus-visible {
-  background-color: #F86310;
-}
-
-.submit:active {
-  transform: translate(1px, 2px)
-}
-
-.submit:disabled {
-  background-color: #F9F9F9;
-  color: #ACACAC;
-}
-
-@supports not selector(:focus-visible) {
-  .submit:focus {
-    background-color: #F86310;
-  }
-}
-
-.form__list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  font-size: 16px;
-}
-
-.form__item {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.item__img {
-  width: 54px;
-  height: 60px;
-}
-
-.item__img img {
-  position: relative !important;
-  object-fit: cover;
-}
-
-/* @media (min-width: 480px) {
-  .modal {
-    padding: 10px;
-  }
-
-  .modal__order {
-    max-width: 524px;
-    min-height: auto;
-    padding: 20px 16px 29px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 24px;
-  }
-
+@media screen and (min-width: 360px) {
   .container {
-    margin-left: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 360px;
   }
-
 }
 
-@media (min-width: 1024px) {
-  .modal {
-    padding: 20px;
+@media screen and (min-width: 744px) {
+  .container {
+    padding-left: 60px;
+    padding-right: 60px;
+    width: 744px;
   }
+}
 
-  .modal__close {
-    top: 24px;
-    right: 24px;
+@media screen and (min-width: 1440px) {
+  .container {
+    padding-left: 122px;
+    padding-right: 122px;
+    width: 1440px;
   }
+}
 
-  .modal__order {
-    max-width: 684px;
-    padding: 44px 24px 24px 366px;
-    background: url('../../assets/img/donut.svg') 19px center, linear-gradient(to right, #FFAB08 50%, #fff 50%);
-    background-size: 302px, auto;
-    background-repeat: no-repeat;
+@media screen and (min-width: 1920px) {
+  .container {
+    padding-left: 162px;
+    padding-right: 162px;
+    width: 1920px;
   }
+}
 
-  .title {
-    font-size: 24px;
-    margin-bottom: 16px;
+@media screen and (min-width: 744px) {
+  .search_container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 462px;
   }
+}
 
-  .form {
-    margin-bottom: 32px;
-    gap: 16px;
+@media screen and (min-width: 1440px) {
+  .search_container {
+    margin: 0 auto;
+    display: block;
+    flex-direction: column;
+    width: 100%;
   }
+}
 
-  .input {
-    font-size: 12px;
-    padding: 10px 12px;
-    height: 40px;
-  }
+.header_container {
+  display: flex;
+  gap: 23px;
+  margin-bottom: 34px;
+}
 
-  .label {
-    font-size: 12px;
+@media screen and (min-width: 744px) {
+  .header_container {
+    margin-bottom: 33px;
   }
+}
 
-  .fieldset_radio {
-    gap: 12px;
+@media screen and (min-width: 1440px) {
+  .header_container {
+    margin-bottom: 40px;
   }
+}
 
-  .submit {
-    font-size: 16px;
+@media screen and (min-width: 1920px) {
+  .header_container {
+    margin-bottom: 39px;
   }
-} */
+}
+
+.header {
+  font-family: var(--font);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+
+  color: var(--black);
+}
+
+@media screen and (min-width: 744px) {
+  .header {
+    font-size: 40px;
+  }
+}

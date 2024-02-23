@@ -2,15 +2,16 @@
 
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import classNames from 'classnames';
 import { toast } from 'react-toastify';
+import classNames from 'classnames';
 
 import { ResetSchema } from '@/utils/yup/index';
 import { TIME_SHOW_PASSWORD } from '@/utils/const';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import Background from '@/components/background/Background';
+import Search from '@/components/search/Search';
 
 import styles from '../auth.module.css';
 
@@ -49,20 +50,14 @@ export default function Reset() {
   const handleSubmitForm = async (data) => {
     try {
       const userData = {
-        email: data.email,
         password: data.password,
       };
 
-      const user = await signIn(userData).then((res) => {
-        // Cookies.set('tokenKey', res.data.token);
-        localStorage.setItem('user', JSON.stringify(res.data));
-
-        return res.data;
-      });
+      const user = await signIn(userData).then((res) => res.data);
 
       if (user) {
-        toast.success('Login is complete!');
-        router.push('/userboard');
+        toast.success('Password saved!');
+        router.push('/auth/login');
       }
     } catch (e) {
       toast.error('Invalid credentials :(', e);
@@ -71,45 +66,54 @@ export default function Reset() {
   };
 
   return (
-    <section className={styles.auth}>
-      <div className="reset__container">
-        <h2 className={styles.auth__title}>Reset your password</h2>
+    <>
+      <Search />
 
-        <form className={styles.auth__form} name="reset" onSubmit={handleSubmit(handleSubmitForm)}>
-          <label className={styles.form__label}>
-            <span className={styles.label__text} ref={labelTextPassword}>
-              password
-            </span>
-            <input
-              className={`${styles.form__label__input} ${inputClass}`}
-              type={passwordType}
-              placeholder="Enter your password"
-              name="password"
-              onFocus={handleFocusPassword}
-              {...register('password')}
-              aria-invalid={errors.password ? 'true' : 'false'}
-            />
-            <button className={styles.form__label__btn} type="button" onClick={showPassword}>
-              {passwordSvg}
-            </button>
-            {errors.password ? (
-              <span className={styles.form__label__error} role="alert">
-                {errors.password.message}
+      <section className={styles.auth}>
+        <Background />
+
+        <div className={classNames('auth__container', styles.auth__wrapper)}>
+          <h2 className={styles.auth__title}>Reset your password</h2>
+
+          <form
+            className={styles.auth__form}
+            name="reset"
+            onSubmit={handleSubmit(handleSubmitForm)}>
+            <label className={styles.form__label}>
+              <span className={styles.label__text} ref={labelTextPassword}>
+                password
               </span>
-            ) : (
-              ''
-            )}
-          </label>
+              <input
+                className={`${styles.form__label__input} ${inputClass}`}
+                type={passwordType}
+                placeholder="Enter your password"
+                name="password"
+                onFocus={handleFocusPassword}
+                {...register('password')}
+                aria-invalid={errors.password ? 'true' : 'false'}
+              />
+              <button className={styles.form__label__btn} type="button" onClick={showPassword}>
+                {passwordSvg}
+              </button>
+              {errors.password ? (
+                <span className={styles.form__label__error} role="alert">
+                  {errors.password.message}
+                </span>
+              ) : (
+                ''
+              )}
+            </label>
 
-          <button className={styles.form__submit} type="submit" disabled>
-            Submit
-          </button>
+            <button className={styles.form__submit} type="submit" disabled>
+              Submit
+            </button>
 
-          <button className={styles.form__reset} type="reset">
-            Cancel
-          </button>
-        </form>
-      </div>
-    </section>
+            <button className={styles.form__reset} type="reset">
+              Cancel
+            </button>
+          </form>
+        </div>
+      </section>
+    </>
   );
 }

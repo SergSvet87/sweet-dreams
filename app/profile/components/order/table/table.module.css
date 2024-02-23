@@ -1,0 +1,50 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--black);
+  table-layout: fixed;
+}
+
+.headerTable {
+  display: table;
+  width: 100%;
+}
+
+.tbodyWrapper {
+  display: block;
+  max-height: 300px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.rowCellHeader, .rowCellTable {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid var(--grey);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.rowCellTable:nth-child(1), .rowCellHeader:nth-child(1) {
+width: 280px;
+}
+
+
+
+.rowCellHeader {
+  font-weight: 600;
+}
+
+.rowTable {
+  width: 100%;
+}
+
+.lineOrder:hover {
+  background-color: var(--accent-second);
+  cursor: pointer;
+}
+
+.lineOrder.selected {
+  background-color: var(--footer-color);
+}
+

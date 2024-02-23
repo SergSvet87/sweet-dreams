@@ -10,10 +10,18 @@ import ProfileMenu from '../profile-menu/ProfileMenu';
 import styles from './profile.module.css';
 
 export default function Profile() {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
   const [isOpen, setOpen] = useState(false);
-  // const router = useRouter();
+  const router = useRouter();
   const profileMenuRef = useRef(null);
+
+  const handleClick = () => {
+    if (!isLogged) {
+      router.push('/profile');
+    } else {
+      router.push('/auth/login');
+    }
+  };
 
   // useEffect(() => {
   //   const getCurrentUser = () => JSON.parse(localStorage.getItem('user'));
@@ -28,15 +36,13 @@ export default function Profile() {
   //   }
   // }, []);
 
-  useClickOutside(profileMenuRef, () => {
-    if (isOpen) setTimeout(() => setOpen(false), 50);
-  });
+  // useClickOutside(profileMenuRef, () => {
+  //   if (isOpen) setTimeout(() => setOpen(false), 50);
+  // });
 
   return (
     <div className={styles.profile}>
-      <button
-        className={styles.profile__button}
-        onClick={() => setOpen(!isOpen)}>
+      <button className={styles.profile__button} onClick={handleClick}>
         <Image
           src='/images/header/profile.svg'
           alt="Profile icon"
@@ -46,13 +52,13 @@ export default function Profile() {
         />
       </button>
 
-      <ProfileMenu
+      {/* <ProfileMenu
         isOpen={isOpen}
         setOpen={setOpen}
         profileMenuRef={profileMenuRef}
         isLogged={isLogged}
         setIsLogged={setIsLogged}
-      />
+      /> */}
     </div>
   );
 }

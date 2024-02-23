@@ -1,98 +1,151 @@
 'use client';
 
-import {
-  Form,
-  Input,
-  LabelCheckbox,
-  Label,
-  HeaderContact,
-  HeaderDelivery,
-  Checkbox,
-  InputsContainer,
-  HeaderPayment,
-  PaymentCheckbox,
-  SaveCheckbox,
-  SmallInput,
-  InputContainer,
-  FlexInputsContainer,
-  BiggerInput,
-  FieldsContainer,
-  SubmitContainer,
-  Subtotal,
-  PayButton,
-  PriceContainer,
-  Price,
-} from './OrderUserForm.styled';
-import { OrderGoods } from '../order-goods/OrderGoods';
+import { OrderGoods } from '@/components/order-goods/OrderGoods';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import styles from './order-user.module.css';
+import Image from 'next/image';
 
 export function OrderUserForm() {
-  return (
-    <Form>
-      <FieldsContainer>
-        <HeaderContact>Contact</HeaderContact>
-        <Input type="text" name="email" placeholder="youremail@gmail.com" />
-        <HeaderDelivery>Delivery</HeaderDelivery>
-        <LabelCheckbox>
-          Use saved addresses
-          <Checkbox type="checkbox" />
-        </LabelCheckbox>
-        <InputsContainer>
-          <Label>
-            Name
-            <Input type="text" name="user name" />
-          </Label>
-          <Label>
-            Last name
-            <Input type="text" name="user last name" />
-          </Label>
-          <Label>
-            Country
-            <FlexInputsContainer>
-              <Input type="text" name="yourInputName" />
-              <InputContainer>
-                <BiggerInput type="text" name="region" placeholder="Region" />
-                <SmallInput type="text" name="ZIP code" placeholder="ZIP code" />
-              </InputContainer>
-              <Input type="text" name="city" placeholder="City" />
-              <InputContainer>
-                <SmallInput type="text" name="building" placeholder="Building" />
-                <SmallInput type="text" name="unit" placeholder="Unit" />
-              </InputContainer>
-              <Input type="text" name="user phone number" placeholder="Phone number" />
-            </FlexInputsContainer>
-          </Label>
-        </InputsContainer>
-        <HeaderPayment>Payment</HeaderPayment>
-        <PaymentCheckbox>
-          Use saved payment methods
-          <Checkbox type="checkbox" name="yourInputName" />
-        </PaymentCheckbox>
-        <Label>
-          <FlexInputsContainer>
-            <Input type="text" name="card number" placeholder="Card number" />
-            <InputContainer>
-              <SmallInput type="text" name="user phone number" placeholder="MM/YY" />
-              <SmallInput type="text" name="user phone number" placeholder="Security code" />
-            </InputContainer>
-            <Input type="text" name="user phone number" placeholder="Name on the card" />
-          </FlexInputsContainer>
-        </Label>
-        <SaveCheckbox>
-          Save my information
-          <Checkbox type="checkbox" name="yourInputName" />
-        </SaveCheckbox>
-      </FieldsContainer>
+  const isMobile1440 = useMediaQuery(1439);
 
-      <div>
-        <SubmitContainer>
-          <PriceContainer>
-            <Subtotal>Subtotal</Subtotal>
-            <Price>₴300</Price>
-          </PriceContainer>
-          <PayButton type="submit">Pay now</PayButton>
-        </SubmitContainer>
-        <OrderGoods />
+  return (
+    <form className={styles.form}>
+      <div className={styles.form_container}>
+        <h2 className={styles.header_contact}>Contact</h2>
+        <input
+          className={styles.input}
+          type="email"
+          name="email"
+          placeholder="youremail@gmail.com"
+          required
+        />
+        <h2 className={styles.header_delivery}>Delivery</h2>
+        <label className={styles.label_checkbox}>
+          Use saved addresses
+          <input className={styles.checkbox} type="checkbox" name="saved address" />
+        </label>
+        <div className={styles.inputs_container}>
+          <label className={styles.label}>
+            Name
+            <input className={styles.input} type="text" name="name" required />
+          </label>
+          <label className={styles.label}>
+            Last name
+            <input className={styles.input} type="text" name="last name" />
+          </label>
+          <label className={styles.label}>
+            Country
+            <div className={styles.flex_inputs_container}>
+              <input className={styles.input} type="text" name="country" required />
+              <div className={styles.input_container}>
+                <input
+                  className={styles.big_input}
+                  type="text"
+                  name="region"
+                  placeholder="Region"
+                  required
+                />
+                <input
+                  className={styles.small_input}
+                  type="text"
+                  name="ZIP"
+                  placeholder="ZIP code"
+                  required
+                />
+              </div>
+              <input className={styles.input} type="text" name="city" placeholder="City" required />
+              <div className={styles.input_container}>
+                <input
+                  className={styles.building_unit}
+                  type="text"
+                  name="building"
+                  placeholder="Building"
+                  required
+                />
+                <input
+                  className={styles.building_unit}
+                  type="text"
+                  name="unit"
+                  placeholder="Unit"
+                  required
+                />
+              </div>
+              <input
+                className={styles.input}
+                type="text"
+                name="phone number"
+                placeholder="Phone number"
+                required
+              />
+            </div>
+          </label>
+        </div>
+        <div className={styles.payment_container}>
+          <h2 className={styles.header_payment}>Payment</h2>
+          <div className={styles.icons_container}>
+            <Image src="/images/order/visa.svg" alt="visa" width={42} height={42} />
+            <Image src="/images/order/mastercard.svg" alt="visa" width={41} height={31} />
+          </div>
+        </div>
+
+        <label className={styles.payment_checkbox}>
+          Use saved payment methods
+          <input className={styles.checkbox} type="checkbox" name="payment methods" />
+        </label>
+
+        <label className={styles.label}>
+          <div className={styles.flex_inputs_container}>
+            <input
+              className={styles.input}
+              type="text"
+              name="card"
+              placeholder="Card number"
+              required
+            />
+            <div className={styles.input_container_flex}>
+              <input
+                className={styles.small_input}
+                type="text"
+                name="mm/yy"
+                placeholder="MM/YY"
+                required
+              />
+              <input
+                className={styles.small_input}
+                type="text"
+                name="security code"
+                placeholder="Security code"
+                required
+              />
+            </div>
+            <input
+              className={styles.input}
+              type="text"
+              name="card name"
+              placeholder="Name on the card"
+              required
+            />
+          </div>
+        </label>
+        <label className={styles.save_checkbox}>
+          Save my information
+          <input className={styles.checkbox} type="checkbox" name="save information" />
+        </label>
       </div>
-    </Form>
+
+      <div className={styles.submit_goods_container}>
+        {isMobile1440 && <OrderGoods />}
+        <div className={styles.submit_container}>
+          <div className={styles.price_container}>
+            <p className={styles.subtotal}>Subtotal</p>
+            <p className={styles.price}>₴300</p>
+          </div>
+          <button className={styles.pay_button} type="submit">
+            Pay now
+          </button>
+        </div>
+        {!isMobile1440 && <OrderGoods />}
+      </div>
+    </form>
   );
 }
