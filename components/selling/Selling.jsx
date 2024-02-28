@@ -134,6 +134,7 @@ export default function Selling() {
                 src="images/arrow-right.svg"
                 width={isMobile744 ? 35 : 55}
                 height={isMobile744 ? 35 : 55}
+                alt="right-arrow"
               />
 
               {/* {isMobile1920 && <Image src="images/arrow-right.svg" width={55} height={55} />} */}
@@ -143,6 +144,7 @@ export default function Selling() {
                 src="images/arrow-right.svg"
                 width={isMobile744 ? 35 : 55}
                 height={isMobile744 ? 35 : 55}
+                alt="left-arrow"
               />
               {/* {isMobile1920 && <Image src="images/arrow-right.svg" width={55} height={55} />} */}
             </div>
