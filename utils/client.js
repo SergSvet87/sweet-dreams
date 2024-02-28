@@ -4,12 +4,15 @@ import axios from 'axios';
 export const instance = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_SERVER_URL}`,
   // timeout: 1000,
-  headers: { 'Content-TypeX-Custom-Header': 'application/json' },
+  headers: {
+    'Content-TypeX-Custom-Header': 'application/json',
+  },
 });
 
-export const getUsers = async () => await instance.get('https://localhost:5001/api/User');
+// export const getUsers = async () => await instance.get('https://localhost:5001/api/User');
 
 export const signUp = async authData => await instance.post('Account/register', authData);
+export const signUpGoogle = async () => await instance.get('Account/googleAuth/register');
 
 export const signIn = async authData => await instance.post('Account/login', authData);
 

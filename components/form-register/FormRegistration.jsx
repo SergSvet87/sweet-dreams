@@ -7,6 +7,8 @@ import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { TIME_SHOW_PASSWORD } from '@/utils/const';
 
 import styles from '../../app/auth/auth.module.css';
+import { signUpGoogle } from '@utils/client';
+import axios from 'axios';
 
 export default function FormRegistration({ register, errors }) {
   const [passwordConfirmType, setPasswordConfirmType] = useState('password');
@@ -22,8 +24,10 @@ export default function FormRegistration({ register, errors }) {
   const labelTextFirstName = useRef();
   const labelTextPhone = useRef();
 
-  const handleClick = () => {
-    console.log('click');
+  const handleClick = async () => {
+    const qwe = await axios.get('https://candyheaven.fly.dev/api/Account/googleAuth/register');
+    // const qwe = await signUpGoogle();
+    console.log('qwe', qwe);
   };
 
   const showPassword = () => {
