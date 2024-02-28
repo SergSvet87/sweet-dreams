@@ -25,8 +25,8 @@ export default function FormRegistration({ register, errors }) {
   const labelTextPhone = useRef();
 
   const handleClick = async () => {
-    const qwe = await axios.get('https://candyheaven.fly.dev/api/Account/googleAuth/register');
-    // const qwe = await signUpGoogle();
+    // const qwe = await axios.get('https://candyheaven.fly.dev/api/Account/googleAuth/register');
+    const qwe = await signUpGoogle();
     console.log('qwe', qwe);
   };
 
