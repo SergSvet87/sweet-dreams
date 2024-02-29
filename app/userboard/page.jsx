@@ -13,7 +13,7 @@ export default function UserBoard() {
   // console.log('data: ', data);
   return (
     <section className="userboard">
-      <div className="userboard__container">Hello, {session.user.name}</div>
+      <div className="userboard__container">Hello, {session?.user.name}</div>
     </section>
   );
 }
