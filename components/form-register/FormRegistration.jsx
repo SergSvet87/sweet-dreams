@@ -26,7 +26,7 @@ export default function FormRegistration({ register, errors }) {
   const labelTextPhone = useRef();
 
   const handleClick = async () => {
-    const qwe = await signIn('google', { callbackUrl: 'http://localhost:3000/userboard' });
+    const qwe = await signIn('google', { callbackUrl: '/userboard' });
     // const qwe = await axios.get('https://candyheaven.fly.dev/api/Account/googleAuth/register');
     // const qwe = fetch('https://candyheaven.fly.dev/api/Account/googleAuth/login');
     console.log('qwe', qwe);
