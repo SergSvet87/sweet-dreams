@@ -1,16 +1,19 @@
+'use client';
+
 // import { instance } from '@/utils/client';
 
-import { authOptions } from '@app/api/auth/[...nextauth]/route';
-import { getServerSession } from 'next-auth';
+// import { handler } from '@app/api/auth/[...nextauth]/route';
+// import { getServerSession } from 'next-auth';
+import { useSession } from 'next-auth/react';
 
-export default async function UserBoard() {
-  const session = await getServerSession(authOptions);
-  console.log('session', session?.user);
+export default function UserBoard() {
+  const { data: session } = useSession();
+  console.log('session', session);
   // const data = await instance.get('User');
   // console.log('data: ', data);
   return (
     <section className="userboard">
-      <div className="userboard__container">Hello {session?.user.name}!</div>
+      <div className="userboard__container">Hello, {session.user.name}</div>
     </section>
   );
 }
