@@ -17,6 +17,8 @@
     "formik": "^2.4.5",
     "gsap": "^3.12.2",
     "next": "14.0.1",
+    "next-auth": "^4.24.6",
+    "next-auth-http-adapter": "^0.3.0",
     "normalize.css": "^8.0.1",
     "prettier": "^3.0.3",
     "react": "^18",

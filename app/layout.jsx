@@ -7,6 +7,7 @@ import ThemeProvider from '@/providers/ThemeProvider';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
 import ModalOrderCheckout from '@/components/modalOrderCheckout/modalOrderCheckout';
+import AuthProvider from '@/providers/AuthProvider';
 
 import 'react-toastify/dist/ReactToastify.css';
 import 'normalize.css';
@@ -25,34 +26,36 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, session }) {
   return (
     <ThemeProvider>
       <html lang="en">
-        <body>
-          <ToastContainer
-            position="bottom-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            closeOnClick
-            rtl={false}
-            theme="light"
-          />
+        <AuthProvider>
+          <body>
+            <ToastContainer
+              position="bottom-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              closeOnClick
+              rtl={false}
+              theme="light"
+            />
 
-          <div className="page">
-            <Header />
-            <main className="main">{children}</main>
-            <Footer />
-          </div>
+            <div className="page">
+              <Header />
+              <main className="main">{children}</main>
+              <Footer />
+            </div>
 
-          {/* <HomeAnimation /> */}
-          <div id="modal-root">
-            <ModalOrderCheckout>
-              {/* <OrderModalCard /> */}
-              <OrderModalAddress />
-            </ModalOrderCheckout>
-          </div>
-        </body>
+            {/* <HomeAnimation /> */}
+            <div id="modal-root">
+              <ModalOrderCheckout>
+                {/* <OrderModalCard /> */}
+                <OrderModalAddress />
+              </ModalOrderCheckout>
+            </div>
+          </body>
+        </AuthProvider>
       </html>
     </ThemeProvider>
   );
