@@ -9,6 +9,7 @@ import { TIME_SHOW_PASSWORD } from '@/utils/const';
 import styles from '../../app/auth/auth.module.css';
 import { signUpGoogle } from '@utils/client';
 import axios from 'axios';
+import { signIn } from 'next-auth/react';
 
 export default function FormRegistration({ register, errors }) {
   const [passwordConfirmType, setPasswordConfirmType] = useState('password');
@@ -25,8 +26,9 @@ export default function FormRegistration({ register, errors }) {
   const labelTextPhone = useRef();
 
   const handleClick = async () => {
+    const qwe = signIn('google');
     // const qwe = await axios.get('https://candyheaven.fly.dev/api/Account/googleAuth/register');
-    const qwe = await signUpGoogle();
+    // const qwe = fetch('https://candyheaven.fly.dev/api/Account/googleAuth/login');
     console.log('qwe', qwe);
   };
 
@@ -247,6 +249,10 @@ export default function FormRegistration({ register, errors }) {
       </div>
 
       <button className={styles.form__google} onClick={handleClick} type="button">
+        {/* <Link
+        className={styles.form__google}
+        href={'https://candyheaven.fly.dev/api/Account/googleAuth/register'}
+      > */}
         <svg
           width="25"
           height="24"
@@ -272,6 +278,7 @@ export default function FormRegistration({ register, errors }) {
           />
         </svg>
         Continue with google
+        {/* </Link> */}
       </button>
 
       <div className={styles.form__reg}>

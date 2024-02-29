@@ -9,7 +9,7 @@ export const instance = axios.create({
   },
 });
 
-// export const getUsers = async () => await instance.get('https://localhost:5001/api/User');
+export const getUsers = async () => await instance.get('User');
 
 export const signUp = async authData => await instance.post('Account/register', authData);
 export const signUpGoogle = async () => await instance.get('Account/googleAuth/register');
