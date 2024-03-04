@@ -10,7 +10,7 @@ import Image from 'next/image';
 
 import styles from './sorting.module.css';
 
-export default function Sorting() {
+export default function Sorting({ filtred, reset }) {
   const [isOpenModal, setOpenModal] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -62,16 +62,18 @@ export default function Sorting() {
               <span>10</span> results
             </div>
 
-            <button className={styles.reset__btn} type="reset">
+            <button onClick={() => reset()} className={styles.reset__btn} type="reset">
               Reset All
             </button>
           </div>
 
           <ul className={styles.sort__list}>
-            <li className={styles.list__item}>
-              Candies
-              <Image width={24} height={24} src={'/images/close-modal-cross.svg'} alt="Candies" />
-            </li>
+            {filtred?.map(item => (
+              <li key={item} className={styles.list__item}>
+                {item}
+                <Image width={24} height={24} src={'/images/close-modal-cross.svg'} alt="Candies" />
+              </li>
+            ))}
           </ul>
         </>
       )}

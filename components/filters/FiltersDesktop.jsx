@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import PriceRange from '../price-range/PriceRange';
@@ -33,37 +33,113 @@ const categories = [
 const specifications = [
   {
     id: 1,
-    type: 'Dairy free',
+    type: 'dairy free',
   },
   {
     id: 2,
-    type: 'Gluten free',
+    type: 'gluten free',
   },
   {
     id: 3,
-    type: 'Vegetarian',
+    type: 'vegetarian',
   },
 ];
 
 const price = [
   {
     id: 1,
-    type: 'Under ₴200',
+    type: 'under ₴200',
   },
   {
     id: 2,
-    type: ' ₴200 - ₴600',
+    type: '₴200 - ₴600',
   },
   {
     id: 3,
-    type: 'Over ₴600',
+    type: 'over ₴600',
   },
 ];
 
-export default function FiltersDesktop() {
+const stars = [
+  {
+    id: 5,
+    type: 'rating__span_5',
+  },
+  {
+    id: 4,
+    type: 'rating__span_4',
+  },
+  {
+    id: 3,
+    type: 'rating__span_3',
+  },
+  {
+    id: 2,
+    type: 'rating__span_2',
+  },
+  {
+    id: 1,
+    type: 'rating__span_1',
+  },
+];
+
+const initialState = {
+  candies: false,
+  lollies: false,
+  chewies: false,
+  jellies: false,
+  chocolates: false,
+  dairyfree: false,
+  glutenfree: false,
+  vegetarian: false,
+  5: false,
+  4: false,
+  3: false,
+  2: false,
+  1: false,
+  'under₴200': false,
+  '₴200-₴600': false,
+  'over₴600': false,
+};
+
+export default function FiltersDesktop({ getFilter, reset, set }) {
   const [acceptWithRules, setAcceptWithRules] = useState(false);
+  const [filterParam, setFilterParam] = useState({ ...initialState });
+  const [isChecked, setIsChecked] = useState({ ...initialState });
+  const [priceRange, setPriceRange] = useState();
+
+  useEffect(() => {
+    if (reset) {
+      setIsChecked({ ...initialState });
+      setFilterParam({ ...initialState });
+      set();
+      return;
+    }
+    if (priceRange) {
+      getFilter({ ...filterParam, from: priceRange[0] || 0, to: priceRange[1] || 0 });
+    }
+  }, [reset, priceRange]);
 
   const toggleAcceptWithRules = () => setAcceptWithRules(!acceptWithRules);
+
+  const getPriceRange = data => {
+    console.log('data', data);
+    setPriceRange(data);
+  };
+
+  const handleChange = e => {
+    const { name, checked } = e.currentTarget;
+    const aria = e.currentTarget.getAttribute('data-name');
+    filterParam[name] = checked;
+    isChecked[name.split(' ').join('')] = checked;
+    if (priceRange) {
+      getFilter({ ...filterParam, from: priceRange[0] || 0, to: priceRange[1] || 0 });
+      return;
+    }
+    getFilter({ ...filterParam });
+  };
+
+  console.log('qwe', isChecked);
 
   return (
     <>
@@ -75,9 +151,11 @@ export default function FiltersDesktop() {
             <input
               className={styles.checkbox__input}
               type="checkbox"
-              onChange={toggleAcceptWithRules}
+              onChange={handleChange}
               aria-label={item.type}
-              name="type"
+              name={item.type}
+              value={filterParam[item.type]}
+              checked={isChecked[item.type]}
             />
             <span className={styles.checkbox__span} />
             <span className={styles.checkbox__text}>{item.type}</span>
@@ -93,9 +171,11 @@ export default function FiltersDesktop() {
             <input
               className={styles.checkbox__input}
               type="checkbox"
-              onChange={toggleAcceptWithRules}
+              onChange={handleChange}
               aria-label={item.type}
-              name="specifications"
+              name={item.type}
+              value={filterParam[item.type]}
+              checked={isChecked[item.type.split(' ').join('')]}
             />
             <span className={styles.checkbox__span} />
             <span className={styles.checkbox__text}>{item.type}</span>
@@ -106,55 +186,18 @@ export default function FiltersDesktop() {
       <div className={styles.filters__item}>
         <h3 className={styles.filters__title}>Rating</h3>
 
-        <label className={styles.filters__checkbox}>
-          <input
-            className={styles.rating__input}
-            type="checkbox"
-            onChange={toggleAcceptWithRules}
-            name="rating"
-          />
-          <span className={classNames(styles.rating__span, styles.rating__span_5)} />
-        </label>
-
-        <label className={styles.filters__checkbox}>
-          <input
-            className={styles.rating__input}
-            type="checkbox"
-            onChange={toggleAcceptWithRules}
-            name="rating"
-          />
-          <span className={classNames(styles.rating__span, styles.rating__span_4)} />
-        </label>
-
-        <label className={styles.filters__checkbox}>
-          <input
-            className={styles.rating__input}
-            type="checkbox"
-            onChange={toggleAcceptWithRules}
-            name="rating"
-          />
-          <span className={classNames(styles.rating__span, styles.rating__span_3)} />
-        </label>
-
-        <label className={styles.filters__checkbox}>
-          <input
-            className={styles.rating__input}
-            type="checkbox"
-            onChange={toggleAcceptWithRules}
-            name="rating"
-          />
-          <span className={classNames(styles.rating__span, styles.rating__span_2)} />
-        </label>
-
-        <label className={styles.filters__checkbox}>
-          <input
-            className={styles.rating__input}
-            type="checkbox"
-            onChange={toggleAcceptWithRules}
-            name="rating"
-          />
-          <span className={classNames(styles.rating__span, styles.rating__span_1)} />
-        </label>
+        {stars.map(item => (
+          <label key={item.id} className={styles.filters__checkbox}>
+            <input
+              className={styles.rating__input}
+              type="checkbox"
+              onChange={handleChange}
+              name={item.id}
+              checked={isChecked[item.id]}
+            />
+            <span className={classNames(`${styles.rating__span} ${styles[item.type]}`)} />
+          </label>
+        ))}
       </div>
 
       <div className={styles.filters__item}>
@@ -164,17 +207,18 @@ export default function FiltersDesktop() {
           <label className={styles.filters__checkbox} key={item.id}>
             <input
               className={styles.checkbox__input}
-              type="radio"
-              onChange={toggleAcceptWithRules}
+              type="checkbox"
+              onChange={handleChange}
               aria-label={item.type}
-              name="price"
+              name={item.type}
+              checked={isChecked[item.type.split(' ').join('')]}
             />
             <span className={styles.checkbox__span} />
             <span className={styles.checkbox__text}>{item.type}</span>
           </label>
         ))}
 
-        <PriceRange />
+        <PriceRange reset={reset} getPriceRange={getPriceRange} />
       </div>
     </>
   );

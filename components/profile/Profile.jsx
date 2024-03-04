@@ -23,6 +23,7 @@ export default function Profile() {
     } else if (isMobile1440) {
       openModal();
     }
+    router.push('/auth/registration');
   };
 
   // useEffect(() => {

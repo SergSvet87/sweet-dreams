@@ -12,7 +12,7 @@ const Favorites: FC<IFavorites> = () => {
         <SortSelect onChange={() => {}} />
       </div>
       <div className={style.shop__content}>
-        <Catalog />
+        <Catalog allProducts={[]} />
       </div>
     </div>
   );

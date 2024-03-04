@@ -41,7 +41,7 @@
   text-transform: capitalize;
   margin-bottom: 0.375rem;
   opacity: 0;
-  transition: opacity .5s linear;
+  transition: opacity 0.5s linear;
 }
 
 .form__label__text {
@@ -90,8 +90,8 @@
 
 .form__checkbox {
   position: relative;
-  cursor  : pointer;
-  display : flex;
+  cursor: pointer;
+  display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 1.5rem;
@@ -101,36 +101,36 @@
 .checkbox__text {
   user-select: none;
   font-weight: 500;
-  font-size  : 1rem;
+  font-size: 1rem;
   text-transform: capitalize;
 }
 
 .checkbox__input {
   position: absolute;
-  opacity : 0;
+  opacity: 0;
 }
 
-.checkbox__input+.checkbox__span::before {
-  content      : '';
-  display      : inline-block;
+.checkbox__input + .checkbox__span::before {
+  content: '';
+  display: inline-block;
   border: 2px solid var(--black);
   border-radius: 0.125rem;
-  width        : 20px;
-  height       : 20px;
+  width: 20px;
+  height: 20px;
   outline: 2px transparent;
 }
 
-.checkbox__input:checked+.checkbox__span::before {
+.checkbox__input:checked + .checkbox__span::before {
   height: 1.8rem;
-  background-image   : url('/images/shop/checkBox.png');
-  background-repeat  : no-repeat;
+  background-image: url('/images/shop/checkBox.png');
+  background-repeat: no-repeat;
   background-position: center center;
-  background-size    : cover;
-  border-color       : transparent;
-  animation          : pop 180ms ease-in;
+  background-size: cover;
+  border-color: transparent;
+  animation: pop 180ms ease-in;
 }
 
-.checkbox__input:focus+.checkbox__span::before {
+.checkbox__input:focus + .checkbox__span::before {
   outline: 0.125rem;
 }
 
@@ -156,14 +156,14 @@
   border-radius: 3.125rem;
   border: 0.0625rem solid var(--black);
   background: var(--white);
-  }
+}
 
 .form__or span {
   margin: 0 10px;
 }
 
 .form__or::before,
-.form__or::after{
+.form__or::after {
   content: '';
   width: 100%;
   height: 2px;
@@ -191,8 +191,10 @@
 }
 
 .form__reg a {
-  color: var(--accent-second);
-  transition: color .3s ease-in-out;
+  color: var(--black);
+  transition: color 0.3s ease-in-out;
+  display: block;
+  text-align: center;
 }
 
 .form__reg a:hover {
@@ -221,7 +223,7 @@
 .form__link {
   font-weight: 400;
   font-size: 0.875rem;
-  transition: text-decoration .4s ease-in-out;
+  transition: text-decoration 0.4s ease-in-out;
 }
 
 .form__link:hover {
@@ -234,10 +236,10 @@
   font-size: 0.875rem;
   font-weight: 400;
   color: var(--black);
-  transition: text-decoration .4s linear;
+  transition: text-decoration 0.4s linear;
 }
 
-.form__reset:hover {  
+.form__reset:hover {
   text-decoration: underline;
 }
 
@@ -253,8 +255,12 @@
 }
 
 @keyframes passwordanimation {
-  0% {background-position-x: 100%;}
-  100% {background-position-x: 0;}
+  0% {
+    background-position-x: 100%;
+  }
+  100% {
+    background-position-x: 0;
+  }
 }
 
 @keyframes pop {
@@ -281,18 +287,18 @@
   .auth__form {
     margin: 0 auto;
     max-width: 20.5rem;
-  }  
+  }
   .auth__title {
     font-size: 1.5rem;
     margin-bottom: 1.375rem;
-  }  
+  }
   .form__label {
     margin-bottom: 0.5rem;
-  }  
+  }
   .label__text {
     min-height: 1rem;
     font-size: 0.75rem;
-  } 
+  }
   .form__checkbox {
     gap: 1rem;
     margin: 20px 0 44px;
@@ -302,7 +308,7 @@
   }
   .form__google {
     margin: 0 auto 1.5rem;
-  }  
+  }
   .form__submit {
     padding: 8px 1.5rem;
     font-size: 1rem;
