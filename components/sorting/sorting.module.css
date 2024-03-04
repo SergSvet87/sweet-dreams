@@ -23,7 +23,7 @@
 }
 
 .filter__svg {
-  transition: transform .3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   transform-origin: center center;
 }
 
@@ -86,6 +86,7 @@
 
   font-weight: 600;
   font-size: 0.875rem;
+  text-transform: capitalize;
 }
 
 .filter__select {

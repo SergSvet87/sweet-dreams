@@ -9,7 +9,7 @@
   margin-bottom: 3.5rem;
 }
 
-.filters__title {  
+.filters__title {
   font-size: 1rem;
   font-weight: 600;
   text-transform: capitalize;
@@ -19,8 +19,8 @@
 
 .filters__checkbox {
   position: relative;
-  cursor  : pointer;
-  display : flex;
+  cursor: pointer;
+  display: flex;
   align-items: center;
   gap: 1.5rem;
 }
@@ -28,74 +28,74 @@
 .checkbox__text {
   user-select: none;
   font-weight: 500;
-  font-size  : 1rem;
+  font-size: 1rem;
   text-transform: capitalize;
 }
 
 .checkbox__input,
 .rating__input {
   position: absolute;
-  opacity : 0;
+  opacity: 0;
 }
 
-.checkbox__input+.checkbox__span::before {
-  content      : '';
-  display      : inline-block;
+.checkbox__input + .checkbox__span::before {
+  content: '';
+  display: inline-block;
   border: 2px solid var(--black);
   border-radius: 0.125rem;
-  width        : 1.4rem;
-  height       : 1.4rem;
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
-.checkbox__input:checked+.checkbox__span::before {
+.checkbox__input:checked + .checkbox__span::before {
   height: 1.8rem;
-  background-image   : url('/images/shop/checkBox.png');
-  background-repeat  : no-repeat;
+  background-image: url('/images/shop/checkBox.png');
+  background-repeat: no-repeat;
   background-position: center center;
-  background-size    : cover;
-  border-color       : transparent;
-  animation          : pop 180ms ease-in;
+  background-size: cover;
+  border-color: transparent;
+  animation: pop 180ms ease-in;
 }
 
-.checkbox__input:focus+.checkbox__span::before {
+.checkbox__input:focus + .checkbox__span::before {
   outline: 0.125rem;
 }
 
-.rating__input+.rating__span::before {
-  content      : '';
-  display      : inline-block;
+.rating__input + .rating__span::before {
+  content: '';
+  display: inline-block;
   border-radius: 1.5625rem;
-  width        : 5.875rem;
-  height       : 1.4rem;
+  width: 5.875rem;
+  height: 1.4rem;
 }
 
-.rating__input+.rating__span_5.rating__span::before {
+.rating__input + .rating__span_5.rating__span::before {
   background: url('/images/shop/star_rating_5.png') center / cover no-repeat;
 }
 
-.rating__input+.rating__span_4.rating__span::before {
+.rating__input + .rating__span_4.rating__span::before {
   background: url('/images/shop/star_rating_4.png') center / cover no-repeat;
 }
 
-.rating__input+.rating__span_3.rating__span::before {
+.rating__input + .rating__span_3.rating__span::before {
   background: url('/images/shop/star_rating_3.png') center / cover no-repeat;
 }
 
-.rating__input+.rating__span_2.rating__span::before {
+.rating__input + .rating__span_2.rating__span::before {
   background: url('/images/shop/star_rating_2.png') center / cover no-repeat;
 }
 
-.rating__input+.rating__span_1.rating__span::before {
+.rating__input + .rating__span_1.rating__span::before {
   background: url('/images/shop/star_rating_1.png') center / cover no-repeat;
 }
 
-.rating__input:checked+.rating__span::before {
-  background-color: rgba(19, 19, 19, 0.50);
-  border-color       : transparent;
-  animation          : pop 180ms ease-in;
+.rating__input:checked + .rating__span::before {
+  background-color: rgba(19, 19, 19, 0.5);
+  border-color: transparent;
+  animation: pop 180ms ease-in;
 }
 
-.rating__input:focus+.rating__span::before {
+.rating__input:focus + .rating__span::before {
   outline: 1.5625rem;
 }
 
