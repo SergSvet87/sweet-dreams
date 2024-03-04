@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getAllProduct } from '@/utils/product';
 import ProductCard from '../product-card/ProductCard';
 
 import styles from './catalog.module.css';
